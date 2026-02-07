@@ -6,6 +6,7 @@ interface AIInsightCardProps {
   fullContent: string;
   icon?: 'lightbulb' | 'chart' | 'warning' | 'info';
   variant?: 'primary' | 'success' | 'warning' | 'info';
+  showToggle?: boolean;
 }
 
 export const AIInsightCard = ({
@@ -13,9 +14,11 @@ export const AIInsightCard = ({
   summary,
   fullContent,
   icon = 'lightbulb',
-  variant = 'primary'
+  variant = 'primary',
+  showToggle = true
 }: AIInsightCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const content = showToggle ? (isExpanded ? fullContent : summary) : fullContent;
 
   const variantClasses = {
     primary: 'from-primary-500/10 to-indigo-500/10 border-primary-500/30',
@@ -72,26 +75,28 @@ export const AIInsightCard = ({
               </span>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
-              {isExpanded ? fullContent : summary}
+              {content}
             </p>
           </div>
         </div>
 
         {/* Expand Button */}
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-2 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors mt-2 group"
-        >
-          <span>{isExpanded ? 'Show less' : 'Show more'}</span>
-          <svg
-            className={`w-4 h-4 group-hover:translate-x-0.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        {showToggle && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="flex items-center gap-2 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors mt-2 group"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            <span>{isExpanded ? 'Show less' : 'Show more'}</span>
+            <svg
+              className={`w-4 h-4 group-hover:translate-x-0.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );
