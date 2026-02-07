@@ -1,6 +1,7 @@
 using WalletUp.Domain.Common;
 using WalletUp.Domain.Repositories;
 using MediatR;
+using WalletUp.Application.Abstractions;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.Transaction.Dtos;
 
@@ -9,10 +10,12 @@ namespace WalletUp.Application.Transaction.Queries.GetDashboard;
 public class GetDashboardQueryHandler(
     IUserContext userContext,
     ITransactionRepository transactionRepository,
-    IGoalRepository goalRepository)
+    IGoalRepository goalRepository,
+    IAccountRepository accountRepository,
+    IExchangeRateService exchangeRateService)
     :IRequestHandler<GetDashboardQuery, ResultT<TransactionDashboardDto>>
 {
-    public Task<ResultT<TransactionDashboardDto>> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
+    public async Task<ResultT<TransactionDashboardDto>> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
     {
         var userId = userContext.UserId;
         var expenses = transactionRepository.GetExpensesByMonths(userId,request.Month);
@@ -20,7 +23,18 @@ public class GetDashboardQueryHandler(
         var ıncomeAmount = transactionRepository.GetIncomesByMonths(userId,request.Month);
         var expenseAmount = expenses.Sum(e => e.Amount);
         var goalQuantity = goalRepository.GetGoalQuantityByUser(userId);
-        var currentTotalBalance = transactionRepository.GetTotalBalanceByUser(userId);
+      //  var currentTotalBalance = transactionRepository.GetTotalBalanceByUser(userId);
+        double currentTotalBalance = 0;
+        var accounts = accountRepository.GetAllAccountsByUserId(userId);
+
+        foreach (var account in accounts)
+        {
+
+            var amount = Convert.ToDecimal(account.Balance);
+            string currency = account.Currency.ISO4217Code;
+           var newBalance= await exchangeRateService.GetRatesAsync(currency + "USD", amount);
+           currentTotalBalance += newBalance.Value;
+        }
         
         
         var categoryExpenses = expenses
@@ -51,8 +65,8 @@ public class GetDashboardQueryHandler(
             GoalQuantity = goalQuantity,
             CurrentTotalBalance = currentTotalBalance
         };
-        
-        return Task.FromResult<ResultT<TransactionDashboardDto>>(dto);
+
+        return dto;
 
     }
 }
