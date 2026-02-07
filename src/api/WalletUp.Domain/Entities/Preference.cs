@@ -4,7 +4,6 @@ public class Preference
 {
     public Guid Id { get; set; }
     
-    // One-to-One relationship with ApplicationUser
     public Guid UserId { get; set; }
     
     public Guid CurrencyId { get; set; }

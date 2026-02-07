@@ -15,14 +15,23 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.21" />
         <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="10.0.0-rc.2.25502.107"/>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11"/>
+        <PackageReference Include="Refit" Version="8.0.0" />
+        <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\WalletUp.Application\WalletUp.Application.csproj" />
         <ProjectReference Include="..\WalletUp.Domain\WalletUp.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="CashCat.Integrations">
+        <HintPath>..\..\..\..\CashCat.Integrations\CashCat.Integrations\bin\Debug\net8.0\CashCat.Integrations.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

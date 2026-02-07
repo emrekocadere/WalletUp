@@ -8,12 +8,17 @@ using CashCat.Infstructre.Auth.Services;
 using CashCat.Infstructre.Identity;
 using CashCat.Infstructre.Persistence;
 using CashCat.Infstructre.Persistence.Repositories;
+using CashCat.Infstructre.Refit;
+using CashCat.Infstructre.Services;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Refit;
+using WalletUp.Application.Abstractions;
 using WalletUp.Infstructre.Identity.Models;
 
 namespace WalletUp.Infstructre.Extensions;
@@ -29,7 +34,7 @@ public static class ServiceCollectionsExtensions
         services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<CashCatDbContext>();
 
-
+        services.AddScoped<IPrefrenceRepository, PrefrenceRepository>();
         services.AddHttpContextAccessor();
         services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<IUserContext, UserContext>();
@@ -49,9 +54,22 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<ITransactionRepository, TransactionRepository>();
         services.AddScoped<IGoalRepository, GoalRepository>();
         services.AddScoped<IGoalTransactionRepository, GoalTransactionRepository>();
+        services.AddScoped<IExchangeRateService, ExchangeRateService>();
         
+        services.AddRefitClient<IExchangeApi>()
+            . ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5203"));
         
-        
+        services.AddScoped<IInsightService, InsightService>();
+        services.AddSingleton<ICacheService, RedisCacheService>();
+
+        var redisConnection = configuration.GetConnectionString("Redis")
+            ?? configuration["Redis:ConnectionString"]
+            ?? "localhost:6379";
+
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = redisConnection;
+        });
         
         services.AddAuthentication(options =>
             {
@@ -59,7 +77,7 @@ public static class ServiceCollectionsExtensions
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(options => // Uygulamaya diyor ki: "Ben gelen isteklerde Authorization: Bearer {token} başlığına bakacağım."
+            .AddJwtBearer(options => 
             {
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;

@@ -14,6 +14,8 @@ public class PrefrenceRepository : Repository<Preference>, IPrefrenceRepository
     {
         return _dbSet
             .AsNoTracking()
+            .Include(x=>x.Currency)
+            .Include(x=>x.Country)
             .FirstOrDefault(x => x.UserId == userId);
     }
 
