@@ -33,7 +33,10 @@ export const TransactionsPage = () => {
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
 
-  const { insights, loading: insightsLoading } = useAIInsights({ pageType: 'transactions' });
+  const { insights, loading: insightsLoading } = useAIInsights({
+    pageType: 'transactions',
+    taskName: 'financial_advice'
+  });
 
   useEffect(() => {
     const fetchData = async () => {

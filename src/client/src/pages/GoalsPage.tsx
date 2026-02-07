@@ -26,7 +26,10 @@ export const GoalsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  const { insights, loading: insightsLoading } = useAIInsights({ pageType: 'goals' });
+  const { insights, loading: insightsLoading } = useAIInsights({
+    pageType: 'goals',
+    taskName: 'goal_planning'
+  });
 
   useEffect(() => {
     loadAccounts();

@@ -4,19 +4,23 @@ import { insightApi } from '@/api/endpoints/insight.api';
 
 interface UseAIInsightsOptions {
   pageType: 'dashboard' | 'accounts' | 'transactions' | 'goals' | 'account-detail';
+  taskName?: string;
   enabled?: boolean;
 }
 
+const DEFAULT_TASK_NAME = 'spending_behavior_analysis';
 
-const TASK_NAME = 'spending_behavior_analysis';
-
-const buildInsightsFromDto = (dto: InsightDto, pageType: AIInsight['pageType']): AIInsight[] => {
+const buildInsightsFromDto = (
+  dto: InsightDto,
+  pageType: AIInsight['pageType'],
+  taskName: string
+): AIInsight[] => {
   const createdAt = new Date().toISOString();
   const insights: AIInsight[] = [];
 
   if (dto.summary) {
     insights.push({
-      id: `${TASK_NAME}-summary`,
+      id: `${taskName}-summary`,
       title: 'Spending Behavior Analysis',
       summary: dto.summary,
       fullContent: dto.summary,
@@ -30,7 +34,7 @@ const buildInsightsFromDto = (dto: InsightDto, pageType: AIInsight['pageType']):
   if (dto.recommendations?.length) {
     dto.recommendations.forEach((recommendation, index) => {
       insights.push({
-        id: `${TASK_NAME}-rec-${index}`,
+        id: `${taskName}-rec-${index}`,
         title: recommendation.title,
         summary: recommendation.description,
         fullContent: recommendation.description,
@@ -45,10 +49,11 @@ const buildInsightsFromDto = (dto: InsightDto, pageType: AIInsight['pageType']):
   return insights;
 };
 
-export const useAIInsights = ({ pageType, enabled = true }: UseAIInsightsOptions) => {
+export const useAIInsights = ({ pageType, taskName, enabled = true }: UseAIInsightsOptions) => {
   const [insights, setInsights] = useState<AIInsight[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const resolvedTaskName = taskName ?? DEFAULT_TASK_NAME;
 
   useEffect(() => {
     if (!enabled) {
@@ -62,8 +67,8 @@ export const useAIInsights = ({ pageType, enabled = true }: UseAIInsightsOptions
         setError(null);
 
 
-        const result = await insightApi.getInsight(TASK_NAME);
-        setInsights(buildInsightsFromDto(result, pageType));
+        const result = await insightApi.getInsight(resolvedTaskName);
+        setInsights(buildInsightsFromDto(result, pageType, resolvedTaskName));
       } catch (err) {
         setError('Failed to load AI insights');
         console.error('Error fetching AI insights:', err);
@@ -74,7 +79,7 @@ export const useAIInsights = ({ pageType, enabled = true }: UseAIInsightsOptions
     };
 
     fetchInsights();
-  }, [pageType, enabled]);
+  }, [pageType, enabled, resolvedTaskName]);
 
   return { insights, loading, error };
 };
