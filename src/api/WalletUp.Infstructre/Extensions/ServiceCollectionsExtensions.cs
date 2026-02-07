@@ -62,9 +62,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IInsightService, InsightService>();
         services.AddSingleton<ICacheService, RedisCacheService>();
 
-        var redisConnection = configuration.GetConnectionString("Redis")
-            ?? configuration["Redis:ConnectionString"]
-            ?? "localhost:6379";
+        var redisConnection = configuration.GetConnectionString("Redis");
 
         services.AddStackExchangeRedisCache(options =>
         {

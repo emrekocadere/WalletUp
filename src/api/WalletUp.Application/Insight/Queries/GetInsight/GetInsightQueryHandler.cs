@@ -27,8 +27,8 @@ public class GetInsightQueryHandler(
     public async Task<ResultT<InsightDto>> Handle(GetInsightQuery request, CancellationToken cancellationToken)
     {
         var userId = userContext.UserId;
-        var cacheKey = $"insight:{userId}:{request.TaskName}";
-        var cachedInsight = await cacheService.GetAsync<InsightDto>(cacheKey, cancellationToken);
+        var cacheKey = $"user:{userId}:insight:{request.TaskName}";
+        var cachedInsight = await cacheService.GetAsync<InsightDto>(cacheKey);
         if (cachedInsight is not null)
         {
             return cachedInsight;
@@ -61,7 +61,7 @@ public class GetInsightQueryHandler(
         try
         {
             var result = await insightService.GetInsight(baseInsightInput, request.TaskName);
-            await cacheService.SetAsync(cacheKey, result, TimeSpan.FromHours(1), cancellationToken);
+            await cacheService.SetAsync(cacheKey, result, TimeSpan.FromHours(1));
 
             return result;
         }

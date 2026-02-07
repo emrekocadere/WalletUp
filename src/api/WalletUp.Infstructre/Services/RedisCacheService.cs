@@ -8,9 +8,9 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
 {
     private static readonly JsonSerializerOptions SerializerOptions = new(JsonSerializerDefaults.Web);
 
-    public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken = default)
+    public async Task<T?> GetAsync<T>(string key)
     {
-        var cachedValue = await cache.GetStringAsync(key, cancellationToken);
+        var cachedValue = await cache.GetStringAsync(key);
         if (string.IsNullOrWhiteSpace(cachedValue))
         {
             return default;
@@ -19,7 +19,7 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
         return JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
     }
 
-    public async Task SetAsync<T>(string key, T value, TimeSpan ttl, CancellationToken cancellationToken = default)
+    public async Task SetAsync<T>(string key, T value, TimeSpan ttl)
     {
         var serializedValue = JsonSerializer.Serialize(value, SerializerOptions);
         var options = new DistributedCacheEntryOptions
@@ -27,6 +27,6 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
             AbsoluteExpirationRelativeToNow = ttl
         };
 
-        await cache.SetStringAsync(key, serializedValue, options, cancellationToken);
+        await cache.SetStringAsync(key, serializedValue, options);
     }
 }
