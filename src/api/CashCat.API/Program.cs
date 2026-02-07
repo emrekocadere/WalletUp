@@ -1,5 +1,6 @@
 using WalletUp.Infstructre.Extensions;
 using WalletUp.Application.Extensions;
+using CashCat.Integrations;
 
 namespace CashCat.API;
 
@@ -33,6 +34,7 @@ public class Program
             .Configuration); // bunu eklemzsek ne olur baba. ne olduğunu hatırlaıyprum iyi analiz et
 
         builder.Services.AddApplication();
+        builder.Services.AddGeminiService(builder.Configuration);
         
         var app = builder.Build();
 

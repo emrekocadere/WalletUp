@@ -17,6 +17,8 @@
     <ItemGroup>
         <ProjectReference Include="..\WalletUp.Application\WalletUp.Application.csproj" />
         <ProjectReference Include="..\WalletUp.Infstructre\WalletUp.Infstructre.csproj" />
+        <ProjectReference Include="..\WalletUp.Infstructre\WalletUp.Infstructre.csproj" />
+        <ProjectReference Include="/Users/emremac/Desktop/Salih Emre Kocadere/Projeler/CashCat.Integrations/CashCat.Integrations/CashCat.Integrations.csproj" />
     </ItemGroup>
 
 </Project>
