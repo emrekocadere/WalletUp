@@ -34,7 +34,7 @@ public class Program
             .Configuration); // bunu eklemzsek ne olur baba. ne olduğunu hatırlaıyprum iyi analiz et
 
         builder.Services.AddApplication();
-        builder.Services.AddGeminiService(builder.Configuration);
+        builder.Services.AddWalletUpInsight(builder.Configuration);
         
         var app = builder.Build();
 
