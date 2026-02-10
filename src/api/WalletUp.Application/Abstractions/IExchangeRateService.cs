@@ -4,5 +4,5 @@ namespace WalletUp.Application.Abstractions;
 
 public interface IExchangeRateService
 {
-    Task<ExchangeApiResponse> GetRatesAsync(string currencies, decimal amount);
+    Task<ExchangeApiResponse> GetRatesAsync(string currencies, double amount);
 }

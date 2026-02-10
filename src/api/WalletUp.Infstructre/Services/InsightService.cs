@@ -10,7 +10,7 @@ public class InsightService(GeminiService geminiService) : IInsightService
 {
     public async Task<InsightDto> GetInsight(object data,string  abcs)
     {
-        var baseInsight= await geminiService.AskToGemini(data,abcs);
+        var baseInsight= await geminiService.GetInsight(data,abcs);
         var insightDto = new InsightDto
         {
             Summary = baseInsight.summary,

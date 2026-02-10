@@ -57,7 +57,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
         
         services.AddRefitClient<IExchangeApi>()
-            . ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5203"));
+            . ConfigureHttpClient(c => c.BaseAddress = new Uri(configuration["CurrenviaBaseUrl"]!));
         
         services.AddScoped<IInsightService, InsightService>();
         services.AddSingleton<ICacheService, RedisCacheService>();

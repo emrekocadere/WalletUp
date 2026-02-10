@@ -32,7 +32,7 @@ public class GetDashboardQueryHandler(
 
             var amount = Convert.ToDecimal(account.Balance);
             string currency = account.Currency.ISO4217Code;
-           var newBalance= await exchangeRateService.GetRatesAsync(currency + "USD", amount);
+           var newBalance= await exchangeRateService.GetRatesAsync(currency + "USD", account.Balance);
            currentTotalBalance += newBalance.Value;
         }
         
