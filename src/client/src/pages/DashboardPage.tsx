@@ -25,7 +25,10 @@ export const DashboardPage = () => {
   const [currentTotalBalance, setCurrentTotalBalance] = useState(0);
 
 
-  const { insights, loading: insightsLoading } = useAIInsights({ pageType: 'dashboard' });
+  const { insights, loading: insightsLoading, error: insightsError } = useAIInsights({
+    pageType: 'dashboard',
+    taskName: 'monthly_report'
+  });
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -161,7 +164,12 @@ export const DashboardPage = () => {
 
           {/* AI Insights Section */}
           <div className="mb-6 lg:mb-8">
-            <AIInsightsSection insights={insights} loading={insightsLoading} />
+            <AIInsightsSection
+              insights={insights}
+              loading={insightsLoading}
+              error={insightsError}
+              emptyMessage="AI insights are preparing. Check back soon."
+            />
           </div>
 
           {/* Recent Transactions Section */}
