@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Toast } from '@/components/common/Toast';
@@ -23,7 +21,7 @@ export const SettingsPage = () => {
   const [preferences, setPreferences] = useState({
     currencyId: '',
     countryId: '',
-    occupation: '',
+    occupation: '' as string | undefined,
     monthlyIncome: undefined as number | undefined,
   });
 
@@ -45,7 +43,6 @@ export const SettingsPage = () => {
     fetchData();
 
     const savedOnboarding = localStorage.getItem('walletup-onboarding');
-    const savedSettings = localStorage.getItem('walletup-settings');
     
     if (savedOnboarding) {
       const onboardingData = JSON.parse(savedOnboarding);
@@ -123,7 +120,7 @@ export const SettingsPage = () => {
             <div className="md:col-span-2">
               <PreferencesSection
                 value={preferences}
-                onChange={setPreferences}
+                onChange={(prefs) => setPreferences({ ...preferences, ...prefs })}
               />
             </div>
 
