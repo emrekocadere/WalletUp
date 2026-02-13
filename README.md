@@ -1,6 +1,6 @@
 # WalletUp
 
-![WalletUp Logo](./src/client/public/logo.svg)
+<img src="./src/client/public/Logo2-cropped.svg" alt="WalletUp Logo" width="250" />
 
 > Modern personal finance management application for tracking expenses, managing accounts, and achieving financial goals.
 
