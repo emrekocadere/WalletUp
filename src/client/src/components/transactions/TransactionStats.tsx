@@ -1,5 +1,5 @@
-import type { Transaction } from '@/types/transaction.types';
-import { formatBalance, formatCurrency } from '@/utils/formatters';
+import type { Transaction } from '@/types/model.types';
+import { formatCurrency } from '@/utils/formatters';
 
 interface TransactionStatsProps {
   transactions: Transaction[];

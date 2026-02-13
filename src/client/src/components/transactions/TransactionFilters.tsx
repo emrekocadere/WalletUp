@@ -1,4 +1,4 @@
-import { formatBalance, formatCurrency } from '@/utils/formatters';
+import { formatCurrency } from '@/utils/formatters';
 
 interface TransactionFiltersProps {
   filterPeriod: string;

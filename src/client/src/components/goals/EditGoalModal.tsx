@@ -69,7 +69,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(result.error || 'Failed to update goal', 'error');
+        onShowToast?.(String(result.error || 'Failed to update goal'), 'error');
       }
     } catch (err) {
       console.error('Failed to update goal:', err);

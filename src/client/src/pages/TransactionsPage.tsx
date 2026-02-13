@@ -43,7 +43,13 @@ export const TransactionsPage = () => {
       try {
         setIsLoading(true);
         
-        const filters: Record<string, string> = {};
+        const filters: {
+          categoryId?: string;
+          transactionTypeId?: string;
+          accountId?: string;
+          startDate?: string;
+          endDate?: string;
+        } = {};
         
         if (filterCategory !== 'all') {
           filters.categoryId = filterCategory;
@@ -62,16 +68,21 @@ export const TransactionsPage = () => {
         
         if (filterPeriod !== 'all') {
           const now = new Date();
+          let startDate: Date;
+          
           if (filterPeriod === 'week') {
-            const weekAgo = new Date(now);
-            weekAgo.setDate(now.getDate() - 7);
-            filters.startDate = weekAgo.toISOString().split('T')[0];
+            startDate = new Date(now);
+            startDate.setDate(now.getDate() - 7);
           } else if (filterPeriod === 'month') {
-            const monthAgo = new Date(now);
-            monthAgo.setMonth(now.getMonth() - 1);
-            filters.startDate = monthAgo.toISOString().split('T')[0];
+            startDate = new Date(now);
+            startDate.setMonth(now.getMonth() - 1);
+          } else {
+            startDate = new Date(now);
+            startDate.setDate(now.getDate() - 7);
           }
-          filters.endDate = now.toISOString().split('T')[0];
+          
+          filters.startDate = startDate.toISOString();
+          filters.endDate = now.toISOString();
         }
 
         console.log('Aktif Filtreler:', {
@@ -83,16 +94,16 @@ export const TransactionsPage = () => {
         console.log('API Parametreleri:', filters);
         
         const [transactionsData, accountsData] = await Promise.all([
-          transactionsApi.getAll(Object.keys(filters).length > 0 ? filters : undefined),
+          transactionsApi.getAll(filters),
           accountsApi.getAll(),
         ]);
         
-        console.log('İstek başarılı. Gelen işlem sayısı:', transactionsData.length);
+        console.log('Request successful. Number of transactions received:', transactionsData.length);
         
         setTransactions(transactionsData);
-        setAccounts(accountsData);
+        setAccounts(accountsData.accounts);
       } catch (error) {
-        console.error('stek başarısız:', error);
+        console.error('Request failed:', error);
       } finally {
         setIsLoading(false);
       }
@@ -244,7 +255,7 @@ export const TransactionsPage = () => {
           setShowEditModal(false);
           setEditingTransaction(null);
         }}
-        transaction={editingTransaction}
+        transaction={editingTransaction as any}
         categories={categories}
         onSuccess={async () => {
           try {

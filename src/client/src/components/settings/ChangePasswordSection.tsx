@@ -53,7 +53,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
         setErrors({});
         setIsExpanded(false);
       } else {
-        onToast({ message: response.data.message || 'Failed to change password', type: 'error' });
+        onToast({ message: String(response.data.error || 'Failed to change password'), type: 'error' });
       }
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || 'Failed to change password';

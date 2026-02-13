@@ -89,13 +89,13 @@ export const AccountDetailPage = () => {
           accountsApi.getAll()
         ]);
 
-        console.log('İstek başarılı. Gelen işlem sayısı:', transactionsData.length);
+        console.log('Request successful. Number of transactions received:', transactionsData.length);
 
         setAccount(accountData);
         setTransactions(transactionsData);
-        setAccounts(allAccountsData);
+        setAccounts(allAccountsData.accounts);
       } catch (err) {
-        console.error('İstek başarısız:', err);
+        console.error('Request failed:', err);
         setIsError(true);
       } finally {
         setIsLoading(false);
@@ -299,7 +299,7 @@ export const AccountDetailPage = () => {
           setShowEditTransactionModal(false);
           setEditingTransaction(null);
         }}
-        transaction={editingTransaction}
+        transaction={editingTransaction as any}
         categories={categories}
         onSuccess={async () => {
           try {

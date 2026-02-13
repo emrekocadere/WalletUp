@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import type { Transaction } from '@/types/model.types';
 import { formatDate, formatCurrency } from '@/utils/formatters';
 import { TransactionRowActions } from '@/components/transactions/TransactionRowActions';

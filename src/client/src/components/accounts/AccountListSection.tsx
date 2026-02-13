@@ -10,7 +10,7 @@ type AccountListSectionProps = {
   currencies: Record<string, number>;
 };
 
-export const AccountListSection = ({ accounts, isLoading, currencies }: AccountListSectionProps) => (
+export const AccountListSection = ({ accounts, isLoading }: AccountListSectionProps) => (
   <section className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
     <div className="p-6">
       {isLoading ? (

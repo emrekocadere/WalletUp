@@ -13,6 +13,7 @@ import type { Account } from '@/types/model.types';
 export const AccountsPage = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [accounts, setAccounts] = useState<Account[]>([]);
+  const [totalBalance, setTotalBalance] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
@@ -26,7 +27,8 @@ export const AccountsPage = () => {
       try {
         const result = await accountsApi.getAll();
         console.log('Accounts API Response:', result);
-        setAccounts(result);
+        setAccounts(result.accounts);
+        setTotalBalance(result.totalBalanceBasedOnPreferredCurrency);
       } catch (err) {
         console.error('Failed to fetch accounts:', err);
       } finally {
@@ -60,7 +62,7 @@ export const AccountsPage = () => {
           </div>
 
           <AccountsHeroStats
-            totalBalance={accounts.reduce((sum, acc) => sum + (acc.balance || 0), 0)}
+            totalBalance={totalBalance}
             totalAccounts={accounts.length}
           />
 
@@ -85,7 +87,8 @@ export const AccountsPage = () => {
             if (result.isSuccess) {
 
               const updatedAccounts = await accountsApi.getAll();
-              setAccounts(updatedAccounts);
+              setAccounts(updatedAccounts.accounts);
+              setTotalBalance(updatedAccounts.totalBalanceBasedOnPreferredCurrency);
               return true;
             }
             return false;

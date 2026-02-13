@@ -90,7 +90,7 @@ export const AddTransactionModal = ({
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(result.error || 'Failed to create transaction', 'error');
+        onShowToast?.(String(result.error || 'Failed to create transaction'), 'error');
       }
     } catch (err) {
       console.error('Failed to create transaction:', err);

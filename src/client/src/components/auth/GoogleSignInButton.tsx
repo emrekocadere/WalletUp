@@ -6,9 +6,10 @@ import { apiClient } from "@/api/client/axios.client";
 
 interface GoogleSignInButtonProps {
   isLoading?: boolean;
+  onClick?: () => void;
 }
 
-export const GoogleSignInButton = ({ isLoading = false }: GoogleSignInButtonProps) => {
+export const GoogleSignInButton = ({ }: GoogleSignInButtonProps) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

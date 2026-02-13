@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '@/store/store';
 import { transactionsApi } from '@/api/endpoints/transactions.api';
 
-interface Transaction {
+interface EditTransaction {
   id: string;
   transactionTypeId?: string;
   transactionType?: { id: string; name: string };
@@ -18,7 +18,7 @@ interface Transaction {
 interface EditTransactionModalProps {
   isOpen: boolean;
   onClose: () => void;
-  transaction: Transaction | null;
+  transaction: EditTransaction | null;
   categories?: Array<{ id: string; name: string }>;
   onSuccess?: () => void;
   onShowToast?: (message: string, type: 'success' | 'error') => void;
@@ -76,7 +76,7 @@ export const EditTransactionModal = ({
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(result.error || 'Failed to update', 'error');
+        onShowToast?.(String(result.error || 'Failed to update'), 'error');
       }
     } catch (err) {
       onShowToast?.('Failed to update', 'error');

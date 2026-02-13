@@ -97,3 +97,8 @@ export interface Goal {
   currency: Currency;
 }
 
+export interface AIPreferences {
+  enabled: boolean;
+  [key: string]: any;
+}
+

@@ -39,7 +39,7 @@ export const GoalsPage = () => {
   const loadAccounts = async () => {
     try {
       const data = await accountsApi.getAll();
-      setAccounts(data.map(acc => ({ id: acc.id!, name: acc.name })));
+      setAccounts(data.accounts.map(acc => ({ id: acc.id!, name: acc.name })));
     } catch (error) {
       console.error('Failed to load accounts:', error);
     }
@@ -89,7 +89,7 @@ export const GoalsPage = () => {
         setToast({ message: 'Goal deleted successfully', type: 'success' });
         loadGoals();
       } else {
-        setToast({ message: result.error || 'Failed to delete goal', type: 'error' });
+        setToast({ message: String(result.error || 'Failed to delete goal'), type: 'error' });
       }
     } catch (error) {
       console.error('Failed to delete goal:', error);
