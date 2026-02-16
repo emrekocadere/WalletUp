@@ -4,10 +4,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { store } from './store/store';
 import { setApiClientStore } from './api/client/axios.client';
 import { AppRoutes } from './routes/AppRoutes';
-import { Chatbot } from './components/chatbot';
 import './App.css';
 
-setApiClientStore(store); // bu olmadan da çaşışır mı
+setApiClientStore(store); // does it work without this
 
 const queryClient = new QueryClient();
 
@@ -17,7 +16,6 @@ function App() {
 
         <BrowserRouter>
           <AppRoutes />
-          <Chatbot />
         </BrowserRouter>
 
     </Provider>

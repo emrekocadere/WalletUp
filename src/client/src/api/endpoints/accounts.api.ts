@@ -15,9 +15,15 @@ export interface UpdateAccountRequest {
   accountTypeId?: string;
 }
 
+export interface AccountsResponse {
+  accounts: Account[];
+  totalBalanceBasedOnPreferredCurrency: number;
+  accountCount: number;
+}
+
 export const accountsApi = {
-  getAll: async (): Promise<Account[]> => {
-    const { data } = await apiClient.get<ResultT<Account[]>>('/account');
+  getAll: async (): Promise<AccountsResponse> => {
+    const { data } = await apiClient.get<ResultT<AccountsResponse>>('/account');
     return data.value!;
   },
 
