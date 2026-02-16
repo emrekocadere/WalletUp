@@ -1,5 +1,6 @@
 import { Header } from '../components/home/Header';
 import { Hero } from '../components/home/Hero';
+import { FeaturesSection } from '../components/home/FeaturesSection';
 import { CTASection } from '../components/home/CTASection';
 import { Footer } from '../components/home/Footer';
 
@@ -30,12 +31,9 @@ export const HomePage = () => {
         />
       </div>
       
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-25"></div>
-
       <Header />
       <Hero />
- 
+      <FeaturesSection />
       <CTASection />
       <Footer />
     </div>
