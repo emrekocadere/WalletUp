@@ -80,7 +80,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(result.error || 'Failed to create goal', 'error');
+        onShowToast?.(String(result.error || 'Failed to create goal'), 'error');
       }
     } catch (err) {
       console.error('Failed to create goal:', err);

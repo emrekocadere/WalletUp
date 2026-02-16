@@ -2,7 +2,7 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import type { ApiError, ResultT } from '@/types/common.types';
 import type { AuthResponse } from '@/types/auth.types';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5039';
+const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5039/api';
 
 export const apiClient = axios.create({
   baseURL,
@@ -15,7 +15,7 @@ export const apiClient = axios.create({
 
 let store: any = null;
 
-// Store'u set etmek için function
+// Function to set the store
 export const setApiClientStore = (reduxStore: any) => {
   store = reduxStore;
 };
@@ -56,7 +56,7 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        // Refresh isteği için yeni axios instance kullan (interceptor'sız)
+        // Use new axios instance for refresh request (without interceptors)
         const refreshResponse = await axios.post<ResultT<AuthResponse>>(
           `${baseURL}/Identity/refresh`,
           {},
@@ -77,14 +77,14 @@ apiClient.interceptors.response.use(
           originalRequest.headers!.Authorization = `Bearer ${data.value.accessToken}`;
           return apiClient(originalRequest);
         } else {
-          // Refresh başarısız
+          // Refresh failed
           const { logout } = await import('@/store/slices/authSlice');
           store.dispatch(logout());
           window.location.href = '/login';
           return Promise.reject(error);
         }
       } catch (refreshError) {
-        // Refresh isteği hata verdi
+        // Refresh request failed
         const { logout } = await import('@/store/slices/authSlice');
         store.dispatch(logout());
         window.location.href = '/login';
