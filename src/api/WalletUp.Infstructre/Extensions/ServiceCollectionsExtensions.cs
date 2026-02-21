@@ -55,6 +55,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IGoalRepository, GoalRepository>();
         services.AddScoped<IGoalTransactionRepository, GoalTransactionRepository>();
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
+        services.AddScoped<IPreferenceRepository,PreferenceRepository>();
         
         services.AddRefitClient<IExchangeApi>()
             . ConfigureHttpClient(c => c.BaseAddress = new Uri(configuration["CurrenviaBaseUrl"]!));

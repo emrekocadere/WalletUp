@@ -7,5 +7,6 @@ public class TransactionDashboardDto
     public int  Quantity { get; set; }
     public int GoalQuantity { get; set; }
     public double CurrentTotalBalance { get; set; }
+    public required string PreferredCurrency { get; set; }
     public List<CategoryExpenseDto> CategoryExpenses { get; set; } = new();
 }

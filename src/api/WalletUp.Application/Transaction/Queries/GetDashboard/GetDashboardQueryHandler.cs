@@ -12,7 +12,8 @@ public class GetDashboardQueryHandler(
     ITransactionRepository transactionRepository,
     IGoalRepository goalRepository,
     IAccountRepository accountRepository,
-    IExchangeRateService exchangeRateService)
+    IExchangeRateService exchangeRateService,
+    IPreferenceRepository preferenceRepository)
     :IRequestHandler<GetDashboardQuery, ResultT<TransactionDashboardDto>>
 {
     public async Task<ResultT<TransactionDashboardDto>> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
@@ -23,16 +24,14 @@ public class GetDashboardQueryHandler(
         var ıncomeAmount = transactionRepository.GetIncomesByMonths(userId,request.Month);
         var expenseAmount = expenses.Sum(e => e.Amount);
         var goalQuantity = goalRepository.GetGoalQuantityByUser(userId);
-      //  var currentTotalBalance = transactionRepository.GetTotalBalanceByUser(userId);
         double currentTotalBalance = 0;
         var accounts = accountRepository.GetAllAccountsByUserId(userId);
+        var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
 
         foreach (var account in accounts)
-        {
-
-            var amount = Convert.ToDecimal(account.Balance);
-            string currency = account.Currency.ISO4217Code;
-           var newBalance= await exchangeRateService.GetRatesAsync(currency + "USD", account.Balance);
+        { 
+            string currency = account.Currency!.ISO4217Code;
+           var newBalance= await exchangeRateService.GetRatesAsync(currency+preferredCurrency, account.Balance);
            currentTotalBalance += newBalance.Value;
         }
         
@@ -63,7 +62,8 @@ public class GetDashboardQueryHandler(
             Expense = expenseAmount,
             CategoryExpenses = categoryExpenses,
             GoalQuantity = goalQuantity,
-            CurrentTotalBalance = currentTotalBalance
+            CurrentTotalBalance = currentTotalBalance,
+            PreferredCurrency= preferredCurrency
         };
 
         return dto;
