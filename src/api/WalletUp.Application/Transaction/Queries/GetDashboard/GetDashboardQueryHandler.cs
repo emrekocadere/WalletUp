@@ -32,6 +32,7 @@ public class GetDashboardQueryHandler(
         { 
             string currency = account.Currency!.ISO4217Code;
            var newBalance= await exchangeRateService.GetRatesAsync(currency+preferredCurrency, account.Balance);
+           Console.WriteLine(currency+preferredCurrency);
            currentTotalBalance += newBalance.Value;
         }
         

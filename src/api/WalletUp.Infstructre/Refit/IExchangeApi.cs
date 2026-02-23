@@ -6,7 +6,7 @@ namespace CashCat.Infstructre.Refit;
 
 public interface IExchangeApi
 {
-    [Get("/api/currencyconverter/exchange")]
+    [Get("/api/CurrencyConverter/exchange")]
     Task<ExchangeApiResponse> Convert([Query]  string currencies, [Query] double  amount);
 
 }
