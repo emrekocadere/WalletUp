@@ -19,6 +19,7 @@ export interface AccountsResponse {
   accounts: Account[];
   totalBalanceBasedOnPreferredCurrency: number;
   accountCount: number;
+  preferredCurrency: string;
 }
 
 export const accountsApi = {
