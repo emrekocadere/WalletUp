@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/store/store';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { authApi } from '@/api/endpoints/auth.api';
-import { setCredentials } from '@/store/slices/authSlice';
+import { setCredentials, setOnboardingCompleted } from '@/store/slices/authSlice';
 import type { LoginRequest } from '@/types/auth.types';
 import type { ApiError } from '@/types/common.types';
 
@@ -30,9 +30,13 @@ export const LoginPage = () => {
 
       if (response.value?.accessToken) {
 
-        dispatch(setCredentials({ accessToken: response.value.accessToken }));
+        dispatch(setCredentials({ accessToken: response.value.accessToken, isOnboardingCompleted: response.value.isOnboardingCompleted ?? false }));
 
-        navigate('/dashboard');
+        if (response.value.isOnboardingCompleted) {
+          navigate('/dashboard');
+        } else {
+          navigate('/onboarding');
+        }
       }
 
     } catch (err) {

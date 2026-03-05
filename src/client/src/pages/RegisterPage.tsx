@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { RegisterForm } from '@/components/auth/RegisterForm';
 import { authApi } from '@/api/endpoints/auth.api';
-import { setCredentials, setOnboardingCompleted } from '@/store/slices/authSlice';
+import { setCredentials } from '@/store/slices/authSlice';
 import type { RegisterRequest } from '@/types/auth.types';
 import type { ApiError } from '@/types/common.types';
 
@@ -23,8 +23,8 @@ export const RegisterPage = () => {
       if (response.value?.accessToken) {
         dispatch(setCredentials({
           accessToken: response.value.accessToken,
+          isOnboardingCompleted: response.value.isOnboardingCompleted ?? false,
         }));
-        dispatch(setOnboardingCompleted(false));
         navigate('/onboarding');
       }
     } catch (err) {
