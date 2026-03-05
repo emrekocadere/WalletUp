@@ -7,4 +7,5 @@ public interface IUserTokenRepository:IRepository<ApplicationUserToken>
 {
     ApplicationUserToken GetByUserId(Guid userId);
     ApplicationUserToken GetByToken(string refreshToken);
+    int DeleteByUserId(Guid userId);
 }

@@ -18,4 +18,5 @@ public class ApplicationUser : IdentityUser<Guid>
     
     public required string Name { get; set; }
     public required string Surname { get; set; }
+    public bool IsOnboardingCompleted { get; set; } = false;
 }

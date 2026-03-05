@@ -13,4 +13,6 @@ public interface IIdentityService
     Task<ResultT<TokenDto>> GoogleLogin(GoogleLoginCommand command);
     Task<ResultT<TokenDto>> Refresh(TokenDto tokenModel);
     Task<Result> DeleteUser(Guid userId);
+    Task<Result> Logout();
+    Task<Result> CompleteOnboarding(Guid userId);
 }

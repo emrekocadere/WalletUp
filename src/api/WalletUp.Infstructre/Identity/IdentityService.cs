@@ -13,6 +13,7 @@ using CashCat.Infstructre.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.Extensions.Logging;
+using WalletUp.Application.Common.Services;
 
 namespace CashCat.Infstructre.Identity;
 
@@ -23,7 +24,8 @@ public class IdentityService(
     SignInManager<ApplicationUser> signInManager,
     ITokenService tokenService,
     IUserTokenRepository userTokenRepository,
-    ILogger<IdentityService> logger)
+    ILogger<IdentityService> logger,
+    IUserContext userContext)
     : IIdentityService
 {
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
@@ -83,7 +85,8 @@ public class IdentityService(
         var tokenDto = new TokenDto()
         {
            RefreshToken = refreshToken,
-              AccessToken = accessToken
+           AccessToken = accessToken,
+           IsOnboardingCompleted = false
         };
         return tokenDto;
 
@@ -130,7 +133,8 @@ public class IdentityService(
         var tokenDto = new TokenDto
         {
             AccessToken = accessToken,
-            RefreshToken = refreshToken
+            RefreshToken = refreshToken,
+            IsOnboardingCompleted = user.IsOnboardingCompleted
         };
 
         return tokenDto;
@@ -174,7 +178,8 @@ public class IdentityService(
         var tokenDto = new TokenDto
         {
             AccessToken = newAccessToken,
-            RefreshToken = newRefreshToken
+            RefreshToken = newRefreshToken,
+            IsOnboardingCompleted = user.IsOnboardingCompleted
         };
         
         return tokenDto;
@@ -191,6 +196,31 @@ public class IdentityService(
             return Result.Failure(Errors.AccountNotFound);
         }
         
+    }
+
+    public Task<Result> Logout()
+    {
+        userTokenRepository.DeleteByUserId(userContext.UserId);
+        // Refresh token'ı veritabanından sil
+        // var userId = userContext.UserId;
+        // var userToken = userTokenRepository.GetByUserId(userId);
+        // if (userToken != null)
+        // {
+        //     userTokenRepository.Delete(userToken);
+        //     await userTokenRepository.SaveChanges();
+        // }
+        
+        return Task.FromResult(Result.Success());
+    }
+
+    public async Task<Result> CompleteOnboarding(Guid userId)
+    {
+        var user = await userManager.FindByIdAsync(userId.ToString());
+        if (user == null)
+            return Result.Failure(Errors.AccountNotFound);
+        user.IsOnboardingCompleted = true;
+        await userManager.UpdateAsync(user);
+        return Result.Success();
     }
 
     public async Task<ResultT<TokenDto>> GoogleLogin(GoogleLoginCommand command)
@@ -267,7 +297,8 @@ public class IdentityService(
             return new TokenDto
             {
                 AccessToken = accessToken,
-                RefreshToken = refreshToken
+                RefreshToken = refreshToken,
+                IsOnboardingCompleted = user.IsOnboardingCompleted
             };
         }
         catch (InvalidJwtException ex)
