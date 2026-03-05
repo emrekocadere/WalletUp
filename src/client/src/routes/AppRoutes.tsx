@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '@/store/store';
 import { fetchAppData } from '@/store/slices/appDataSlice';
+import { ProtectedRoute } from '@/routes/ProtectedRoute';
 import { HomePage } from '@/pages/HomePage';
 import { RegisterPage } from '@/pages/RegisterPage';
 import { LoginPage } from '@/pages/LoginPage';
@@ -33,12 +34,13 @@ export const AppRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/transactions" element={<TransactionsPage />} />
-      <Route path="/accounts" element={<AccountsPage />} />
-      <Route path="/accounts/:id" element={<AccountDetailPage />} />
-      <Route path="/goals" element={<GoalsPage />} />
-      <Route path="/settings" element={<SettingsPage />} />
+
+      <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+      <Route path="/transactions" element={<ProtectedRoute><TransactionsPage /></ProtectedRoute>} />
+      <Route path="/accounts" element={<ProtectedRoute><AccountsPage /></ProtectedRoute>} />
+      <Route path="/accounts/:id" element={<ProtectedRoute><AccountDetailPage /></ProtectedRoute>} />
+      <Route path="/goals" element={<ProtectedRoute><GoalsPage /></ProtectedRoute>} />
+      <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
       <Route path="/onboarding" element={<OnboardingPage />} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
