@@ -10,6 +10,7 @@ import { SpendingByCategoryPanel } from '@/components/dashboard/SpendingByCatego
 import { authService } from '@/services/auth.service';
 import { AIInsightsSection } from '@/components/common/AIInsightsSection';
 import { useAIInsights } from '@/hooks/useAIInsights';
+import { getCurrencySymbol } from '@/utils/formatters';
 import type { Transaction, CategoryExpense } from '@/types/model.types';
 
 export const DashboardPage = () => {
@@ -23,6 +24,7 @@ export const DashboardPage = () => {
   const [userName, setUserName] = useState<string | null>(null);
   const [goalQuantity, setGoalQuantity] = useState(0);
   const [currentTotalBalance, setCurrentTotalBalance] = useState(0);
+  const [preferredCurrency, setPreferredCurrency] = useState('USD');
 
 
   const { insights, loading: insightsLoading, error: insightsError } = useAIInsights({
@@ -57,6 +59,7 @@ export const DashboardPage = () => {
         setCategoryExpenses(dashboardResult.categoryExpenses || []);
         setGoalQuantity(dashboardResult.goalQuantity);
         setCurrentTotalBalance(dashboardResult.currentTotalBalance);
+        setPreferredCurrency(dashboardResult.preferredCurrency);
       } catch (err) {
         console.error('Failed to fetch dashboard data:', err);
       } finally {
@@ -103,7 +106,7 @@ export const DashboardPage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 lg:mb-12">
             <StatCard
               title="Total Balance"
-              value={`$${currentTotalBalance.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              value={`${getCurrencySymbol(preferredCurrency)}${currentTotalBalance.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               subtitle="Your current total balance"
               iconBgColor="bg-primary-500/20"
               iconColor="text-primary-400"
@@ -118,7 +121,7 @@ export const DashboardPage = () => {
 
             <StatCard
               title="Monthly Spending"
-              value={`$${monthlySpending.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              value={`${getCurrencySymbol(preferredCurrency)}${monthlySpending.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               subtitle={monthlyIncome > 0 ? `-${((monthlySpending / monthlyIncome) * 100).toFixed(1)}% of income` : 'No income this month'}
               iconBgColor="bg-red-500/20"
               iconColor="text-red-400"

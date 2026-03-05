@@ -14,6 +14,7 @@ export const AccountsPage = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [totalBalance, setTotalBalance] = useState(0);
+  const [preferredCurrency, setPreferredCurrency] = useState('USD');
   const [isLoading, setIsLoading] = useState(true);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
@@ -29,6 +30,7 @@ export const AccountsPage = () => {
         console.log('Accounts API Response:', result);
         setAccounts(result.accounts);
         setTotalBalance(result.totalBalanceBasedOnPreferredCurrency);
+        setPreferredCurrency(result.preferredCurrency);
       } catch (err) {
         console.error('Failed to fetch accounts:', err);
       } finally {
@@ -64,6 +66,7 @@ export const AccountsPage = () => {
           <AccountsHeroStats
             totalBalance={totalBalance}
             totalAccounts={accounts.length}
+            preferredCurrency={preferredCurrency}
           />
 
           {/* AI Insights Section */}
@@ -89,6 +92,7 @@ export const AccountsPage = () => {
               const updatedAccounts = await accountsApi.getAll();
               setAccounts(updatedAccounts.accounts);
               setTotalBalance(updatedAccounts.totalBalanceBasedOnPreferredCurrency);
+              setPreferredCurrency(updatedAccounts.preferredCurrency);
               return true;
             }
             return false;
