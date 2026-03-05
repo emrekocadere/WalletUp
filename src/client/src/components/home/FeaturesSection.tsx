@@ -2,10 +2,20 @@ import { FeatureCard } from './FeatureCard';
 
 export const FeaturesSection = () => {
   return (
-    <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
+    <div id="features" className="relative z-10 max-w-7xl mx-auto px-4 py-20">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white mb-4">Everything You Need</h2>
-        <p className="text-gray-400 text-lg">Powerful features to take control of your finances</p>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-400/30 rounded-full mb-6">
+          <svg className="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
+          </svg>
+          <span className="text-sm font-bold text-primary-300">Powerful Features</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          Everything You <span className="text-indigo-400">Need</span>
+        </h2>
+        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+          Powerful features to take control of your finances
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

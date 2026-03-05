@@ -1,11 +1,11 @@
 export const AIFeatureSection = () => {
   return (
     <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
-      <div className="bg-gradient-to-br from-primary-500/10 via-indigo-500/10 to-purple-500/10 backdrop-blur-xl p-12 rounded-3xl border border-primary-500/20">
+      <div className="bg-primary-500/5 backdrop-blur-xl p-12 rounded-3xl border border-primary-500/20">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left side - Icon & Visual */}
           <div className="flex-shrink-0">
-            <div className="w-32 h-32 bg-gradient-to-br from-primary-500/20 to-indigo-500/20 rounded-3xl flex items-center justify-center border border-primary-500/30">
+            <div className="w-32 h-32 bg-primary-500/5 rounded-3xl flex items-center justify-center border border-primary-500/30">
               <svg className="w-16 h-16 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
