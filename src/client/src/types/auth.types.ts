@@ -22,6 +22,7 @@ export interface RegisterRequest {
 
 export interface AuthResponse {
   accessToken: string;
+  isOnboardingCompleted: boolean;
 }
 
 export interface TokenPayload {
