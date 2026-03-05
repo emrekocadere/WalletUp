@@ -40,30 +40,23 @@ export const UseCaseStep = ({ selectedUseCase, onUseCaseChange }: UseCaseStepPro
         <p className="text-gray-400">Choose your primary use case</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {useCases.map((useCase) => (
           <button
             key={useCase.id}
             onClick={() => onUseCaseChange(useCase.id)}
-            className={`w-full p-4 rounded-xl border transition-all text-left ${
+            className={`w-full px-4 py-3 rounded-xl border transition-all text-left flex items-center justify-between ${
               selectedUseCase === useCase.id
-                ? 'border-primary-500/50 bg-primary-500/10'
-                : 'border-slate-700 bg-slate-800/30 hover:border-slate-600'
+                ? 'border-primary-500/50 bg-primary-500/10 text-white'
+                : 'border-slate-700 bg-slate-800/30 hover:border-slate-600 text-gray-300'
             }`}
           >
-            <div className="flex items-center gap-3">
-              <div className="flex-1">
-                <p className="font-semibold text-white mb-1">{useCase.label}</p>
-                <p className="text-xs text-gray-400">{useCase.description}</p>
-              </div>
-              {selectedUseCase === useCase.id && (
-                <div className="w-5 h-5 bg-primary-500 rounded-lg flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              )}
-            </div>
+            <span className="font-medium">{useCase.label}</span>
+            {selectedUseCase === useCase.id && (
+              <svg className="w-4 h-4 text-primary-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            )}
           </button>
         ))}
       </div>

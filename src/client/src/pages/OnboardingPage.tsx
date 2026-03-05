@@ -163,16 +163,15 @@ export const OnboardingPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
 
-        <div className="text-center mb-8">
+                <div className="text-center mb-8">
           <img 
             src="/Logo2.svg" 
             alt="WalletUp Logo" 
-            className="h-16 w-32 object-cover group-hover:scale-110 transition-transform duration-300"
+            className=" w-40 mx-auto object-contain"
           />
-          <h1 className="text-3xl font-bold text-white mb-2">WalletUp</h1>
-          <p className="text-gray-400">Your Smart Financial Companion</p>
         </div>
         <ProgressIndicator currentStep={step} totalSteps={totalSteps} />
+
 
         <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700 overflow-hidden">
           <div className="p-8 min-h-[400px] flex flex-col">
@@ -233,17 +232,6 @@ export const OnboardingPage = () => {
           />
         </div>
 
-       
-        {step > 0 && step < totalSteps && (
-          <div className="text-center mt-6">
-            <button
-              onClick={() => navigate('/dashboard')}
-              className="text-gray-500 hover:text-gray-300 text-sm transition-colors"
-            >
-              Skip for now →
-            </button>
-          </div>
-        )}
       </div>
 
       {toast && (

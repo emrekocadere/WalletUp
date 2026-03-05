@@ -44,11 +44,6 @@ export const AIPreferencesStep = ({ aiPreferences, onAIPreferencesChange }: AIPr
 
        
 
-        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
-          <p className="text-sm text-blue-300">
-            You can always adjust these settings later in your preferences
-          </p>
-        </div>
       </div>
     </div>
   );
