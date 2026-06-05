@@ -10,23 +10,46 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
 
     public async Task<T?> GetAsync<T>(string key)
     {
-        var cachedValue = await cache.GetStringAsync(key);
-        if (string.IsNullOrWhiteSpace(cachedValue))
+        if (string.IsNullOrWhiteSpace(key))
         {
             return default;
         }
 
-        return JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
+        try
+        {
+            var cachedValue = await cache.GetStringAsync(key);
+            if (string.IsNullOrWhiteSpace(cachedValue))
+            {
+                return default;
+            }
+
+            return JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
+        }
+        catch
+        {
+            return default;
+        }
     }
 
     public async Task SetAsync<T>(string key, T value, TimeSpan ttl)
     {
-        var serializedValue = JsonSerializer.Serialize(value, SerializerOptions);
-        var options = new DistributedCacheEntryOptions
+        if (string.IsNullOrWhiteSpace(key))
         {
-            AbsoluteExpirationRelativeToNow = ttl
-        };
+            return;
+        }
 
-        await cache.SetStringAsync(key, serializedValue, options);
+        try
+        {
+            var serializedValue = JsonSerializer.Serialize(value, SerializerOptions);
+            var options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = ttl
+            };
+
+            await cache.SetStringAsync(key, serializedValue, options);
+        }
+        catch
+        {
+        }
     }
 }

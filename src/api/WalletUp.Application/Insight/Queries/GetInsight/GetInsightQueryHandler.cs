@@ -28,11 +28,6 @@ public class GetInsightQueryHandler(
     {
         var userId = userContext.UserId;
         var cacheKey = $"insights:{userId}:{request.TaskName}";
-        var cachedInsight = await cacheService.GetAsync<InsightDto>(cacheKey);
-        if (cachedInsight is not null)
-        {
-            return cachedInsight;
-        }
 
         var preference = prefrenceRepository.GetByUserId(userId);
         var accounts = accountRepository.GetAllAccountsByUserId(userId);
@@ -60,6 +55,12 @@ public class GetInsightQueryHandler(
         };
         try
         {
+            var cachedInsight = await cacheService.GetAsync<InsightDto>(cacheKey);
+            if (cachedInsight is not null)
+            {
+                return cachedInsight;
+            }
+
             var result = await insightService.GetInsight(baseInsightInput, request.TaskName);
             await cacheService.SetAsync(cacheKey, result, TimeSpan.FromHours(12));
 
