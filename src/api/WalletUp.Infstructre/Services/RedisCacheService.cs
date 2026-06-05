@@ -1,10 +1,13 @@
 using System.Text.Json;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using WalletUp.Application.Abstractions;
 
 namespace CashCat.Infstructre.Services;
 
-public class RedisCacheService(IDistributedCache cache) : ICacheService
+public class RedisCacheService(
+    IDistributedCache cache,
+    ILogger<RedisCacheService> logger) : ICacheService
 {
     private static readonly JsonSerializerOptions SerializerOptions = new(JsonSerializerDefaults.Web);
 
@@ -25,8 +28,14 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
 
             return JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
         }
-        catch
+        catch (JsonException ex)
         {
+            logger.LogWarning(ex, "Failed to deserialize cached value for key {CacheKey}.", key);
+            return default;
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to read cache value for key {CacheKey}.", key);
             return default;
         }
     }
@@ -48,8 +57,13 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
 
             await cache.SetStringAsync(key, serializedValue, options);
         }
-        catch
+        catch (JsonException ex)
         {
+            logger.LogWarning(ex, "Failed to serialize cache value for key {CacheKey}.", key);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to write cache value for key {CacheKey}.", key);
         }
     }
 }
