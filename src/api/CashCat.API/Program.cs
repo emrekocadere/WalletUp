@@ -1,3 +1,4 @@
+using CashCat.Infstructre.Persistence;
 using WalletUp.Infstructre.Extensions;
 using WalletUp.Application.Extensions;
 using CashCat.Integrations;
@@ -25,13 +26,15 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddInfrastructureServices(builder
-    .Configuration); // bunu eklemzsek ne olur baba. ne olduğunu hatırlaıyprum iyi analiz et
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddApplication();
 builder.Services.AddWalletUpInsight(builder.Configuration);
 
 var app = builder.Build();
+
+// Initialize database: apply migrations and seed reference data
+await app.InitializeDatabaseAsync();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

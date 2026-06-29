@@ -8,9 +8,9 @@ using CashCat.Infstructre.Auth.Services;
 using CashCat.Infstructre.Identity;
 using CashCat.Infstructre.Persistence;
 using CashCat.Infstructre.Persistence.Repositories;
+using CashCat.Infstructre.Persistence.Seeders;
 using CashCat.Infstructre.Refit;
 using CashCat.Infstructre.Services;
-using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +29,14 @@ public static class ServiceCollectionsExtensions
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-        services.AddDbContext<CashCatDbContext>(opt => { opt.UseNpgsql(connectionString); });
+        services.AddDbContext<CashCatDbContext>(opt =>
+        {
+            opt.UseNpgsql(connectionString);
+        });
+        
+
+        services.AddScoped<DatabaseSeeder>();
+        
 
         services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<CashCatDbContext>();
@@ -42,7 +49,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IRepository<Transaction>, Repository<Transaction>>();
         services.AddScoped<IRepository<Preference>, Repository<Preference>>();
-        services.AddScoped<IRepository<Goal>, Repository<Goal>>();  
+        services.AddScoped<IRepository<Goal>, Repository<Goal>>();
         services.AddScoped<IRepository<AccountType>, Repository<AccountType>>();
         services.AddScoped<IRepository<GoalTransaction>, Repository<GoalTransaction>>();
         services.AddScoped<IRepository<Currency>, Repository<Currency>>();
@@ -55,33 +62,32 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IGoalRepository, GoalRepository>();
         services.AddScoped<IGoalTransactionRepository, GoalTransactionRepository>();
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
-        services.AddScoped<IPreferenceRepository,PreferenceRepository>();
-        
+        services.AddScoped<IPreferenceRepository, PreferenceRepository>();
+
         services.AddRefitClient<IExchangeApi>()
-            . ConfigureHttpClient(c => c.BaseAddress = new Uri(configuration["CurrenviaBaseUrl"]!));
-        
+            .ConfigureHttpClient(c => c.BaseAddress = new Uri(configuration["CurrenviaBaseUrl"]!));
+
         services.AddScoped<IInsightService, InsightService>();
         services.AddSingleton<ICacheService, RedisCacheService>();
 
         var redisConnection = configuration.GetConnectionString("Redis");
 
         services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = redisConnection;
-        });
-        
+            options.Configuration = redisConnection
+        );
+
         services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(options => 
+            .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;
-    
-                options.TokenValidationParameters = new TokenValidationParameters //Gelen token’ı TokenValidationParameters kurallarına göre kontrol edecek:
+
+                options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
@@ -94,12 +100,9 @@ public static class ServiceCollectionsExtensions
 
         var applicationAssembly = typeof(ServiceCollectionsExtensions).Assembly;
         services.AddAutoMapper(cfg => { }, applicationAssembly);
-
-
-
     }
-    
-        public static void UseInfrastructure(this IApplicationBuilder app)
+
+    public static void UseInfrastructure(this IApplicationBuilder app)
     {
         app.UseAuthentication();
         app.UseAuthorization();
