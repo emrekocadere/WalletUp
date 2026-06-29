@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WalletUp.Domain.Entities;
+using WalletUp.Infstructre.Identity.Models;
 
 namespace CashCat.Infstructre.Persistence.Seeders;
 
@@ -13,6 +14,7 @@ public class DatabaseSeeder(CashCatDbContext db)
             await SeedCountriesAsync();
             await SeedAccountTypesAsync();
             await SeedTransactionTypesAsync();
+            await SeedRolesAsync();
     }
 
     private async Task SeedCurrenciesAsync()
@@ -105,6 +107,20 @@ public class DatabaseSeeder(CashCatDbContext db)
         db.TransactionTypes.AddRange(
             new TransactionType() { Name = "income" },
             new TransactionType { Name = "expense" }
+        );
+
+        await db.SaveChangesAsync();
+    }
+    private async Task SeedRolesAsync()
+    {
+        if (await db.Roles.AnyAsync())
+        {
+            return;
+        }
+
+        db.Roles.AddRange(
+            new ApplicationRole { Name = "user",NormalizedName = "USER" },
+            new ApplicationRole { Name = "admin",NormalizedName = "ADMIN" }
         );
 
         await db.SaveChangesAsync();
