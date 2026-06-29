@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using WalletUp.Application.Abstractions;
 
 namespace CashCat.Infstructre.Services;
@@ -10,23 +11,37 @@ public class RedisCacheService(IDistributedCache cache) : ICacheService
 
     public async Task<T?> GetAsync<T>(string key)
     {
-        var cachedValue = await cache.GetStringAsync(key);
-        if (string.IsNullOrWhiteSpace(cachedValue))
+        try
         {
-            return default;
-        }
+            var cachedValue = await cache.GetStringAsync(key);
+            if (string.IsNullOrWhiteSpace(cachedValue))
+            {
+                return default;
+            }
 
-        return JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
+            var deserialized = JsonSerializer.Deserialize<T>(cachedValue, SerializerOptions);
+            return deserialized;
+        }
+        catch (Exception ex)
+        {
+            return default; // Graceful fallback - return null instead of throwing
+        }
     }
 
     public async Task SetAsync<T>(string key, T value, TimeSpan ttl)
     {
-        var serializedValue = JsonSerializer.Serialize(value, SerializerOptions);
-        var options = new DistributedCacheEntryOptions
+        try
         {
-            AbsoluteExpirationRelativeToNow = ttl
-        };
+            var serializedValue = JsonSerializer.Serialize(value, SerializerOptions);
+            var options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = ttl
+            };
 
-        await cache.SetStringAsync(key, serializedValue, options);
+            await cache.SetStringAsync(key, serializedValue, options);
+        }
+        catch (Exception ex)
+        {
+        }
     }
 }
