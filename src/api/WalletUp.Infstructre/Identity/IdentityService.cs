@@ -17,9 +17,7 @@ namespace CashCat.Infstructre.Identity;
 
 public class IdentityService(
     IMapper mapper,
-    RoleManager<ApplicationRole> roleManager,
     UserManager<ApplicationUser> userManager,
-    SignInManager<ApplicationUser> signInManager,
     ITokenService tokenService,
     IUserTokenRepository userTokenRepository,
     IUserContext userContext)
@@ -27,25 +25,23 @@ public class IdentityService(
 {
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
     {
-        
-        if (await roleManager.RoleExistsAsync("user") == false)
-        {
-            var roleResult = await roleManager
-                .CreateAsync(new ApplicationRole(){Name = "user"});
-        
-            if (roleResult.Succeeded == false)
-            {
-                var roleErros = roleResult.Errors.Select(e => e.Description);
-            }
-        }
-
         var user= mapper.Map<ApplicationUser>(command);
         
         user.UserName = user.Name + user.Surname;
 
         var identityResult = await userManager.CreateAsync(user, command.Password);
+        if (!identityResult.Succeeded)
+        {
+            return Errors.UserCreationFailed;
+        }
         
         var addUserToRoleResult = await userManager.AddToRoleAsync(user: user, role: "user");
+        if (!addUserToRoleResult.Succeeded)
+        {
+            return Errors.RoleCreationFailed;
+        }
+        
+        // Token Section
         
         List<Claim> authClaims = [
             new (ClaimTypes.Name, user.UserName),
@@ -54,21 +50,22 @@ public class IdentityService(
             new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
     
         ];
+        
         var refreshToken = tokenService.GenerateRefreshToken();
         var accessToken=tokenService.GenerateAccessToken(authClaims);
 
         var userToken = new ApplicationUserToken
         {
             UserId = user.Id,
-            LoginProvider = "Journify",
+            LoginProvider = "WalletUp",
             Name = "RefreshToken",
             Value = refreshToken,
             ExpiresAt = DateTime.UtcNow.AddDays(7)
         };
         
         await userTokenRepository.Create(userToken);
-
         await userTokenRepository.SaveChanges();
+        
         var tokenDto = new TokenDto()
         {
            RefreshToken = refreshToken,
@@ -81,27 +78,26 @@ public class IdentityService(
 
     public async Task<ResultT<TokenDto>> Login(LoginCommand command)
     {
-        var user = await  userManager.FindByEmailAsync(command.Email);
+        var user = await userManager.FindByEmailAsync(command.Email);
 
         if (user == null)
         {
             return Errors.UserNotFound;
         }
+       
+        var result= await userManager.CheckPasswordAsync(user,command.Password);
+       
+        if (!result)
+        {
+            return Errors.IncorrectPassword;
+        }
+       
+        // Token Section
         
-       var result= await signInManager.PasswordSignInAsync(user, command.Password, false, false);
-       
-
-       
-       if (result.Succeeded == false)
-       {
-           return Errors.AccountNotFound;
-       }
-       
         List<Claim> authClaims = [
-            new (ClaimTypes.Name, user.UserName),
+            new (ClaimTypes.Name, user.UserName!),
             new(ClaimTypes.NameIdentifier,user.Id.ToString())
             // new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // bu nedir
-        
         ];
         
         var userRoles = await userManager.GetRolesAsync(user);
@@ -112,15 +108,12 @@ public class IdentityService(
         }
         
         var accessToken = tokenService.GenerateAccessToken(authClaims);
-        
-        string refreshToken = tokenService.GenerateRefreshToken();
+        var refreshToken = tokenService.GenerateRefreshToken();
 
         var tokenInfo= userTokenRepository.GetByUserId(user.Id);
-
   
         tokenInfo.ExpiresAt = DateTime.UtcNow.AddDays(7);
         tokenInfo.Value = refreshToken;
-        
         
         await userTokenRepository.SaveChanges();
         
@@ -174,14 +167,13 @@ public class IdentityService(
     public async Task<Result> DeleteUser(Guid userId)
     {
          var user= await userManager.FindByIdAsync(userId.ToString());
-        var result = await userManager.DeleteAsync(user);
+        var result = await userManager.DeleteAsync(user!);
         if(result.Succeeded)
             return Result.Success();
-        else
-        {
-            return Result.Failure(Errors.AccountNotFound);
-        }
-        
+
+        return Errors.UserDeletionFailed;
+
+
     }
 
     public Task<Result> Logout()
@@ -202,39 +194,34 @@ public class IdentityService(
     public async Task<Result> CompleteOnboarding(Guid userId)
     {
         var user = await userManager.FindByIdAsync(userId.ToString());
-        if (user == null)
-            return Result.Failure(Errors.AccountNotFound);
-        user.IsOnboardingCompleted = true;
+
+        user!.IsOnboardingCompleted = true;
         await userManager.UpdateAsync(user);
+        
         return Result.Success();
     }
 
     public async Task<ResultT<TokenDto>> GoogleLogin(GoogleLoginCommand command)
     {
-        try
-        {
+
             var payload = await GoogleJsonWebSignature.ValidateAsync(command.IdToken);
             var user = await userManager.FindByEmailAsync(payload.Email);
             
             if (user == null)
             {
-                if (!await roleManager.RoleExistsAsync("user"))
-                {
-                    await roleManager.CreateAsync(new ApplicationRole { Name = "user" });
-                }
-
+                
                 user = new ApplicationUser
                 {
                     Email = payload.Email,
-                    UserName = payload.Email,
-                    Name = payload.GivenName ?? payload.Name ?? "User",
-                    Surname = payload.FamilyName ?? "",
+                    UserName = payload.GivenName+payload.FamilyName,
+                    Name = payload.GivenName ??  "Unknow",
+                    Surname = payload.FamilyName ?? "Unknow",
                     EmailConfirmed = true
                 };
 
                 var createResult = await userManager.CreateAsync(user);
                 if (!createResult.Succeeded)
-                { ;
+                { 
                     return Errors.AccountNotFound;
                 }
 
@@ -245,7 +232,7 @@ public class IdentityService(
             var userRoles = await userManager.GetRolesAsync(user);
             List<Claim> authClaims = new()
             {
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Name, user.UserName!),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
@@ -285,14 +272,6 @@ public class IdentityService(
                 RefreshToken = refreshToken,
                 IsOnboardingCompleted = user.IsOnboardingCompleted
             };
-        }
-        catch (InvalidJwtException ex)
-        {
-            return Errors.AccountNotFound;
-        }
-        catch (Exception ex)
-        {
-            return Errors.AccountNotFound;
-        }
+            
     }
 }

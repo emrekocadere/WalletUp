@@ -14,4 +14,8 @@ public static class Errors
     public static Error AIIntegrationFailed { get; } = new("AIIntegrationFailed", "AI integration failed.");
     public static Error AIResponseError { get; } = new("AIResponseError", "Error in AI response.");
     public static Error UserNotFound { get; } = new("UserNotFound", "User not found.");
+    public static Error IncorrectPassword { get; } = new("IncorrectPassword", "Password is incorrect.");
+    public static Error UserCreationFailed { get; } = new("UserCreationFailed", "Failed to create user.");
+    public static Error RoleCreationFailed { get; } = new("RoleCreationFailed", "Failed to create role.");
+    public static Error UserDeletionFailed { get; } = new("UserDeletionFailed", "Failed to delete user.");
 }
