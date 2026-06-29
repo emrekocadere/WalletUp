@@ -12,9 +12,7 @@ using WalletUp.Infstructre.Identity.Models;
 using CashCat.Infstructre.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.Extensions.Logging;
 using WalletUp.Application.Common.Services;
-
 namespace CashCat.Infstructre.Identity;
 
 public class IdentityService(
@@ -24,24 +22,13 @@ public class IdentityService(
     SignInManager<ApplicationUser> signInManager,
     ITokenService tokenService,
     IUserTokenRepository userTokenRepository,
-    ILogger<IdentityService> logger,
     IUserContext userContext)
     : IIdentityService
 {
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
     {
-        // var existingUser = await userManager.FindByNameAsync(command.Email);
-        // if (existingUser != null)
-        // {
-        //     
-        //
-        //     
-        //     
-        // }
-        // else
-        // {
-
-        if ((await roleManager.RoleExistsAsync("user")) == false)
+        
+        if (await roleManager.RoleExistsAsync("user") == false)
         {
             var roleResult = await roleManager
                 .CreateAsync(new ApplicationRole(){Name = "user"});
@@ -95,8 +82,15 @@ public class IdentityService(
     public async Task<ResultT<TokenDto>> Login(LoginCommand command)
     {
         var user = await  userManager.FindByEmailAsync(command.Email);
+
+        if (user == null)
+        {
+            return Errors.UserNotFound;
+        }
         
        var result= await signInManager.PasswordSignInAsync(user, command.Password, false, false);
+       
+
        
        if (result.Succeeded == false)
        {
@@ -144,22 +138,14 @@ public class IdentityService(
     {
         var tokenInfo = userTokenRepository.GetByToken(tokenModel.RefreshToken);
         
-        if (tokenInfo == null || tokenInfo.ExpiresAt <= DateTime.UtcNow)
-        {
-            return Errors.AccountNotFound;
-        }
-        
+
         var user = await userManager.FindByIdAsync(tokenInfo.UserId.ToString());
-        
-        if (user == null)
-        {
-            return Errors.AccountNotFound;
-        }
+
         
         var userRoles = await userManager.GetRolesAsync(user);
         List<Claim> authClaims = new()
         {
-            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Name, $"{user.Name} {user.Surname}"),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
         };
         
@@ -227,7 +213,6 @@ public class IdentityService(
     {
         try
         {
-            
             var payload = await GoogleJsonWebSignature.ValidateAsync(command.IdToken);
             var user = await userManager.FindByEmailAsync(payload.Email);
             
