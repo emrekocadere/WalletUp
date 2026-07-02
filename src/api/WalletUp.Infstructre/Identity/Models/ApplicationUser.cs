@@ -11,7 +11,6 @@ public class ApplicationUser : IdentityUser<Guid>
     // Navigation property for user's goals
     public ICollection<Goal>? Goals { get; set; } = new List<Goal>();
     public ICollection<ChatMessage>? ChatMessages { get; set; } = new List<ChatMessage>();
-    public ChatSummary? ChatSummary { get; set; }
     
     // One-to-One relationship with Preference
     public Preference? Preference { get; set; }
