@@ -7,6 +7,7 @@ public static class Errors
     public static Error AccountNotFound { get; } = new("AccountNotFound", "Account not found.");
     public static Error InsufficientFunds { get; } = new("InsufficientFunds", "Insufficient balance.");
     public static Error UnauthorizedAccess { get; } = new("UnauthorizedAccess", "Unauthorized access.");
+    public static Error Forbidden { get; } = new("Forbidden", "Access forbidden.");
     public static Error InvalidTransaction { get; } = new("InvalidTransaction", "Invalid transaction.");
     public static Error ServiceUnavailable { get; } = new("ServiceUnavailable", "Service is currently unavailable.");
     public static Error GoogleSignInFailed { get; } = new("GoogleSignInFailed", "Google sign-in failed.");

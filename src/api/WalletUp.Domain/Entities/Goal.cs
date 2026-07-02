@@ -15,4 +15,7 @@ public class Goal
 
     public ICollection<GoalTransaction>? GoalTransactions { get; set; }
     public Currency? Currency { get; set; }
+    
+    
+    public bool CanDelete(Guid userId) => UserId == userId;
 }

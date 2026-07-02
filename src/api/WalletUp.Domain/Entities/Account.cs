@@ -15,4 +15,7 @@ public class Account
     public Currency? Currency { get; set; }
     
     public ICollection<Goal>? Goals { get; set; }
+
+    public bool CanDelete(Guid userId) => UserId == userId;
+    public bool CanUpdate(Guid userId) => UserId == userId;
 }
