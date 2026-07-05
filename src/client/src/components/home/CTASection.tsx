@@ -2,40 +2,62 @@ import { Link } from 'react-router-dom';
 
 export const CTASection = () => {
   return (
-    <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
-      <div className="relative bg-primary-500/8 backdrop-blur-xl p-12 md:p-16 rounded-3xl border border-primary-400/20 text-center">
-        
-        <div className="relative z-10">
-
-          
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">
-            Start Your Financial
-            <br />
-            <span className="text-primary-400">
-              Journey Today
-            </span>
-          </h2>
-          
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Join WalletUp and experience AI-powered money management
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/register"
-              className="group relative px-10 py-5 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-2xl shadow-lg shadow-primary-500/30 hover:shadow-primary-500/40 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+    <section id="stats" className="relative z-10 px-4 py-24">
+      <div className="max-w-6xl mx-auto">
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          {[
+            { value: '10K+', label: 'Active Users', color: 'text-violet-400' },
+            { value: '$2M+', label: 'Tracked Monthly', color: 'text-indigo-400' },
+            { value: '99.9%', label: 'Uptime', color: 'text-emerald-400' },
+            { value: '4.9★', label: 'User Rating', color: 'text-amber-400' },
+          ].map(stat => (
+            <div
+              key={stat.label}
+              className="bg-white/4 backdrop-blur-xl rounded-3xl border border-white/10 p-6 text-center hover:bg-white/7 transition-all"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.value}</p>
+              <p className="text-sm text-gray-500">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA banner */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-violet-900/60 via-indigo-900/50 to-slate-900/60 backdrop-blur-2xl rounded-3xl border border-violet-400/20 p-10 md:p-16">
+          {/* Decorative blobs */}
+          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-violet-600/20 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-indigo-600/20 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 tracking-tight">
+                Ready to take{' '}
+                <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">control?</span>
+              </h2>
+              <p className="text-gray-400 text-lg max-w-lg">
+                Start your financial journey today — free, no credit card required.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+              <Link
+                to="/register"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold rounded-2xl shadow-2xl shadow-violet-500/30 hover:shadow-violet-500/50 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap"
+              >
                 Get Started Free
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </span>
-            </Link>
-          
+              </Link>
+              <Link
+                to="/login"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/8 hover:bg-white/12 text-white font-semibold rounded-2xl border border-white/15 hover:border-white/30 transition-all whitespace-nowrap"
+              >
+                Sign In
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
