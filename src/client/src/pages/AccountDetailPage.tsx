@@ -5,6 +5,7 @@ import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Toast } from '@/components/common/Toast';
+import { PageLoader } from '@/components/common/PageLoader';
 import { TransactionTable } from '@/components/transactions/TransactionTable';
 import { TransactionFilters } from '@/components/transactions/TransactionFilters';
 import { AddTransactionModal } from '@/components/transactions/AddTransactionModal';
@@ -109,16 +110,7 @@ export const AccountDetailPage = () => {
   const filteredTransactions = transactions;
 
   if (!account && isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <Header />
-        <main className="lg:ml-64">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-16 lg:pt-12">
-            <div className="text-center text-white text-xl">Loading account details...</div>
-          </div>
-        </main>
-      </div>
-    );
+    return <PageLoader message="Loading account details..." />;
   }
 
   if (!account || isError) {

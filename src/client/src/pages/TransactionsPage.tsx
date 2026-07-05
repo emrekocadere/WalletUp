@@ -4,6 +4,7 @@ import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Toast } from '@/components/common/Toast';
+import { PageLoader } from '@/components/common/PageLoader';
 import { TransactionTable } from '@/components/transactions/TransactionTable';
 import { TransactionFilters } from '@/components/transactions/TransactionFilters';
 import { AddTransactionModal } from '@/components/transactions/AddTransactionModal';
@@ -125,22 +126,25 @@ export const TransactionsPage = () => {
 
   const filteredTransactions = transactions;
 
+  if (isLoading) {
+    return <PageLoader message="Loading transactions..." />;
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-slate-950">
       <Header />
 
       <main className="lg:ml-64">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12">
-          {/* Page Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 lg:mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">Transactions</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">Transactions</h1>
               <p className="text-sm sm:text-base text-gray-400">Manage and track your transactions</p>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={exportToCSV}
-                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-slate-800/50 hover:bg-slate-800 text-white text-sm sm:text-base font-semibold rounded-xl transition-all border border-white/10 flex items-center gap-2"
+                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-white/5 hover:bg-white/10 text-white text-sm sm:text-base font-semibold rounded-xl transition-all border border-white/10 flex items-center gap-2"
               >
                 <svg
                   className="w-4 h-4 sm:w-5 sm:h-5"
@@ -160,7 +164,7 @@ export const TransactionsPage = () => {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-primary-600 hover:bg-primary-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors flex items-center gap-2"
               >
                 <svg
                   className="w-5 h-5"
@@ -204,7 +208,7 @@ export const TransactionsPage = () => {
             <AIInsightsSection insights={insights} loading={insightsLoading} />
           </div>
 
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
+          <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden">
             <TransactionTable
               transactions={filteredTransactions}
               isLoading={isLoading}
