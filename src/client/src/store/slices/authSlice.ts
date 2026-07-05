@@ -33,6 +33,7 @@ const authSlice = createSlice({
     ) => {
       state.accessToken = action.payload.accessToken;
       state.isAuthenticated = true;
+      state.authChecked = true;
       state.onboarding_completed = action.payload.isOnboardingCompleted;
       authService.setAccessToken(action.payload.accessToken);
     },

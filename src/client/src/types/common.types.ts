@@ -1,4 +1,9 @@
 
+export interface Error {
+    id: string;
+    description: string;
+}
+
 export interface Result {
     isSuccess: boolean;
     error: Error | null;
