@@ -33,7 +33,6 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -62,20 +61,40 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
         </div>
       )}
 
-      <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-gray-200">
-          Name (Optional)
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          disabled={isLoading}
-          className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-          placeholder="John Doe"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-semibold text-gray-200">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+            disabled={isLoading}
+            className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
+            placeholder="John"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="surname" className="block text-sm font-semibold text-gray-200">
+            Surname <span className="text-red-500">*</span>
+          </label>
+          <input
+            id="surname"
+            name="surname"
+            type="text"
+            required
+            value={formData.surname}
+            onChange={handleChange}
+            disabled={isLoading}
+            className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
+            placeholder="Doe"
+          />
+          {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
+        </div>
       </div>
 
       <div>
@@ -97,26 +116,8 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
       </div>
 
       <div>
-        <label htmlFor="surname" className="block text-sm font-semibold text-gray-200">
-          Surname <span className="text-red-500">*</span>
-        </label>
-        <input
-          id="surname"
-          name="surname"
-          type="text"
-          required
-          value={formData.surname}
-          onChange={handleChange}
-          disabled={isLoading}
-          className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-          placeholder="••••••••"
-        />
-        {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
-      </div>
-
-      <div>
         <label htmlFor="password" className="block text-sm font-semibold text-gray-200">
-           Password <span className="text-red-500">*</span>
+          Password <span className="text-red-500">*</span>
         </label>
         <input
           id="password"
@@ -129,20 +130,21 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
           className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
           placeholder="••••••••"
         />
-        {errors.password && (
-          <p className="mt-1 text-sm text-red-400">{errors.password}</p>
-        )}
+        {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
       </div>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 px-4 bg-gradient-to-r from-primary-600 to-primary-400  text-white font-bold rounded-xl shadow-xl shadow-primary-500/30 hover:shadow-primary-600/40 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:-translate-y-0.5"
+        className="w-full py-4 px-4 bg-gradient-to-r from-primary-600 to-primary-400  text-white font-bold rounded-xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none transition-shadow duration-300"
       >
         {isLoading ? 'Creating account...' : 'Create Account'}
       </button>
 
-      <GoogleSignInButton isLoading={isLoading} onClick={() => console.log('Google sign up clicked')} />
+      <GoogleSignInButton
+        isLoading={isLoading}
+        onClick={() => console.log('Google sign up clicked')}
+      />
     </form>
   );
 };

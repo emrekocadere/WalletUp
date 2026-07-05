@@ -5,10 +5,9 @@ import { GoogleSignInButton } from './GoogleSignInButton';
 interface LoginFormProps {
   onSubmit: (data: LoginRequest) => void;
   isLoading?: boolean;
-  error?: string | null;
 }
 
-export const LoginForm = ({ onSubmit, isLoading = false, error }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginRequest>({
     email: '',
     password: '',
@@ -50,12 +49,6 @@ export const LoginForm = ({ onSubmit, isLoading = false, error }: LoginFormProps
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {error && (
-        <div className="rounded-lg bg-red-500/10 border border-red-500/30 p-4">
-          <p className="text-sm text-red-300">{error}</p>
-        </div>
-      )}
-
       <div>
         <label htmlFor="email" className="block text-sm font-semibold text-gray-200">
           Email <span className="text-red-400">*</span>
@@ -99,7 +92,7 @@ export const LoginForm = ({ onSubmit, isLoading = false, error }: LoginFormProps
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 px-4 bg-gradient-to-r from-primary-600 to-primary-400 text-white font-bold rounded-xl shadow-xl shadow-primary-500/30 hover:shadow-primary-600/40 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:-translate-y-0.5"
+        className="w-full py-4 px-4 bg-gradient-to-r from-primary-600 to-primary-400 text-white font-bold rounded-xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none transition-shadow duration-300"
       >
         {isLoading ? 'Signing in...' : 'Sign In'}
       </button>
