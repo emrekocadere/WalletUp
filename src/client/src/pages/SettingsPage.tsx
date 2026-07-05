@@ -92,14 +92,13 @@ export const SettingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-slate-950">
       <Header />
 
       <main className="lg:ml-64">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12">
-          {/* Page Header */}
           <div className="mb-6 lg:mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">Settings</h1>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">Settings</h1>
             <p className="text-sm sm:text-base text-gray-400">Customize the application according to your preferences</p>
           </div>
 
@@ -136,14 +135,14 @@ export const SettingsPage = () => {
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-end gap-3">
             <button
               onClick={() => window.history.back()}
-              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-slate-800/50 hover:bg-slate-800 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors border border-white/10"
+              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-white/5 hover:bg-white/10 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors border border-white/10"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
               disabled={isLoading}
-              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-800 disabled:cursor-not-allowed text-white text-sm sm:text-base font-semibold rounded-xl transition-all shadow-lg shadow-primary-500/30"
+              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
               {isLoading ? 'Saving...' : 'Save'}
             </button>
