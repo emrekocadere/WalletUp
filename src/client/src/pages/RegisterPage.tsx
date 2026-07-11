@@ -17,7 +17,6 @@ export const RegisterPage = () => {
   const handleRegister = async (data: RegisterRequest) => {
     setIsLoading(true);
     setError(null);
-    console.log(data);
     try {
       const response = await authApi.register(data);
 
@@ -46,7 +45,7 @@ export const RegisterPage = () => {
     <>
       {isLoading && <PageLoader message="Creating account..." />}
 
-      <div className="min-h-screen bg-[#080b14] flex items-center justify-center py-12 px-4 relative overflow-hidden">
+      <div className="min-h-screen bg-[#0d1224] flex items-center justify-center py-12 px-4 relative overflow-hidden">
         {/* Background orbs */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-violet-700/15 blur-[120px]" />

@@ -84,7 +84,7 @@ export const AccountSummarySection = ({
     <div className="space-y-1.5 sm:space-y-0 sm:flex sm:flex-row sm:flex-wrap sm:gap-2.5">
       <button
         onClick={onAddTransaction}
-        className="w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 bg-primary-600 hover:bg-primary-700 rounded-lg sm:rounded-2xl text-white text-xs sm:text-sm font-semibold transition-colors"
+        className="w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-lg sm:rounded-2xl text-white text-xs sm:text-sm font-semibold transition-colors"
       >
         Add Transaction
       </button>

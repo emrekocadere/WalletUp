@@ -1,11 +1,13 @@
 import type { Transaction } from '@/types/model.types';
+import { getCurrencySymbol } from '@/utils/formatters';
 
 interface RecentTransactionsPanelProps {
   transactions: Transaction[];
   isLoading: boolean;
+  currency?: string;
 }
 
-export const RecentTransactionsPanel = ({ transactions, isLoading }: RecentTransactionsPanelProps) => {
+export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'USD' }: RecentTransactionsPanelProps) => {
   if (isLoading) {
     return <p className="text-gray-400">Loading transactions...</p>;
   }
@@ -31,7 +33,7 @@ export const RecentTransactionsPanel = ({ transactions, isLoading }: RecentTrans
         return (
           <div
             key={transaction.id}
-            className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/5 hover:border-purple-400/20 hover:shadow-md hover:shadow-purple-500/5"
+            className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 hover:border-primary-400/20"
           >
             <div className="flex items-center gap-4 flex-1 min-w-0">
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
@@ -57,7 +59,7 @@ export const RecentTransactionsPanel = ({ transactions, isLoading }: RecentTrans
                   {transaction.description || 'No description'}
                 </p>
                 <div className="flex items-center gap-3 mt-1">
-                  <span className="text-xs text-pink-300 px-2 py-1 bg-pink-500/15 border border-pink-500/20 rounded-full hover:border-pink-400/40 transition-all">
+                  <span className="text-xs text-indigo-300 px-2 py-1 bg-indigo-500/15 border border-indigo-500/20 rounded-full hover:border-indigo-400/40 transition-all">
                     {transaction.category?.name || 'Uncategorized'}
                   </span>
                   {date && (
@@ -72,7 +74,7 @@ export const RecentTransactionsPanel = ({ transactions, isLoading }: RecentTrans
               <p className={`text-lg font-bold ${
                 isIncome ? 'text-green-400' : 'text-white'
               }`}>
-                {isIncome ? '+' : '-'}₺{transaction.amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {isIncome ? '+' : '-'}{getCurrencySymbol(transaction.account?.currency?.iso4217Code || currency)}{transaction.amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
               <p className="text-xs text-gray-500 mt-1 hidden sm:block">
                 {transaction.transactionType?.name || 'Unknown'}

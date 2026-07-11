@@ -23,7 +23,7 @@ export const AccountTransactionsPanel = ({ transactions, currency }: AccountTran
     ) : (
       <div className="space-y-2">
         {transactions.slice(0, 5).map((tx) => {
-          const tone = tx.amount >= 0 ? 'text-emerald-300' : 'text-pink-300';
+          const tone = tx.amount >= 0 ? 'text-emerald-300' : 'text-primary-300';
           return (
             <div
               key={tx.id}
@@ -38,7 +38,7 @@ export const AccountTransactionsPanel = ({ transactions, currency }: AccountTran
                 <span className={`text-sm font-semibold ${tone}`}>{formatBalance(tx.amount, currency)}</span>
               </div>
               <div className="flex items-center gap-2 text-[10px] text-gray-400">
-                <span className="px-2 py-0.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:border-purple-400/50 transition-all">{tx.category?.id || 'Category'}</span>
+                <span className="px-2 py-0.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 hover:border-indigo-400/50 transition-all">{tx.category?.id || 'Category'}</span>
                 <span className="text-gray-500">#{tx.id}</span>
               </div>
             </div>

@@ -136,14 +136,14 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 px-4 bg-gradient-to-r from-primary-600 to-primary-400  text-white font-bold rounded-xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none transition-shadow duration-300"
+        className="w-full py-4 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
       >
         {isLoading ? 'Creating account...' : 'Create Account'}
       </button>
 
       <GoogleSignInButton
         isLoading={isLoading}
-        onClick={() => console.log('Google sign up clicked')}
+        onClick={() => {}}
       />
     </form>
   );

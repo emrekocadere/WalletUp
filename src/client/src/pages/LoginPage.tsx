@@ -58,7 +58,7 @@ export const LoginPage = () => {
     <>
       {isLoading && <PageLoader message="Giriş yapılıyor..." />}
 
-      <div className="min-h-screen bg-[#080b14] flex items-center justify-center py-12 px-4 relative overflow-hidden">
+      <div className="min-h-screen bg-[#0d1224] flex items-center justify-center py-12 px-4 relative overflow-hidden">
         {/* Background orbs */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-violet-700/15 blur-[120px]" />
@@ -80,7 +80,7 @@ export const LoginPage = () => {
             <div>
               <h1 className="text-4xl font-black text-white leading-tight mb-3">
                 Welcome{' '}
-                <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">back.</span>
+                <span className="text-violet-400">back.</span>
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed">
                 Your finances, at a glance. Pick up right where you left off.

@@ -110,7 +110,7 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
               <button type="button" onClick={onClose} className="flex-1 px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-medium text-white transition-all">
                 Cancel
               </button>
-              <button type="submit" className="flex-1 px-4 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 rounded-lg font-semibold text-white transition-all shadow-lg shadow-primary-500/30">
+              <button type="submit" className="flex-1 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold text-white transition-all shadow-lg shadow-indigo-500/30">
                 Save
               </button>
             </div>

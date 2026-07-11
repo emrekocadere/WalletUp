@@ -27,7 +27,7 @@ export const AccountStatusPanel = ({
       </div>
       <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 space-y-2">
         <p className="text-xs uppercase text-gray-400">-</p>
-        <p className="text-2xl font-semibold text-pink-300">{formatBalance(-expenseTotal, currency)}</p>
+        <p className="text-2xl font-semibold text-primary-300">{formatBalance(-expenseTotal, currency)}</p>
       </div>
     </div>
     <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 space-y-1">

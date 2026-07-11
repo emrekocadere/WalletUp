@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -95,7 +96,7 @@ export const DashboardPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#0d1224]">
       <Header />
 
       <main className="lg:ml-64">
@@ -113,9 +114,9 @@ export const DashboardPage = () => {
               title="Total Balance"
               value={`${getCurrencySymbol(preferredCurrency)}${currentTotalBalance.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               subtitle="Your current total balance"
-              iconBgColor="bg-primary-500/20"
-              iconColor="text-primary-400"
-              borderHoverColor="primary-500/50"
+              iconBgColor="bg-indigo-500/20"
+              iconColor="text-indigo-400"
+              borderHoverColor="indigo-500/50"
               subtitleColor="text-green-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,10 +144,10 @@ export const DashboardPage = () => {
               title="Goals"
               value={goalQuantity.toString()}
               subtitle={goalQuantity === 1 ? "Active goal" : "Active goals"}
-              iconBgColor="bg-primary-500/20"
-              iconColor="text-primary-400"
-              borderHoverColor="primary-500/50"
-              subtitleColor="text-primary-400"
+              iconBgColor="bg-indigo-500/20"
+              iconColor="text-indigo-400"
+              borderHoverColor="indigo-500/50"
+              subtitleColor="text-indigo-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -158,10 +159,10 @@ export const DashboardPage = () => {
               title="Transactions"
               value={transactionCount.toString()}
               subtitle="This month"
-              iconBgColor="bg-primary-500/20"
-              iconColor="text-primary-400"
-              borderHoverColor="primary-500/50"
-              subtitleColor="text-primary-400"
+              iconBgColor="bg-indigo-500/20"
+              iconColor="text-indigo-400"
+              borderHoverColor="indigo-500/50"
+              subtitleColor="text-indigo-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -186,12 +187,12 @@ export const DashboardPage = () => {
             <div className="lg:col-span-2 bg-slate-800/50 p-4 sm:p-6 lg:p-8 rounded-xl border border-slate-700/50">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white">Recent Transactions</h2>
-                <a href="/transactions" className="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+                <Link to="/transactions" className="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
                   View all →
-                </a>
+                </Link>
               </div>
 
-              <RecentTransactionsPanel transactions={transactions} isLoading={isLoading} />
+              <RecentTransactionsPanel transactions={transactions} isLoading={isLoading} currency={preferredCurrency} />
             </div>
 
             {/* Spending by Category */}

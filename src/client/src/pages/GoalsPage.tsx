@@ -63,10 +63,7 @@ export const GoalsPage = () => {
   };
 
   const handleAddMoney = (goalId: string) => {
-    console.log('Finding goal with ID:', goalId);
-    console.log('Available goals:', goals);
     const goal = goals.find(g => g.id === goalId);
-    console.log('Found goal:', goal);
     if (goal) {
       setSelectedGoal(goal);
       setShowAddMoneyModal(true);
@@ -99,7 +96,6 @@ export const GoalsPage = () => {
   };
 
   const handleGoalCreated = () => {
-    console.log('Goal created successfully');
     loadGoals();
   };
 
@@ -118,7 +114,7 @@ export const GoalsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#0d1224]">
       <Header />
 
       <main className="lg:ml-64">

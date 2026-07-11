@@ -23,7 +23,7 @@ export const AccountListSection = ({ accounts, isLoading }: AccountListSectionPr
             const typeLabel = typeMeta?.label ?? account.accountType.name;
             return (
               <Link key={account.id} to={`/accounts/${account.id}`} className="group block">
-                <article className="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-white/10 rounded-2xl p-5 shadow-xl shadow-black/20 transition duration-200 ease-out hover:border-primary-500/40 hover:shadow-primary-500/40">
+                <article className="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-white/10 rounded-2xl p-5 shadow-xl shadow-black/20 transition duration-200 ease-out hover:border-white/20">
                   <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                     <div>
                       <p className="text-xs uppercase text-gray-400">{typeLabel}</p>

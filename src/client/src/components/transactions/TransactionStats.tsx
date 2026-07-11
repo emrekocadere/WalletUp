@@ -22,9 +22,9 @@ export const TransactionStats = ({ transactions }: TransactionStatsProps) => {
             <p className="text-gray-400 text-sm mb-1">Total Transactions</p>
             <p className="text-3xl font-bold text-white">{transactions.length}</p>
           </div>
-          <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
             <svg
-              className="w-6 h-6 text-indigo-400"
+              className="w-6 h-6 text-primary-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

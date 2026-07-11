@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { AIInsight } from '@/types/ai.types';
 import { AIInsightCard } from './AIInsightCard';
+import { AIInsightSkeleton } from './AIInsightSkeleton';
 
 interface AIInsightsSectionProps {
   insights: AIInsight[];
@@ -18,14 +19,12 @@ export const AIInsightsSection = ({
   const [showDetails, setShowDetails] = useState(false);
 
   if (loading) {
-    return (
-      <div className="h-32 rounded-xl bg-slate-800/30 border border-white/5 animate-pulse" />
-    );
+    return <AIInsightSkeleton />;
   }
 
   if (error) {
     return (
-      <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
+      <div className="rounded-xl border border-primary-500/30 bg-primary-500/10 p-4 text-sm text-primary-200">
         {error}
       </div>
     );

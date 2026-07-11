@@ -38,7 +38,7 @@ export const SelectCombobox = ({ options, value, onChange, placeholder = 'Select
       <div
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full px-5 py-4 bg-slate-800/30 border rounded-xl cursor-pointer transition-all ${
-          isOpen ? 'border-primary-500/50 bg-slate-800/50' : 'border-slate-700 hover:border-slate-600'
+          isOpen ? 'border-indigo-500/50 bg-slate-800/50' : 'border-slate-700 hover:border-slate-600'
         }`}
       >
         <div className="flex items-center gap-3">
@@ -70,14 +70,14 @@ export const SelectCombobox = ({ options, value, onChange, placeholder = 'Select
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
                   value === opt.value
-                    ? 'bg-primary-500/10 border border-primary-500/50'
+                    ? 'bg-indigo-500/10 border border-indigo-500/50'
                     : 'border border-transparent hover:bg-slate-700/50'
                 }`}
               >
                 {opt.icon && <span className="text-2xl">{opt.icon}</span>}
                 <span className="text-white font-semibold">{opt.label}</span>
                 {value === opt.value && (
-                  <svg className="w-5 h-5 text-primary-400 ml-auto" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-indigo-400 ml-auto" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 )}
