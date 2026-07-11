@@ -23,7 +23,7 @@ export const CTASection = () => {
         </div>
 
         {/* CTA banner */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-violet-900/60 via-indigo-900/50 to-slate-900/60 backdrop-blur-2xl rounded-3xl border border-violet-400/20 p-10 md:p-16">
+        <div className="relative overflow-hidden  from-violet-900/80 to-indigo-900/80 backdrop-blur-2xl rounded-3xl border border-violet-400/25 p-10 md:p-16">
           {/* Decorative blobs */}
           <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-violet-600/20 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-indigo-600/20 blur-3xl pointer-events-none" />
@@ -32,7 +32,7 @@ export const CTASection = () => {
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 tracking-tight">
                 Ready to take{' '}
-                <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">control?</span>
+                <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">control?</span>
               </h2>
               <p className="text-gray-400 text-lg max-w-lg">
                 Start your financial journey today — free, no credit card required.
@@ -41,7 +41,7 @@ export const CTASection = () => {
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <Link
                 to="/register"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold rounded-2xl shadow-2xl shadow-violet-500/30 hover:shadow-violet-500/50 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-2xl transition-colors duration-200 whitespace-nowrap"
               >
                 Get Started Free
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ export const CTASection = () => {
               </Link>
               <Link
                 to="/login"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/8 hover:bg-white/12 text-white font-semibold rounded-2xl border border-white/15 hover:border-white/30 transition-all whitespace-nowrap"
+                className="inline-flex items-center justify-center px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-2xl border border-white/15 transition-all whitespace-nowrap"
               >
                 Sign In
               </Link>

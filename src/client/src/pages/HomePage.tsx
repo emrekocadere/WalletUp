@@ -6,31 +6,14 @@ import { Footer } from '../components/home/Footer';
 
 export const HomePage = () => {
   return (
-    <div className="min-h-screen bg-slate-900 relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <img
-          src="https://www.freeiconspng.com/uploads/euro-icon-24.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-16 -left-6 md:left-6 w-72 md:w-[420px] lg:w-[500px] opacity-25 blur-lg select-none"
-          draggable={false}
-        />
-        <img
-          src="https://www.freeiconspng.com/uploads/dollar-green-icon-5.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-44 -right-8 md:right-8 w-80 md:w-[460px] lg:w-[540px] opacity-25 blur-lg select-none"
-          draggable={false}
-        />
-        <img
-          src="/yen.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 md:w-[320px] lg:w-[380px] opacity-20 blur-md select-none"
-          draggable={false}
-        />
-      </div>
-      
+    <div className="min-h-screen bg-[#0d1224] relative overflow-x-hidden">
+      {/* Subtle noise/texture overlay */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-[0.015]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+        }}
+      />
       <Header />
       <Hero />
       <FeaturesSection />
