@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Goal } from '@/types/model.types';
 import { goalsApi } from '@/api/endpoints/goals.api';
+import { getCurrencySymbol } from '@/utils/formatters';
 
 interface EditGoalModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
   const [targetAmount, setTargetAmount] = useState('');
   const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const currencySymbol = goal ? getCurrencySymbol(goal.currency?.iso4217Code) : '$';
 
   useEffect(() => {
     if (goal && isOpen) {
@@ -118,15 +120,18 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
 
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Target Amount</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  placeholder="0.00"
-                  value={targetAmount}
-                  onChange={(e) => setTargetAmount(e.target.value)}
-                  required
-                  className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                />
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">{currencySymbol}</span>
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    value={targetAmount}
+                    onChange={(e) => setTargetAmount(e.target.value)}
+                    required
+                    className="w-full pl-8 pr-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  />
+                </div>
               </div>
             </div>
 
@@ -153,7 +158,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Updating...' : 'Update Goal'}
               </button>

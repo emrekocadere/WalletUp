@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import type { Goal } from '@/types/model.types';
 import { goalsApi } from '@/api/endpoints/goals.api';
 import type { RootState } from '@/store/store';
+import { getCurrencySymbol } from '@/utils/formatters';
 
 interface AddMoneyModalProps {
   isOpen: boolean;
@@ -23,6 +24,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
   const currentAmount = goal.currentAmount || 0;
   const targetAmount = goal.target || 0;
   const remainingAmount = targetAmount - currentAmount;
+  const currencySymbol = getCurrencySymbol(goal.currency?.iso4217Code);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,15 +97,15 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-400">Current:</span>
-              <span className="text-white font-semibold">₺{currentAmount.toLocaleString('tr-TR')}</span>
+              <span className="text-white font-semibold">{currencySymbol}{currentAmount.toLocaleString('tr-TR')}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Target:</span>
-              <span className="text-white font-semibold">₺{targetAmount.toLocaleString('tr-TR')}</span>
+              <span className="text-white font-semibold">{currencySymbol}{targetAmount.toLocaleString('tr-TR')}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Remaining:</span>
-              <span className="text-purple-400 font-semibold">₺{remainingAmount.toLocaleString('tr-TR')}</span>
+              <span className="text-indigo-400 font-semibold">{currencySymbol}{remainingAmount.toLocaleString('tr-TR')}</span>
             </div>
           </div>
         </div>
@@ -116,7 +118,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
             <select
               value={transactionTypeId}
               onChange={(e) => setTransactionTypeId(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-slate-700 transition-colors appearance-none cursor-pointer"
+              className="w-full px-4 py-3 bg-slate-700/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 hover:bg-slate-700 transition-colors appearance-none cursor-pointer"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 14l-7 7m0 0l-7-7m7 7V3'%3E%3C/path%3E%3C/svg%3E")`,
                 backgroundRepeat: 'no-repeat',
@@ -141,7 +143,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
               Amount to Add
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">₺</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">{currencySymbol}</span>
               <input
                 type="number"
                 value={amount}
@@ -149,7 +151,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
                 placeholder="0.00"
                 step="0.01"
                 min="0.01"
-                className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                className="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 required
                 disabled={isLoading}
                 autoFocus
@@ -157,7 +159,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
             </div>
             {parseFloat(amount) > 0 && (
               <p className="mt-2 text-sm text-gray-400">
-                New total: ₺{(currentAmount + parseFloat(amount)).toLocaleString('tr-TR')}
+                New total: {currencySymbol}{(currentAmount + parseFloat(amount)).toLocaleString('tr-TR')}
               </p>
             )}
           </div>
@@ -174,7 +176,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all shadow-lg shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-all shadow-lg shadow-indigo-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading || !amount || parseFloat(amount) <= 0 || !transactionTypeId}
             >
               {isLoading ? 'Adding...' : 'Add Money'}

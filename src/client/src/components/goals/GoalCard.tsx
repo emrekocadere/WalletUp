@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Goal } from '@/types/model.types';
 import { DropdownMenu } from '@/components/common/DropdownMenu';
+import { getCurrencySymbol } from '@/utils/formatters';
 
 interface GoalCardProps {
   goal: Goal;
@@ -14,6 +15,7 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
   const currentAmount = goal.currentAmount || 0;
   const targetAmount = goal.target || 0;
   const progress = goal.targetPercent || 0;
+  const currencySymbol = getCurrencySymbol(goal.currency?.iso4217Code);
 
   const handleDelete = async () => {
     setIsDeleting(true);
@@ -48,7 +50,7 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
   ];
 
   return (
-    <div className={`bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10 hover:border-purple-400/30 transition-all hover:shadow-lg hover:shadow-purple-500/10 ${isDeleting ? 'opacity-50 pointer-events-none' : ''}`}>
+    <div className={`bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10 hover:border-primary-400/30 transition-colors ${isDeleting ? 'opacity-50 pointer-events-none' : ''}`}>
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-xl font-bold text-white mb-1">{goal.title}</h3>
@@ -78,7 +80,7 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
         </div>
         <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-gradient-to-r from-purple-500 to-purple-400 transition-all duration-500`}
+            className={`h-full bg-gradient-to-r from-primary-500 to-primary-400 transition-all duration-500`}
             style={{ width: `${Math.min(progress, 100)}%` }}
           />
         </div>
@@ -88,13 +90,13 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-400">Current</span>
           <span className="text-sm font-bold text-white">
-            {currentAmount.toLocaleString('tr-TR')} {goal.currency?.iso4217Code || ''}
+            {currencySymbol}{currentAmount.toLocaleString('tr-TR')}
           </span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-400">Target</span>
           <span className="text-sm font-bold text-white">
-            {targetAmount.toLocaleString('tr-TR')} {goal.currency?.iso4217Code || ''}
+            {currencySymbol}{targetAmount.toLocaleString('tr-TR')}
           </span>
         </div>
       </div>
