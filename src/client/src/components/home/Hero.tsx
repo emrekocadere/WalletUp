@@ -12,7 +12,7 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
       >
-        <source src="/292716.mp4" type="video/mp4" />
+        <source src="/292716.webm" type="video/webm" />
       </video>
 
       {/* Dark overlay */}

@@ -4,8 +4,7 @@ import type { User } from '@/types/auth.types';
 import type { ResultT } from '@/types/common.types';
 import type { AuthResponse } from '@/types/auth.types';
 import { authService } from '@/services/auth.service';
-
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5039/api';
+import { baseURL } from '@/api/client/axios.client';
 
 interface AuthState {
   accessToken: string | null;

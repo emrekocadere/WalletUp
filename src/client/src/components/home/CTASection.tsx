@@ -4,23 +4,6 @@ export const CTASection = () => {
   return (
     <section id="stats" className="relative z-10 px-4 py-24">
       <div className="max-w-6xl mx-auto">
-        {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {[
-            { value: '10K+', label: 'Active Users', color: 'text-violet-400' },
-            { value: '$2M+', label: 'Tracked Monthly', color: 'text-indigo-400' },
-            { value: '99.9%', label: 'Uptime', color: 'text-emerald-400' },
-            { value: '4.9★', label: 'User Rating', color: 'text-amber-400' },
-          ].map(stat => (
-            <div
-              key={stat.label}
-              className="bg-white/4 backdrop-blur-xl rounded-3xl border border-white/10 p-6 text-center hover:bg-white/7 transition-all"
-            >
-              <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.value}</p>
-              <p className="text-sm text-gray-500">{stat.label}</p>
-            </div>
-          ))}
-        </div>
 
         {/* CTA banner */}
         <div className="relative overflow-hidden  from-violet-900/80 to-indigo-900/80 backdrop-blur-2xl rounded-3xl border border-violet-400/25 p-10 md:p-16">
