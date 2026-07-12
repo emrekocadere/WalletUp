@@ -80,7 +80,17 @@ The API is built with **.NET 8** following **Clean Architecture** and **CQRS** p
 
 ## 📸 Screenshots
 
-![WalletUp Screenshot](./src/client/public/logo.png)
+### Dashboard
+![Dashboard](https://i.ibb.co/8nzNv4r4/wallet-Up-readme.webp)
+
+### Account Management
+![Accounts](https://i.ibb.co/gZJNV0Vc/wallet-Up-readme2.webp)
+
+### AI-Powered Insights
+![AI Insights](https://i.ibb.co/CK8dn7V4/wallet-Up-readme8.webp)
+
+### Financial Goals
+![Financial Goals](https://i.ibb.co/6JNNXpxm/wallet-Up-readme11.webp)
 
 ## 🛠️ Technologies Summary
 
