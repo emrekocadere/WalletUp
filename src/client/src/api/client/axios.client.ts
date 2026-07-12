@@ -2,7 +2,7 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import type { ApiError, ResultT } from '@/types/common.types';
 import type { AuthResponse } from '@/types/auth.types';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5039/api';
+export const baseURL = 'https://api.walletup.io/api';
 
 export const apiClient = axios.create({
   baseURL,
@@ -72,7 +72,7 @@ apiClient.interceptors.response.use(
         
         if (data.isSuccess && data.value?.accessToken) {
           const { setCredentials } = await import('@/store/slices/authSlice');
-          store.dispatch(setCredentials({ accessToken: data.value.accessToken }));
+          store.dispatch(setCredentials({ accessToken: data.value.accessToken, isOnboardingCompleted: data.value.isOnboardingCompleted ?? false }));
           
           originalRequest.headers!.Authorization = `Bearer ${data.value.accessToken}`;
           return apiClient(originalRequest);
@@ -94,13 +94,13 @@ apiClient.interceptors.response.use(
 
     if (error.response) {
       return Promise.reject({
-        message: error.response.data?.message || 'An error occurred',
+        message: error.response.data.errors?.description || error.response.data?.message || 'An error occurred',
         errors: error.response.data?.errors,
         statusCode: error.response.status,
       } as ApiError);
     } else if (error.request) {
       return Promise.reject({
-        message: 'Network error',
+        message: 'Network error. Please check your connection.',
         statusCode: 0,
       } as ApiError);
     }

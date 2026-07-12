@@ -21,13 +21,17 @@ export const GoogleSignInButton = ({ }: GoogleSignInButtonProps) => {
 
 
       if (res.data.value?.accessToken) {
-        dispatch(setCredentials({ accessToken: res.data.value.accessToken }));
+        dispatch(setCredentials({ accessToken: res.data.value.accessToken, isOnboardingCompleted: res.data.value.isOnboardingCompleted ?? false }));
         
-        navigate("/dashboard", { replace: true });
+        if (res.data.value.isOnboardingCompleted) {
+          navigate("/dashboard", { replace: true });
+        } else {
+          navigate("/onboarding", { replace: true });
+        }
       } else if (res.data.accessToken) {
-        dispatch(setCredentials({ accessToken: res.data.accessToken }));
+        dispatch(setCredentials({ accessToken: res.data.accessToken, isOnboardingCompleted: false }));
         
-        navigate("/dashboard", { replace: true });
+        navigate("/onboarding", { replace: true });
       }
     } catch (error) {
     }
@@ -47,7 +51,7 @@ export const GoogleSignInButton = ({ }: GoogleSignInButtonProps) => {
       <div className="mt-6">
         <GoogleLogin
           onSuccess={handleSuccess}
-          onError={() => console.log("Login Failed")}
+          onError={() => {}}
         />
       </div>
     </>
