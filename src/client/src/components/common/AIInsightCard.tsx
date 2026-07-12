@@ -21,16 +21,16 @@ export const AIInsightCard = ({
   const content = showToggle ? (isExpanded ? fullContent : summary) : fullContent;
 
   const variantClasses = {
-    primary: 'from-primary-500/10 to-indigo-500/10 border-primary-500/30',
+    primary: 'from-primary-500/10 to-primary-500/10 border-primary-500/30',
     success: 'from-green-500/10 to-emerald-500/10 border-green-500/30',
-    warning: 'from-amber-500/10 to-orange-500/10 border-amber-500/30',
+    warning: 'from-primary-500/10 to-orange-500/10 border-primary-500/30',
     info: 'from-blue-500/10 to-cyan-500/10 border-blue-500/30',
   };
 
   const iconColorClasses = {
     primary: 'text-primary-400',
     success: 'text-green-400',
-    warning: 'text-amber-400',
+    warning: 'text-primary-400',
     info: 'text-blue-400',
   };
 
@@ -70,7 +70,7 @@ export const AIInsightCard = ({
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="text-sm font-semibold text-white">{title}</h3>
-              <span className="px-2 py-0.5 text-xs font-medium bg-primary-500/20 text-primary-400 rounded-full">
+              <span className="px-2 py-0.5 text-xs font-medium bg-indigo-500/20 text-indigo-400 rounded-full">
                 AI Insight
               </span>
             </div>
@@ -84,7 +84,7 @@ export const AIInsightCard = ({
         {showToggle && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors mt-2 group"
+            className="flex items-center gap-2 text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors mt-2 group"
           >
             <span>{isExpanded ? 'Show less' : 'Show more'}</span>
             <svg

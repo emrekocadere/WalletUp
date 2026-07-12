@@ -1,5 +1,5 @@
 import type { Transaction } from '@/types/model.types';
-import { formatDate, formatCurrency } from '@/utils/formatters';
+import { formatDate, getCurrencySymbol } from '@/utils/formatters';
 import { TransactionRowActions } from '@/components/transactions/TransactionRowActions';
 
 interface TransactionTableProps {
@@ -92,7 +92,7 @@ export const TransactionTable = ({
                 </div>
               </td>
               <td className="px-6 py-4">
-                <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/15 text-purple-300 rounded-lg text-sm border border-purple-500/20 hover:border-purple-400/40 transition-all">
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/15 text-indigo-300 rounded-lg text-sm border border-indigo-500/20 hover:border-indigo-400/40 transition-all">
                   {transaction.category?.name || 'No category'}
                 </span>
               </td>
@@ -136,7 +136,7 @@ export const TransactionTable = ({
                   }`}
                 >
                   {transaction.transactionType?.name?.toLowerCase() === 'income' ? '+' : '-'}
-                  {formatCurrency(transaction.amount)}
+                  {getCurrencySymbol(transaction.account?.currency?.iso4217Code)}{transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </td>
               <td className="px-6 py-4 text-center relative">
@@ -173,7 +173,7 @@ export const TransactionTable = ({
                   }`}
                 >
                   {transaction.transactionType?.name?.toLowerCase() === 'income' ? '+' : '-'}
-                  {formatCurrency(transaction.amount)}
+                  {getCurrencySymbol(transaction.account?.currency?.iso4217Code)}{transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 <TransactionRowActions
                   transaction={transaction}
@@ -188,7 +188,7 @@ export const TransactionTable = ({
             )}
 
             <div className="flex flex-wrap gap-2 items-center">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-purple-500/15 text-purple-300 rounded-lg text-xs border border-purple-500/20">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-indigo-500/15 text-indigo-300 rounded-lg text-xs border border-indigo-500/20">
                 {transaction.category?.name || 'No category'}
               </span>
               

@@ -41,7 +41,6 @@ export const AccountListSection = ({ accounts, isLoading }: AccountListSectionPr
                     <span className="px-2 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-wider">
                       View Details
                     </span>
-                    {typeMeta && <span className="text-[11px] text-gray-400">{typeMeta.description}</span>}
                   </div>
                 </article>
               </Link>
