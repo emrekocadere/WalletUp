@@ -12,6 +12,7 @@ import { TransactionsPage } from '@/pages/TransactionsPage';
 import { AccountsPage } from '@/pages/AccountsPage';
 import { AccountDetailPage } from '@/pages/AccountDetailPage';
 import { GoalsPage } from '@/pages/GoalsPage';
+import { RecurringTransactionsPage } from '@/pages/RecurringTransactionsPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { OnboardingPage } from '@/pages/OnboardingPage';
 import { ReportsPage } from '@/pages/ReportsPage';
@@ -41,6 +42,7 @@ export const AppRoutes = () => {
       <Route path="/accounts" element={<ProtectedRoute><AccountsPage /></ProtectedRoute>} />
       <Route path="/accounts/:id" element={<ProtectedRoute><AccountDetailPage /></ProtectedRoute>} />
       <Route path="/goals" element={<ProtectedRoute><GoalsPage /></ProtectedRoute>} />
+      <Route path="/recurring" element={<ProtectedRoute><RecurringTransactionsPage /></ProtectedRoute>} />
       <Route path="/reports" element={<ProtectedRoute><ReportsPage /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
       <Route path="/onboarding" element={<OnboardingPage />} />

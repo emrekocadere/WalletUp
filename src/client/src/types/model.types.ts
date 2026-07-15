@@ -98,6 +98,24 @@ export interface Goal {
   currency: Currency;
 }
 
+export type RecurrenceFrequency = 'Weekly' | 'BiWeekly' | 'Monthly' | 'Quarterly' | 'SemiAnnually' | 'Annually';
+
+export interface RecurringTransaction {
+  id?: string;
+  title: string;
+  description?: string;
+  amount: number;
+  frequency: RecurrenceFrequency;
+  category?: Category;
+  account?: Account;
+  transactionType?: TransactionType;
+  startDate: string;
+  endDate?: string;
+  nextOccurrence?: string;
+  isActive: boolean;
+  createdAt?: string;
+}
+
 export interface AIPreferences {
   enabled: boolean;
   [key: string]: any;
