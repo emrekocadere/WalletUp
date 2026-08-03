@@ -11,6 +11,7 @@ using WalletUp.Domain.Services;
 using WalletUp.Infstructre.Identity.Models;
 using CashCat.Infstructre.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.JsonWebTokens;
 using WalletUp.Application.Common.Services;
 namespace CashCat.Infstructre.Identity;
@@ -20,7 +21,8 @@ public class IdentityService(
     UserManager<ApplicationUser> userManager,
     ITokenService tokenService,
     IUserTokenRepository userTokenRepository,
-    IUserContext userContext)
+    IUserContext userContext,
+    ILogger<IdentityService> logger)
     : IIdentityService
 {
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
@@ -32,6 +34,7 @@ public class IdentityService(
         var identityResult = await userManager.CreateAsync(user, command.Password);
         if (!identityResult.Succeeded)
         {
+            logger.LogError($"Error creating user: {identityResult.Errors.First().Description}");
             return Errors.UserCreationFailed;
         }
         
@@ -97,7 +100,6 @@ public class IdentityService(
         List<Claim> authClaims = [
             new (ClaimTypes.Name, user.UserName!),
             new(ClaimTypes.NameIdentifier,user.Id.ToString())
-            // new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // bu nedir
         ];
         
         var userRoles = await userManager.GetRolesAsync(user);
