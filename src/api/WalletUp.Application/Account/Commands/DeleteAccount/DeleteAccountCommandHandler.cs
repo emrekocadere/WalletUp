@@ -18,6 +18,7 @@ public class DeleteAccountCommandHandler(
         if (canDelete)
         {
             accountRepository.Delete(request.AccountId);
+           await accountRepository.SaveChanges();
             return Result.Success();
         }
         

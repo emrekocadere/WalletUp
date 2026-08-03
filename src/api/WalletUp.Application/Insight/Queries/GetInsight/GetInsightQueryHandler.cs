@@ -34,6 +34,7 @@ public class GetInsightQueryHandler(
             return cachedInsight;
         }
 
+
         var preference = prefrenceRepository.GetByUserId(userId);
         var accounts = accountRepository.GetAllAccountsByUserId(userId);
         var transactions = transactionRepository.GetTransactions(userId);
@@ -43,7 +44,24 @@ public class GetInsightQueryHandler(
         var transactionDtos= mapper.Map<List<TransactionDto>>(transactions);
         var goalDtos= mapper.Map<List<GoalDto>>(goals);
 
-
+        if (preference == null)
+        {
+            var defaultInsight = new InsightDto
+            {
+                Summary = "Lütfen hesap tercihlerinizi tamamlayın. Para birimi, ülke, meslek ve aylık gelir bilgileriniz giriniz.",
+                Recommendations = new List<InsightRecommendation>
+                {
+                    new()
+                    {
+                        Title = "Profil Tamamlama",
+                        Description = "Tercihlerinizi güncellemek için Ayarlar > Tercihler sayfasını ziyaret edin."
+                    }
+                }
+            };
+            
+            await cacheService.SetAsync(cacheKey, defaultInsight, TimeSpan.FromHours(24));
+            return defaultInsight;
+        }
         var baseInsightInput = new InsightRequest()
         {
             CurrencyUsed = preference.Currency.ISO4217Code,
@@ -65,9 +83,9 @@ public class GetInsightQueryHandler(
 
             return result;
         }
-        catch (Exception ex)
+        catch (Exception _)
         {
-            return Errors.AccountNotFound;
+            return Errors.InsightError;
         }
     }
 }
