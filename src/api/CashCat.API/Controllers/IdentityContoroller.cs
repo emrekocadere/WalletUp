@@ -13,13 +13,12 @@ namespace CashCat.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class IdentityController(IMediator mediator) : ControllerBase
+public class IdentityController(IMediator mediator, ILogger<IdentityController> logger) : ControllerBase
 {
     [HttpPost("register")]
     public async Task<ActionResult<ResultT<TokenDto>>> Register(RegisterCommand command)
     {
         var result = await mediator.Send(command);
-        
         if (result.IsSuccess)
         {
             Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
@@ -30,8 +29,11 @@ public class IdentityController(IMediator mediator) : ControllerBase
                 Expires = DateTime.UtcNow.AddDays(7),
                 Path = "/"
             });
+
+            return StatusCode(StatusCodes.Status201Created, result);
         }
-        
+
+
         return result;
     }
     
@@ -77,6 +79,11 @@ public class IdentityController(IMediator mediator) : ControllerBase
     {
 
         var result = await mediator.Send(command);
+
+        if (!result.IsSuccess)
+        {
+            return Unauthorized(result);
+        }
         
         if (result.IsSuccess)
         {

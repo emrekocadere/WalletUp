@@ -14,7 +14,6 @@ namespace CashCat.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class AccountController(IMediator mediator):ControllerBase
 {
     [HttpPost]
@@ -42,7 +41,9 @@ public class AccountController(IMediator mediator):ControllerBase
     public async Task<ActionResult> DeleteAccounts(Guid id)
     {
         var result = await mediator.Send(new DeleteAccountCommand(id));
-        return Ok(result);
+        if(result.IsSuccess)
+            return Ok(result);
+        return BadRequest(result);
     }
     
     [HttpPut("{id}")]
@@ -67,5 +68,4 @@ public class AccountController(IMediator mediator):ControllerBase
         return Ok(result);
     }
     
-
 }
