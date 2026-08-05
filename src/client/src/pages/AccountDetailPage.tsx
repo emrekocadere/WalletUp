@@ -77,20 +77,11 @@ export const AccountDetailPage = () => {
         }
 
 
-        console.log('Aktif Filtreler:', {
-          category: filterCategory !== 'all' ? filterCategory : 'Yok',
-          type: filterType !== 'all' ? filterType : 'Yok',
-          period: filterPeriod !== 'all' ? filterPeriod : 'Yok'
-        });
-        console.log('API Parametreleri:', filters);
-
         const [accountData, transactionsData, allAccountsData] = await Promise.all([
           accountsApi.getById(id),
           transactionsApi.getByAccountId(id, Object.keys(filters).length > 0 ? filters : undefined),
           accountsApi.getAll()
         ]);
-
-        console.log('Request successful. Number of transactions received:', transactionsData.length);
 
         setAccount(accountData);
         setTransactions(transactionsData);
@@ -224,7 +215,6 @@ export const AccountDetailPage = () => {
               onDelete={async (transactionId) => {
                 try {
                   const result = await transactionsApi.delete(transactionId);
-                  console.log('Delete result:', result);
                   if (result.isSuccess) {
                     const updatedTransactions = await transactionsApi.getByAccountId(id!);
                     setTransactions(updatedTransactions);

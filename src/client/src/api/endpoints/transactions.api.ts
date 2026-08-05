@@ -40,7 +40,6 @@ export const transactionsApi = {
   },
 
   create: async (transaction: CreateTransactionRequest): Promise<Result> => {
-    console.log('Creating transaction:', transaction);
     const { data } = await apiClient.post<Result>('/transaction', transaction);
     return data;
   },

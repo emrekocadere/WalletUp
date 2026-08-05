@@ -40,7 +40,6 @@ class AuthService {
     if (!tokenToUse) return null;
  
     const payload = this.decodeToken(tokenToUse);
-       console.log('payload:', payload);
     if (!payload) return null;
 
 

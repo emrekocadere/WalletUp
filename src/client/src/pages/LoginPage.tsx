@@ -26,7 +26,6 @@ export const LoginPage = () => {
     setIsLoading(true);
 
     try {
-      console.log("login isteği gidiyor")
       const response = await authApi.login(data);
 
       if (!response.isSuccess) {
@@ -36,7 +35,6 @@ export const LoginPage = () => {
       }
 
       if (response.value?.accessToken) {
-          console.log("anan");
         dispatch(setCredentials({ accessToken: response.value.accessToken, isOnboardingCompleted: response.value.isOnboardingCompleted ?? false }));
 
         if (response.value.isOnboardingCompleted) {

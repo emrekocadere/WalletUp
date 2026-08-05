@@ -86,21 +86,11 @@ export const TransactionsPage = () => {
           filters.endDate = now.toISOString();
         }
 
-        console.log('Aktif Filtreler:', {
-          category: filterCategory !== 'all' ? filterCategory : 'Yok',
-          account: filterAccount !== 'all' ? filterAccount : 'Yok',
-          type: filterType !== 'all' ? filterType : 'Yok',
-          period: filterPeriod !== 'all' ? filterPeriod : 'Yok'
-        });
-        console.log('API Parametreleri:', filters);
-        
         const [transactionsData, accountsData] = await Promise.all([
           transactionsApi.getAll(filters),
           accountsApi.getAll(),
         ]);
-        
-        console.log('Request successful. Number of transactions received:', transactionsData.length);
-        
+
         setTransactions(transactionsData);
         setAccounts(accountsData.accounts);
       } catch (error) {
