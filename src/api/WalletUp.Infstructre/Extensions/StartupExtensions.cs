@@ -11,6 +11,7 @@ public static class StartupExtensions
 {
     public static async Task InitializeDatabaseAsync(this WebApplication app)
     {
+        Console.WriteLine("wallet up initializing database...");
         await using var scope = app.Services.CreateAsyncScope();
 
         

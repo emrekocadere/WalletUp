@@ -33,10 +33,10 @@ public static class ServiceCollectionsExtensions
         {
             opt.UseNpgsql(connectionString);
         });
-        
+
 
         services.AddScoped<DatabaseSeeder>();
-        
+
 
         services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<CashCatDbContext>();
@@ -44,7 +44,9 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IPrefrenceRepository, PrefrenceRepository>();
         services.AddHttpContextAccessor();
         services.AddScoped<IAccountRepository, AccountRepository>();
+
         services.AddScoped<IUserContext, UserContext>();
+
         services.AddScoped<IIdentityService, IdentityService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IRepository<Transaction>, Repository<Transaction>>();
@@ -73,8 +75,9 @@ public static class ServiceCollectionsExtensions
         var redisConnection = configuration.GetConnectionString("Redis");
 
         services.AddStackExchangeRedisCache(options =>
-            options.Configuration = redisConnection
-        );
+        {
+            options.Configuration = $"{redisConnection},password=admin";
+        });
 
         services.AddAuthentication(options =>
             {
