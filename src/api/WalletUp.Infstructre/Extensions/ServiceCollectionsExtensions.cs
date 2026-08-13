@@ -1,4 +1,6 @@
 using System.Text;
+using Hangfire;
+using Hangfire.PostgreSql;
 using WalletUp.Domain.Repositories;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.Identity;
@@ -61,6 +63,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IRepository<Country>, Repository<Country>>();
         services.AddScoped<IRepository<Category>, Repository<Category>>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
+        services.AddScoped<IRecurringTransactionRepository, RecurringTransactionRepository>();
         services.AddScoped<IGoalRepository, GoalRepository>();
         services.AddScoped<IGoalTransactionRepository, GoalTransactionRepository>();
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
@@ -103,6 +106,13 @@ public static class ServiceCollectionsExtensions
 
         var applicationAssembly = typeof(ServiceCollectionsExtensions).Assembly;
         services.AddAutoMapper(cfg => { }, applicationAssembly);
+
+        services.AddHangfire(cfg => cfg
+            .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+            .UseSimpleAssemblyNameTypeSerializer()
+            .UseRecommendedSerializerSettings()
+            .UsePostgreSqlStorage(opt => opt.UseNpgsqlConnection(connectionString)));
+        services.AddHangfireServer();
     }
 
     public static void UseInfrastructure(this IApplicationBuilder app)

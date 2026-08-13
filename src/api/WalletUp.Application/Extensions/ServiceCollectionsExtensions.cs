@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using WalletUp.Application.RecurringTransaction.Services;
 
 namespace WalletUp.Application.Extensions;
 
@@ -10,5 +11,7 @@ public static class ServiceCollectionsExtensions
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
 
         services.AddAutoMapper(cfg => { }, applicationAssembly);
+
+        services.AddScoped<IRecurringTransactionProcessor, RecurringTransactionProcessor>();
     }
 }

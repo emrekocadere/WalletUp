@@ -1,6 +1,9 @@
 using System.Diagnostics;
+using System.Text.Json.Serialization;
+using Hangfire;
 using Microsoft.AspNetCore.HttpOverrides;
 using CashCat.Infstructre.Persistence;
+using WalletUp.Application.RecurringTransaction.Services;
 using WalletUp.Infstructre.Extensions;
 using WalletUp.Application.Extensions;
 using CashCat.Integrations;
@@ -12,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -88,5 +92,15 @@ app.UseHttpsRedirection();
 app.UseInfrastructure();
 
 app.MapControllers();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseHangfireDashboard();
+}
+
+RecurringJob.AddOrUpdate<IRecurringTransactionProcessor>(
+    "process-due-recurring-transactions",
+    processor => processor.ProcessDueRecurringTransactionsAsync(CancellationToken.None),
+    Cron.Daily);
 
 app.Run();

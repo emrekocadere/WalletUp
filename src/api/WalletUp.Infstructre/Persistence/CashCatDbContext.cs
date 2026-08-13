@@ -26,6 +26,7 @@ public class CashCatDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
     public DbSet<GoalTransaction> GoalTransactions{ get; set; }
     public DbSet<Country> Countries{ get; set; }
     public DbSet<ChatMessage> ChatMessage{ get; set; }
+    public DbSet<RecurringTransaction> RecurringTransactions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
