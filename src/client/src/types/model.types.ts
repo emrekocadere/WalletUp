@@ -130,6 +130,30 @@ export interface RecurringTransaction {
   createdAt?: string;
 }
 
+export interface CreateRecurringTransactionRequest {
+  title: string;
+  description?: string;
+  amount: number;
+  accountId: string;
+  categoryId: string;
+  transactionTypeId: string;
+  frequency: RecurrenceFrequency;
+  startDate: string;
+  endDate?: string | null;
+}
+
+export interface UpdateRecurringTransactionRequest {
+  title: string;
+  description?: string;
+  amount: number;
+  categoryId: string;
+  transactionTypeId: string;
+  frequency: RecurrenceFrequency;
+  startDate: string;
+  endDate?: string | null;
+  isActive: boolean;
+}
+
 export interface AIPreferences {
   enabled: boolean;
   [key: string]: any;

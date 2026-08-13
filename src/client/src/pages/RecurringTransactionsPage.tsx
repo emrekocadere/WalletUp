@@ -1,70 +1,47 @@
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
+import { PageLoader } from '@/components/common/PageLoader';
 import { RecurringTransactionCard } from '@/components/recurring/RecurringTransactionCard';
 import { RecurringTransactionModal } from '@/components/recurring/RecurringTransactionModal';
 import type { RecurringTransaction } from '@/types/model.types';
 import { getCurrencySymbol } from '@/utils/formatters';
 import { accountsApi } from '@/api/endpoints/accounts.api';
-
-// Mock data — Backend hazırlanınca API endpoint'ten gelecek
-const mockRecurringTransactions: RecurringTransaction[] = [
-  {
-    id: '1',
-    title: 'Monthly Rent',
-    description: 'Apartment rent payment',
-    amount: 1200,
-    frequency: 'Monthly',
-    startDate: '2026-01-01',
-    nextOccurrence: '2026-08-01',
-    isActive: true,
-    createdAt: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: '2',
-    title: 'Salary',
-    description: 'Monthly salary',
-    amount: 3500,
-    frequency: 'Monthly',
-    startDate: '2026-01-15',
-    nextOccurrence: '2026-08-15',
-    isActive: true,
-    createdAt: '2026-01-15T00:00:00Z',
-  },
-  {
-    id: '3',
-    title: 'Gym Membership',
-    description: 'Monthly gym subscription',
-    amount: 45,
-    frequency: 'Monthly',
-    startDate: '2026-02-01',
-    endDate: '2027-02-01',
-    nextOccurrence: '2026-08-01',
-    isActive: true,
-    createdAt: '2026-02-01T00:00:00Z',
-  },
-];
+import { recurringTransactionsApi } from '@/api/endpoints/recurringTransactions.api';
 
 export const RecurringTransactionsPage = () => {
-  const [recurringTransactions, setRecurringTransactions] = useState<RecurringTransaction[]>(mockRecurringTransactions);
+  const [recurringTransactions, setRecurringTransactions] = useState<RecurringTransaction[]>([]);
   const [accounts, setAccounts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [currency] = useState('USD');
-  const [isLoadingAccounts, setIsLoadingAccounts] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchRecurringTransactions = async () => {
+    try {
+      const data = await recurringTransactionsApi.getAll();
+      setRecurringTransactions(data);
+    } catch (error) {
+      console.error('Failed to load recurring transactions:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchAccounts = async () => {
+    const fetchData = async () => {
+      setIsLoading(true);
       try {
-        const response = await accountsApi.getAll();
-        setAccounts(response.accounts);
+        const [accountsResponse] = await Promise.all([
+          accountsApi.getAll(),
+          fetchRecurringTransactions(),
+        ]);
+        setAccounts(accountsResponse.accounts);
       } catch (error) {
-        console.error('Failed to load accounts:', error);
+        console.error('Failed to load recurring transactions data:', error);
       } finally {
-        setIsLoadingAccounts(false);
+        setIsLoading(false);
       }
     };
-    fetchAccounts();
+    fetchData();
   }, []);
 
   const handleOpenModal = (id?: string) => {
@@ -81,30 +58,58 @@ export const RecurringTransactionsPage = () => {
     setEditingId(null);
   };
 
-  const handleSave = (transaction: RecurringTransaction) => {
-    if (editingId) {
-      // Edit mode
-      setRecurringTransactions(prev =>
-        prev.map(t => (t.id === editingId ? { ...transaction, id: editingId } : t))
-      );
-    } else {
-      // Add mode
-      setRecurringTransactions(prev => [
-        ...prev,
-        { ...transaction, id: Date.now().toString() }
-      ]);
+  const handleSave = async (transaction: RecurringTransaction) => {
+    try {
+      if (editingId) {
+        await recurringTransactionsApi.update(editingId, {
+          title: transaction.title,
+          description: transaction.description,
+          amount: transaction.amount,
+          categoryId: transaction.category!.id,
+          transactionTypeId: transaction.transactionType!.id,
+          frequency: transaction.frequency,
+          startDate: transaction.startDate,
+          endDate: transaction.endDate || null,
+          isActive: transaction.isActive,
+        });
+      } else {
+        await recurringTransactionsApi.create({
+          title: transaction.title,
+          description: transaction.description,
+          amount: transaction.amount,
+          accountId: transaction.account!.id,
+          categoryId: transaction.category!.id,
+          transactionTypeId: transaction.transactionType!.id,
+          frequency: transaction.frequency,
+          startDate: transaction.startDate,
+          endDate: transaction.endDate || null,
+        });
+      }
+      await fetchRecurringTransactions();
+      handleCloseModal();
+    } catch (error) {
+      console.error('Failed to save recurring transaction:', error);
     }
-    handleCloseModal();
   };
 
-  const handleDelete = (id: string) => {
-    setRecurringTransactions(prev => prev.filter(t => t.id !== id));
+  const handleDelete = async (id: string) => {
+    try {
+      await recurringTransactionsApi.delete(id);
+      setRecurringTransactions(prev => prev.filter(t => t.id !== id));
+    } catch (error) {
+      console.error('Failed to delete recurring transaction:', error);
+    }
   };
 
-  const handleToggleActive = (id: string) => {
-    setRecurringTransactions(prev =>
-      prev.map(t => (t.id === id ? { ...t, isActive: !t.isActive } : t))
-    );
+  const handleToggleActive = async (id: string) => {
+    try {
+      await recurringTransactionsApi.toggleActive(id);
+      setRecurringTransactions(prev =>
+        prev.map(t => (t.id === id ? { ...t, isActive: !t.isActive } : t))
+      );
+    } catch (error) {
+      console.error('Failed to toggle recurring transaction:', error);
+    }
   };
 
   const editingTransaction = editingId
@@ -112,6 +117,8 @@ export const RecurringTransactionsPage = () => {
     : undefined;
 
   const currencySymbol = getCurrencySymbol(currency);
+
+  if (isLoading) return <PageLoader message="Loading recurring transactions..." />;
 
   return (
     <div className="min-h-screen bg-[#0d1224]">

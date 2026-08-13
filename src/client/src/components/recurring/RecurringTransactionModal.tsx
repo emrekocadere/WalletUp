@@ -20,8 +20,8 @@ const FREQUENCIES: { value: RecurrenceFrequency; label: string }[] = [
 ];
 
 export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSave }: Props) => {
-  const { categories } = useSelector((state: RootState) => state.appData);
-  
+  const { categories, transactionTypes } = useSelector((state: RootState) => state.appData);
+
   const [formData, setFormData] = useState<Partial<RecurringTransaction>>({
     title: '',
     description: '',
@@ -54,6 +54,8 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
     if (!formData.amount || formData.amount <= 0) newErrors.amount = 'Amount must be greater than 0';
     if (!formData.startDate) newErrors.startDate = 'Start date is required';
     if (!formData.account?.id) newErrors.account = 'Account is required';
+    if (!formData.category?.id) newErrors.category = 'Category is required';
+    if (!formData.transactionType?.id) newErrors.transactionType = 'Type is required';
 
     if (formData.endDate && formData.startDate && formData.endDate < formData.startDate) {
       newErrors.endDate = 'End date must be after start date';
@@ -176,10 +178,35 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
             {errors.account && <p className="text-xs text-red-400 mt-1">{errors.account}</p>}
           </div>
 
+          {/* Transaction Type */}
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1">
+              Type *
+            </label>
+            <select
+              value={formData.transactionType?.id || ''}
+              onChange={e => {
+                const transactionType = transactionTypes.find(t => t.id === e.target.value);
+                handleChange('transactionType', transactionType);
+              }}
+              className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 cursor-pointer ${
+                errors.transactionType ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+              }`}
+            >
+              <option value="">Select type</option>
+              {transactionTypes.map(t => (
+                <option key={t.id} value={t.id}>
+                  {t.name}
+                </option>
+              ))}
+            </select>
+            {errors.transactionType && <p className="text-xs text-red-400 mt-1">{errors.transactionType}</p>}
+          </div>
+
           {/* Category */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Category
+              Category *
             </label>
             <select
               value={formData.category?.id || ''}
@@ -187,15 +214,18 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 const category = categories.find(c => c.id === e.target.value);
                 handleChange('category', category);
               }}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 cursor-pointer ${
+                errors.category ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+              }`}
             >
-              <option value="">No category</option>
+              <option value="">Select category</option>
               {categories.map(cat => (
                 <option key={cat.id} value={cat.id}>
                   {cat.name}
                 </option>
               ))}
             </select>
+            {errors.category && <p className="text-xs text-red-400 mt-1">{errors.category}</p>}
           </div>
 
           {/* Frequency */}
