@@ -20,4 +20,5 @@ public static class Errors
     public static Error UserCreationFailed { get; } = new("UserCreationFailed", "Failed to create user.");
     public static Error RoleCreationFailed { get; } = new("RoleCreationFailed", "Failed to create role.");
     public static Error UserDeletionFailed { get; } = new("UserDeletionFailed", "Failed to delete user.");
+    public static Error InvalidReportRequest { get; } = new("InvalidReportRequest", "Invalid report request. Year must be between 2000 and next year.");
 }

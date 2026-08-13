@@ -11,9 +11,10 @@ public interface ITransactionRepository:IRepository<Transaction>
           Guid? accountId = null,
           DateTime? startDate = null,
           DateTime? endDate = null);
-     int  GetTransactionQuantityByMonths(Guid userId,int month);
-     double  GetIncomesByMonths(Guid userId,int month);
-     double  GetExpenseAmountByMonths(Guid userId,int month);
-     ICollection<Transaction> GetExpensesByMonths(Guid userId,int month);
+     int  GetTransactionQuantityByMonths(Guid userId,int year,int month);
+     double  GetIncomesByMonths(Guid userId,int year,int month);
+     double  GetExpenseAmountByMonths(Guid userId,int year,int month);
+     ICollection<Transaction> GetExpensesByMonths(Guid userId,int year,int month);
      double  GetTotalBalanceByUser(Guid userId);
+     ICollection<Transaction> GetTransactionsForReport(Guid userId, DateTime startDate, DateTime endDate);
 }

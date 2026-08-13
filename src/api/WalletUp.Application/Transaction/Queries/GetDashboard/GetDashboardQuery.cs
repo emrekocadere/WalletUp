@@ -4,4 +4,4 @@ using WalletUp.Application.Transaction.Dtos;
 
 namespace WalletUp.Application.Transaction.Queries.GetDashboard;
 
-public record GetDashboardQuery(int Month):IRequest<ResultT<TransactionDashboardDto>>;
+public record GetDashboardQuery(int Month, int? Year = null):IRequest<ResultT<TransactionDashboardDto>>;

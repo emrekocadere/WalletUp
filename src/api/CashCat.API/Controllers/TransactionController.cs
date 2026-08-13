@@ -143,9 +143,9 @@ public class TransactionController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("dashboard/{month}")]
-    public async Task<ActionResult<Result>> GetDashboard(int month)
+    public async Task<ActionResult<Result>> GetDashboard(int month, [FromQuery] int? year = null)
     {
-        var result = await mediator.Send(new GetDashboardQuery(month));
+        var result = await mediator.Send(new GetDashboardQuery(month, year));
         if (result.IsSuccess)
         {
             return Ok(result);

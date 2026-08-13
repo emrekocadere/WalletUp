@@ -55,42 +55,42 @@ public class TransactionRepository : Repository<Transaction>, ITransactionReposi
         return query.ToList();
     }
 
-    public int GetTransactionQuantityByMonths(Guid userId,int month)
+    public int GetTransactionQuantityByMonths(Guid userId,int year,int month)
     {
         return _dbSet
             .AsNoTracking()
             .Include(x=>x.Account)
-            .Count(x => x.Account.UserId == userId && x.Date.Month==month);
+            .Count(x => x.Account.UserId == userId && x.Date.Year==year && x.Date.Month==month);
     }
 
-    public double GetIncomesByMonths(Guid userId, int month)
-    {
-        return _dbSet
-            .AsNoTracking()
-            .Include(x=>x.Account)
-            .Include(x=>x.TransactionType)
-            .Where(x=>x.Account.UserId==userId && x.TransactionType.Name=="income" && x.Date.Month==month)
-            .Sum(x=>x.Amount);
-    }
-
-    public double GetExpenseAmountByMonths(Guid userId, int month) 
+    public double GetIncomesByMonths(Guid userId, int year, int month)
     {
         return _dbSet
             .AsNoTracking()
             .Include(x=>x.Account)
             .Include(x=>x.TransactionType)
-            .Where(x=>x.Account.UserId==userId && x.TransactionType.Name=="expense" && x.Date.Month==month)
+            .Where(x=>x.Account.UserId==userId && x.TransactionType.Name=="income" && x.Date.Year==year && x.Date.Month==month)
             .Sum(x=>x.Amount);
     }
 
-    public ICollection<Transaction> GetExpensesByMonths(Guid userId, int month)
+    public double GetExpenseAmountByMonths(Guid userId, int year, int month)
+    {
+        return _dbSet
+            .AsNoTracking()
+            .Include(x=>x.Account)
+            .Include(x=>x.TransactionType)
+            .Where(x=>x.Account.UserId==userId && x.TransactionType.Name=="expense" && x.Date.Year==year && x.Date.Month==month)
+            .Sum(x=>x.Amount);
+    }
+
+    public ICollection<Transaction> GetExpensesByMonths(Guid userId, int year, int month)
     {
         return _dbSet
             .AsNoTracking()
             .Include(x => x.Account)
             .Include(x=>x.Category)
             .Include(x => x.TransactionType)
-            .Where(x => x.Account.UserId == userId && x.TransactionType.Name == "expense" && x.Date.Month == month)
+            .Where(x => x.Account.UserId == userId && x.TransactionType.Name == "expense" && x.Date.Year==year && x.Date.Month == month)
             .ToList();
     }
 
@@ -102,5 +102,17 @@ public class TransactionRepository : Repository<Transaction>, ITransactionReposi
             .Include(x=>x.TransactionType)
             .Where(x=>x.Account.UserId == userId)
             .Sum(x=>x.TransactionType.Name=="income" ? x.Amount : -x.Amount);
+    }
+
+    public ICollection<Transaction> GetTransactionsForReport(Guid userId, DateTime startDate, DateTime endDate)
+    {
+        return _dbSet
+            .AsNoTracking()
+            .Include(x => x.Account)
+                .ThenInclude(a => a!.Currency)
+            .Include(x => x.TransactionType)
+            .Include(x => x.Category)
+            .Where(x => x.Account.UserId == userId && x.Date >= startDate && x.Date <= endDate)
+            .ToList();
     }
 }

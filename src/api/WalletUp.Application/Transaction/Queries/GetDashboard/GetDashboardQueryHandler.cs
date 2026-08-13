@@ -19,9 +19,10 @@ public class GetDashboardQueryHandler(
     public async Task<ResultT<TransactionDashboardDto>> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
     {
         var userId = userContext.UserId;
-        var expenses = transactionRepository.GetExpensesByMonths(userId,request.Month);
-        var transactionQuantity = transactionRepository.GetTransactionQuantityByMonths(userId,request.Month);
-        var ıncomeAmount = transactionRepository.GetIncomesByMonths(userId,request.Month);
+        var year = request.Year ?? DateTime.UtcNow.Year;
+        var expenses = transactionRepository.GetExpensesByMonths(userId,year,request.Month);
+        var transactionQuantity = transactionRepository.GetTransactionQuantityByMonths(userId,year,request.Month);
+        var ıncomeAmount = transactionRepository.GetIncomesByMonths(userId,year,request.Month);
         var expenseAmount = expenses.Sum(e => e.Amount);
         var goalQuantity = goalRepository.GetGoalQuantityByUser(userId);
         double currentTotalBalance = 0;
@@ -29,11 +30,14 @@ public class GetDashboardQueryHandler(
         var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
 
         foreach (var account in accounts)
-        { 
-            string currency = account.Currency!.ISO4217Code;
-           var newBalance= await exchangeRateService.GetRatesAsync(currency+preferredCurrency, account.Balance);
-           Console.WriteLine(currency+preferredCurrency);
-           currentTotalBalance += newBalance.Value;
+        {
+            var currency = account.Currency!.ISO4217Code;
+            if (account.Balance <=0)
+                continue;
+
+            var newBalance= await exchangeRateService.GetRatesAsync(currency+preferredCurrency, account.Balance);
+            Console.WriteLine(currency+preferredCurrency);
+            currentTotalBalance += newBalance.Value;
         }
         
         
