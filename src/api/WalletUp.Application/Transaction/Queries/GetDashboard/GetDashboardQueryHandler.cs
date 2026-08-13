@@ -27,17 +27,16 @@ public class GetDashboardQueryHandler(
         var goalQuantity = goalRepository.GetGoalQuantityByUser(userId);
         double currentTotalBalance = 0;
         var accounts = accountRepository.GetAllAccountsByUserId(userId);
+        var netAmountsByAccountId = transactionRepository.GetNetAmountsByAccountIds(userId);
         var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
 
         foreach (var account in accounts)
         {
             var currency = account.Currency!.ISO4217Code;
-            if (account.Balance <=0)
-                continue;
+            var balance = account.InitialBalance + netAmountsByAccountId.GetValueOrDefault(account.Id);
 
-            var newBalance= await exchangeRateService.GetRatesAsync(currency+preferredCurrency, account.Balance);
-            Console.WriteLine(currency+preferredCurrency);
-            currentTotalBalance += newBalance.Value;
+            var converted = await exchangeRateService.GetRatesAsync(currency + preferredCurrency, balance);
+            currentTotalBalance += converted.Value;
         }
         
         

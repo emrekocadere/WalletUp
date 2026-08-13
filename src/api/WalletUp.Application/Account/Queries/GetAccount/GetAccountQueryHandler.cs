@@ -8,13 +8,15 @@ namespace WalletUp.Application.Account.Queries.GetAccount;
 
 public class GetAccountQueryHandler(
     IMapper mapper,
-    IAccountRepository accountRepository)
+    IAccountRepository accountRepository,
+    ITransactionRepository transactionRepository)
     : IRequestHandler<GetAccountQuery, ResultT<AccountDto>>
 {
-    public async Task<ResultT<AccountDto>> Handle(GetAccountQuery request, CancellationToken cancellationToken)
+    public Task<ResultT<AccountDto>> Handle(GetAccountQuery request, CancellationToken cancellationToken)
     {
         var account = accountRepository.GetAccountById(request.AccountId);
         var accountDto = mapper.Map<AccountDto>(account);
-        return accountDto;
+        accountDto.Balance = account.InitialBalance + transactionRepository.GetNetAmountByAccountId(account.Id);
+        return Task.FromResult<ResultT<AccountDto>>(accountDto);
     }
 }

@@ -17,4 +17,6 @@ public interface ITransactionRepository:IRepository<Transaction>
      ICollection<Transaction> GetExpensesByMonths(Guid userId,int year,int month);
      double  GetTotalBalanceByUser(Guid userId);
      ICollection<Transaction> GetTransactionsForReport(Guid userId, DateTime startDate, DateTime endDate);
+     double GetNetAmountByAccountId(Guid accountId);
+     Dictionary<Guid, double> GetNetAmountsByAccountIds(Guid userId);
 }

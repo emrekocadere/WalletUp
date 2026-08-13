@@ -8,7 +8,7 @@ interface AddAccountModalProps {
   onSubmit?: (data: {
     name: string;
     accountTypeId: string;
-    balance: number;
+    initialBalance: number;
     currencyId: string;
   }) => Promise<boolean>;
   onShowToast?: (message: string, type: 'success' | 'error') => void;
@@ -41,7 +41,7 @@ export const AddAccountModal = ({ isOpen, onClose, onSubmit, onShowToast }: AddA
     const success = await onSubmit?.({
       name: accountName,
       accountTypeId: accountTypeId,
-      balance: balanceValue,
+      initialBalance: balanceValue,
       currencyId: currencyId,
     }) || false;
 

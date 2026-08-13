@@ -115,4 +115,29 @@ public class TransactionRepository : Repository<Transaction>, ITransactionReposi
             .Where(x => x.Account.UserId == userId && x.Date >= startDate && x.Date <= endDate)
             .ToList();
     }
+
+    public double GetNetAmountByAccountId(Guid accountId)
+    {
+        return _dbSet
+            .AsNoTracking()
+            .Include(x => x.TransactionType)
+            .Where(x => x.AccountId == accountId)
+            .Sum(x => x.TransactionType!.Name == "income" ? x.Amount : -x.Amount);
+    }
+
+    public Dictionary<Guid, double> GetNetAmountsByAccountIds(Guid userId)
+    {
+        return _dbSet
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Include(x => x.TransactionType)
+            .Where(x => x.Account!.UserId == userId)
+            .GroupBy(x => x.AccountId)
+            .Select(g => new
+            {
+                AccountId = g.Key,
+                Net = g.Sum(x => x.TransactionType!.Name == "income" ? x.Amount : -x.Amount)
+            })
+            .ToDictionary(x => x.AccountId, x => x.Net);
+    }
 }

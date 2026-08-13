@@ -5,7 +5,7 @@ import type { Result, ResultT } from '@/types/common.types';
 export interface CreateAccountRequest {
   name: string;
   accountTypeId: string;
-  balance: number;
+  initialBalance: number;
   currencyId: string;
 }
 
