@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PageLoader } from '@/components/common/PageLoader';
-import { transactionsApi } from '@/api/endpoints/transactions.api';
+import { reportsApi } from '@/api/endpoints/reports.api';
 import { MonthlyBarChart } from '@/components/reports/MonthlyBarChart';
 import { NetSavingsLineChart } from '@/components/reports/NetSavingsLineChart';
 import { CategoryDoughnutChart } from '@/components/reports/CategoryDoughnutChart';
-import type { TransactionDashboard, CategoryExpense } from '@/types/model.types';
+import type { MonthlyReport, CategoryExpense } from '@/types/model.types';
 import { getCurrencySymbol } from '@/utils/formatters';
 
 const MONTHS = [
@@ -49,7 +49,8 @@ const SummaryCard = ({ title, value, subtext, variant, icon }: SummaryCardProps)
 
 export const ReportsPage = () => {
   const currentMonthIndex = new Date().getMonth(); // 0-based
-  const [monthlyData, setMonthlyData] = useState<(TransactionDashboard | null)[]>(Array(12).fill(null));
+  const year = new Date().getFullYear();
+  const [monthlyData, setMonthlyData] = useState<MonthlyReport[]>([]);
   const [selectedMonth, setSelectedMonth] = useState(currentMonthIndex);
   const [isLoading, setIsLoading] = useState(true);
   const [currency, setCurrency] = useState('USD');
@@ -58,14 +59,9 @@ export const ReportsPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const results = await Promise.all(
-          Array.from({ length: 12 }, (_, i) =>
-            transactionsApi.getDashboard(i + 1).catch(() => null)
-          )
-        );
-        setMonthlyData(results);
-        const first = results.find(r => r !== null);
-        if (first) setCurrency(first.preferredCurrency);
+        const report = await reportsApi.getAnnualReport(year);
+        setMonthlyData([...report.months].sort((a, b) => a.month - b.month));
+        setCurrency(report.preferredCurrency);
       } catch (err) {
         console.error('Failed to fetch report data:', err);
       } finally {
@@ -73,7 +69,7 @@ export const ReportsPage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [year]);
 
   const incomeData  = monthlyData.map(d => d?.income ?? 0);
   const expenseData = monthlyData.map(d => d?.expense ?? 0);

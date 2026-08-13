@@ -87,6 +87,20 @@ export interface TransactionDashboard {
   categoryExpenses: CategoryExpense[];
 }
 
+export interface MonthlyReport {
+  month: number;
+  income: number;
+  expense: number;
+  transactionQuantity: number;
+  categoryExpenses: CategoryExpense[];
+}
+
+export interface AnnualReport {
+  year: number;
+  preferredCurrency: string;
+  months: MonthlyReport[];
+}
+
 export interface Goal {
   id: string;
   title: string;
