@@ -1,5 +1,6 @@
 using MediatR;
 using WalletUp.Application.Common.Services;
+using WalletUp.Application.RecurringTransaction.Services;
 using WalletUp.Domain.Common;
 using WalletUp.Domain.Repositories;
 
@@ -7,6 +8,7 @@ namespace WalletUp.Application.RecurringTransaction.Commands.UpdateRecurringTran
 
 public class UpdateRecurringTransactionCommandHandler(
     IRecurringTransactionRepository recurringTransactionRepository,
+    IRecurringTransactionProcessor recurringTransactionProcessor,
     IUserContext userContext)
     : IRequestHandler<UpdateRecurringTransactionCommand, Result>
 {
@@ -37,6 +39,11 @@ public class UpdateRecurringTransactionCommandHandler(
         }
 
         await recurringTransactionRepository.SaveChanges();
+
+        if (startDateChanged)
+        {
+            await recurringTransactionProcessor.ProcessRecurringTransactionAsync(recurringTransaction.Id, cancellationToken);
+        }
 
         return Result.Success();
     }

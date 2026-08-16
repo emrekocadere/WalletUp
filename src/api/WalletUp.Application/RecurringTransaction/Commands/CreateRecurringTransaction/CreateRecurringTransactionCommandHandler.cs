@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using WalletUp.Application.Common.Services;
+using WalletUp.Application.RecurringTransaction.Services;
 using WalletUp.Domain.Common;
 using WalletUp.Domain.Repositories;
 
@@ -10,6 +11,7 @@ public class CreateRecurringTransactionCommandHandler(
     IMapper mapper,
     IAccountRepository accountRepository,
     IRecurringTransactionRepository recurringTransactionRepository,
+    IRecurringTransactionProcessor recurringTransactionProcessor,
     IUserContext userContext)
     : IRequestHandler<CreateRecurringTransactionCommand, Result>
 {
@@ -28,6 +30,9 @@ public class CreateRecurringTransactionCommandHandler(
 
         await recurringTransactionRepository.Create(recurringTransaction);
         await recurringTransactionRepository.SaveChanges();
+
+        // If the start date is today or earlier, don't make the user wait for tomorrow's job run.
+        await recurringTransactionProcessor.ProcessRecurringTransactionAsync(recurringTransaction.Id, cancellationToken);
 
         return Result.Success();
     }
