@@ -18,6 +18,12 @@ public class GetGoalsQueryHandler(
     {
         var goals = goalRepository.GetAllGoalsByUserId(userContext.UserId);
         var goalDtos = mapper.Map<List<GoalDto>>(goals);
+
+        foreach (var goalDto in goalDtos)
+        {
+            goalDto.CurrentAmount = goalTransactionRepository.GetCurrentAmountByGoalId(goalDto.Id);
+        }
+
         return Task.FromResult<ResultT<ICollection<GoalDto>>>(goalDtos);
     }
 }
