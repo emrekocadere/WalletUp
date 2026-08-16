@@ -24,8 +24,8 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
             Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = false,
-                SameSite = SameSiteMode.Lax,
+                Secure = true,
+                SameSite = SameSiteMode.None,
                 Expires = DateTime.UtcNow.AddDays(7),
                 Path = "/"
             });
@@ -58,19 +58,22 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
         
         var command = new RefreshTokenCommand(accessToken, refreshToken);
         var result = await mediator.Send(command);
-        
-        if (result.IsSuccess)
+
+        if (!result.IsSuccess)
         {
-            Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
-            {
-                HttpOnly = true,
-                Secure = false,
-                SameSite = SameSiteMode.Lax,
-                Expires = DateTime.UtcNow.AddDays(7),
-                Path = "/"
-            });
+            Response.Cookies.Delete("refreshToken", new CookieOptions { Path = "/" });
+            return Unauthorized(result);
         }
-        
+
+        Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.None,
+            Expires = DateTime.UtcNow.AddDays(7),
+            Path = "/"
+        });
+
         return result;
     }
 
@@ -90,8 +93,8 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
             Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = false,
-                SameSite = SameSiteMode.Lax,
+                Secure = true,
+                SameSite = SameSiteMode.None,
                 Expires = DateTime.UtcNow.AddDays(7),
                 Path = "/"
             });
@@ -110,8 +113,8 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
             Response.Cookies.Append("refreshToken", result.Value.RefreshToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = false,
-                SameSite = SameSiteMode.Lax,
+                Secure = true,
+                SameSite = SameSiteMode.None,
                 Expires = DateTime.UtcNow.AddDays(7),
                 Path = "/"
             });
@@ -130,6 +133,7 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
     public async Task<ActionResult> Logout()
     {
         var result = await mediator.Send(new LogoutCommand());
+        Response.Cookies.Delete("refreshToken", new CookieOptions { Path = "/" });
         return Ok(result);
     }
 }

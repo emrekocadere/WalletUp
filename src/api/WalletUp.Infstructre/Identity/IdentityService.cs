@@ -132,11 +132,19 @@ public class IdentityService(
     public async  Task<ResultT<TokenDto>> Refresh(TokenDto tokenModel)
     {
         var tokenInfo = userTokenRepository.GetByToken(tokenModel.RefreshToken);
-        
+
+        if (tokenInfo is null || tokenInfo.ExpiresAt < DateTime.UtcNow)
+        {
+            return Errors.InvalidRefreshToken;
+        }
 
         var user = await userManager.FindByIdAsync(tokenInfo.UserId.ToString());
+        if (user is null)
+        {
+            return Errors.UserNotFound;
+        }
 
-        
+
         var userRoles = await userManager.GetRolesAsync(user);
         List<Claim> authClaims = new()
         {

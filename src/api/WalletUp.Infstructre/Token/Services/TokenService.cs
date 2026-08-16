@@ -25,7 +25,7 @@ public class TokenService(IConfiguration configuration) : ITokenService
             Issuer = configuration["JWT:ValidIssuer"],
             Audience = configuration["JWT:ValidAudience"],
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddMinutes(15),
+            Expires = DateTime.UtcNow.AddMinutes(15),
             SigningCredentials = new SigningCredentials
                 (authSigningKey, SecurityAlgorithms.HmacSha256)
         };
