@@ -35,9 +35,13 @@ public class GetAccountsQueryHandler(
         double totalBalanceBasedOnPreferredCurrency = 0;
         foreach (var accountDto in accountDtos)
         {
-            var converted = await exchangeRateService.GetRatesAsync(
-                $"{accountDto.Currency.Iso4217Code}{preferredCurrency}", accountDto.Balance);
-            totalBalanceBasedOnPreferredCurrency += converted.Value;
+            // The exchange API rejects amount < 1, so fetch the conversion factor with a fixed
+            // amount of 1 and apply it locally instead of passing the (possibly 0/negative/<1) balance.
+            var rate = accountDto.Currency.Iso4217Code == preferredCurrency
+                ? 1d
+                : (await exchangeRateService.GetRatesAsync($"{accountDto.Currency.Iso4217Code}{preferredCurrency}", 1)).Value;
+
+            totalBalanceBasedOnPreferredCurrency += accountDto.Balance * rate;
         }
 
         return new GetAccountsResponse

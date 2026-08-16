@@ -35,8 +35,13 @@ public class GetDashboardQueryHandler(
             var currency = account.Currency!.ISO4217Code;
             var balance = account.InitialBalance + netAmountsByAccountId.GetValueOrDefault(account.Id);
 
-            var converted = await exchangeRateService.GetRatesAsync(currency + preferredCurrency, balance);
-            currentTotalBalance += converted.Value;
+            // The exchange API rejects amount < 1, so fetch the conversion factor with a fixed
+            // amount of 1 and apply it locally instead of passing the (possibly 0/negative/<1) balance.
+            var rate = currency == preferredCurrency
+                ? 1d
+                : (await exchangeRateService.GetRatesAsync(currency + preferredCurrency, 1)).Value;
+
+            currentTotalBalance += balance * rate;
         }
         
         
