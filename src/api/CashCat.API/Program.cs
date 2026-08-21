@@ -42,6 +42,10 @@ builder.Host.UseSerilog((context, services, configuration) =>
 {
     configuration
         .ReadFrom.Configuration(context.Configuration)
+        // Npgsql emits its own Activity per SQL command; the ActivityListener below picks it up
+        // regardless of .Instrument.AspNetCoreRequests()/.HttpClientRequests(), flooding the
+        // console with one bare "postgresql" line per query. Keep it, just don't log it by default.
+        .MinimumLevel.Override("Npgsql", Serilog.Events.LogEventLevel.Warning)
         .Enrich.FromLogContext()
         .WriteTo.Console()
         .WriteTo.Seq(
@@ -98,9 +102,13 @@ if (app.Environment.IsDevelopment())
     app.UseHangfireDashboard();
 }
 
-RecurringJob.AddOrUpdate<IRecurringTransactionProcessor>(
-    "process-due-recurring-transactions",
-    processor => processor.ProcessDueRecurringTransactionsAsync(CancellationToken.None),
-    Cron.Daily);
+using (var scope = app.Services.CreateScope())
+{
+    var recurringJobManager = scope.ServiceProvider.GetRequiredService<IRecurringJobManager>();
+    recurringJobManager.AddOrUpdate<IRecurringTransactionProcessor>(
+        "process-due-recurring-transactions",
+        processor => processor.ProcessDueRecurringTransactionsAsync(CancellationToken.None),
+        Cron.Daily);
+}
 
 app.Run();
