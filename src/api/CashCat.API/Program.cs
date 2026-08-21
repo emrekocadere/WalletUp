@@ -6,6 +6,7 @@ using CashCat.Infstructre.Persistence;
 using WalletUp.Application.RecurringTransaction.Services;
 using WalletUp.Infstructre.Extensions;
 using WalletUp.Application.Extensions;
+using CashCat.API.Middleware;
 using CashCat.Integrations;
 using Serilog;
 using SerilogTracing;
@@ -70,6 +71,8 @@ var app = builder.Build();
 await app.InitializeDatabaseAsync();
 
 // Configure the HTTP request pipeline.
+
+app.UseGlobalExceptionHandler();
 
     app.UseSwagger();
     app.UseSwaggerUI();
