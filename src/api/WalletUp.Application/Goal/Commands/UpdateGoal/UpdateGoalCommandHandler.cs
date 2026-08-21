@@ -1,16 +1,16 @@
 using MediatR;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 
 namespace WalletUp.Application.Goal.Commands.UpdateGoal;
 
 public class UpdateGoalCommandHandler(
-    IGoalRepository goalRepository)
+    IApplicationDbContext dbContext)
     :IRequestHandler<UpdateGoalCommand,Result>
 {
     public async Task<Result> Handle(UpdateGoalCommand request, CancellationToken cancellationToken)
     {
-        var goal=await goalRepository.GetByIdAsync(request.Id);
+        var goal = await dbContext.Goals.FindAsync(new object[] { request.Id }, cancellationToken);
         if(request.Description!=null)
         {
             goal.Description=request.Description;
@@ -25,7 +25,7 @@ public class UpdateGoalCommandHandler(
         {
             goal.Target=request.Target.Value;
         }
-        await goalRepository.SaveChanges();
+        await dbContext.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }
 }

@@ -1,17 +1,22 @@
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 
 namespace WalletUp.Application.Goal.Commands.DeleteGoal;
 
 public class DeleteGoalCommandHandler(
-     IGoalRepository goalRepository)
+     IApplicationDbContext dbContext)
     :IRequestHandler<DeleteGoalCommand,Result>
 {
     public async Task<Result> Handle(DeleteGoalCommand request, CancellationToken cancellationToken)
     {
-        goalRepository.Delete(request.GoalId);
-        var affectedRows=await goalRepository.SaveChanges();
+        var goal = await dbContext.Goals.FindAsync(new object[] { request.GoalId }, cancellationToken);
+        if (goal != null)
+        {
+            dbContext.Goals.Remove(goal);
+        }
+
+        var affectedRows = await dbContext.SaveChangesAsync(cancellationToken);
         if(affectedRows>0)
             return Result.Success();
         else

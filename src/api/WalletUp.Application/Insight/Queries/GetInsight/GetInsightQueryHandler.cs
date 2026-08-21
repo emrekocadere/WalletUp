@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using WalletUp.Application.Abstractions;
 using WalletUp.Application.Account.Dtos;
 using WalletUp.Application.Common.Services;
@@ -7,7 +8,6 @@ using WalletUp.Application.Goal.Dtos;
 using WalletUp.Application.Insight.Dtos;
 using WalletUp.Application.Transaction.Dtos;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 
 
 
@@ -16,10 +16,7 @@ namespace WalletUp.Application.Insight.Queries.GetInsight;
 public class GetInsightQueryHandler(
     IInsightService insightService,
     ICacheService cacheService,
-    IPrefrenceRepository prefrenceRepository,
-    IAccountRepository accountRepository,
-    ITransactionRepository transactionRepository,
-    IGoalRepository goalRepository,
+    IApplicationDbContext dbContext,
     IUserContext userContext,
     IMapper mapper)
     : IRequestHandler<GetInsightQuery, ResultT<InsightDto>>
@@ -35,11 +32,29 @@ public class GetInsightQueryHandler(
         }
 
 
-        var preference = prefrenceRepository.GetByUserId(userId);
-        var accounts = accountRepository.GetAllAccountsByUserId(userId);
-        var transactions = transactionRepository.GetTransactions(userId);
-        var goals = goalRepository.GetAllGoalsByUserId(userId);
-        
+        var preference = await dbContext.Preferences
+            .AsNoTracking()
+            .Include(x => x.Currency)
+            .Include(x => x.Country)
+            .FirstOrDefaultAsync(x => x.UserId == userId, cancellationToken);
+        var accounts = await dbContext.Accounts
+            .Where(x => x.UserId == userId)
+            .Include(x => x.AccountType)
+            .Include(x => x.Currency)
+            .ToListAsync(cancellationToken);
+        var transactions = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Where(x => x.Account!.UserId == userId)
+            .Include(x => x.TransactionType)
+            .Include(x => x.Category)
+            .ToListAsync(cancellationToken);
+        var goals = await dbContext.Goals
+            .AsNoTracking()
+            .Where(g => g.UserId == userId)
+            .Include(x => x.Currency)
+            .ToListAsync(cancellationToken);
+
         var accountsDtos= mapper.Map<List<AccountDto>>(accounts);
         var transactionDtos= mapper.Map<List<TransactionDto>>(transactions);
         var goalDtos= mapper.Map<List<GoalDto>>(goals);

@@ -1,6 +1,7 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Account.Dtos;
 
@@ -8,15 +9,24 @@ namespace WalletUp.Application.Account.Queries.GetAccount;
 
 public class GetAccountQueryHandler(
     IMapper mapper,
-    IAccountRepository accountRepository,
-    ITransactionRepository transactionRepository)
+    IApplicationDbContext dbContext)
     : IRequestHandler<GetAccountQuery, ResultT<AccountDto>>
 {
-    public Task<ResultT<AccountDto>> Handle(GetAccountQuery request, CancellationToken cancellationToken)
+    public async Task<ResultT<AccountDto>> Handle(GetAccountQuery request, CancellationToken cancellationToken)
     {
-        var account = accountRepository.GetAccountById(request.AccountId);
+        var account = await dbContext.Accounts
+            .Include(x => x.AccountType)
+            .Include(x => x.Currency)
+            .FirstOrDefaultAsync(x => x.Id == request.AccountId, cancellationToken);
         var accountDto = mapper.Map<AccountDto>(account);
-        accountDto.Balance = account.InitialBalance + transactionRepository.GetNetAmountByAccountId(account.Id);
-        return Task.FromResult<ResultT<AccountDto>>(accountDto);
+
+        var netAmount = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.TransactionType)
+            .Where(x => x.AccountId == account.Id)
+            .SumAsync(x => x.TransactionType!.Name == "income" ? x.Amount : -x.Amount, cancellationToken);
+
+        accountDto.Balance = account.InitialBalance + netAmount;
+        return accountDto;
     }
 }

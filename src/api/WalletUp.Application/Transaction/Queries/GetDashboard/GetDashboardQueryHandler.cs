@@ -1,5 +1,5 @@
+using Microsoft.EntityFrameworkCore;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Abstractions;
 using WalletUp.Application.Common.Services;
@@ -9,26 +9,66 @@ namespace WalletUp.Application.Transaction.Queries.GetDashboard;
 
 public class GetDashboardQueryHandler(
     IUserContext userContext,
-    ITransactionRepository transactionRepository,
-    IGoalRepository goalRepository,
-    IAccountRepository accountRepository,
-    IExchangeRateService exchangeRateService,
-    IPreferenceRepository preferenceRepository)
+    IApplicationDbContext dbContext,
+    IExchangeRateService exchangeRateService)
     :IRequestHandler<GetDashboardQuery, ResultT<TransactionDashboardDto>>
 {
     public async Task<ResultT<TransactionDashboardDto>> Handle(GetDashboardQuery request, CancellationToken cancellationToken)
     {
         var userId = userContext.UserId;
         var year = request.Year ?? DateTime.UtcNow.Year;
-        var expenses = transactionRepository.GetExpensesByMonths(userId,year,request.Month);
-        var transactionQuantity = transactionRepository.GetTransactionQuantityByMonths(userId,year,request.Month);
-        var ıncomeAmount = transactionRepository.GetIncomesByMonths(userId,year,request.Month);
+
+        var expenses = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Include(x => x.Category)
+            .Include(x => x.TransactionType)
+            .Where(x => x.Account!.UserId == userId && x.TransactionType!.Name == "expense" && x.Date.Year == year && x.Date.Month == request.Month)
+            .ToListAsync(cancellationToken);
+
+        var transactionQuantity = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .CountAsync(x => x.Account!.UserId == userId && x.Date.Year == year && x.Date.Month == request.Month, cancellationToken);
+
+        var ıncomeAmount = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Include(x => x.TransactionType)
+            .Where(x => x.Account!.UserId == userId && x.TransactionType!.Name == "income" && x.Date.Year == year && x.Date.Month == request.Month)
+            .SumAsync(x => x.Amount, cancellationToken);
+
         var expenseAmount = expenses.Sum(e => e.Amount);
-        var goalQuantity = goalRepository.GetGoalQuantityByUser(userId);
+
+        var goalQuantity = await dbContext.Goals
+            .AsNoTracking()
+            .CountAsync(g => g.UserId == userId, cancellationToken);
+
         double currentTotalBalance = 0;
-        var accounts = accountRepository.GetAllAccountsByUserId(userId);
-        var netAmountsByAccountId = transactionRepository.GetNetAmountsByAccountIds(userId);
-        var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
+        var accounts = await dbContext.Accounts
+            .Where(x => x.UserId == userId)
+            .Include(x => x.AccountType)
+            .Include(x => x.Currency)
+            .ToListAsync(cancellationToken);
+
+        var netAmountsByAccountId = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Include(x => x.TransactionType)
+            .Where(x => x.Account!.UserId == userId)
+            .GroupBy(x => x.AccountId)
+            .Select(g => new
+            {
+                AccountId = g.Key,
+                Net = g.Sum(x => x.TransactionType!.Name == "income" ? x.Amount : -x.Amount)
+            })
+            .ToDictionaryAsync(x => x.AccountId, x => x.Net, cancellationToken);
+
+        var preferredCurrency = await dbContext.Preferences
+            .AsNoTracking()
+            .Where(x => x.UserId == userId)
+            .Select(x => x.Currency.ISO4217Code)
+            .FirstOrDefaultAsync(cancellationToken);
 
         foreach (var account in accounts)
         {

@@ -1,17 +1,22 @@
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 
 namespace WalletUp.Application.Transaction.Commands.DeleteTransaction;
 
 public class DeleteTransactionCommandHandler(
-    IRepository<WalletUp.Domain.Entities.Transaction> transactionRepository)
+    IApplicationDbContext dbContext)
     :IRequestHandler<DeleteTransactionCommand,Result>
 {
-    public Task<Result> Handle(DeleteTransactionCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(DeleteTransactionCommand request, CancellationToken cancellationToken)
     {
-        transactionRepository.Delete(request.TransactionId);
-        transactionRepository.SaveChanges();
-        return Task.FromResult(Result.Success());
+        var transaction = await dbContext.Transactions.FindAsync(new object[] { request.TransactionId }, cancellationToken);
+        if (transaction != null)
+        {
+            dbContext.Transactions.Remove(transaction);
+        }
+
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return Result.Success();
     }
 }

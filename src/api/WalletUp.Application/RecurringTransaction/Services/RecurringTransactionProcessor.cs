@@ -1,20 +1,25 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using WalletUp.Domain.Repositories;
+using WalletUp.Application.Abstractions;
 using RecurringTransactionEntity = WalletUp.Domain.Entities.RecurringTransaction;
 using TransactionEntity = WalletUp.Domain.Entities.Transaction;
 
 namespace WalletUp.Application.RecurringTransaction.Services;
 
 public class RecurringTransactionProcessor(
-    IRecurringTransactionRepository recurringTransactionRepository,
-    IRepository<TransactionEntity> transactionRepository,
+    IApplicationDbContext dbContext,
     ILogger<RecurringTransactionProcessor> logger)
     : IRecurringTransactionProcessor
 {
     public async Task<int> ProcessDueRecurringTransactionsAsync(CancellationToken cancellationToken = default)
     {
         var now = DateTime.UtcNow;
-        var dueRecurringTransactions = recurringTransactionRepository.GetDueRecurringTransactions(now);
+        var dueRecurringTransactions = await dbContext.RecurringTransactions
+            .Include(x => x.Account)
+            .Include(x => x.Category)
+            .Include(x => x.TransactionType)
+            .Where(x => x.IsActive && x.NextOccurrence <= now)
+            .ToListAsync(cancellationToken);
 
         var createdCount = 0;
         foreach (var recurring in dueRecurringTransactions)
@@ -24,7 +29,7 @@ public class RecurringTransactionProcessor(
 
         if (createdCount > 0)
         {
-            await recurringTransactionRepository.SaveChanges();
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
 
         logger.LogInformation("Recurring transaction processing complete: {CreatedCount} transaction(s) created", createdCount);
@@ -34,7 +39,7 @@ public class RecurringTransactionProcessor(
 
     public async Task<int> ProcessRecurringTransactionAsync(Guid recurringTransactionId, CancellationToken cancellationToken = default)
     {
-        var recurring = await recurringTransactionRepository.GetByIdAsync(recurringTransactionId);
+        var recurring = await dbContext.RecurringTransactions.FindAsync(new object[] { recurringTransactionId }, cancellationToken);
         if (recurring is null)
         {
             return 0;
@@ -43,7 +48,7 @@ public class RecurringTransactionProcessor(
         var createdCount = await CatchUpAsync(recurring, DateTime.UtcNow);
         if (createdCount > 0)
         {
-            await recurringTransactionRepository.SaveChanges();
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
 
         return createdCount;
@@ -66,7 +71,7 @@ public class RecurringTransactionProcessor(
                 Date = recurring.NextOccurrence,
             };
 
-            await transactionRepository.Create(transaction);
+            dbContext.Transactions.Add(transaction);
             createdCount++;
 
             var nextOccurrence = recurring.AdvanceOccurrence(recurring.NextOccurrence);

@@ -1,14 +1,14 @@
 using AutoMapper;
 using MediatR;
+using WalletUp.Application.Abstractions;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.Identity;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 
 namespace WalletUp.Application.Preference.Commands.CreatePreference;
 
 public class CreatePreferenceCommandHandler(
-    IRepository<Domain.Entities.Preference> preferenceRepository,
+    IApplicationDbContext dbContext,
     IMapper mapper,
     IUserContext userContext,
     IIdentityService identityService)
@@ -18,8 +18,8 @@ public class CreatePreferenceCommandHandler(
     {
         var preference = mapper.Map<Domain.Entities.Preference>(request);
         preference.UserId = userContext.UserId;
-        await preferenceRepository.Create(preference);
-        await preferenceRepository.SaveChanges();
+        dbContext.Preferences.Add(preference);
+        await dbContext.SaveChangesAsync(cancellationToken);
         await identityService.CompleteOnboarding(userContext.UserId);
         return Result.Success();
     }

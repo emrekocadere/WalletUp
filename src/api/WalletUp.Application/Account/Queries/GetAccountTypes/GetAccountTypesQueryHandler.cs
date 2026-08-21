@@ -1,7 +1,6 @@
 using AutoMapper;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Entities;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Account.Dtos;
 
@@ -9,12 +8,12 @@ namespace WalletUp.Application.Account.Queries.GetAccountTypes;
 
 public class GetAccountTypesQueryHandler(
     IMapper mapper,
-    IRepository<AccountType> accountTypeRepository)
+    IApplicationDbContext dbContext)
     :IRequestHandler<GetAccountTypesQuery, ResultT<ICollection<AccountTypeDto>>>
 {
     public Task<ResultT<ICollection<AccountTypeDto>>> Handle(GetAccountTypesQuery request, CancellationToken cancellationToken)
     {
-        var accountTypes=accountTypeRepository.GetAll();
+        var accountTypes = dbContext.AccountTypes.ToList();
         var accountTypeDtos=mapper.Map<List<AccountTypeDto>>(accountTypes);
         return Task.FromResult<ResultT<ICollection<AccountTypeDto>>>(accountTypeDtos);
     }

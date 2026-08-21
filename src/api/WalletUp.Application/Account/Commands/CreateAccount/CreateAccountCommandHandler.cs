@@ -1,6 +1,6 @@
 using AutoMapper;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using WalletUp.Application.Common.Services;
@@ -8,27 +8,32 @@ using WalletUp.Application.Common.Services;
 namespace WalletUp.Application.Account.Commands.CreateAccount;
 
 public class CreateAccountCommandHandler(
-    IRepository< WalletUp.Domain.Entities.Account> accountRepository,
+    IApplicationDbContext dbContext,
     IMapper mapper,
     IUserContext userContext,
     ILogger<CreateAccountCommandHandler> logger
-    ):IRequestHandler<CreateAccountCommand, Result>
+    ) : IRequestHandler<CreateAccountCommand, Result>
 {
     public async Task<Result> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Creating account with initial balance: {InitialBalance}", request.InitialBalance);
-        var account=mapper.Map<WalletUp.Domain.Entities.Account>(request);
+        var currentUserId = userContext.UserId;
+        logger.LogInformation("Creating account for user {UserId} with initial balance: {InitialBalance}", currentUserId, request.InitialBalance);
+        var account = mapper.Map<WalletUp.Domain.Entities.Account>(request);
         account.UserId = userContext.UserId;
-        
-      await accountRepository.Create(account);
-      var affectedRows=await accountRepository.SaveChanges();
-      
-      if(affectedRows>0)
-          return Result.Success();
-      else
-      {
-            return Result.Failure(Errors.InsufficientFunds);
-      }
-        
+
+        dbContext.Accounts.Add(account);
+
+        try
+        {
+            await dbContext.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Error occurred while creating account for user {UserId}", currentUserId);
+            return Errors.UnexpectedError;
+        }
+
+        return Result.Success();
+
     }
 }

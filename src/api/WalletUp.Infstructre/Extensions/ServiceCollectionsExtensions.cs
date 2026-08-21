@@ -1,15 +1,12 @@
 using System.Text;
 using Hangfire;
 using Hangfire.PostgreSql;
-using WalletUp.Domain.Repositories;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.Identity;
-using WalletUp.Domain.Entities;
 using WalletUp.Domain.Services;
 using CashCat.Infstructre.Auth.Services;
 using CashCat.Infstructre.Identity;
 using CashCat.Infstructre.Persistence;
-using CashCat.Infstructre.Persistence.Repositories;
 using CashCat.Infstructre.Persistence.Seeders;
 using CashCat.Infstructre.Refit;
 using CashCat.Infstructre.Services;
@@ -36,6 +33,7 @@ public static class ServiceCollectionsExtensions
             opt.UseNpgsql(connectionString);
         });
 
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<CashCatDbContext>());
 
         services.AddScoped<DatabaseSeeder>();
 
@@ -43,31 +41,13 @@ public static class ServiceCollectionsExtensions
         services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<CashCatDbContext>();
 
-        services.AddScoped<IPrefrenceRepository, PrefrenceRepository>();
         services.AddHttpContextAccessor();
-        services.AddScoped<IAccountRepository, AccountRepository>();
 
         services.AddScoped<IUserContext, UserContext>();
 
         services.AddScoped<IIdentityService, IdentityService>();
         services.AddScoped<ITokenService, TokenService>();
-        services.AddScoped<IRepository<Transaction>, Repository<Transaction>>();
-        services.AddScoped<IRepository<Preference>, Repository<Preference>>();
-        services.AddScoped<IRepository<Goal>, Repository<Goal>>();
-        services.AddScoped<IRepository<AccountType>, Repository<AccountType>>();
-        services.AddScoped<IRepository<GoalTransaction>, Repository<GoalTransaction>>();
-        services.AddScoped<IRepository<Currency>, Repository<Currency>>();
-        services.AddScoped<IRepository<TransactionType>, Repository<TransactionType>>();
-        services.AddScoped<IUserTokenRepository, UserTokenRepository>();
-        services.AddScoped<IRepository<Account>, Repository<Account>>();
-        services.AddScoped<IRepository<Country>, Repository<Country>>();
-        services.AddScoped<IRepository<Category>, Repository<Category>>();
-        services.AddScoped<ITransactionRepository, TransactionRepository>();
-        services.AddScoped<IRecurringTransactionRepository, RecurringTransactionRepository>();
-        services.AddScoped<IGoalRepository, GoalRepository>();
-        services.AddScoped<IGoalTransactionRepository, GoalTransactionRepository>();
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
-        services.AddScoped<IPreferenceRepository, PreferenceRepository>();
 
         services.AddRefitClient<IExchangeApi>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri(configuration["CurrenviaBaseUrl"]!));

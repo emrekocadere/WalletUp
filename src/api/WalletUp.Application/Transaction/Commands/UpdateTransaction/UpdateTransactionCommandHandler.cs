@@ -1,16 +1,16 @@
 using MediatR;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 
 namespace WalletUp.Application.Transaction.Commands.UpdateTransaction;
 
 public class UpdateTransactionCommandHandler(
-    ITransactionRepository _transactionRepository)
+    IApplicationDbContext dbContext)
     :IRequestHandler<UpdateTransactionCommand,Result>
 {
     public async Task<Result> Handle(UpdateTransactionCommand request, CancellationToken cancellationToken)
     {
-        var transaction = await _transactionRepository.GetByIdAsync(request.TransactionId);
+        var transaction = await dbContext.Transactions.FindAsync(new object[] { request.TransactionId }, cancellationToken);
         if (request.Title != null)
         {
             transaction.Title = request.Title;
@@ -38,7 +38,7 @@ public class UpdateTransactionCommandHandler(
 
         
 
-        await _transactionRepository.SaveChanges();
+        await dbContext.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }
 }

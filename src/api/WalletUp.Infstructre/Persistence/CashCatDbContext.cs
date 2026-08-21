@@ -1,3 +1,4 @@
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Entities;
 using WalletUp.Infstructre.Identity.Models;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +9,7 @@ namespace CashCat.Infstructre.Persistence;
 
 public class CashCatDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid,
     IdentityUserClaim<Guid>, IdentityUserRole<Guid>, IdentityUserLogin<Guid>,
-    IdentityRoleClaim<Guid>, ApplicationUserToken>
+    IdentityRoleClaim<Guid>, ApplicationUserToken>, IApplicationDbContext
 {
     public CashCatDbContext(DbContextOptions<CashCatDbContext> options) :
         base(options) // buna bak meslela program.cs teki service.addbbcontext i silsem migratiopn olut mu veya derlenirmi

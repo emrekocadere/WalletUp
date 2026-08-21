@@ -1,23 +1,22 @@
 using AutoMapper;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
 using WalletUp.Domain.Entities;
-using WalletUp.Domain.Repositories;
 using MediatR;
 
 namespace WalletUp.Application.Goal.Commands.AddTransactionToGoal;
 
 public class AddTransactionToGoalCommandHandler(
     IMapper mapper,
-    IRepository<WalletUp.Domain.Entities.GoalTransaction> goalTransactionRepository,
-    IGoalRepository goalRepository)
+    IApplicationDbContext dbContext)
     : IRequestHandler<AddTransactionToGoalCommand, Result>
 {
     public async Task<Result> Handle(AddTransactionToGoalCommand request, CancellationToken cancellationToken)
     {
         var transaction = mapper.Map<GoalTransaction>(request);
-        var goal = await goalRepository.GetByIdAsync(request.GoaldId);
-        await goalTransactionRepository.Create(transaction);
-        var affecredRows = await goalTransactionRepository.SaveChanges();
+        var goal = await dbContext.Goals.FindAsync(new object[] { request.GoaldId }, cancellationToken);
+        dbContext.GoalTransactions.Add(transaction);
+        var affecredRows = await dbContext.SaveChangesAsync(cancellationToken);
         if (affecredRows > 0)
             return Result.Success();
         else

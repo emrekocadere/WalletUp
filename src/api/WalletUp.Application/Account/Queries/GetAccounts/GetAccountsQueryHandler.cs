@@ -1,6 +1,6 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Abstractions;
 using WalletUp.Application.Account.Dtos;
@@ -10,18 +10,32 @@ namespace WalletUp.Application.Account.Queries.GetAccounts;
 
 public class GetAccountsQueryHandler(
     IMapper mapper,
-    IAccountRepository accountRepository,
-    ITransactionRepository transactionRepository,
+    IApplicationDbContext dbContext,
     IUserContext userContext,
-    IExchangeRateService exchangeRateService,
-    IPreferenceRepository preferenceRepository)
+    IExchangeRateService exchangeRateService)
     :IRequestHandler<GetAccountsQuery,ResultT<GetAccountsResponse>>
 {
     public async Task<ResultT<GetAccountsResponse>> Handle(GetAccountsQuery request, CancellationToken cancellationToken)
     {
         var userId = userContext.UserId;
-        var accounts = accountRepository.GetAllAccountsByUserId(userId);
-        var netAmountsByAccountId = transactionRepository.GetNetAmountsByAccountIds(userId);
+        var accounts = await dbContext.Accounts
+            .Where(x => x.UserId == userId)
+            .Include(x => x.AccountType)
+            .Include(x => x.Currency)
+            .ToListAsync(cancellationToken);
+
+        var netAmountsByAccountId = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+            .Include(x => x.TransactionType)
+            .Where(x => x.Account!.UserId == userId)
+            .GroupBy(x => x.AccountId)
+            .Select(g => new
+            {
+                AccountId = g.Key,
+                Net = g.Sum(x => x.TransactionType!.Name == "income" ? x.Amount : -x.Amount)
+            })
+            .ToDictionaryAsync(x => x.AccountId, x => x.Net, cancellationToken);
 
         var accountDtos = mapper.Map<List<AccountDto>>(accounts);
         foreach (var accountDto in accountDtos)
@@ -30,7 +44,11 @@ public class GetAccountsQueryHandler(
                 + netAmountsByAccountId.GetValueOrDefault(accountDto.Id);
         }
 
-        var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
+        var preferredCurrency = await dbContext.Preferences
+            .AsNoTracking()
+            .Where(x => x.UserId == userId)
+            .Select(x => x.Currency.ISO4217Code)
+            .FirstOrDefaultAsync(cancellationToken);
 
         double totalBalanceBasedOnPreferredCurrency = 0;
         foreach (var accountDto in accountDtos)

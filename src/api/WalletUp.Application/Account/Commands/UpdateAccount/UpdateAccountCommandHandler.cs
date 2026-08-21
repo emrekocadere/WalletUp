@@ -1,5 +1,5 @@
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Common.Services;
 
@@ -7,16 +7,16 @@ using WalletUp.Application.Common.Services;
 namespace WalletUp.Application.Account.Commands.UpdateAccount;
 
 public class UpdateAccountCommandHandler(
-  IAccountRepository accountRepository,
+  IApplicationDbContext dbContext,
     IUserContext userContext)
     :IRequestHandler<UpdateAccountCommand, Result>
 {
     public async Task<Result> Handle(UpdateAccountCommand request, CancellationToken cancellationToken)
     {
-        var userId = userContext.UserId;
-        
-        var account = await accountRepository.GetByIdAsync(request.Id);
-        var canUpdate = account.CanUpdate(userId);
+        var currentUserId = userContext.UserId;
+
+        var account = await dbContext.Accounts.FindAsync(new object[] { request.Id }, cancellationToken);
+        var canUpdate = account.CanUpdate(currentUserId);
         
         if (!canUpdate)
         {
@@ -38,8 +38,8 @@ public class UpdateAccountCommandHandler(
             account.Name = request.Name;
         }
 
-        await accountRepository.SaveChanges();
-       
+        await dbContext.SaveChangesAsync(cancellationToken);
+
         return Result.Success();
        
     }

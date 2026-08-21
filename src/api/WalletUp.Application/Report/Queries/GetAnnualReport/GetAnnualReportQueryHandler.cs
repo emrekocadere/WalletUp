@@ -1,18 +1,17 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using WalletUp.Application.Abstractions;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.Report.Dtos;
 using WalletUp.Application.Transaction.Dtos;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using TransactionEntity = WalletUp.Domain.Entities.Transaction;
 
 namespace WalletUp.Application.Report.Queries.GetAnnualReport;
 
 public class GetAnnualReportQueryHandler(
     IUserContext userContext,
-    ITransactionRepository transactionRepository,
-    IPreferenceRepository preferenceRepository,
+    IApplicationDbContext dbContext,
     IExchangeRateService exchangeRateService)
     : IRequestHandler<GetAnnualReportQuery, ResultT<AnnualReportDto>>
 {
@@ -26,12 +25,23 @@ public class GetAnnualReportQueryHandler(
         }
 
         var userId = userContext.UserId;
-        var preferredCurrency = preferenceRepository.GetPreferredCurrencyByUserId(userId);
+        var preferredCurrency = await dbContext.Preferences
+            .AsNoTracking()
+            .Where(x => x.UserId == userId)
+            .Select(x => x.Currency.ISO4217Code)
+            .FirstOrDefaultAsync(cancellationToken);
 
         var yearStart = new DateTime(request.Year, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         var yearEnd = yearStart.AddYears(1).AddTicks(-1);
 
-        var transactions = transactionRepository.GetTransactionsForReport(userId, yearStart, yearEnd);
+        var transactions = await dbContext.Transactions
+            .AsNoTracking()
+            .Include(x => x.Account)
+                .ThenInclude(a => a!.Currency)
+            .Include(x => x.TransactionType)
+            .Include(x => x.Category)
+            .Where(x => x.Account!.UserId == userId && x.Date >= yearStart && x.Date <= yearEnd)
+            .ToListAsync(cancellationToken);
         var conversionFactors = await BuildConversionFactorsAsync(transactions, preferredCurrency);
 
         var months = Enumerable.Range(1, 12)

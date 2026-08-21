@@ -9,8 +9,9 @@ using WalletUp.Application.Identity.Dtos;
 using WalletUp.Domain.Common;
 using WalletUp.Domain.Services;
 using WalletUp.Infstructre.Identity.Models;
-using CashCat.Infstructre.Persistence.Repositories;
+using CashCat.Infstructre.Persistence;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.JsonWebTokens;
 using WalletUp.Application.Common.Services;
@@ -20,7 +21,7 @@ public class IdentityService(
     IMapper mapper,
     UserManager<ApplicationUser> userManager,
     ITokenService tokenService,
-    IUserTokenRepository userTokenRepository,
+    CashCatDbContext dbContext,
     IUserContext userContext,
     ILogger<IdentityService> logger)
     : IIdentityService
@@ -66,9 +67,9 @@ public class IdentityService(
             ExpiresAt = DateTime.UtcNow.AddDays(7)
         };
         
-        await userTokenRepository.Create(userToken);
-        await userTokenRepository.SaveChanges();
-        
+        dbContext.UserTokens.Add(userToken);
+        await dbContext.SaveChangesAsync();
+
         var tokenDto = new TokenDto()
         {
            RefreshToken = refreshToken,
@@ -112,12 +113,12 @@ public class IdentityService(
         var accessToken = tokenService.GenerateAccessToken(authClaims);
         var refreshToken = tokenService.GenerateRefreshToken();
 
-        var tokenInfo= userTokenRepository.GetByUserId(user.Id);
-  
+        var tokenInfo = dbContext.UserTokens.FirstOrDefault(x => x.UserId == user.Id);
+
         tokenInfo.ExpiresAt = DateTime.UtcNow.AddDays(7);
         tokenInfo.Value = refreshToken;
-        
-        await userTokenRepository.SaveChanges();
+
+        await dbContext.SaveChangesAsync();
         
         var tokenDto = new TokenDto
         {
@@ -131,7 +132,7 @@ public class IdentityService(
     
     public async  Task<ResultT<TokenDto>> Refresh(TokenDto tokenModel)
     {
-        var tokenInfo = userTokenRepository.GetByToken(tokenModel.RefreshToken);
+        var tokenInfo = dbContext.UserTokens.FirstOrDefault(x => x.Value == tokenModel.RefreshToken);
 
         if (tokenInfo is null || tokenInfo.ExpiresAt < DateTime.UtcNow)
         {
@@ -162,7 +163,7 @@ public class IdentityService(
         
         tokenInfo.Value = newRefreshToken;
         tokenInfo.ExpiresAt = DateTime.UtcNow.AddDays(7);
-        await userTokenRepository.SaveChanges();
+        await dbContext.SaveChangesAsync();
         
         var tokenDto = new TokenDto
         {
@@ -188,7 +189,7 @@ public class IdentityService(
 
     public Task<Result> Logout()
     {
-        userTokenRepository.DeleteByUserId(userContext.UserId);
+        dbContext.UserTokens.Where(x => x.UserId == userContext.UserId).ExecuteDelete();
         // Refresh token'ı veritabanından sil
         // var userId = userContext.UserId;
         // var userToken = userTokenRepository.GetByUserId(userId);
@@ -197,7 +198,7 @@ public class IdentityService(
         //     userTokenRepository.Delete(userToken);
         //     await userTokenRepository.SaveChanges();
         // }
-        
+
         return Task.FromResult(Result.Success());
     }
 
@@ -256,7 +257,7 @@ public class IdentityService(
             var accessToken = tokenService.GenerateAccessToken(authClaims);
             var refreshToken = tokenService.GenerateRefreshToken();
             
-            var existingToken = userTokenRepository.GetByUserId(user.Id);
+            var existingToken = dbContext.UserTokens.FirstOrDefault(x => x.UserId == user.Id);
             if (existingToken != null)
             {
                 existingToken.Value = refreshToken;
@@ -272,10 +273,10 @@ public class IdentityService(
                     Value = refreshToken,
                     ExpiresAt = DateTime.UtcNow.AddDays(7)
                 };
-                await userTokenRepository.Create(userToken);
+                dbContext.UserTokens.Add(userToken);
             }
 
-            await userTokenRepository.SaveChanges();
+            await dbContext.SaveChangesAsync();
             return new TokenDto
             {
                 AccessToken = accessToken,

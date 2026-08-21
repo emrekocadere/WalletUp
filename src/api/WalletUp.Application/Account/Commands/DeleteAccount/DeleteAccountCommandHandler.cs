@@ -1,28 +1,31 @@
+using Microsoft.EntityFrameworkCore;
+using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 using MediatR;
 using WalletUp.Application.Common.Services;
 
 namespace WalletUp.Application.Account.Commands.DeleteAccount;
 
 public class DeleteAccountCommandHandler(
-    IAccountRepository accountRepository,
+    IApplicationDbContext dbContext,
     IUserContext userContext)
-    :IRequestHandler<DeleteAccountCommand,Result>
+    : IRequestHandler<DeleteAccountCommand, Result>
 {
     public async Task<Result> Handle(DeleteAccountCommand request, CancellationToken cancellationToken)
     {
-        var userId= userContext.UserId;
-        var account = accountRepository.GetAccountById(request.AccountId);
-        var canDelete=account.CanDelete(userId);
-        if (canDelete)
-        {
-            accountRepository.Delete(request.AccountId);
-           await accountRepository.SaveChanges();
-            return Result.Success();
-        }
-        
-        return Errors.Forbidden;
-        
+        var currentUserId = userContext.UserId;
+        var account = await dbContext.Accounts
+            .Include(x => x.AccountType)
+            .Include(x => x.Currency)
+            .FirstOrDefaultAsync(x => x.Id == request.AccountId, cancellationToken);
+        var canDelete = account.CanDelete(currentUserId);
+
+        if (!canDelete)
+            return Errors.Forbidden;
+
+        dbContext.Accounts.Remove(account);
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return Result.Success();
+
     }
 }

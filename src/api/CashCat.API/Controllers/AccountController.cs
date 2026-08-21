@@ -9,6 +9,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Account.Dtos;
+using WalletUp.Domain.Common;
 
 namespace CashCat.API.Controllers;
 
@@ -20,7 +21,11 @@ public class AccountController(IMediator mediator):ControllerBase
     public async Task<ActionResult> CreateAccount(CreateAccountCommand command)
     {
        var result = await mediator.Send(command);
-        return Ok(result);
+        if(result.IsSuccess)
+            return Ok(result);
+        if(result.Error?.Id == nameof(Errors.UnexpectedError))
+            return StatusCode(500, result);
+        return BadRequest(result);
     }
     
     [HttpGet]
@@ -43,6 +48,8 @@ public class AccountController(IMediator mediator):ControllerBase
         var result = await mediator.Send(new DeleteAccountCommand(id));
         if(result.IsSuccess)
             return Ok(result);
+        if(result.Error?.Id == nameof(Errors.Forbidden))
+            return StatusCode(403, result);
         return BadRequest(result);
     }
     

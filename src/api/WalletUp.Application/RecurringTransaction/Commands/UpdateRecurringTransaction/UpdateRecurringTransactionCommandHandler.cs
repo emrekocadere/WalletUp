@@ -1,20 +1,23 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using WalletUp.Application.Abstractions;
 using WalletUp.Application.Common.Services;
 using WalletUp.Application.RecurringTransaction.Services;
 using WalletUp.Domain.Common;
-using WalletUp.Domain.Repositories;
 
 namespace WalletUp.Application.RecurringTransaction.Commands.UpdateRecurringTransaction;
 
 public class UpdateRecurringTransactionCommandHandler(
-    IRecurringTransactionRepository recurringTransactionRepository,
+    IApplicationDbContext dbContext,
     IRecurringTransactionProcessor recurringTransactionProcessor,
     IUserContext userContext)
     : IRequestHandler<UpdateRecurringTransactionCommand, Result>
 {
     public async Task<Result> Handle(UpdateRecurringTransactionCommand request, CancellationToken cancellationToken)
     {
-        var recurringTransaction = await recurringTransactionRepository.GetByIdForUserAsync(request.Id, userContext.UserId);
+        var recurringTransaction = await dbContext.RecurringTransactions
+            .Include(x => x.Account)
+            .FirstOrDefaultAsync(x => x.Id == request.Id && x.Account!.UserId == userContext.UserId, cancellationToken);
         if (recurringTransaction is null)
         {
             return Errors.AccountNotFound;
@@ -38,7 +41,7 @@ public class UpdateRecurringTransactionCommandHandler(
             recurringTransaction.NextOccurrence = newStartDate;
         }
 
-        await recurringTransactionRepository.SaveChanges();
+        await dbContext.SaveChangesAsync(cancellationToken);
 
         if (startDateChanged)
         {
