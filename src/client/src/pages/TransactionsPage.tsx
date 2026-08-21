@@ -222,9 +222,9 @@ export const TransactionsPage = () => {
             />
           </div>
         </div>
-      </main>
 
-      <Footer />
+        <Footer />
+      </main>
 
       <AddTransactionModal
         isOpen={showAddModal}

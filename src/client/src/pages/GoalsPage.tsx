@@ -159,9 +159,9 @@ export const GoalsPage = () => {
             </div>
           )}
         </div>
-      </main>
 
-      <Footer />
+        <Footer />
+      </main>
 
       {/* Add Goal Modal */}
       <AddGoalModal
