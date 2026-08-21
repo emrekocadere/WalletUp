@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Finanzielle Ziele",
+    "subtitle": "Verfolgen Sie Ihre Sparziele und bleiben Sie motiviert",
+    "addNewGoal": "Neues Ziel hinzufügen",
+    "loading": "Ziele werden geladen...",
+    "deleteSuccess": "Ziel erfolgreich gelöscht",
+    "deleteFailed": "Ziel konnte nicht gelöscht werden",
+    "deleteFailedRetry": "Ziel konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
+  },
+  "goalCard": {
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "progress": "Fortschritt",
+    "current": "Aktuell",
+    "target": "Ziel",
+    "addMoney": "Geld hinzufügen"
+  },
+  "emptyState": {
+    "title": "Noch keine Ziele",
+    "subtitle": "Setzen Sie sich finanzielle Ziele, um Ihren Fortschritt zu verfolgen",
+    "cta": "Erstellen Sie Ihr erstes Ziel"
+  },
+  "statsCards": {
+    "activeGoals": "Aktive Ziele",
+    "totalTarget": "Gesamtziel",
+    "totalSaved": "Gesamt gespart"
+  },
+  "editModal": {
+    "title": "Ziel bearbeiten",
+    "nameLabel": "Zielname",
+    "namePlaceholder": "z. B. Notfallfonds",
+    "targetLabel": "Zielbetrag",
+    "descriptionLabel": "Beschreibung (optional)",
+    "descriptionPlaceholder": "Fügen Sie Details zu Ihrem Ziel hinzu...",
+    "cancel": "Abbrechen",
+    "submit": "Ziel aktualisieren",
+    "submitting": "Wird aktualisiert...",
+    "errors": {
+      "invalidAmount": "Bitte geben Sie einen gültigen Zielbetrag ein",
+      "nameRequired": "Bitte geben Sie einen Zielnamen ein",
+      "noChanges": "Keine Änderungen zum Speichern"
+    },
+    "toastSuccess": "Ziel erfolgreich aktualisiert",
+    "toastFailed": "Ziel konnte nicht aktualisiert werden",
+    "toastFailedRetry": "Ziel konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut."
+  },
+  "addModal": {
+    "title": "Neues Ziel erstellen",
+    "nameLabel": "Zielname",
+    "namePlaceholder": "z. B. Notfallfonds",
+    "currencyLabel": "Währung",
+    "currencyPlaceholder": "Wählen Sie eine Währung",
+    "loadingCurrencies": "Währungen werden geladen...",
+    "targetLabel": "Zielbetrag",
+    "descriptionLabel": "Beschreibung (optional)",
+    "descriptionPlaceholder": "Fügen Sie Details zu Ihrem Ziel hinzu...",
+    "cancel": "Abbrechen",
+    "submit": "Ziel erstellen",
+    "submitting": "Wird erstellt...",
+    "errors": {
+      "invalidAmount": "Bitte geben Sie einen gültigen Zielbetrag ein",
+      "nameRequired": "Bitte geben Sie einen Zielnamen ein",
+      "currencyRequired": "Bitte wählen Sie eine Währung"
+    },
+    "toastSuccess": "Erfolgreich erstellt",
+    "toastFailed": "Ziel konnte nicht erstellt werden",
+    "toastFailedRetry": "Ziel konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+    "toastLoadCurrenciesFailed": "Währungen konnten nicht geladen werden"
+  },
+  "addMoneyModal": {
+    "title": "Geld zum Ziel hinzufügen",
+    "current": "Aktuell:",
+    "target": "Ziel:",
+    "remaining": "Verbleibend:",
+    "transactionType": "Transaktionstyp",
+    "transactionTypePlaceholder": "Transaktionstyp auswählen",
+    "amountLabel": "Hinzuzufügender Betrag",
+    "newTotal": "Neue Summe: {{amount}}",
+    "cancel": "Abbrechen",
+    "submit": "Geld hinzufügen",
+    "submitting": "Wird hinzugefügt...",
+    "errors": {
+      "invalidAmount": "Bitte geben Sie einen gültigen Betrag ein",
+      "typeRequired": "Bitte wählen Sie einen Transaktionstyp"
+    },
+    "toastFailed": "Geld konnte nicht hinzugefügt werden",
+    "toastFailedRetry": "Geld konnte nicht hinzugefügt werden. Bitte versuchen Sie es erneut."
+  }
+}

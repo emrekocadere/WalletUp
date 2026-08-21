@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Økonomiske mål",
+    "subtitle": "Følg med på sparemålene dine og hold motivasjonen oppe",
+    "addNewGoal": "Legg til nytt mål",
+    "loading": "Laster mål...",
+    "deleteSuccess": "Målet ble slettet",
+    "deleteFailed": "Kunne ikke slette målet",
+    "deleteFailedRetry": "Kunne ikke slette målet. Prøv igjen."
+  },
+  "goalCard": {
+    "edit": "Rediger",
+    "delete": "Slett",
+    "progress": "Fremgang",
+    "current": "Nåværende",
+    "target": "Mål",
+    "addMoney": "Legg til penger"
+  },
+  "emptyState": {
+    "title": "Ingen mål ennå",
+    "subtitle": "Begynn å sette økonomiske mål for å følge fremgangen din",
+    "cta": "Opprett ditt første mål"
+  },
+  "statsCards": {
+    "activeGoals": "Aktive mål",
+    "totalTarget": "Totalt mål",
+    "totalSaved": "Totalt spart"
+  },
+  "editModal": {
+    "title": "Rediger mål",
+    "nameLabel": "Målnavn",
+    "namePlaceholder": "f.eks. Nødfond",
+    "targetLabel": "Målbeløp",
+    "descriptionLabel": "Beskrivelse (valgfritt)",
+    "descriptionPlaceholder": "Legg til noen detaljer om målet ditt...",
+    "cancel": "Avbryt",
+    "submit": "Oppdater mål",
+    "submitting": "Oppdaterer...",
+    "errors": {
+      "invalidAmount": "Vennligst oppgi et gyldig målbeløp",
+      "nameRequired": "Vennligst oppgi et målnavn",
+      "noChanges": "Ingen endringer å lagre"
+    },
+    "toastSuccess": "Målet ble oppdatert",
+    "toastFailed": "Kunne ikke oppdatere målet",
+    "toastFailedRetry": "Kunne ikke oppdatere målet. Prøv igjen."
+  },
+  "addModal": {
+    "title": "Opprett nytt mål",
+    "nameLabel": "Målnavn",
+    "namePlaceholder": "f.eks. Nødfond",
+    "currencyLabel": "Valuta",
+    "currencyPlaceholder": "Velg en valuta",
+    "loadingCurrencies": "Laster valutaer...",
+    "targetLabel": "Målbeløp",
+    "descriptionLabel": "Beskrivelse (valgfritt)",
+    "descriptionPlaceholder": "Legg til noen detaljer om målet ditt...",
+    "cancel": "Avbryt",
+    "submit": "Opprett mål",
+    "submitting": "Oppretter...",
+    "errors": {
+      "invalidAmount": "Vennligst oppgi et gyldig målbeløp",
+      "nameRequired": "Vennligst oppgi et målnavn",
+      "currencyRequired": "Vennligst velg en valuta"
+    },
+    "toastSuccess": "Opprettet",
+    "toastFailed": "Kunne ikke opprette målet",
+    "toastFailedRetry": "Kunne ikke opprette målet. Prøv igjen.",
+    "toastLoadCurrenciesFailed": "Kunne ikke laste valutaer"
+  },
+  "addMoneyModal": {
+    "title": "Legg til penger på mål",
+    "current": "Nåværende:",
+    "target": "Mål:",
+    "remaining": "Gjenstår:",
+    "transactionType": "Transaksjonstype",
+    "transactionTypePlaceholder": "Velg transaksjonstype",
+    "amountLabel": "Beløp å legge til",
+    "newTotal": "Ny total: {{amount}}",
+    "cancel": "Avbryt",
+    "submit": "Legg til penger",
+    "submitting": "Legger til...",
+    "errors": {
+      "invalidAmount": "Vennligst oppgi et gyldig beløp",
+      "typeRequired": "Vennligst velg en transaksjonstype"
+    },
+    "toastFailed": "Kunne ikke legge til penger",
+    "toastFailedRetry": "Kunne ikke legge til penger. Prøv igjen."
+  }
+}

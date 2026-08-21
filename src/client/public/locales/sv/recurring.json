@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Återkommande transaktioner",
+    "subtitle": "Hantera dina återkommande utgifter och inkomster",
+    "addButton": "Lägg till återkommande",
+    "loading": "Läser in återkommande transaktioner..."
+  },
+  "stats": {
+    "active": "Aktiva återkommande",
+    "monthlyCommitment": "Månatligt åtagande",
+    "totalActive": "Totalt aktivt belopp"
+  },
+  "empty": {
+    "message": "Inga återkommande transaktioner ännu",
+    "cta": "Skapa din första återkommande transaktion"
+  },
+  "card": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "frequency": "Frekvens",
+    "nextDue": "Nästa förfall",
+    "started": "Startade",
+    "ends": "Slutar",
+    "amount": "Belopp",
+    "deactivate": "Inaktivera",
+    "activate": "Aktivera",
+    "edit": "Redigera",
+    "delete": "Ta bort"
+  },
+  "frequencyLabels": {
+    "weekly": "Varje vecka",
+    "biWeekly": "Varannan vecka",
+    "monthly": "Varje månad",
+    "quarterly": "Var tredje månad",
+    "semiAnnually": "Var sjätte månad",
+    "annually": "Varje år"
+  },
+  "modal": {
+    "editTitle": "Redigera återkommande",
+    "addTitle": "Lägg till återkommande transaktion",
+    "titleLabel": "Titel *",
+    "titlePlaceholder": "t.ex. Månadshyra, Lön",
+    "descriptionLabel": "Beskrivning",
+    "descriptionPlaceholder": "Valfri beskrivning",
+    "amountLabel": "Belopp *",
+    "accountLabel": "Konto *",
+    "selectAccount": "Välj konto",
+    "typeLabel": "Typ *",
+    "selectType": "Välj typ",
+    "categoryLabel": "Kategori *",
+    "selectCategory": "Välj kategori",
+    "frequencyLabel": "Frekvens *",
+    "startDateLabel": "Startdatum *",
+    "endDateLabel": "Slutdatum (Valfritt)",
+    "activeLabel": "Aktiv",
+    "cancel": "Avbryt",
+    "update": "Uppdatera",
+    "create": "Skapa",
+    "frequencyOptions": {
+      "weekly": "Varje vecka",
+      "biWeekly": "Varannan vecka",
+      "monthly": "Månadsvis",
+      "quarterly": "Var tredje månad",
+      "semiAnnually": "Var sjätte månad",
+      "annually": "Årligen"
+    },
+    "errors": {
+      "titleRequired": "Titel krävs",
+      "amountInvalid": "Beloppet måste vara större än 0",
+      "startDateRequired": "Startdatum krävs",
+      "accountRequired": "Konto krävs",
+      "categoryRequired": "Kategori krävs",
+      "typeRequired": "Typ krävs",
+      "endDateInvalid": "Slutdatum måste vara efter startdatum"
+    }
+  }
+}

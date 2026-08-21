@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Recurring Transactions",
+    "subtitle": "Manage your recurring expenses and income",
+    "addButton": "Add Recurring",
+    "loading": "Loading recurring transactions..."
+  },
+  "stats": {
+    "active": "Active Recurring",
+    "monthlyCommitment": "Monthly Commitment",
+    "totalActive": "Total Active Amount"
+  },
+  "empty": {
+    "message": "No recurring transactions yet",
+    "cta": "Create your first recurring transaction"
+  },
+  "card": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "frequency": "Frequency",
+    "nextDue": "Next Due",
+    "started": "Started",
+    "ends": "Ends",
+    "amount": "Amount",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "frequencyLabels": {
+    "weekly": "Every week",
+    "biWeekly": "Every 2 weeks",
+    "monthly": "Every month",
+    "quarterly": "Every 3 months",
+    "semiAnnually": "Every 6 months",
+    "annually": "Every year"
+  },
+  "modal": {
+    "editTitle": "Edit Recurring",
+    "addTitle": "Add Recurring Transaction",
+    "titleLabel": "Title *",
+    "titlePlaceholder": "e.g., Monthly Rent, Salary",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Optional description",
+    "amountLabel": "Amount *",
+    "accountLabel": "Account *",
+    "selectAccount": "Select account",
+    "typeLabel": "Type *",
+    "selectType": "Select type",
+    "categoryLabel": "Category *",
+    "selectCategory": "Select category",
+    "frequencyLabel": "Frequency *",
+    "startDateLabel": "Start Date *",
+    "endDateLabel": "End Date (Optional)",
+    "activeLabel": "Active",
+    "cancel": "Cancel",
+    "update": "Update",
+    "create": "Create",
+    "frequencyOptions": {
+      "weekly": "Weekly",
+      "biWeekly": "Every 2 weeks",
+      "monthly": "Monthly",
+      "quarterly": "Every 3 months",
+      "semiAnnually": "Every 6 months",
+      "annually": "Yearly"
+    },
+    "errors": {
+      "titleRequired": "Title is required",
+      "amountInvalid": "Amount must be greater than 0",
+      "startDateRequired": "Start date is required",
+      "accountRequired": "Account is required",
+      "categoryRequired": "Category is required",
+      "typeRequired": "Type is required",
+      "endDateInvalid": "End date must be after start date"
+    }
+  }
+}

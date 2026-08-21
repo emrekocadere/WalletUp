@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface NavigationFooterProps {
   currentStep: number;
   totalSteps: number;
@@ -17,6 +19,7 @@ export const NavigationFooter = ({
   onNext,
   onComplete,
 }: NavigationFooterProps) => {
+  const { t } = useTranslation('onboarding');
   return (
     <div className="border-t border-slate-700 p-6 flex justify-between items-center bg-slate-800/30">
       <button
@@ -26,7 +29,7 @@ export const NavigationFooter = ({
           currentStep === 0 ? 'invisible' : 'text-gray-400 hover:text-white hover:bg-slate-700 disabled:opacity-50'
         }`}
       >
-        ← Back
+        ← {t('navigation.back')}
       </button>
 
       {currentStep < totalSteps ? (
@@ -35,7 +38,7 @@ export const NavigationFooter = ({
           disabled={isLoading}
           className="px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all disabled:opacity-50"
         >
-          {currentStep === 0 ? "Get Started" : 'Continue'} →
+          {currentStep === 0 ? t('navigation.getStarted') : t('navigation.continue')} →
         </button>
       ) : (
         <button
@@ -46,10 +49,10 @@ export const NavigationFooter = ({
           {isLoading ? (
             <>
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              Saving...
+              {t('navigation.saving')}
             </>
           ) : (
-            <>Complete ✓</>
+            <>{t('navigation.complete')} ✓</>
           )}
         </button>
       )}

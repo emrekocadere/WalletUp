@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Ominaisuudet",
+    "whyUs": "Miksi me",
+    "signIn": "Kirjaudu sisään",
+    "getStarted": "Aloita"
+  },
+  "hero": {
+    "titleLine1": "Rahasi,",
+    "titleLine2": "Fiksummin.",
+    "subtitle": "Seuraa jokaista kulua, saavuta jokainen tavoite — tekoälyn oivallusten voimalla, jotka todella ymmärtävät talousta.",
+    "startFree": "Aloita ilmaiseksi",
+    "signIn": "Kirjaudu sisään"
+  },
+  "featuresSection": {
+    "eyebrow": "Rahasi, eriteltynä",
+    "titlePrefix": "Suunniteltu sitä varten, miten ",
+    "titleEmphasis": "oikeasti",
+    "titleSuffix": " elät",
+    "subtitle": "Sovelluksen osat, joita ihmiset avaavat joka viikko — eivät demon osat.",
+    "items": {
+      "insights": {
+        "name": "Tekoälyn oivallukset",
+        "description": "Henkilökohtaisia neuvoja todellisten kulutustottumustesi perusteella — ei geneerisiä budjettivinkkejä."
+      },
+      "reports": {
+        "name": "Raportit ja analytiikka",
+        "description": "Koko vuoden tulot ja menot, eriteltynä kuukausittain ja luokittain."
+      },
+      "goals": {
+        "name": "Tavoiteseuranta",
+        "description": "Aseta tavoite, lisää rahaa milloin voit, ja katso palkin todella liikkuvan."
+      },
+      "recurring": {
+        "name": "Toistuvat tapahtumat",
+        "description": "Vuokra, palkka, tilaukset — aseta kerran, ja ne kirjautuvat itsestään joka jaksolla."
+      },
+      "multiCurrency": {
+        "name": "Useita valuuttoja",
+        "description": "Pidä tilejä missä tahansa valuutassa, muunnettuna reaaliajassa siihen valuuttaan, jossa oikeasti ajattelet."
+      },
+      "security": {
+        "name": "Turvalliset istunnot",
+        "description": "Salatut kirjautumiset, jotka uusiutuvat hiljaa itsestään — ja kirjautuvat ulos juuri oikeaan aikaan."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Valmis ottamaan",
+    "titleEmphasis": "hallinnan?",
+    "subtitle": "Aloita taloudellinen matkasi tänään — ilmaiseksi, ei luottokorttia tarvita.",
+    "getStartedFree": "Aloita ilmaiseksi",
+    "signIn": "Kirjaudu sisään"
+  },
+  "footer": {
+    "tagline": "Tekoälyn tukema fiksu rahanhallinta. Seuraa kuluja, saavuta tavoitteita.",
+    "copyright": "{{year}} WalletUp · Kehittänyt Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Aktiivista käyttäjää",
+    "trackedExpenses": "Seurattua kulua",
+    "uptime": "Käytettävyys"
+  },
+  "pricingSection": {
+    "title": "Yksinkertainen, läpinäkyvä hinnoittelu",
+    "subtitle": "Aloita ilmaiseksi, päivitä kun tarvitset enemmän tehoa",
+    "free": {
+      "name": "Ilmainen",
+      "price": "0 €",
+      "period": "ikuisesti",
+      "description": "Täydellinen kulujen seurannan aloittamiseen",
+      "features": [
+        "Rajoittamaton kulujen seuranta",
+        "Peruanalytiikka",
+        "Useita tilejä",
+        "Manuaalinen luokittelu"
+      ]
+    },
+    "plus": {
+      "badge": "2 KUUKAUTTA ILMAINEN KOKEILU",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ kuukausi",
+      "description": "Edistyneitä tekoälyominaisuuksia älykkäämpään rahanhallintaan",
+      "everythingInFree": "Kaikki Ilmaisessa, sekä:",
+      "features": [
+        { "title": "Tekoälypohjainen luokittelu", "description": "Automaattista ja älykästä" },
+        { "title": "Ennakoiva analytiikka", "description": "Ennusta kulutusta" },
+        { "title": "Henkilökohtaiset oivallukset", "description": "Räätälöityjä suosituksia" },
+        { "title": "Budjetin optimointi", "description": "Tekoälyn ohjaamaa säästämistä" }
+      ],
+      "prioritySupport": "Etusijainen tuki"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "TAVOITESEURANTA",
+    "title": "Saavuta taloudelliset unelmasi",
+    "description": "Aseta merkityksellisiä taloudellisia tavoitteita ja seuraa edistymistäsi vaivattomasti. Säästätpä sitten uuteen autoon, unelmien taloon, lomaan tai mihin tahansa muuhun virstanpylvääseen, WalletUp auttaa sinua pysymään motivoituneena ja tavoitteessa visuaalisen edistymisen seurannan ja älykkäiden säästövinkkien avulla.",
+    "features": {
+      "customGoals": {
+        "title": "Mukautetut tavoitteet",
+        "description": "Luo tavoitteita autolle, talolle, lomalle tai mille tahansa"
+      },
+      "visualProgress": {
+        "title": "Visuaalinen edistyminen",
+        "description": "Katso, kuinka lähellä olet tavoitteidesi saavuttamista"
+      },
+      "deadlineTracking": {
+        "title": "Määräaikaseuranta",
+        "description": "Aseta tavoitepäivät ja saa muistutuksia"
+      },
+      "smartSuggestions": {
+        "title": "Älykkäät ehdotukset",
+        "description": "Saa vinkkejä, miten saavutat tavoitteesi nopeammin"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ TEKOÄLYN TUKEMA",
+    "title": "Henkilökohtainen talousavustajasi",
+    "description": "WalletUp käyttää kehittynyttä tekoälyä ymmärtääkseen kulutustottumuksiasi ja tarjotakseen henkilökohtaisia oivalluksia. Saat älykkäitä suosituksia, automaattisen kululuokittelun ja ennakoivaa analytiikkaa, jotka auttavat sinua tekemään parempia taloudellisia päätöksiä.",
+    "features": {
+      "smartCategorization": {
+        "title": "Älykäs luokittelu",
+        "description": "Tekoäly luokittelee tapahtumasi automaattisesti"
+      },
+      "predictiveAnalytics": {
+        "title": "Ennakoiva analytiikka",
+        "description": "Ennusta tulevia kulutusmalleja ja trendejä"
+      },
+      "personalizedTips": {
+        "title": "Henkilökohtaiset vinkit",
+        "description": "Saa räätälöityjä neuvoja tottumustesi perusteella"
+      },
+      "budgetOptimization": {
+        "title": "Budjetin optimointi",
+        "description": "Tekoäly auttaa sinua löytämään säästömahdollisuuksia"
+      }
+    }
+  }
+}

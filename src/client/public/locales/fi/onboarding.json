@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Takaisin",
+    "getStarted": "Aloita",
+    "continue": "Jatka",
+    "saving": "Tallennetaan...",
+    "complete": "Valmis"
+  },
+  "welcomeStep": {
+    "title": "Pika-asetukset",
+    "description": "Vastaa muutamaan kysymykseen, niin valmistelemme tilisi."
+  },
+  "currencyStep": {
+    "title": "Valitse valuuttasi",
+    "subtitle": "Valitse ensisijainen valuuttasi",
+    "placeholder": "Valitse valuutta...",
+    "loading": "Ladataan valuuttoja..."
+  },
+  "countryStep": {
+    "title": "Mistä olet kotoisin?",
+    "subtitle": "Valitse maasi",
+    "placeholder": "Valitse maasi...",
+    "loading": "Ladataan maita..."
+  },
+  "useCaseStep": {
+    "title": "Miten aiot käyttää WalletUpia?",
+    "subtitle": "Valitse ensisijainen käyttötarkoituksesi",
+    "options": {
+      "personal": { "label": "Henkilökohtainen talous" },
+      "family": { "label": "Perhebudjetti" },
+      "business": { "label": "Pienyritys" },
+      "freelance": { "label": "Freelancer" }
+    }
+  },
+  "goalsStep": {
+    "title": "Taloudelliset tavoitteet",
+    "subtitle": "Valitse kaikki sopivat",
+    "options": {
+      "save": "Kerrytä säästöjä",
+      "budget": "Pysy budjetissa",
+      "debt": "Maksa velat pois",
+      "invest": "Aloita sijoittaminen",
+      "track": "Seuraa kulutusta",
+      "plan": "Suunnittele tulevaisuutta"
+    },
+    "selectedCount_one": "{{count}} tavoite valittu",
+    "selectedCount_other": "{{count}} tavoitetta valittu"
+  },
+  "aiPreferencesStep": {
+    "title": "Muokkaa tekoälyavustajaasi",
+    "subtitle": "Auta meitä räätälöimään tekoälykokemuksesi parempia suosituksia varten",
+    "occupationLabel": "Mikä on ammattisi?",
+    "occupationPlaceholder": "esim. insinööri, opettaja, yrittäjä...",
+    "incomeLabel": "Mitkä ovat kuukausitulosi?",
+    "incomePlaceholder": "Anna kuukausitulosi (valinnainen)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Tee valinta jatkaaksesi",
+    "goalRequired": "Valitse vähintään yksi taloudellinen tavoite",
+    "completeSuccess": "Asetukset valmiit! Sinut ohjataan yhteenvetoosi...",
+    "completeFailed": "Asetusten tallentaminen epäonnistui. Yritä uudelleen.",
+    "loadFailed": "Tietojen lataaminen epäonnistui"
+  }
+}

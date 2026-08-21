@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Vis mere",
+    "showLess": "Vis mindre",
+    "hideDetails": "Skjul detaljer",
+    "aiInsightBadge": "AI-indsigt",
+    "aiInsightsUnavailable": "AI-indsigter er ikke tilgængelige endnu."
+  },
   "nav": {
     "menu": "Menu",
     "dashboard": "Oversigt",
@@ -90,6 +97,13 @@
     "thisMonth": "Denne måned",
     "aiInsightsEmpty": "AI-indsigter forberedes. Kig forbi igen snart.",
     "recentTransactions": "Seneste transaktioner",
-    "viewAll": "Se alle →"
+    "viewAll": "Se alle →",
+    "loadingTransactions": "Indlæser transaktioner...",
+    "noTransactions": "Ingen transaktioner endnu",
+    "noTransactionsSubtitle": "Opret en konto og tilføj din første transaktion",
+    "noDescription": "Ingen beskrivelse",
+    "uncategorized": "Ikke kategoriseret",
+    "unknownType": "Ukendt",
+    "spendingByCategory": "Forbrug efter kategori"
   }
 }

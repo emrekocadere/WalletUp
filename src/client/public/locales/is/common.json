@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Sjá meira",
+    "showLess": "Sjá minna",
+    "hideDetails": "Fela nánar",
+    "aiInsightBadge": "Gervigreindarinnsýn",
+    "aiInsightsUnavailable": "Gervigreindarinnsýn er ekki tiltæk ennþá."
+  },
   "nav": {
     "menu": "Valmynd",
     "dashboard": "Yfirlit",
@@ -90,6 +97,13 @@
     "thisMonth": "Þennan mánuð",
     "aiInsightsEmpty": "Gervigreindarinnsýn er í undirbúningi. Líttu við aftur fljótlega.",
     "recentTransactions": "Nýlegar færslur",
-    "viewAll": "Sjá allt →"
+    "viewAll": "Sjá allt →",
+    "loadingTransactions": "Hleð færslum...",
+    "noTransactions": "Engar færslur ennþá",
+    "noTransactionsSubtitle": "Stofnaðu reikning og bættu við fyrstu færslunni þinni",
+    "noDescription": "Engin lýsing",
+    "uncategorized": "Óflokkað",
+    "unknownType": "Óþekkt",
+    "spendingByCategory": "Eyðsla eftir flokki"
   }
 }

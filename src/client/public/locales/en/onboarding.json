@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Back",
+    "getStarted": "Get Started",
+    "continue": "Continue",
+    "saving": "Saving...",
+    "complete": "Complete"
+  },
+  "welcomeStep": {
+    "title": "Quick setup",
+    "description": "Answer a couple of questions and we'll get your account ready."
+  },
+  "currencyStep": {
+    "title": "Choose Your Currency",
+    "subtitle": "Select your primary currency",
+    "placeholder": "Select currency...",
+    "loading": "Loading currencies..."
+  },
+  "countryStep": {
+    "title": "Where Are You From?",
+    "subtitle": "Select your country",
+    "placeholder": "Select your country...",
+    "loading": "Loading countries..."
+  },
+  "useCaseStep": {
+    "title": "How Will You Use WalletUp?",
+    "subtitle": "Choose your primary use case",
+    "options": {
+      "personal": { "label": "Personal Finance" },
+      "family": { "label": "Family Budget" },
+      "business": { "label": "Small Business" },
+      "freelance": { "label": "Freelancer" }
+    }
+  },
+  "goalsStep": {
+    "title": "Financial Goals",
+    "subtitle": "Select all that apply",
+    "options": {
+      "save": "Build Savings",
+      "budget": "Stick to Budget",
+      "debt": "Pay Off Debt",
+      "invest": "Start Investing",
+      "track": "Track Spending",
+      "plan": "Plan for Future"
+    },
+    "selectedCount_one": "{{count}} goal selected",
+    "selectedCount_other": "{{count}} goals selected"
+  },
+  "aiPreferencesStep": {
+    "title": "Customize Your AI Assistant",
+    "subtitle": "Help us personalize your AI experience for better recommendations",
+    "occupationLabel": "What's your occupation?",
+    "occupationPlaceholder": "e.g., Engineer, Teacher, Entrepreneur...",
+    "incomeLabel": "What's your monthly income?",
+    "incomePlaceholder": "Enter your monthly income (optional)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Please make a selection to continue",
+    "goalRequired": "Please select at least one financial goal",
+    "completeSuccess": "Setup complete! Taking you to your dashboard...",
+    "completeFailed": "Failed to save preferences. Please try again.",
+    "loadFailed": "Failed to load data"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Funktionen",
+    "whyUs": "Warum wir",
+    "signIn": "Anmelden",
+    "getStarted": "Loslegen"
+  },
+  "hero": {
+    "titleLine1": "Ihr Geld,",
+    "titleLine2": "Smarter.",
+    "subtitle": "Verfolgen Sie jede Ausgabe, erreichen Sie jedes Ziel — mit KI-Einblicken, die Ihre finanziellen Gewohnheiten wirklich verstehen.",
+    "startFree": "Kostenlos starten",
+    "signIn": "Anmelden"
+  },
+  "featuresSection": {
+    "eyebrow": "Ihr Geld, im Detail",
+    "titlePrefix": "Gemacht für das Leben, das Sie ",
+    "titleEmphasis": "wirklich",
+    "titleSuffix": " führen",
+    "subtitle": "Die Teile der App, die Menschen jede Woche öffnen — nicht die aus der Demo.",
+    "items": {
+      "insights": {
+        "name": "KI-gestützte Einblicke",
+        "description": "Personalisierte Ratschläge basierend auf Ihren tatsächlichen Ausgabemustern — keine generischen Budget-Tipps."
+      },
+      "reports": {
+        "name": "Berichte & Analysen",
+        "description": "Ein ganzes Jahr an Einnahmen und Ausgaben, aufgeschlüsselt nach Monat und Kategorie."
+      },
+      "goals": {
+        "name": "Zielverfolgung",
+        "description": "Setzen Sie sich ein Ziel, legen Sie Geld beiseite, wann immer Sie können, und beobachten Sie, wie sich der Balken wirklich bewegt."
+      },
+      "recurring": {
+        "name": "Wiederkehrende Transaktionen",
+        "description": "Miete, Gehalt, Abos — einmal einrichten, danach buchen sie sich jeden Zyklus von selbst."
+      },
+      "multiCurrency": {
+        "name": "Mehrere Währungen",
+        "description": "Führen Sie Konten in jeder Währung, live umgerechnet in die Währung, in der Sie tatsächlich denken."
+      },
+      "security": {
+        "name": "Sichere Sitzungen",
+        "description": "Verschlüsselte Anmeldungen, die sich still erneuern — und sich genau dann abmelden, wenn sie sollen."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Bereit, die",
+    "titleEmphasis": "Kontrolle zu übernehmen?",
+    "subtitle": "Starten Sie noch heute Ihre finanzielle Reise — kostenlos, keine Kreditkarte erforderlich.",
+    "getStartedFree": "Kostenlos loslegen",
+    "signIn": "Anmelden"
+  },
+  "footer": {
+    "tagline": "KI-gestütztes, smartes Geldmanagement. Ausgaben verfolgen, Ziele erreichen.",
+    "copyright": "{{year}} WalletUp · Entwickelt von Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Aktive Nutzer",
+    "trackedExpenses": "Erfasste Ausgaben",
+    "uptime": "Verfügbarkeit"
+  },
+  "pricingSection": {
+    "title": "Einfache, transparente Preise",
+    "subtitle": "Kostenlos starten, upgraden, wenn Sie mehr Leistung brauchen",
+    "free": {
+      "name": "Kostenlos",
+      "price": "0 €",
+      "period": "für immer",
+      "description": "Perfekt für den Einstieg in die Ausgabenverfolgung",
+      "features": [
+        "Unbegrenzte Ausgabenverfolgung",
+        "Basis-Analysen",
+        "Mehrere Konten",
+        "Manuelle Kategorisierung"
+      ]
+    },
+    "plus": {
+      "badge": "2 MONATE KOSTENLOS TESTEN",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ Monat",
+      "description": "Erweiterte KI-Funktionen für smarteres Geldmanagement",
+      "everythingInFree": "Alles aus Kostenlos, plus:",
+      "features": [
+        { "title": "KI-gestützte Kategorisierung", "description": "Automatisch & intelligent" },
+        { "title": "Prädiktive Analysen", "description": "Ausgaben vorhersagen" },
+        { "title": "Personalisierte Einblicke", "description": "Individuelle Empfehlungen" },
+        { "title": "Budgetoptimierung", "description": "KI-gestütztes Sparen" }
+      ],
+      "prioritySupport": "Priorisierter Support"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "ZIELVERFOLGUNG",
+    "title": "Erreichen Sie Ihre finanziellen Träume",
+    "description": "Setzen Sie sich sinnvolle finanzielle Ziele und verfolgen Sie Ihren Fortschritt mühelos. Ob Sie für ein neues Auto, Ihr Traumhaus, einen Urlaub oder einen anderen Meilenstein sparen — WalletUp hilft Ihnen mit visueller Fortschrittsverfolgung und smarten Sparempfehlungen, motiviert und auf Kurs zu bleiben.",
+    "features": {
+      "customGoals": {
+        "title": "Individuelle Ziele",
+        "description": "Ziele für Auto, Haus, Urlaub oder alles andere erstellen"
+      },
+      "visualProgress": {
+        "title": "Visueller Fortschritt",
+        "description": "Sehen Sie, wie nah Sie Ihren Zielen sind"
+      },
+      "deadlineTracking": {
+        "title": "Fristenverfolgung",
+        "description": "Zieltermine festlegen und Erinnerungen erhalten"
+      },
+      "smartSuggestions": {
+        "title": "Intelligente Vorschläge",
+        "description": "Tipps erhalten, wie Sie Ihre Ziele schneller erreichen"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ KI-GESTÜTZT",
+    "title": "Ihr persönlicher Finanzassistent",
+    "description": "WalletUp nutzt fortschrittliche künstliche Intelligenz, um Ihre Ausgabegewohnheiten zu verstehen und personalisierte Einblicke zu liefern. Erhalten Sie intelligente Empfehlungen, automatische Ausgabenkategorisierung und prädiktive Analysen für bessere finanzielle Entscheidungen.",
+    "features": {
+      "smartCategorization": {
+        "title": "Intelligente Kategorisierung",
+        "description": "KI kategorisiert Ihre Transaktionen automatisch"
+      },
+      "predictiveAnalytics": {
+        "title": "Prädiktive Analysen",
+        "description": "Zukünftige Ausgabemuster und Trends vorhersagen"
+      },
+      "personalizedTips": {
+        "title": "Personalisierte Tipps",
+        "description": "Individuelle Ratschläge basierend auf Ihren Gewohnheiten"
+      },
+      "budgetOptimization": {
+        "title": "Budgetoptimierung",
+        "description": "KI hilft Ihnen, Sparmöglichkeiten zu finden"
+      }
+    }
+  }
+}

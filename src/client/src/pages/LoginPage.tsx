@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState, AppDispatch } from '@/store/store';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { authApi } from '@/api/endpoints/auth.api';
@@ -11,6 +12,7 @@ import { PageLoader } from '@/components/common/PageLoader';
 import toast from 'react-hot-toast';
 
 export const LoginPage = () => {
+  const { t } = useTranslation('auth');
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { isAuthenticated, onboarding_completed } = useSelector((state: RootState) => state.auth);
@@ -30,7 +32,7 @@ export const LoginPage = () => {
 
       if (!response.isSuccess) {
         // API başarısız - hata mesajı göster
-        toast.error(response.error?.description || 'Login failed. Please try again.');
+        toast.error(response.error?.description || t('login.genericError'));
         return;
       }
 
@@ -46,7 +48,7 @@ export const LoginPage = () => {
 
     } catch (err) {
       const apiError = err as ApiError;
-      toast.error(apiError.message || 'Login failed. Please try again.');
+      toast.error(apiError.message || t('login.genericError'));
     } finally {
       setIsLoading(false);
     }
@@ -54,7 +56,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      {isLoading && <PageLoader message="Giriş yapılıyor..." />}
+      {isLoading && <PageLoader message={t('login.loadingMessage')} />}
 
       <div className="min-h-screen bg-[#0d1224] flex items-center justify-center py-12 px-4 relative overflow-hidden">
         {/* Background orbs */}
@@ -77,18 +79,18 @@ export const LoginPage = () => {
             </Link>
             <div>
               <h1 className="text-4xl font-black text-white leading-tight mb-3">
-                Welcome{' '}
-                <span className="text-violet-400">back.</span>
+                {t('login.welcome')}{' '}
+                <span className="text-violet-400">{t('login.welcomeHighlight')}</span>
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Your finances, at a glance. Pick up right where you left off.
+                {t('login.subtitle')}
               </p>
             </div>
             <div className="space-y-4">
               {[
-                { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Track Expenses', sub: 'Log and categorize your spending', color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
-                { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: 'View Reports', sub: 'See where your money goes', color: 'text-indigo-400', bg: 'bg-indigo-500/15' },
-                { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Set Goals', sub: 'Plan your savings targets', color: 'text-violet-400', bg: 'bg-violet-500/15' },
+                { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: t('login.features.trackExpenses.label'), sub: t('login.features.trackExpenses.sub'), color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+                { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: t('login.features.viewReports.label'), sub: t('login.features.viewReports.sub'), color: 'text-indigo-400', bg: 'bg-indigo-500/15' },
+                { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: t('login.features.setGoals.label'), sub: t('login.features.setGoals.sub'), color: 'text-violet-400', bg: 'bg-violet-500/15' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-4">
                   <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -115,17 +117,17 @@ export const LoginPage = () => {
             </div>
 
             <div className="mb-8">
-              <h2 className="text-2xl font-black text-white mb-1">Sign In</h2>
-              <p className="text-gray-500 text-sm">Welcome back to WalletUp</p>
+              <h2 className="text-2xl font-black text-white mb-1">{t('login.title')}</h2>
+              <p className="text-gray-500 text-sm">{t('login.subtitleCard')}</p>
             </div>
 
             <LoginForm onSubmit={handleLogin} isLoading={isLoading} />
 
             <div className="mt-7 pt-6 border-t border-white/8">
               <p className="text-center text-sm text-gray-500">
-                Don't have an account?{' '}
+                {t('login.noAccount')}{' '}
                 <Link to="/register" className="text-violet-400 hover:text-violet-300 font-semibold transition-colors">
-                  Create one →
+                  {t('login.createOne')}
                 </Link>
               </p>
             </div>

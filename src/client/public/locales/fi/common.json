@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Näytä lisää",
+    "showLess": "Näytä vähemmän",
+    "hideDetails": "Piilota tiedot",
+    "aiInsightBadge": "Tekoälyn oivallus",
+    "aiInsightsUnavailable": "Tekoälyn oivalluksia ei ole vielä saatavilla."
+  },
   "nav": {
     "menu": "Valikko",
     "dashboard": "Yhteenveto",
@@ -90,6 +97,13 @@
     "thisMonth": "Tässä kuussa",
     "aiInsightsEmpty": "Tekoälyn oivalluksia valmistellaan. Katso pian uudelleen.",
     "recentTransactions": "Viimeisimmät tapahtumat",
-    "viewAll": "Näytä kaikki →"
+    "viewAll": "Näytä kaikki →",
+    "loadingTransactions": "Ladataan tapahtumia...",
+    "noTransactions": "Ei vielä tapahtumia",
+    "noTransactionsSubtitle": "Luo tili ja lisää ensimmäinen tapahtumasi",
+    "noDescription": "Ei kuvausta",
+    "uncategorized": "Luokittelematon",
+    "unknownType": "Tuntematon",
+    "spendingByCategory": "Kulut luokittain"
   }
 }

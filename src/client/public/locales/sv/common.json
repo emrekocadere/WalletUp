@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Visa mer",
+    "showLess": "Visa mindre",
+    "hideDetails": "Dölj detaljer",
+    "aiInsightBadge": "AI-insikt",
+    "aiInsightsUnavailable": "AI-insikter är inte tillgängliga än."
+  },
   "nav": {
     "menu": "Meny",
     "dashboard": "Översikt",
@@ -90,6 +97,13 @@
     "thisMonth": "Denna månad",
     "aiInsightsEmpty": "AI-insikter förbereds. Kolla igen snart.",
     "recentTransactions": "Senaste transaktioner",
-    "viewAll": "Visa alla →"
+    "viewAll": "Visa alla →",
+    "loadingTransactions": "Läser in transaktioner...",
+    "noTransactions": "Inga transaktioner ännu",
+    "noTransactionsSubtitle": "Skapa ett konto och lägg till din första transaktion",
+    "noDescription": "Ingen beskrivning",
+    "uncategorized": "Ej kategoriserad",
+    "unknownType": "Okänd",
+    "spendingByCategory": "Utgifter per kategori"
   }
 }

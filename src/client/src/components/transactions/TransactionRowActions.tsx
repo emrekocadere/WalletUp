@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Transaction } from '@/types/model.types';
 import { DropdownMenu } from '@/components/common/DropdownMenu';
 
@@ -9,6 +10,7 @@ interface TransactionRowActionsProps {
 }
 
 export const TransactionRowActions = ({ transaction, onEdit, onDelete }: TransactionRowActionsProps) => {
+  const { t } = useTranslation('transactions');
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +19,7 @@ export const TransactionRowActions = ({ transaction, onEdit, onDelete }: Transac
       onOpenChange={setIsOpen}
       menuItems={[
         {
-          label: 'Edit',
+          label: t('rowActions.edit'),
           icon: (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -34,7 +36,7 @@ export const TransactionRowActions = ({ transaction, onEdit, onDelete }: Transac
           },
         },
         {
-          label: 'Delete',
+          label: t('rowActions.delete'),
           icon: (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path

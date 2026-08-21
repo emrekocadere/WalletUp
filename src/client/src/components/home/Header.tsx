@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
+  const { t } = useTranslation('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -18,10 +20,10 @@ export const Header = () => {
 
           <div className="hidden md:flex items-center gap-1">
             <a href="#features" className="px-4 py-2 text-sm text-gray-200 hover:text-white hover:bg-white/8 rounded-xl transition-all font-medium">
-              Features
+              {t('header.features')}
             </a>
             <a href="#stats" className="px-4 py-2 text-sm text-gray-200 hover:text-white hover:bg-white/8 rounded-xl transition-all font-medium">
-              Why Us
+              {t('header.whyUs')}
             </a>
           </div>
 
@@ -30,13 +32,13 @@ export const Header = () => {
               to="/login"
               className="hidden sm:block text-sm bg-slate-700 hover:bg-slate-600 text-white font-medium px-4 py-2 rounded-xl transition-all"
             >
-              Sign In
+              {t('header.signIn')}
             </Link>
             <Link
               to="/register"
               className="px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold rounded-xl transition-colors duration-200"
             >
-              Get Started
+              {t('header.getStarted')}
             </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,13 +59,13 @@ export const Header = () => {
           <div className="md:hidden mt-2 rounded-2xl bg-slate-900/95 backdrop-blur-2xl border border-white/10 overflow-hidden">
             <nav className="flex flex-col p-3 space-y-1">
               <a href="#features" className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium text-sm">
-                Features
+                {t('header.features')}
               </a>
               <a href="#stats" className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium text-sm">
-                Why Us
+                {t('header.whyUs')}
               </a>
               <Link to="/login" className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium text-sm">
-                Sign In
+                {t('header.signIn')}
               </Link>
             </nav>
           </div>

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Raporlar",
+    "subtitle": "{{year}} yılı için yıllık finansal genel bakış",
+    "loading": "Raporlar yükleniyor..."
+  },
+  "summary": {
+    "totalIncome": "Toplam Gelir",
+    "totalExpenses": "Toplam Gider",
+    "netSavings": "Net Tasarruf",
+    "percentOfIncome": "Gelirin %{{percent}}'i",
+    "avgMonthly": "Aylık Ortalama",
+    "netSavingsSubtext": "net tasarruf"
+  },
+  "monthlyBarChart": {
+    "title": "Aylık Gelir ve Gider",
+    "income": "Gelir",
+    "expenses": "Gider"
+  },
+  "netSavingsChart": {
+    "title": "Net Tasarruf Eğilimi",
+    "label": "Net Tasarruf",
+    "tooltipPrefix": "Net"
+  },
+  "categoryChart": {
+    "title": "Kategoriye Göre Harcama",
+    "noData": "Bu ay için harcama verisi yok"
+  },
+  "topCategories": {
+    "title": "En Çok Harcanan Kategoriler",
+    "noData": "Bu ay için harcama verisi yok"
+  }
+}

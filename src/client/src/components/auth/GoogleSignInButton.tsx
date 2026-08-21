@@ -1,6 +1,7 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { setCredentials } from "@/store/slices/authSlice";
 import { apiClient } from "@/api/client/axios.client";
 
@@ -10,6 +11,7 @@ interface GoogleSignInButtonProps {
 }
 
 export const GoogleSignInButton = ({ }: GoogleSignInButtonProps) => {
+  const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -44,7 +46,7 @@ export const GoogleSignInButton = ({ }: GoogleSignInButtonProps) => {
           <div className="w-full border-t border-white/10"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white/5 text-gray-400">Or continue with</span>
+          <span className="px-2 bg-white/5 text-gray-400">{t('googleSignIn.divider')}</span>
         </div>
       </div>
 

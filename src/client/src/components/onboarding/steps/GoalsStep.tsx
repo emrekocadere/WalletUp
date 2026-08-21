@@ -1,16 +1,17 @@
+import { useTranslation } from 'react-i18next';
+
 interface Goal {
   id: string;
-  label: string;
   icon: string;
 }
 
 const goals: Goal[] = [
-  { id: 'save', label: 'Build Savings', icon: '💰' },
-  { id: 'budget', label: 'Stick to Budget', icon: '📊' },
-  { id: 'debt', label: 'Pay Off Debt', icon: '💳' },
-  { id: 'invest', label: 'Start Investing', icon: '📈' },
-  { id: 'track', label: 'Track Spending', icon: '🔍' },
-  { id: 'plan', label: 'Plan for Future', icon: '🎯' },
+  { id: 'save', icon: '💰' },
+  { id: 'budget', icon: '📊' },
+  { id: 'debt', icon: '💳' },
+  { id: 'invest', icon: '📈' },
+  { id: 'track', icon: '🔍' },
+  { id: 'plan', icon: '🎯' },
 ];
 
 interface GoalsStepProps {
@@ -19,11 +20,12 @@ interface GoalsStepProps {
 }
 
 export const GoalsStep = ({ selectedGoals, onGoalToggle }: GoalsStepProps) => {
+  const { t } = useTranslation('onboarding');
   return (
     <div className="flex-1">
       <div className="mb-6 text-center">
-        <h2 className="text-2xl font-bold text-white mb-2">Financial Goals</h2>
-        <p className="text-gray-400">Select all that apply</p>
+        <h2 className="text-2xl font-bold text-white mb-2">{t('goalsStep.title')}</h2>
+        <p className="text-gray-400">{t('goalsStep.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3">
@@ -47,14 +49,14 @@ export const GoalsStep = ({ selectedGoals, onGoalToggle }: GoalsStepProps) => {
               </div>
             )}
             <div className="text-3xl mb-2">{goal.icon}</div>
-            <p className="text-xs font-semibold text-white">{goal.label}</p>
+            <p className="text-xs font-semibold text-white">{t(`goalsStep.options.${goal.id}`)}</p>
           </button>
         ))}
       </div>
 
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-400">
-          {selectedGoals.length} goal{selectedGoals.length !== 1 ? 's' : ''} selected
+          {t('goalsStep.selectedCount', { count: selectedGoals.length })}
         </p>
       </div>
     </div>

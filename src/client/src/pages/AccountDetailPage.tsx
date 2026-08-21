@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -23,6 +24,7 @@ import type {
 
 
 export const AccountDetailPage = () => {
+  const { t } = useTranslation('accounts');
   const { id } = useParams<{ id: string }>();
   const { categories, transactionTypes } = useSelector((state: RootState) => state.appData);
   const [account, setAccount] = useState<Account | null>(null);
@@ -101,7 +103,7 @@ export const AccountDetailPage = () => {
   const filteredTransactions = transactions;
 
   if (!account && isLoading) {
-    return <PageLoader message="Loading account details..." />;
+    return <PageLoader message={t('accountDetailPage.loading')} />;
   }
 
   if (!account || isError) {
@@ -111,9 +113,9 @@ export const AccountDetailPage = () => {
         <main className="lg:ml-64">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-16 lg:pt-12">
             <div className="text-center">
-              <p className="text-red-400 text-xl mb-4">Failed to load account</p>
+              <p className="text-red-400 text-xl mb-4">{t('accountDetailPage.failedToLoad')}</p>
               <Link to="/accounts" className="text-primary-400 hover:text-primary-300">
-                ← Back to Accounts
+                {t('accountDetailPage.backToAccounts')}
               </Link>
             </div>
           </div>
@@ -136,10 +138,10 @@ export const AccountDetailPage = () => {
                 to="/accounts"
                 className="text-primary-400 text-sm font-medium hover:text-primary-300 transition-colors"
               >
-                ← Back to Accounts
+                {t('accountDetailPage.backToAccounts')}
               </Link>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-1">{account.name}</h1>
-              <p className="text-sm sm:text-base text-gray-400">View your account balance and all transactions.</p>
+              <p className="text-sm sm:text-base text-gray-400">{t('accountDetailPage.subtitle')}</p>
             </div>
           </div>
 
@@ -156,14 +158,14 @@ export const AccountDetailPage = () => {
               try {
                 const result = await accountsApi.delete(account.id);
                 if (result.isSuccess) {
-                  setToast({ message: 'Account deleted successfully', type: 'success' });
+                  setToast({ message: t('accountDetailPage.deleteSuccess'), type: 'success' });
                   setTimeout(() => window.location.href = '/accounts', 1500);
                 } else {
-                  setToast({ message: 'Failed to delete account', type: 'error' });
+                  setToast({ message: t('accountDetailPage.deleteFailed'), type: 'error' });
                 }
               } catch (error) {
                 console.error('Delete error:', error);
-                setToast({ message: 'Failed to delete account', type: 'error' });
+                setToast({ message: t('accountDetailPage.deleteFailed'), type: 'error' });
               }
             }}
             transactions={transactions}

@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Endurteknar færslur",
+    "subtitle": "Stjórnaðu endurteknum útgjöldum og tekjum þínum",
+    "addButton": "Bæta við endurtekinni",
+    "loading": "Hleð endurteknum færslum..."
+  },
+  "stats": {
+    "active": "Virkar endurteknar",
+    "monthlyCommitment": "Mánaðarleg skuldbinding",
+    "totalActive": "Heildarvirk upphæð"
+  },
+  "empty": {
+    "message": "Engar endurteknar færslur ennþá",
+    "cta": "Stofnaðu fyrstu endurteknu færsluna þína"
+  },
+  "card": {
+    "active": "Virk",
+    "inactive": "Óvirk",
+    "frequency": "Tíðni",
+    "nextDue": "Næsti gjalddagi",
+    "started": "Hófst",
+    "ends": "Lýkur",
+    "amount": "Upphæð",
+    "deactivate": "Gera óvirka",
+    "activate": "Virkja",
+    "edit": "Breyta",
+    "delete": "Eyða"
+  },
+  "frequencyLabels": {
+    "weekly": "Í hverri viku",
+    "biWeekly": "Á 2ja vikna fresti",
+    "monthly": "Í hverjum mánuði",
+    "quarterly": "Á 3ja mánaða fresti",
+    "semiAnnually": "Á 6 mánaða fresti",
+    "annually": "Á hverju ári"
+  },
+  "modal": {
+    "editTitle": "Breyta endurtekinni",
+    "addTitle": "Bæta við endurtekinni færslu",
+    "titleLabel": "Titill *",
+    "titlePlaceholder": "t.d. Mánaðarleiga, Laun",
+    "descriptionLabel": "Lýsing",
+    "descriptionPlaceholder": "Valfrjáls lýsing",
+    "amountLabel": "Upphæð *",
+    "accountLabel": "Reikningur *",
+    "selectAccount": "Veldu reikning",
+    "typeLabel": "Tegund *",
+    "selectType": "Veldu tegund",
+    "categoryLabel": "Flokkur *",
+    "selectCategory": "Veldu flokk",
+    "frequencyLabel": "Tíðni *",
+    "startDateLabel": "Upphafsdagsetning *",
+    "endDateLabel": "Lokadagsetning (Valfrjálst)",
+    "activeLabel": "Virk",
+    "cancel": "Hætta við",
+    "update": "Uppfæra",
+    "create": "Stofna",
+    "frequencyOptions": {
+      "weekly": "Vikulega",
+      "biWeekly": "Á 2ja vikna fresti",
+      "monthly": "Mánaðarlega",
+      "quarterly": "Á 3ja mánaða fresti",
+      "semiAnnually": "Á 6 mánaða fresti",
+      "annually": "Árlega"
+    },
+    "errors": {
+      "titleRequired": "Titill er nauðsynlegur",
+      "amountInvalid": "Upphæð verður að vera hærri en 0",
+      "startDateRequired": "Upphafsdagsetning er nauðsynleg",
+      "accountRequired": "Reikningur er nauðsynlegur",
+      "categoryRequired": "Flokkur er nauðsynlegur",
+      "typeRequired": "Tegund er nauðsynleg",
+      "endDateInvalid": "Lokadagsetning verður að vera eftir upphafsdagsetningu"
+    }
+  }
+}

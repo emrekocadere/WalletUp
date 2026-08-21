@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Raportit",
+    "subtitle": "Vuotuinen taloudellinen yleiskatsaus vuodelle {{year}}",
+    "loading": "Ladataan raportteja..."
+  },
+  "summary": {
+    "totalIncome": "Tulot yhteensä",
+    "totalExpenses": "Kulut yhteensä",
+    "netSavings": "Nettosäästöt",
+    "percentOfIncome": "{{percent}} % tuloista",
+    "avgMonthly": "Keskim. kuukausittain",
+    "netSavingsSubtext": "nettosäästöt"
+  },
+  "monthlyBarChart": {
+    "title": "Kuukausittaiset tulot vs. kulut",
+    "income": "Tulot",
+    "expenses": "Kulut"
+  },
+  "netSavingsChart": {
+    "title": "Nettosäästöjen kehitys",
+    "label": "Nettosäästöt",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Kulut luokittain",
+    "noData": "Ei kulutietoja tälle kuukaudelle"
+  },
+  "topCategories": {
+    "title": "Suurimmat luokat",
+    "noData": "Ei kulutietoja tälle kuukaudelle"
+  }
+}

@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Daha fazla göster",
+    "showLess": "Daha az göster",
+    "hideDetails": "Detayları gizle",
+    "aiInsightBadge": "Yapay Zeka İçgörüsü",
+    "aiInsightsUnavailable": "Yapay zeka içgörüleri henüz kullanılamıyor."
+  },
   "nav": {
     "menu": "Menü",
     "dashboard": "Panel",
@@ -90,6 +97,13 @@
     "thisMonth": "Bu ay",
     "aiInsightsEmpty": "Yapay zeka içgörüleri hazırlanıyor. Daha sonra tekrar kontrol edin.",
     "recentTransactions": "Son İşlemler",
-    "viewAll": "Tümünü gör →"
+    "viewAll": "Tümünü gör →",
+    "loadingTransactions": "İşlemler yükleniyor...",
+    "noTransactions": "Henüz işlem yok",
+    "noTransactionsSubtitle": "Bir hesap oluşturun ve ilk işleminizi ekleyin",
+    "noDescription": "Açıklama yok",
+    "uncategorized": "Kategorisiz",
+    "unknownType": "Bilinmiyor",
+    "spendingByCategory": "Kategoriye Göre Harcama"
   }
 }

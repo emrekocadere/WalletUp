@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PageLoader } from '@/components/common/PageLoader';
 import { RecurringTransactionCard } from '@/components/recurring/RecurringTransactionCard';
 import { RecurringTransactionModal } from '@/components/recurring/RecurringTransactionModal';
 import type { RecurringTransaction } from '@/types/model.types';
-import { getCurrencySymbol } from '@/utils/formatters';
+import { getCurrencySymbol, formatNumber } from '@/utils/formatters';
 import { accountsApi } from '@/api/endpoints/accounts.api';
 import { recurringTransactionsApi } from '@/api/endpoints/recurringTransactions.api';
 
 export const RecurringTransactionsPage = () => {
+  const { t } = useTranslation('recurring');
   const [recurringTransactions, setRecurringTransactions] = useState<RecurringTransaction[]>([]);
   const [accounts, setAccounts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,7 +120,7 @@ export const RecurringTransactionsPage = () => {
 
   const currencySymbol = getCurrencySymbol(currency);
 
-  if (isLoading) return <PageLoader message="Loading recurring transactions..." />;
+  if (isLoading) return <PageLoader message={t('page.loading')} />;
 
   return (
     <div className="min-h-screen bg-[#0d1224]">
@@ -130,10 +132,10 @@ export const RecurringTransactionsPage = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
-                Recurring Transactions
+                {t('page.title')}
               </h1>
               <p className="text-sm sm:text-base text-gray-400">
-                Manage your recurring expenses and income
+                {t('page.subtitle')}
               </p>
             </div>
             <button
@@ -143,36 +145,40 @@ export const RecurringTransactionsPage = () => {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              Add Recurring
+              {t('page.addButton')}
             </button>
           </div>
 
           {/* Summary stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
-              <p className="text-xs text-slate-400 mb-1">Active Recurring</p>
+              <p className="text-xs text-slate-400 mb-1">{t('stats.active')}</p>
               <p className="text-2xl font-bold text-white">
                 {recurringTransactions.filter(t => t.isActive).length}
               </p>
             </div>
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
-              <p className="text-xs text-slate-400 mb-1">Monthly Commitment</p>
+              <p className="text-xs text-slate-400 mb-1">{t('stats.monthlyCommitment')}</p>
               <p className="text-2xl font-bold text-green-400">
                 {currencySymbol}
-                {recurringTransactions
-                  .filter(t => t.isActive && t.frequency === 'Monthly')
-                  .reduce((sum, t) => sum + (t.amount || 0), 0)
-                  .toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {formatNumber(
+                  recurringTransactions
+                    .filter(rt => rt.isActive && rt.frequency === 'Monthly')
+                    .reduce((sum, rt) => sum + (rt.amount || 0), 0),
+                  { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                )}
               </p>
             </div>
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
-              <p className="text-xs text-slate-400 mb-1">Total Active Amount</p>
+              <p className="text-xs text-slate-400 mb-1">{t('stats.totalActive')}</p>
               <p className="text-2xl font-bold text-indigo-400">
                 {currencySymbol}
-                {recurringTransactions
-                  .filter(t => t.isActive)
-                  .reduce((sum, t) => sum + (t.amount || 0), 0)
-                  .toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {formatNumber(
+                  recurringTransactions
+                    .filter(rt => rt.isActive)
+                    .reduce((sum, rt) => sum + (rt.amount || 0), 0),
+                  { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                )}
               </p>
             </div>
           </div>
@@ -183,12 +189,12 @@ export const RecurringTransactionsPage = () => {
               <svg className="w-12 h-12 text-slate-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
-              <p className="text-slate-400 mb-4">No recurring transactions yet</p>
+              <p className="text-slate-400 mb-4">{t('empty.message')}</p>
               <button
                 onClick={() => handleOpenModal()}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
               >
-                Create your first recurring transaction
+                {t('empty.cta')}
               </button>
             </div>
           ) : (

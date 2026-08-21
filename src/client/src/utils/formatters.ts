@@ -30,6 +30,24 @@ export const formatDate = (value?: string) => {
   }
 };
 
+export const formatShortDate = (value: string) => {
+  const date = new Date(value);
+  try {
+    return new Intl.DateTimeFormat(currentLocale(), { day: 'numeric', month: 'short' }).format(date);
+  } catch {
+    return date.toISOString().slice(0, 10);
+  }
+};
+
+export const getMonthNames = (style: 'short' | 'long' = 'short'): string[] => {
+  try {
+    const formatter = new Intl.DateTimeFormat(currentLocale(), { month: style });
+    return Array.from({ length: 12 }, (_, i) => formatter.format(new Date(2000, i, 1)));
+  } catch {
+    return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  }
+};
+
 export const formatNumber = (value: number, options?: Intl.NumberFormatOptions) => {
   try {
     return new Intl.NumberFormat(currentLocale(), options).format(value);

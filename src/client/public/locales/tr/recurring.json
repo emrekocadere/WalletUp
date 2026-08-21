@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Tekrarlanan İşlemler",
+    "subtitle": "Tekrarlanan giderlerinizi ve gelirlerinizi yönetin",
+    "addButton": "Tekrarlanan Ekle",
+    "loading": "Tekrarlanan işlemler yükleniyor..."
+  },
+  "stats": {
+    "active": "Aktif Tekrarlanan",
+    "monthlyCommitment": "Aylık Taahhüt",
+    "totalActive": "Toplam Aktif Tutar"
+  },
+  "empty": {
+    "message": "Henüz tekrarlanan işlem yok",
+    "cta": "İlk tekrarlanan işleminizi oluşturun"
+  },
+  "card": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "frequency": "Sıklık",
+    "nextDue": "Sonraki Ödeme",
+    "started": "Başlangıç",
+    "ends": "Bitiş",
+    "amount": "Tutar",
+    "deactivate": "Devre Dışı Bırak",
+    "activate": "Etkinleştir",
+    "edit": "Düzenle",
+    "delete": "Sil"
+  },
+  "frequencyLabels": {
+    "weekly": "Her hafta",
+    "biWeekly": "2 haftada bir",
+    "monthly": "Her ay",
+    "quarterly": "3 ayda bir",
+    "semiAnnually": "6 ayda bir",
+    "annually": "Her yıl"
+  },
+  "modal": {
+    "editTitle": "Tekrarlananı Düzenle",
+    "addTitle": "Tekrarlanan İşlem Ekle",
+    "titleLabel": "Başlık *",
+    "titlePlaceholder": "örn. Aylık Kira, Maaş",
+    "descriptionLabel": "Açıklama",
+    "descriptionPlaceholder": "İsteğe bağlı açıklama",
+    "amountLabel": "Tutar *",
+    "accountLabel": "Hesap *",
+    "selectAccount": "Hesap seçin",
+    "typeLabel": "Tür *",
+    "selectType": "Tür seçin",
+    "categoryLabel": "Kategori *",
+    "selectCategory": "Kategori seçin",
+    "frequencyLabel": "Sıklık *",
+    "startDateLabel": "Başlangıç Tarihi *",
+    "endDateLabel": "Bitiş Tarihi (İsteğe bağlı)",
+    "activeLabel": "Aktif",
+    "cancel": "İptal",
+    "update": "Güncelle",
+    "create": "Oluştur",
+    "frequencyOptions": {
+      "weekly": "Haftalık",
+      "biWeekly": "2 haftada bir",
+      "monthly": "Aylık",
+      "quarterly": "3 ayda bir",
+      "semiAnnually": "6 ayda bir",
+      "annually": "Yıllık"
+    },
+    "errors": {
+      "titleRequired": "Başlık gerekli",
+      "amountInvalid": "Tutar 0'dan büyük olmalı",
+      "startDateRequired": "Başlangıç tarihi gerekli",
+      "accountRequired": "Hesap gerekli",
+      "categoryRequired": "Kategori gerekli",
+      "typeRequired": "Tür gerekli",
+      "endDateInvalid": "Bitiş tarihi başlangıç tarihinden sonra olmalı"
+    }
+  }
+}

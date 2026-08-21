@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Til baka",
+    "getStarted": "Byrja",
+    "continue": "Áfram",
+    "saving": "Vistar...",
+    "complete": "Ljúka"
+  },
+  "welcomeStep": {
+    "title": "Fljótleg uppsetning",
+    "description": "Svaraðu nokkrum spurningum og við gerum reikninginn þinn tilbúinn."
+  },
+  "currencyStep": {
+    "title": "Veldu gjaldmiðilinn þinn",
+    "subtitle": "Veldu aðalgjaldmiðilinn þinn",
+    "placeholder": "Veldu gjaldmiðil...",
+    "loading": "Hleð gjaldmiðlum..."
+  },
+  "countryStep": {
+    "title": "Hvaðan ertu?",
+    "subtitle": "Veldu landið þitt",
+    "placeholder": "Veldu landið þitt...",
+    "loading": "Hleð löndum..."
+  },
+  "useCaseStep": {
+    "title": "Hvernig ætlar þú að nota WalletUp?",
+    "subtitle": "Veldu helstu notkun þína",
+    "options": {
+      "personal": { "label": "Persónuleg fjármál" },
+      "family": { "label": "Fjölskyldufjárhagsáætlun" },
+      "business": { "label": "Lítið fyrirtæki" },
+      "freelance": { "label": "Verktaki" }
+    }
+  },
+  "goalsStep": {
+    "title": "Fjárhagsleg markmið",
+    "subtitle": "Veldu allt sem á við",
+    "options": {
+      "save": "Byggja upp sparnað",
+      "budget": "Halda fjárhagsáætlun",
+      "debt": "Greiða niður skuldir",
+      "invest": "Byrja að fjárfesta",
+      "track": "Fylgjast með eyðslu",
+      "plan": "Skipuleggja framtíðina"
+    },
+    "selectedCount_one": "{{count}} markmið valið",
+    "selectedCount_other": "{{count}} markmið valin"
+  },
+  "aiPreferencesStep": {
+    "title": "Sérsniddu gervigreindaraðstoðarmanninn þinn",
+    "subtitle": "Hjálpaðu okkur að sérsníða gervigreindarupplifun þína fyrir betri ráðleggingar",
+    "occupationLabel": "Hvað er starf þitt?",
+    "occupationPlaceholder": "t.d. verkfræðingur, kennari, frumkvöðull...",
+    "incomeLabel": "Hverjar eru mánaðartekjur þínar?",
+    "incomePlaceholder": "Sláðu inn mánaðartekjur þínar (valfrjálst)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Veldu eitthvað til að halda áfram",
+    "goalRequired": "Veldu að minnsta kosti eitt fjárhagslegt markmið",
+    "completeSuccess": "Uppsetningu lokið! Þú ert að fara á yfirlitið þitt...",
+    "completeFailed": "Ekki tókst að vista stillingar. Reyndu aftur.",
+    "loadFailed": "Ekki tókst að hlaða gögnum"
+  }
+}

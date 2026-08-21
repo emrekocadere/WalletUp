@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { accountTypeMeta } from '@/utils/account-type.utils';
 import { formatBalance, formatDate } from '@/utils/formatters';
 import type { Account } from '@/types/model.types';
@@ -10,11 +11,13 @@ type AccountListSectionProps = {
   currencies: Record<string, number>;
 };
 
-export const AccountListSection = ({ accounts, isLoading }: AccountListSectionProps) => (
+export const AccountListSection = ({ accounts, isLoading }: AccountListSectionProps) => {
+  const { t } = useTranslation('accounts');
+  return (
   <section className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
     <div className="p-6">
       {isLoading ? (
-        <p className="text-gray-400">Loading accounts...</p>
+        <p className="text-gray-400">{t('accountListSection.loading')}</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {accounts.map((account) => {
@@ -37,9 +40,9 @@ export const AccountListSection = ({ accounts, isLoading }: AccountListSectionPr
                   </div>
                   <p className="mt-3 text-3xl font-bold text-white">{formatBalance(account.balance, account.currency.iso4217Code)}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-400">
-                    <span>Created {formatDate(account.createdAt)}</span>
+                    <span>{t('accountListSection.created', { date: formatDate(account.createdAt) })}</span>
                     <span className="px-2 py-1 rounded-full border border-white/10 text-[10px] uppercase tracking-wider">
-                      View Details
+                      {t('accountListSection.viewDetails')}
                     </span>
                   </div>
                 </article>
@@ -50,4 +53,5 @@ export const AccountListSection = ({ accounts, isLoading }: AccountListSectionPr
       )}
     </div>
   </section>
-);
+  );
+};

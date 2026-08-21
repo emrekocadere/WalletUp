@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Features",
+    "whyUs": "Why Us",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "titleLine1": "Your Money,",
+    "titleLine2": "Smarter.",
+    "subtitle": "Track every expense, hit every goal — powered by AI insights that actually understand your financial habits.",
+    "startFree": "Start for Free",
+    "signIn": "Sign In"
+  },
+  "featuresSection": {
+    "eyebrow": "Your money, itemized",
+    "titlePrefix": "Built for how you ",
+    "titleEmphasis": "actually",
+    "titleSuffix": " live",
+    "subtitle": "The parts of the app people open every week, not the ones in the demo.",
+    "items": {
+      "insights": {
+        "name": "AI-Powered Insights",
+        "description": "Personalized advice based on your actual spending patterns — not generic budgeting tips."
+      },
+      "reports": {
+        "name": "Reports & Analytics",
+        "description": "A full year of income and spending, broken down by month and category."
+      },
+      "goals": {
+        "name": "Goal Tracking",
+        "description": "Set a target, add money whenever you can, and watch the bar actually move."
+      },
+      "recurring": {
+        "name": "Recurring Transactions",
+        "description": "Rent, salary, subscriptions — set once, and they log themselves every cycle."
+      },
+      "multiCurrency": {
+        "name": "Multi-Currency",
+        "description": "Hold accounts in any currency, converted live against the one you actually think in."
+      },
+      "security": {
+        "name": "Secure Sessions",
+        "description": "Encrypted logins that quietly renew themselves — and sign out the moment they should."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Ready to take",
+    "titleEmphasis": "control?",
+    "subtitle": "Start your financial journey today — free, no credit card required.",
+    "getStartedFree": "Get Started Free",
+    "signIn": "Sign In"
+  },
+  "footer": {
+    "tagline": "AI-powered smart money management. Track expenses, reach goals.",
+    "copyright": "{{year}} WalletUp · Developed by Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Active Users",
+    "trackedExpenses": "Tracked Expenses",
+    "uptime": "Uptime"
+  },
+  "pricingSection": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Start free, upgrade when you need more power",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "period": "forever",
+      "description": "Perfect for getting started with expense tracking",
+      "features": [
+        "Unlimited expense tracking",
+        "Basic analytics",
+        "Multiple accounts",
+        "Manual categorization"
+      ]
+    },
+    "plus": {
+      "badge": "2 MONTHS FREE TRIAL",
+      "name": "Plus",
+      "price": "€7",
+      "period": "/ month",
+      "description": "Advanced AI features for smarter money management",
+      "everythingInFree": "Everything in Free, plus:",
+      "features": [
+        { "title": "AI-powered categorization", "description": "Automatic & smart" },
+        { "title": "Predictive analytics", "description": "Forecast spending" },
+        { "title": "Personalized insights", "description": "Custom recommendations" },
+        { "title": "Budget optimization", "description": "AI-driven savings" }
+      ],
+      "prioritySupport": "Priority support"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "GOAL TRACKING",
+    "title": "Achieve Your Financial Dreams",
+    "description": "Set meaningful financial goals and track your progress effortlessly. Whether you're saving for a new car, your dream house, a vacation, or any other milestone, WalletUp helps you stay motivated and on track with visual progress tracking and smart savings recommendations.",
+    "features": {
+      "customGoals": {
+        "title": "Custom Goals",
+        "description": "Create goals for car, house, vacation, or anything"
+      },
+      "visualProgress": {
+        "title": "Visual Progress",
+        "description": "See how close you are to achieving your goals"
+      },
+      "deadlineTracking": {
+        "title": "Deadline Tracking",
+        "description": "Set target dates and get reminders"
+      },
+      "smartSuggestions": {
+        "title": "Smart Suggestions",
+        "description": "Get tips on how to reach your goals faster"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ AI POWERED",
+    "title": "Your Personal Financial Assistant",
+    "description": "WalletUp uses advanced artificial intelligence to understand your spending habits and provide personalized insights. Get smart recommendations, automatic expense categorization, and predictive analytics to help you make better financial decisions.",
+    "features": {
+      "smartCategorization": {
+        "title": "Smart Categorization",
+        "description": "AI automatically categorizes your transactions"
+      },
+      "predictiveAnalytics": {
+        "title": "Predictive Analytics",
+        "description": "Forecast future spending patterns and trends"
+      },
+      "personalizedTips": {
+        "title": "Personalized Tips",
+        "description": "Get custom advice based on your habits"
+      },
+      "budgetOptimization": {
+        "title": "Budget Optimization",
+        "description": "AI helps you find savings opportunities"
+      }
+    }
+  }
+}

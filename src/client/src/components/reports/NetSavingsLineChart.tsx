@@ -9,10 +9,10 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
+import { useTranslation } from 'react-i18next';
+import { formatNumber, getMonthNames } from '@/utils/formatters';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
-
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 interface Props {
   netData: number[];
@@ -20,11 +20,13 @@ interface Props {
 }
 
 export const NetSavingsLineChart = ({ netData, currency }: Props) => {
+  const { t } = useTranslation('reports');
+  const MONTHS = getMonthNames('short');
   const data = {
     labels: MONTHS,
     datasets: [
       {
-        label: 'Net Savings',
+        label: t('netSavingsChart.label'),
         data: netData,
         fill: true,
         backgroundColor: 'rgba(99, 102, 241, 0.12)',
@@ -57,7 +59,7 @@ export const NetSavingsLineChart = ({ netData, currency }: Props) => {
           label: (ctx: any) => {
             const val: number = ctx.parsed.y ?? 0;
             const sign = val >= 0 ? '+' : '';
-            return ` Net: ${sign}${currency}${val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            return ` ${t('netSavingsChart.tooltipPrefix')}: ${sign}${currency}${formatNumber(val, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
           },
         },
       },
@@ -76,7 +78,7 @@ export const NetSavingsLineChart = ({ netData, currency }: Props) => {
           callback: (value: any) => {
             const num = Number(value);
             const sign = num >= 0 ? '+' : '';
-            return `${sign}${currency}${num.toLocaleString('en-US')}`;
+            return `${sign}${currency}${formatNumber(num)}`;
           },
         },
         grid: { color: 'rgba(51, 65, 85, 0.4)' },

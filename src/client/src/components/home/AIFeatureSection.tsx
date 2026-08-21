@@ -1,4 +1,9 @@
+import { useTranslation } from 'react-i18next';
+
+const FEATURE_KEYS = ['smartCategorization', 'predictiveAnalytics', 'personalizedTips', 'budgetOptimization'] as const;
+
 export const AIFeatureSection = () => {
+  const { t } = useTranslation('home');
   return (
     <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
       <div className="bg-primary-500/5 backdrop-blur-xl p-12 rounded-3xl border border-primary-500/20">
@@ -20,59 +25,28 @@ export const AIFeatureSection = () => {
           {/* Right side - Content */}
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full mb-4">
-              <span className="text-xs font-semibold text-primary-300">✨ AI POWERED</span>
+              <span className="text-xs font-semibold text-primary-300">{t('aiFeatureSection.badge')}</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Your Personal Financial Assistant
+              {t('aiFeatureSection.title')}
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              WalletUp uses advanced artificial intelligence to understand your spending habits and provide personalized insights. Get smart recommendations, automatic expense categorization, and predictive analytics to help you make better financial decisions.
+              {t('aiFeatureSection.description')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {FEATURE_KEYS.map((key) => (
+                <div key={key} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">{t(`aiFeatureSection.features.${key}.title`)}</h4>
+                    <p className="text-sm text-gray-400">{t(`aiFeatureSection.features.${key}.description`)}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Smart Categorization</h4>
-                  <p className="text-sm text-gray-400">AI automatically categorizes your transactions</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Predictive Analytics</h4>
-                  <p className="text-sm text-gray-400">Forecast future spending patterns and trends</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Personalized Tips</h4>
-                  <p className="text-sm text-gray-400">Get custom advice based on your habits</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Budget Optimization</h4>
-                  <p className="text-sm text-gray-400">AI helps you find savings opportunities</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

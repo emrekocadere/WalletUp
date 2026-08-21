@@ -1,6 +1,8 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { useTranslation } from 'react-i18next';
 import type { CategoryExpense } from '@/types/model.types';
+import { formatNumber } from '@/utils/formatters';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -23,10 +25,12 @@ interface Props {
 }
 
 export const CategoryDoughnutChart = ({ categories, currency }: Props) => {
+  const { t } = useTranslation('reports');
+
   if (!categories.length) {
     return (
       <div className="flex items-center justify-center h-full">
-        <p className="text-slate-500 text-sm">No spending data for this month</p>
+        <p className="text-slate-500 text-sm">{t('categoryChart.noData')}</p>
       </div>
     );
   }
@@ -64,7 +68,7 @@ export const CategoryDoughnutChart = ({ categories, currency }: Props) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           label: (ctx: any) => {
             const cat = categories[ctx.dataIndex];
-            return ` ${currency}${(ctx.parsed ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${cat.percentage.toFixed(1)}%)`;
+            return ` ${currency}${formatNumber(ctx.parsed ?? 0, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${cat.percentage.toFixed(1)}%)`;
           },
         },
       },

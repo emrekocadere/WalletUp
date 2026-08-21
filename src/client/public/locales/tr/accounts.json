@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Hesaplar",
+    "subtitle": "Finansınızı birden fazla hesapla takip edin.",
+    "addAccount": "Hesap Ekle",
+    "loading": "Hesaplar yükleniyor..."
+  },
+  "accountDetailPage": {
+    "loading": "Hesap detayları yükleniyor...",
+    "failedToLoad": "Hesap yüklenemedi",
+    "backToAccounts": "← Hesaplara Dön",
+    "subtitle": "Hesap bakiyenizi ve tüm işlemlerinizi görüntüleyin.",
+    "deleteSuccess": "Hesap başarıyla silindi",
+    "deleteFailed": "Hesap silinemedi"
+  },
+  "editAccountModal": {
+    "title": "Hesabı Düzenle",
+    "accountName": "Hesap Adı",
+    "accountNamePlaceholder": "örn. Ana Hesap, Birikim",
+    "accountType": "Hesap Türü",
+    "currency": "Para Birimi",
+    "unknown": "Bilinmiyor",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "noChanges": "Herhangi bir değişiklik yapılmadı",
+    "updated": "Hesap başarıyla güncellendi",
+    "updateFailed": "Hesap güncellenemedi"
+  },
+  "addAccountModal": {
+    "title": "Yeni Hesap Ekle",
+    "accountName": "Hesap Adı",
+    "accountNamePlaceholder": "örn. Ana Hesap, Birikim vb.",
+    "accountType": "Hesap Türü",
+    "currency": "Para Birimi",
+    "unknown": "Bilinmiyor",
+    "loading": "Yükleniyor...",
+    "initialBalance": "Başlangıç Bakiyesi",
+    "cancel": "İptal",
+    "submit": "Hesap Ekle",
+    "invalidBalance": "Geçersiz bakiye",
+    "created": "Başarıyla oluşturuldu",
+    "createFailed": "Hesap oluşturulamadı"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Toplam Bakiye",
+    "accounts": "Hesaplar"
+  },
+  "accountListSection": {
+    "loading": "Hesaplar yükleniyor...",
+    "created": "{{date}} tarihinde oluşturuldu",
+    "viewDetails": "Detayları Gör"
+  },
+  "accountTransactionsPanel": {
+    "title": "Son İşlemler",
+    "allTransactions": "Tüm İşlemler",
+    "empty": "Bu hesap için henüz kayıtlı işlem yok.",
+    "category": "Kategori"
+  },
+  "accountSummarySection": {
+    "balance": "Bakiye",
+    "created": "{{date}} tarihinde oluşturuldu",
+    "loading": "Hesap bilgileri yükleniyor...",
+    "currency": "Para Birimi",
+    "accountType": "Hesap Türü",
+    "transactions": "İşlemler",
+    "addTransaction": "İşlem Ekle",
+    "edit": "Düzenle",
+    "exportCsv": "CSV Olarak Dışa Aktar",
+    "export": "Dışa Aktar",
+    "deleteAccount": "Hesabı Sil",
+    "delete": "Sil",
+    "noTransactionsToExport": "Dışa aktarılacak işlem yok",
+    "noAccountsAvailable": "Kullanılabilir hesap yok",
+    "exportedCsv": "İşlemler CSV olarak dışa aktarıldı"
+  },
+  "accountStatusPanel": {
+    "summary": "Özet",
+    "quickOverview": "Hızlı Bakış",
+    "latestActivity": "Son Hareket",
+    "totalTransactions": "Toplam {{count}} işlem"
+  }
+}

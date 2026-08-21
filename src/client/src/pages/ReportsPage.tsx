@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PageLoader } from '@/components/common/PageLoader';
@@ -7,12 +8,7 @@ import { MonthlyBarChart } from '@/components/reports/MonthlyBarChart';
 import { NetSavingsLineChart } from '@/components/reports/NetSavingsLineChart';
 import { CategoryDoughnutChart } from '@/components/reports/CategoryDoughnutChart';
 import type { MonthlyReport, CategoryExpense } from '@/types/model.types';
-import { getCurrencySymbol } from '@/utils/formatters';
-
-const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-];
+import { getCurrencySymbol, formatNumber, getMonthNames } from '@/utils/formatters';
 
 interface SummaryCardProps {
   title: string;
@@ -48,6 +44,8 @@ const SummaryCard = ({ title, value, subtext, variant, icon }: SummaryCardProps)
 };
 
 export const ReportsPage = () => {
+  const { t } = useTranslation('reports');
+  const MONTHS = getMonthNames('long');
   const currentMonthIndex = new Date().getMonth(); // 0-based
   const year = new Date().getFullYear();
   const [monthlyData, setMonthlyData] = useState<MonthlyReport[]>([]);
@@ -86,9 +84,9 @@ export const ReportsPage = () => {
   const topCategories      = [...categoryExpenses].sort((a, b) => b.amount - a.amount).slice(0, 6);
 
   const fmt = (n: number) =>
-    `${currSymbol}${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    `${currSymbol}${formatNumber(n, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-  if (isLoading) return <PageLoader message="Loading reports..." />;
+  if (isLoading) return <PageLoader message={t('page.loading')} />;
 
   return (
     <div className="min-h-screen bg-[#0d1224]">
@@ -99,14 +97,14 @@ export const ReportsPage = () => {
 
           {/* Page title */}
           <div className="mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">Reports</h1>
-            <p className="text-sm sm:text-base text-gray-400">Annual financial overview for {new Date().getFullYear()}</p>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">{t('page.title')}</h1>
+            <p className="text-sm sm:text-base text-gray-400">{t('page.subtitle', { year: new Date().getFullYear() })}</p>
           </div>
 
           {/* Summary cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
             <SummaryCard
-              title="Total Income"
+              title={t('summary.totalIncome')}
               value={fmt(totalIncome)}
               variant="green"
               icon={
@@ -116,7 +114,7 @@ export const ReportsPage = () => {
               }
             />
             <SummaryCard
-              title="Total Expenses"
+              title={t('summary.totalExpenses')}
               value={fmt(totalExpense)}
               variant="red"
               icon={
@@ -126,9 +124,9 @@ export const ReportsPage = () => {
               }
             />
             <SummaryCard
-              title="Net Savings"
+              title={t('summary.netSavings')}
               value={fmt(netSavings)}
-              subtext={totalIncome > 0 ? `${((netSavings / totalIncome) * 100).toFixed(1)}% of income` : undefined}
+              subtext={totalIncome > 0 ? t('summary.percentOfIncome', { percent: ((netSavings / totalIncome) * 100).toFixed(1) }) : undefined}
               variant={netSavings >= 0 ? 'indigo' : 'red'}
               icon={
                 <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,9 +135,9 @@ export const ReportsPage = () => {
               }
             />
             <SummaryCard
-              title="Avg. Monthly"
+              title={t('summary.avgMonthly')}
               value={fmt(avgMonthly)}
-              subtext="net savings"
+              subtext={t('summary.netSavingsSubtext')}
               variant="amber"
               icon={
                 <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,7 +149,7 @@ export const ReportsPage = () => {
 
           {/* Monthly Bar Chart */}
           <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 mb-6">
-            <h2 className="text-base font-semibold text-white mb-5">Monthly Income vs Expenses</h2>
+            <h2 className="text-base font-semibold text-white mb-5">{t('monthlyBarChart.title')}</h2>
             <div className="h-64 sm:h-80">
               <MonthlyBarChart incomeData={incomeData} expenseData={expenseData} currency={currSymbol} />
             </div>
@@ -159,7 +157,7 @@ export const ReportsPage = () => {
 
           {/* Net Savings Line Chart */}
           <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 mb-6">
-            <h2 className="text-base font-semibold text-white mb-5">Net Savings Trend</h2>
+            <h2 className="text-base font-semibold text-white mb-5">{t('netSavingsChart.title')}</h2>
             <div className="h-56 sm:h-72">
               <NetSavingsLineChart netData={netData} currency={currSymbol} />
             </div>
@@ -171,7 +169,7 @@ export const ReportsPage = () => {
             {/* Doughnut chart */}
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
               <div className="flex items-center justify-between mb-5 gap-3">
-                <h2 className="text-base font-semibold text-white">Spending by Category</h2>
+                <h2 className="text-base font-semibold text-white">{t('categoryChart.title')}</h2>
                 <select
                   value={selectedMonth}
                   onChange={e => setSelectedMonth(Number(e.target.value))}
@@ -190,12 +188,12 @@ export const ReportsPage = () => {
             {/* Top categories ranked list */}
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
               <h2 className="text-base font-semibold text-white mb-5">
-                Top Categories — <span className="text-slate-400 font-normal">{MONTHS[selectedMonth]}</span>
+                {t('topCategories.title')} — <span className="text-slate-400 font-normal">{MONTHS[selectedMonth]}</span>
               </h2>
 
               {topCategories.length === 0 ? (
                 <div className="flex items-center justify-center h-48">
-                  <p className="text-slate-500 text-sm">No spending data for this month</p>
+                  <p className="text-slate-500 text-sm">{t('topCategories.noData')}</p>
                 </div>
               ) : (
                 <div className="space-y-4">

@@ -1,5 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import type { Transaction } from '@/types/model.types';
-import { getCurrencySymbol } from '@/utils/formatters';
+import { getCurrencySymbol, formatNumber, formatShortDate } from '@/utils/formatters';
 
 interface RecentTransactionsPanelProps {
   transactions: Transaction[];
@@ -8,15 +9,17 @@ interface RecentTransactionsPanelProps {
 }
 
 export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'USD' }: RecentTransactionsPanelProps) => {
+  const { t } = useTranslation();
+
   if (isLoading) {
-    return <p className="text-gray-400">Loading transactions...</p>;
+    return <p className="text-gray-400">{t('dashboard.loadingTransactions')}</p>;
   }
 
   if (transactions.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-400 text-lg">No transactions yet</p>
-        <p className="text-gray-500 text-sm mt-2">Create an account and add your first transaction</p>
+        <p className="text-gray-400 text-lg">{t('dashboard.noTransactions')}</p>
+        <p className="text-gray-500 text-sm mt-2">{t('dashboard.noTransactionsSubtitle')}</p>
       </div>
     );
   }
@@ -25,10 +28,7 @@ export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'U
     <div className="space-y-3">
       {transactions.map((transaction) => {
         const isIncome = transaction.transactionType?.name?.toLowerCase() === 'income';
-        const date = transaction.date ? new Date(transaction.date).toLocaleDateString('tr-TR', {
-          day: 'numeric',
-          month: 'short'
-        }) : '';
+        const date = transaction.date ? formatShortDate(transaction.date) : '';
 
         return (
           <div
@@ -56,11 +56,11 @@ export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'U
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-medium truncate">
-                  {transaction.description || 'No description'}
+                  {transaction.description || t('dashboard.noDescription')}
                 </p>
                 <div className="flex items-center gap-3 mt-1">
                   <span className="text-xs text-indigo-300 px-2 py-1 bg-indigo-500/15 border border-indigo-500/20 rounded-full hover:border-indigo-400/40 transition-all">
-                    {transaction.category?.name || 'Uncategorized'}
+                    {transaction.category?.name || t('dashboard.uncategorized')}
                   </span>
                   {date && (
                     <span className="text-xs text-gray-500">
@@ -74,10 +74,10 @@ export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'U
               <p className={`text-lg font-bold ${
                 isIncome ? 'text-green-400' : 'text-white'
               }`}>
-                {isIncome ? '+' : '-'}{getCurrencySymbol(transaction.account?.currency?.iso4217Code || currency)}{transaction.amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {isIncome ? '+' : '-'}{getCurrencySymbol(transaction.account?.currency?.iso4217Code || currency)}{formatNumber(transaction.amount, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
               <p className="text-xs text-gray-500 mt-1 hidden sm:block">
-                {transaction.transactionType?.name || 'Unknown'}
+                {transaction.transactionType?.name || t('dashboard.unknownType')}
               </p>
             </div>
           </div>

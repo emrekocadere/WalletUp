@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { formatBalance, formatDate } from '@/utils/formatters';
 
 type AccountStatusPanelProps = {
@@ -14,11 +15,13 @@ export const AccountStatusPanel = ({
   latestActivity,
   transactionCount,
   currency,
-}: AccountStatusPanelProps) => (
+}: AccountStatusPanelProps) => {
+  const { t } = useTranslation('accounts');
+  return (
   <aside className="bg-slate-900/40 border border-white/10 rounded-3xl p-6 space-y-4">
     <div>
-      <p className="text-xs uppercase text-gray-400">Summary</p>
-      <h3 className="text-xl font-semibold text-white">Quick Overview</h3>
+      <p className="text-xs uppercase text-gray-400">{t('accountStatusPanel.summary')}</p>
+      <h3 className="text-xl font-semibold text-white">{t('accountStatusPanel.quickOverview')}</h3>
     </div>
     <div className="grid grid-cols-2 gap-3">
       <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 space-y-2">
@@ -31,9 +34,10 @@ export const AccountStatusPanel = ({
       </div>
     </div>
     <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 space-y-1">
-      <p className="text-xs uppercase text-gray-400">Latest Activity</p>
+      <p className="text-xs uppercase text-gray-400">{t('accountStatusPanel.latestActivity')}</p>
       <p className="text-sm font-semibold text-white">{formatDate(latestActivity)}</p>
-      <p className="text-xs text-gray-500">Total {transactionCount} transactions</p>
+      <p className="text-xs text-gray-500">{t('accountStatusPanel.totalTransactions', { count: transactionCount })}</p>
     </div>
   </aside>
-);
+  );
+};

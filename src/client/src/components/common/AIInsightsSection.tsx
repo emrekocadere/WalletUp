@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { AIInsight } from '@/types/ai.types';
 import { AIInsightCard } from './AIInsightCard';
 import { AIInsightSkeleton } from './AIInsightSkeleton';
@@ -14,8 +15,9 @@ export const AIInsightsSection = ({
   insights,
   loading = false,
   error = null,
-  emptyMessage = 'AI insights are not available yet.'
+  emptyMessage
 }: AIInsightsSectionProps) => {
+  const { t } = useTranslation();
   const [showDetails, setShowDetails] = useState(false);
 
   if (loading) {
@@ -33,7 +35,7 @@ export const AIInsightsSection = ({
   if (!insights || insights.length === 0) {
     return (
       <div className="rounded-xl border border-white/10 bg-slate-800/30 p-4 text-sm text-gray-300">
-        {emptyMessage}
+        {emptyMessage ?? t('common.aiInsightsUnavailable')}
       </div>
     );
   }
@@ -58,7 +60,7 @@ export const AIInsightsSection = ({
           onClick={() => setShowDetails((prev) => !prev)}
           className="flex items-center gap-2 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
         >
-          <span>{showDetails ? 'Hide details' : 'Show more'}</span>
+          <span>{showDetails ? t('common.hideDetails') : t('common.showMore')}</span>
           <svg
             className={`w-4 h-4 transition-transform ${showDetails ? 'rotate-180' : ''}`}
             fill="none"

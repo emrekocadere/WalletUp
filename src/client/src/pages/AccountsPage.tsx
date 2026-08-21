@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Toast } from '@/components/common/Toast';
@@ -12,6 +13,7 @@ import { useAIInsights } from '@/hooks/useAIInsights';
 import type { Account } from '@/types/model.types';
 
 export const AccountsPage = () => {
+  const { t } = useTranslation('accounts');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [totalBalance, setTotalBalance] = useState(0);
@@ -42,7 +44,7 @@ export const AccountsPage = () => {
   }, []);
 
   if (isLoading) {
-    return <PageLoader message="Loading accounts..." />;
+    return <PageLoader message={t('accountsPage.loading')} />;
   }
 
   return (
@@ -53,9 +55,9 @@ export const AccountsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12 space-y-6 lg:space-y-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Accounts</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{t('accountsPage.title')}</h1>
               <p className="text-sm sm:text-base text-gray-400 mt-1">
-                Track your finances with multiple accounts.
+                {t('accountsPage.subtitle')}
               </p>
             </div>
             <button
@@ -63,7 +65,7 @@ export const AccountsPage = () => {
               onClick={() => setIsAddModalOpen(true)}
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
-              Add Account
+              {t('accountsPage.addAccount')}
             </button>
           </div>
 

@@ -11,7 +11,17 @@ i18n
   .init({
     supportedLngs: SUPPORTED_LANGUAGES.map((lang) => lang.code),
     fallbackLng: DEFAULT_LANGUAGE_CODE,
-    ns: ['common'],
+    ns: [
+      'common',
+      'accounts',
+      'transactions',
+      'goals',
+      'recurring',
+      'reports',
+      'onboarding',
+      'auth',
+      'home',
+    ],
     defaultNS: 'common',
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',

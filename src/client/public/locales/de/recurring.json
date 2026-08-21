@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Wiederkehrende Transaktionen",
+    "subtitle": "Verwalten Sie Ihre wiederkehrenden Ausgaben und Einnahmen",
+    "addButton": "Wiederkehrend hinzufügen",
+    "loading": "Wiederkehrende Transaktionen werden geladen..."
+  },
+  "stats": {
+    "active": "Aktiv wiederkehrend",
+    "monthlyCommitment": "Monatliche Verpflichtung",
+    "totalActive": "Gesamter aktiver Betrag"
+  },
+  "empty": {
+    "message": "Noch keine wiederkehrenden Transaktionen",
+    "cta": "Erstellen Sie Ihre erste wiederkehrende Transaktion"
+  },
+  "card": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "frequency": "Häufigkeit",
+    "nextDue": "Nächste Fälligkeit",
+    "started": "Begonnen",
+    "ends": "Endet",
+    "amount": "Betrag",
+    "deactivate": "Deaktivieren",
+    "activate": "Aktivieren",
+    "edit": "Bearbeiten",
+    "delete": "Löschen"
+  },
+  "frequencyLabels": {
+    "weekly": "Jede Woche",
+    "biWeekly": "Alle 2 Wochen",
+    "monthly": "Jeden Monat",
+    "quarterly": "Alle 3 Monate",
+    "semiAnnually": "Alle 6 Monate",
+    "annually": "Jedes Jahr"
+  },
+  "modal": {
+    "editTitle": "Wiederkehrend bearbeiten",
+    "addTitle": "Wiederkehrende Transaktion hinzufügen",
+    "titleLabel": "Titel *",
+    "titlePlaceholder": "z. B. Monatsmiete, Gehalt",
+    "descriptionLabel": "Beschreibung",
+    "descriptionPlaceholder": "Optionale Beschreibung",
+    "amountLabel": "Betrag *",
+    "accountLabel": "Konto *",
+    "selectAccount": "Konto auswählen",
+    "typeLabel": "Typ *",
+    "selectType": "Typ auswählen",
+    "categoryLabel": "Kategorie *",
+    "selectCategory": "Kategorie auswählen",
+    "frequencyLabel": "Häufigkeit *",
+    "startDateLabel": "Startdatum *",
+    "endDateLabel": "Enddatum (Optional)",
+    "activeLabel": "Aktiv",
+    "cancel": "Abbrechen",
+    "update": "Aktualisieren",
+    "create": "Erstellen",
+    "frequencyOptions": {
+      "weekly": "Wöchentlich",
+      "biWeekly": "Alle 2 Wochen",
+      "monthly": "Monatlich",
+      "quarterly": "Alle 3 Monate",
+      "semiAnnually": "Alle 6 Monate",
+      "annually": "Jährlich"
+    },
+    "errors": {
+      "titleRequired": "Titel ist erforderlich",
+      "amountInvalid": "Betrag muss größer als 0 sein",
+      "startDateRequired": "Startdatum ist erforderlich",
+      "accountRequired": "Konto ist erforderlich",
+      "categoryRequired": "Kategorie ist erforderlich",
+      "typeRequired": "Typ ist erforderlich",
+      "endDateInvalid": "Enddatum muss nach dem Startdatum liegen"
+    }
+  }
+}

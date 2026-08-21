@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import type { RecurringTransaction } from '@/types/model.types';
+import { formatDate, formatNumber } from '@/utils/formatters';
 
 interface Props {
   transaction: RecurringTransaction;
@@ -8,13 +10,13 @@ interface Props {
   onToggleActive: () => void;
 }
 
-const FREQUENCY_LABELS = {
-  Weekly: 'Every week',
-  BiWeekly: 'Every 2 weeks',
-  Monthly: 'Every month',
-  Quarterly: 'Every 3 months',
-  SemiAnnually: 'Every 6 months',
-  Annually: 'Every year',
+const FREQUENCY_LABEL_KEYS = {
+  Weekly: 'frequencyLabels.weekly',
+  BiWeekly: 'frequencyLabels.biWeekly',
+  Monthly: 'frequencyLabels.monthly',
+  Quarterly: 'frequencyLabels.quarterly',
+  SemiAnnually: 'frequencyLabels.semiAnnually',
+  Annually: 'frequencyLabels.annually',
 };
 
 export const RecurringTransactionCard = ({
@@ -24,14 +26,7 @@ export const RecurringTransactionCard = ({
   onDelete,
   onToggleActive,
 }: Props) => {
-  const formatDate = (dateString?: string) => {
-    if (!dateString) return '—';
-    return new Date(dateString).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  };
+  const { t } = useTranslation('recurring');
 
   return (
     <div className={`border rounded-xl p-4 transition-colors ${
@@ -49,7 +44,7 @@ export const RecurringTransactionCard = ({
                 ? 'bg-green-500/20 text-green-400'
                 : 'bg-slate-500/20 text-slate-400'
             }`}>
-              {transaction.isActive ? 'Active' : 'Inactive'}
+              {transaction.isActive ? t('card.active') : t('card.inactive')}
             </span>
           </div>
 
@@ -59,22 +54,22 @@ export const RecurringTransactionCard = ({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
             <div>
-              <p className="text-xs text-slate-500 mb-0.5">Frequency</p>
+              <p className="text-xs text-slate-500 mb-0.5">{t('card.frequency')}</p>
               <p className="text-slate-300">
-                {FREQUENCY_LABELS[transaction.frequency as keyof typeof FREQUENCY_LABELS] || transaction.frequency}
+                {t(FREQUENCY_LABEL_KEYS[transaction.frequency as keyof typeof FREQUENCY_LABEL_KEYS]) || transaction.frequency}
               </p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 mb-0.5">Next Due</p>
+              <p className="text-xs text-slate-500 mb-0.5">{t('card.nextDue')}</p>
               <p className="text-slate-300">{formatDate(transaction.nextOccurrence)}</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 mb-0.5">Started</p>
+              <p className="text-xs text-slate-500 mb-0.5">{t('card.started')}</p>
               <p className="text-slate-300">{formatDate(transaction.startDate)}</p>
             </div>
             {transaction.endDate && (
               <div>
-                <p className="text-xs text-slate-500 mb-0.5">Ends</p>
+                <p className="text-xs text-slate-500 mb-0.5">{t('card.ends')}</p>
                 <p className="text-slate-300">{formatDate(transaction.endDate)}</p>
               </div>
             )}
@@ -84,10 +79,10 @@ export const RecurringTransactionCard = ({
         {/* Right side: Amount + Actions */}
         <div className="flex flex-col items-end gap-3 flex-shrink-0">
           <div className="text-right">
-            <p className="text-xs text-slate-500 mb-1">Amount</p>
+            <p className="text-xs text-slate-500 mb-1">{t('card.amount')}</p>
             <p className="text-xl font-bold text-indigo-400">
               {currencySymbol}
-              {transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              {formatNumber(transaction.amount, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
 
@@ -100,23 +95,23 @@ export const RecurringTransactionCard = ({
                   ? 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
                   : 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
               }`}
-              title={transaction.isActive ? 'Deactivate' : 'Activate'}
+              title={transaction.isActive ? t('card.deactivate') : t('card.activate')}
             >
-              {transaction.isActive ? 'Deactivate' : 'Activate'}
+              {transaction.isActive ? t('card.deactivate') : t('card.activate')}
             </button>
             <button
               onClick={onEdit}
               className="px-3 py-1.5 rounded text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-300 transition-colors"
-              title="Edit"
+              title={t('card.edit')}
             >
-              Edit
+              {t('card.edit')}
             </button>
             <button
               onClick={onDelete}
               className="px-3 py-1.5 rounded text-xs font-medium bg-red-500/20 hover:bg-red-500/30 text-red-400 transition-colors"
-              title="Delete"
+              title={t('card.delete')}
             >
-              Delete
+              {t('card.delete')}
             </button>
           </div>
         </div>

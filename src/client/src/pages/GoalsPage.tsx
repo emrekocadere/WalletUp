@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PageLoader } from '@/components/common/PageLoader';
@@ -16,6 +17,7 @@ import { goalsApi } from '@/api/endpoints/goals.api';
 import type { Goal } from '@/types/model.types';
 
 export const GoalsPage = () => {
+  const { t } = useTranslation('goals');
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showAddMoneyModal, setShowAddMoneyModal] = useState(false);
@@ -84,14 +86,14 @@ export const GoalsPage = () => {
     try {
       const result = await goalsApi.delete(goalId);
       if (result.isSuccess) {
-        setToast({ message: 'Goal deleted successfully', type: 'success' });
+        setToast({ message: t('goalsPage.deleteSuccess'), type: 'success' });
         loadGoals();
       } else {
-        setToast({ message: String(result.error || 'Failed to delete goal'), type: 'error' });
+        setToast({ message: String(result.error || t('goalsPage.deleteFailed')), type: 'error' });
       }
     } catch (error) {
       console.error('Failed to delete goal:', error);
-      setToast({ message: 'Failed to delete goal. Please try again.', type: 'error' });
+      setToast({ message: t('goalsPage.deleteFailedRetry'), type: 'error' });
     }
   };
 
@@ -110,7 +112,7 @@ export const GoalsPage = () => {
   }));
 
   if (isLoading) {
-    return <PageLoader message="Loading goals..." />;
+    return <PageLoader message={t('goalsPage.loading')} />;
   }
 
   return (
@@ -121,14 +123,14 @@ export const GoalsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6 lg:mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Financial Goals</h1>
-              <p className="text-sm sm:text-base text-gray-400 mt-1">Track your savings goals and stay motivated</p>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{t('goalsPage.title')}</h1>
+              <p className="text-sm sm:text-base text-gray-400 mt-1">{t('goalsPage.subtitle')}</p>
             </div>
             <button
               onClick={() => setShowAddModal(true)}
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
-              Add New Goal
+              {t('goalsPage.addNewGoal')}
             </button>
           </div>
 
@@ -141,7 +143,7 @@ export const GoalsPage = () => {
 
           {isLoading ? (
             <div className="text-center py-12">
-              <p className="text-gray-400">Loading goals...</p>
+              <p className="text-gray-400">{t('goalsPage.loading')}</p>
             </div>
           ) : goals.length === 0 ? (
             <EmptyGoalsState onCreateGoal={() => setShowAddModal(true)} />

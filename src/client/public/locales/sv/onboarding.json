@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Tillbaka",
+    "getStarted": "Kom igång",
+    "continue": "Fortsätt",
+    "saving": "Sparar...",
+    "complete": "Slutför"
+  },
+  "welcomeStep": {
+    "title": "Snabb installation",
+    "description": "Svara på ett par frågor så gör vi ditt konto redo."
+  },
+  "currencyStep": {
+    "title": "Välj din valuta",
+    "subtitle": "Välj din primära valuta",
+    "placeholder": "Välj valuta...",
+    "loading": "Läser in valutor..."
+  },
+  "countryStep": {
+    "title": "Var är du ifrån?",
+    "subtitle": "Välj ditt land",
+    "placeholder": "Välj ditt land...",
+    "loading": "Läser in länder..."
+  },
+  "useCaseStep": {
+    "title": "Hur ska du använda WalletUp?",
+    "subtitle": "Välj ditt primära användningsområde",
+    "options": {
+      "personal": { "label": "Privatekonomi" },
+      "family": { "label": "Familjebudget" },
+      "business": { "label": "Litet företag" },
+      "freelance": { "label": "Frilansare" }
+    }
+  },
+  "goalsStep": {
+    "title": "Ekonomiska mål",
+    "subtitle": "Välj allt som passar",
+    "options": {
+      "save": "Bygga sparande",
+      "budget": "Hålla budget",
+      "debt": "Betala av skulder",
+      "invest": "Börja investera",
+      "track": "Spåra utgifter",
+      "plan": "Planera för framtiden"
+    },
+    "selectedCount_one": "{{count}} mål valt",
+    "selectedCount_other": "{{count}} mål valda"
+  },
+  "aiPreferencesStep": {
+    "title": "Anpassa din AI-assistent",
+    "subtitle": "Hjälp oss att anpassa din AI-upplevelse för bättre rekommendationer",
+    "occupationLabel": "Vad är ditt yrke?",
+    "occupationPlaceholder": "t.ex. Ingenjör, Lärare, Entreprenör...",
+    "incomeLabel": "Vad är din månadsinkomst?",
+    "incomePlaceholder": "Ange din månadsinkomst (valfritt)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Gör ett val för att fortsätta",
+    "goalRequired": "Välj minst ett ekonomiskt mål",
+    "completeSuccess": "Installationen klar! Du tas till din översikt...",
+    "completeFailed": "Det gick inte att spara inställningarna. Försök igen.",
+    "loadFailed": "Det gick inte att läsa in data"
+  }
+}

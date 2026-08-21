@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Özellikler",
+    "whyUs": "Neden Biz",
+    "signIn": "Giriş Yap",
+    "getStarted": "Hemen Başla"
+  },
+  "hero": {
+    "titleLine1": "Paran,",
+    "titleLine2": "Daha Akıllı.",
+    "subtitle": "Her harcamayı takip et, her hedefe ulaş — finansal alışkanlıklarını gerçekten anlayan yapay zeka içgörüleriyle.",
+    "startFree": "Ücretsiz Başla",
+    "signIn": "Giriş Yap"
+  },
+  "featuresSection": {
+    "eyebrow": "Paran, kalem kalem",
+    "titlePrefix": "Gerçekten yaşadığın ",
+    "titleEmphasis": "hayata",
+    "titleSuffix": " göre tasarlandı",
+    "subtitle": "İnsanların her hafta açtığı kısımlar — demodakiler değil.",
+    "items": {
+      "insights": {
+        "name": "Yapay Zeka Destekli İçgörüler",
+        "description": "Genel bütçe tüyoları değil, gerçek harcama alışkanlıklarına dayalı kişiselleştirilmiş tavsiyeler."
+      },
+      "reports": {
+        "name": "Raporlar ve Analiz",
+        "description": "Aya ve kategoriye göre ayrılmış bir yıllık gelir ve harcama."
+      },
+      "goals": {
+        "name": "Hedef Takibi",
+        "description": "Bir hedef belirle, ne zaman istersen para ekle ve çubuğun gerçekten ilerlediğini gör."
+      },
+      "recurring": {
+        "name": "Tekrarlanan İşlemler",
+        "description": "Kira, maaş, abonelikler — bir kez ayarla, her döngüde kendiliğinden kaydedilsin."
+      },
+      "multiCurrency": {
+        "name": "Çoklu Para Birimi",
+        "description": "Herhangi bir para biriminde hesap tut, gerçekten düşündüğün birime canlı olarak çevrilsin."
+      },
+      "security": {
+        "name": "Güvenli Oturumlar",
+        "description": "Sessizce kendini yenileyen şifreli girişler — ve tam zamanında oturumu kapatan."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Kontrolü",
+    "titleEmphasis": "eline almaya hazır mısın?",
+    "subtitle": "Finansal yolculuğuna bugün başla — ücretsiz, kredi kartı gerekmez.",
+    "getStartedFree": "Ücretsiz Başla",
+    "signIn": "Giriş Yap"
+  },
+  "footer": {
+    "tagline": "Yapay zeka destekli akıllı para yönetimi. Harcamaları takip et, hedeflere ulaş.",
+    "copyright": "{{year}} WalletUp · Salih Emre Kocadere tarafından geliştirildi"
+  },
+  "statsSection": {
+    "activeUsers": "Aktif Kullanıcı",
+    "trackedExpenses": "Takip Edilen Harcama",
+    "uptime": "Çalışma Süresi"
+  },
+  "pricingSection": {
+    "title": "Basit, Şeffaf Fiyatlandırma",
+    "subtitle": "Ücretsiz başla, daha fazla güç gerektiğinde yükselt",
+    "free": {
+      "name": "Ücretsiz",
+      "price": "$0",
+      "period": "sonsuza kadar",
+      "description": "Harcama takibine başlamak için mükemmel",
+      "features": [
+        "Sınırsız harcama takibi",
+        "Temel analizler",
+        "Birden fazla hesap",
+        "Manuel kategorilendirme"
+      ]
+    },
+    "plus": {
+      "badge": "2 AY ÜCRETSİZ DENEME",
+      "name": "Plus",
+      "price": "€7",
+      "period": "/ ay",
+      "description": "Daha akıllı para yönetimi için gelişmiş yapay zeka özellikleri",
+      "everythingInFree": "Ücretsiz'deki her şey, artı:",
+      "features": [
+        { "title": "Yapay zeka destekli kategorilendirme", "description": "Otomatik ve akıllı" },
+        { "title": "Tahmine dayalı analiz", "description": "Harcamayı öngör" },
+        { "title": "Kişiselleştirilmiş içgörüler", "description": "Özel öneriler" },
+        { "title": "Bütçe optimizasyonu", "description": "Yapay zeka destekli tasarruf" }
+      ],
+      "prioritySupport": "Öncelikli destek"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "HEDEF TAKİBİ",
+    "title": "Finansal Hayallerine Ulaş",
+    "description": "Anlamlı finansal hedefler belirle ve ilerlemeni zahmetsizce takip et. İster yeni bir araba, hayalindeki ev, tatil ya da başka bir dönüm noktası için biriktiriyor ol, WalletUp görsel ilerleme takibi ve akıllı tasarruf önerileriyle motive kalmana ve hedefte kalmana yardımcı olur.",
+    "features": {
+      "customGoals": {
+        "title": "Özel Hedefler",
+        "description": "Araba, ev, tatil veya başka her şey için hedef oluştur"
+      },
+      "visualProgress": {
+        "title": "Görsel İlerleme",
+        "description": "Hedeflerine ne kadar yaklaştığını gör"
+      },
+      "deadlineTracking": {
+        "title": "Son Tarih Takibi",
+        "description": "Hedef tarihler belirle ve hatırlatma al"
+      },
+      "smartSuggestions": {
+        "title": "Akıllı Öneriler",
+        "description": "Hedeflerine daha hızlı ulaşmak için ipuçları al"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ YAPAY ZEKA DESTEKLİ",
+    "title": "Kişisel Finansal Asistanın",
+    "description": "WalletUp, harcama alışkanlıklarını anlamak ve kişiselleştirilmiş içgörüler sunmak için gelişmiş yapay zeka kullanır. Daha iyi finansal kararlar almana yardımcı olacak akıllı öneriler, otomatik harcama kategorilendirmesi ve tahmine dayalı analizler al.",
+    "features": {
+      "smartCategorization": {
+        "title": "Akıllı Kategorilendirme",
+        "description": "Yapay zeka işlemlerini otomatik olarak kategorilendirir"
+      },
+      "predictiveAnalytics": {
+        "title": "Tahmine Dayalı Analiz",
+        "description": "Gelecekteki harcama örüntülerini ve eğilimlerini öngör"
+      },
+      "personalizedTips": {
+        "title": "Kişiselleştirilmiş İpuçları",
+        "description": "Alışkanlıklarına dayalı özel tavsiyeler al"
+      },
+      "budgetOptimization": {
+        "title": "Bütçe Optimizasyonu",
+        "description": "Yapay zeka tasarruf fırsatlarını bulmana yardımcı olur"
+      }
+    }
+  }
+}

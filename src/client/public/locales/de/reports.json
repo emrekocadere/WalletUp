@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Berichte",
+    "subtitle": "Jährliche Finanzübersicht für {{year}}",
+    "loading": "Berichte werden geladen..."
+  },
+  "summary": {
+    "totalIncome": "Gesamteinnahmen",
+    "totalExpenses": "Gesamtausgaben",
+    "netSavings": "Nettoersparnis",
+    "percentOfIncome": "{{percent}}% des Einkommens",
+    "avgMonthly": "Ø Monatlich",
+    "netSavingsSubtext": "Nettoersparnis"
+  },
+  "monthlyBarChart": {
+    "title": "Monatliche Einnahmen vs. Ausgaben",
+    "income": "Einnahmen",
+    "expenses": "Ausgaben"
+  },
+  "netSavingsChart": {
+    "title": "Entwicklung der Nettoersparnis",
+    "label": "Nettoersparnis",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Ausgaben nach Kategorie",
+    "noData": "Keine Ausgabendaten für diesen Monat"
+  },
+  "topCategories": {
+    "title": "Top-Kategorien",
+    "noData": "Keine Ausgabendaten für diesen Monat"
+  }
+}

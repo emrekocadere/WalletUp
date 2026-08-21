@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import type { Account } from '@/types/model.types';
 
@@ -22,6 +23,7 @@ interface EditAccountModalProps {
 }
 
 export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToast }: EditAccountModalProps) => {
+  const { t } = useTranslation('accounts');
   const { accountTypes, currencies } = useSelector((state: RootState) => state.appData);
   const [accountName, setAccountName] = useState(account.name);
   const [accountTypeId, setAccountTypeId] = useState(account.accountType.id);
@@ -44,15 +46,15 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
     if (currencyId !== account.currency.id) updateData.currencyId = currencyId;
 
     if (Object.keys(updateData).length === 0) {
-      onShowToast?.('No changes made', 'error');
+      onShowToast?.(t('editAccountModal.noChanges'), 'error');
       return;
     }
 
     if (await onSubmit(updateData)) {
-      onShowToast?.('Account updated successfully', 'success');
+      onShowToast?.(t('editAccountModal.updated'), 'success');
       onClose();
     } else {
-      onShowToast?.('Failed to update account', 'error');
+      onShowToast?.(t('editAccountModal.updateFailed'), 'error');
     }
   };
 
@@ -63,7 +65,7 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
       <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-lg w-full">
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Edit Account</h2>
+            <h2 className="text-2xl font-bold text-white">{t('editAccountModal.title')}</h2>
             <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -73,19 +75,19 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Account Name</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('editAccountModal.accountName')}</label>
               <input
                 type="text"
                 value={accountName}
                 onChange={(e) => setAccountName(e.target.value)}
-                placeholder="e.g., Main Checking, Savings"
+                placeholder={t('editAccountModal.accountNamePlaceholder')}
                 required
                 className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Account Type</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('editAccountModal.accountType')}</label>
               <select value={accountTypeId} onChange={(e) => setAccountTypeId(e.target.value)} className={selectClass} style={selectStyles}>
                 {accountTypes.map((type) => (
                   <option key={type.id} value={type.id} className="bg-slate-800 text-white">
@@ -96,11 +98,11 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Currency</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('editAccountModal.currency')}</label>
               <select value={currencyId} onChange={(e) => setCurrencyId(e.target.value)} className={selectClass} style={selectStyles}>
                 {currencies.map((currency) => (
                   <option key={currency.id} value={currency.id} className="bg-slate-800 text-white">
-                    {currency.iso4217Code || 'Unknown'}
+                    {currency.iso4217Code || t('editAccountModal.unknown')}
                   </option>
                 ))}
               </select>
@@ -108,10 +110,10 @@ export const EditAccountModal = ({ isOpen, onClose, account, onSubmit, onShowToa
 
             <div className="flex gap-3 pt-2">
               <button type="button" onClick={onClose} className="flex-1 px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-medium text-white transition-all">
-                Cancel
+                {t('editAccountModal.cancel')}
               </button>
               <button type="submit" className="flex-1 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold text-white transition-all shadow-lg shadow-indigo-500/30">
-                Save
+                {t('editAccountModal.save')}
               </button>
             </div>
           </form>

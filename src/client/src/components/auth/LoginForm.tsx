@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { LoginRequest } from '@/types/auth.types';
 import { GoogleSignInButton } from './GoogleSignInButton';
 
@@ -8,6 +9,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
+  const { t } = useTranslation('auth');
   const [formData, setFormData] = useState<LoginRequest>({
     email: '',
     password: '',
@@ -19,13 +21,13 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
     const newErrors: Partial<Record<keyof LoginRequest, string>> = {};
 
     if (!formData.email) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('loginForm.errors.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = t('loginForm.errors.emailInvalid');
     }
 
     if (!formData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = t('loginForm.errors.passwordRequired');
     }
 
     setErrors(newErrors);
@@ -51,7 +53,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label htmlFor="email" className="block text-sm font-semibold text-gray-200">
-          Email <span className="text-red-400">*</span>
+          {t('loginForm.email')} <span className="text-red-400">*</span>
         </label>
         <input
           id="email"
@@ -64,14 +66,14 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
           className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
             errors.email ? 'border-red-500/50 hover:border-red-500/70' : 'border-white/20'
           }`}
-          placeholder="you@example.com"
+          placeholder={t('loginForm.emailPlaceholder')}
         />
         {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
       </div>
 
       <div>
         <label htmlFor="password" className="block text-sm font-semibold text-gray-200">
-          Password <span className="text-red-400">*</span>
+          {t('loginForm.password')} <span className="text-red-400">*</span>
         </label>
         <input
           id="password"
@@ -84,7 +86,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
           className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
             errors.password ? 'border-red-500/50 hover:border-red-500/70' : 'border-white/20'
           }`}
-          placeholder="••••••••"
+          placeholder={t('loginForm.passwordPlaceholder')}
         />
         {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
       </div>
@@ -94,7 +96,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
         disabled={isLoading}
         className="w-full py-4 px-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
       >
-        {isLoading ? 'Signing in...' : 'Sign In'}
+        {isLoading ? t('loginForm.submitting') : t('loginForm.submit')}
       </button>
 
       <GoogleSignInButton isLoading={isLoading}  />

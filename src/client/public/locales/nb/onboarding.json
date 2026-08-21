@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Tilbake",
+    "getStarted": "Kom i gang",
+    "continue": "Fortsett",
+    "saving": "Lagrer...",
+    "complete": "Fullfør"
+  },
+  "welcomeStep": {
+    "title": "Rask oppsett",
+    "description": "Svar på noen spørsmål, så gjør vi kontoen din klar."
+  },
+  "currencyStep": {
+    "title": "Velg din valuta",
+    "subtitle": "Velg din primære valuta",
+    "placeholder": "Velg valuta...",
+    "loading": "Laster valutaer..."
+  },
+  "countryStep": {
+    "title": "Hvor er du fra?",
+    "subtitle": "Velg landet ditt",
+    "placeholder": "Velg landet ditt...",
+    "loading": "Laster land..."
+  },
+  "useCaseStep": {
+    "title": "Hvordan skal du bruke WalletUp?",
+    "subtitle": "Velg ditt primære bruksområde",
+    "options": {
+      "personal": { "label": "Personlig økonomi" },
+      "family": { "label": "Familiebudsjett" },
+      "business": { "label": "Liten bedrift" },
+      "freelance": { "label": "Frilanser" }
+    }
+  },
+  "goalsStep": {
+    "title": "Økonomiske mål",
+    "subtitle": "Velg alle som passer",
+    "options": {
+      "save": "Bygge sparepenger",
+      "budget": "Holde budsjett",
+      "debt": "Nedbetale gjeld",
+      "invest": "Begynne å investere",
+      "track": "Spore forbruk",
+      "plan": "Planlegge for fremtiden"
+    },
+    "selectedCount_one": "{{count}} mål valgt",
+    "selectedCount_other": "{{count}} mål valgt"
+  },
+  "aiPreferencesStep": {
+    "title": "Tilpass din AI-assistent",
+    "subtitle": "Hjelp oss å tilpasse AI-opplevelsen din for bedre anbefalinger",
+    "occupationLabel": "Hva er yrket ditt?",
+    "occupationPlaceholder": "f.eks. Ingeniør, Lærer, Gründer...",
+    "incomeLabel": "Hva er din månedlige inntekt?",
+    "incomePlaceholder": "Angi din månedlige inntekt (valgfritt)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Gjør et valg for å fortsette",
+    "goalRequired": "Velg minst ett økonomisk mål",
+    "completeSuccess": "Oppsett fullført! Du blir tatt til oversikten din...",
+    "completeFailed": "Kunne ikke lagre innstillingene. Prøv igjen.",
+    "loadFailed": "Kunne ikke laste data"
+  }
+}

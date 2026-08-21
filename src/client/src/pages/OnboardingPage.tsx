@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { setOnboardingCompleted } from '@/store/slices/authSlice';
 import { Toast } from '@/components/common/Toast';
 import { ProgressIndicator } from '@/components/onboarding/common/ProgressIndicator';
@@ -16,6 +17,7 @@ import { preferenceApi } from '@/api/endpoints/preferences.api';
 import type { Country, Currency, AIPreferences } from '@/types/model.types';
 
 export const OnboardingPage = () => {
+  const { t } = useTranslation('onboarding');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
@@ -57,7 +59,7 @@ export const OnboardingPage = () => {
         setCurrencies(currenciesData);
       } catch (error) {
         console.error('Failed to fetch countries and currencies:', error);
-        setToast({ message: 'Failed to load data', type: 'error' });
+        setToast({ message: t('onboardingPage.loadFailed'), type: 'error' });
       }
     };
     
@@ -94,7 +96,7 @@ export const OnboardingPage = () => {
 
   const handleNext = () => {
     if (!canProceed() && step !== 0) {
-      setToast({ message: 'Please make a selection to continue', type: 'error' });
+      setToast({ message: t('onboardingPage.selectionRequired'), type: 'error' });
       return;
     }
     if (step < totalSteps) {
@@ -110,7 +112,7 @@ export const OnboardingPage = () => {
 
   const handleComplete = async () => {
     if (!canProceed()) {
-      setToast({ message: 'Please select at least one financial goal', type: 'error' });
+      setToast({ message: t('onboardingPage.goalRequired'), type: 'error' });
       return;
     }
 
@@ -137,13 +139,13 @@ export const OnboardingPage = () => {
 
       dispatch(setOnboardingCompleted(true));
 
-      setToast({ message: 'Setup complete! Taking you to your dashboard...', type: 'success' });
+      setToast({ message: t('onboardingPage.completeSuccess'), type: 'success' });
       setTimeout(() => {
         navigate('/dashboard');
       }, 1500);
     } catch (error) {
       console.error('Failed to create preference:', error);
-      setToast({ message: 'Failed to save preferences. Please try again.', type: 'error' });
+      setToast({ message: t('onboardingPage.completeFailed'), type: 'error' });
     } finally {
       setIsLoading(false);
     }

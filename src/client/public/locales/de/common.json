@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "hideDetails": "Details ausblenden",
+    "aiInsightBadge": "KI-Einblick",
+    "aiInsightsUnavailable": "KI-Einblicke sind noch nicht verfügbar."
+  },
   "nav": {
     "menu": "Menü",
     "dashboard": "Übersicht",
@@ -90,6 +97,13 @@
     "thisMonth": "Diesen Monat",
     "aiInsightsEmpty": "KI-Einblicke werden vorbereitet. Schauen Sie später wieder vorbei.",
     "recentTransactions": "Letzte Transaktionen",
-    "viewAll": "Alle anzeigen →"
+    "viewAll": "Alle anzeigen →",
+    "loadingTransactions": "Transaktionen werden geladen...",
+    "noTransactions": "Noch keine Transaktionen",
+    "noTransactionsSubtitle": "Erstellen Sie ein Konto und fügen Sie Ihre erste Transaktion hinzu",
+    "noDescription": "Keine Beschreibung",
+    "uncategorized": "Nicht kategorisiert",
+    "unknownType": "Unbekannt",
+    "spendingByCategory": "Ausgaben nach Kategorie"
   }
 }

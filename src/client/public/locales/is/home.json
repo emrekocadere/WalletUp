@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Eiginleikar",
+    "whyUs": "Af hverju við",
+    "signIn": "Skrá inn",
+    "getStarted": "Byrja núna"
+  },
+  "hero": {
+    "titleLine1": "Peningarnir þínir,",
+    "titleLine2": "Snjallari.",
+    "subtitle": "Fylgstu með hverri útgjöldum, náðu hverju markmiði — knúið af gervigreindarinnsýn sem skilur raunverulega fjárhagsvenjur þínar.",
+    "startFree": "Byrja frítt",
+    "signIn": "Skrá inn"
+  },
+  "featuresSection": {
+    "eyebrow": "Peningarnir þínir, sundurliðaðir",
+    "titlePrefix": "Búið til fyrir hvernig þú ",
+    "titleEmphasis": "raunverulega",
+    "titleSuffix": " lifir",
+    "subtitle": "Þeir hlutar forritsins sem fólk opnar í hverri viku, ekki þeir sem eru í kynningunni.",
+    "items": {
+      "insights": {
+        "name": "Gervigreindarknúin innsýn",
+        "description": "Persónuleg ráðgjöf byggð á raunverulegum eyðslumynstrum þínum — ekki almenn fjárhagsáætlunarráð."
+      },
+      "reports": {
+        "name": "Skýrslur og greining",
+        "description": "Heilt ár af tekjum og útgjöldum, sundurliðað eftir mánuði og flokki."
+      },
+      "goals": {
+        "name": "Markmiðaeftirfylgni",
+        "description": "Settu markmið, bættu við peningum þegar þú getur og fylgstu með stikunni færast raunverulega."
+      },
+      "recurring": {
+        "name": "Endurteknar færslur",
+        "description": "Leiga, laun, áskriftir — settu upp einu sinni og þær skrá sig sjálfar í hverri lotu."
+      },
+      "multiCurrency": {
+        "name": "Fjölgjaldmiðlar",
+        "description": "Haltu reikningum í hvaða gjaldmiðli sem er, umbreytt í rauntíma í þann gjaldmiðil sem þú hugsar raunverulega í."
+      },
+      "security": {
+        "name": "Öruggar innskráningarlotur",
+        "description": "Dulkóðaðar innskráningar sem endurnýja sig hljóðlega — og skrá út nákvæmlega þegar þær eiga að gera það."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Tilbúin(n) að taka",
+    "titleEmphasis": "stjórnina?",
+    "subtitle": "Byrjaðu fjárhagslegu vegferðina þína í dag — frítt, ekkert kreditkort þarf.",
+    "getStartedFree": "Byrja frítt núna",
+    "signIn": "Skrá inn"
+  },
+  "footer": {
+    "tagline": "Gervigreindarknúin snjöll fjárstýring. Fylgstu með útgjöldum, náðu markmiðum.",
+    "copyright": "{{year}} WalletUp · Þróað af Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Virkir notendur",
+    "trackedExpenses": "Skráð útgjöld",
+    "uptime": "Rekstraröryggi"
+  },
+  "pricingSection": {
+    "title": "Einfalt, gagnsætt verðlag",
+    "subtitle": "Byrjaðu frítt, uppfærðu þegar þú þarft meiri kraft",
+    "free": {
+      "name": "Frítt",
+      "price": "0 kr.",
+      "period": "að eilífu",
+      "description": "Fullkomið til að byrja með útgjaldaeftirfylgni",
+      "features": [
+        "Ótakmörkuð útgjaldaeftirfylgni",
+        "Grunngreining",
+        "Margir reikningar",
+        "Handvirk flokkun"
+      ]
+    },
+    "plus": {
+      "badge": "2 MÁNAÐA FRÍ REYNSLA",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ mánuði",
+      "description": "Fullkomnir gervigreindareiginleikar fyrir snjallari fjárstýringu",
+      "everythingInFree": "Allt í Frítt, auk þess:",
+      "features": [
+        { "title": "Gervigreindarknúin flokkun", "description": "Sjálfvirkt og snjallt" },
+        { "title": "Forspárgreining", "description": "Spá fyrir um eyðslu" },
+        { "title": "Persónuleg innsýn", "description": "Sérsniðnar tillögur" },
+        { "title": "Fjárhagsáætlunarhagræðing", "description": "Gervigreindarknúinn sparnaður" }
+      ],
+      "prioritySupport": "Forgangsþjónusta"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "MARKMIÐAEFTIRFYLGNI",
+    "title": "Náðu fjárhagslegum draumum þínum",
+    "description": "Settu þér þýðingarmikil fjárhagsleg markmið og fylgstu með framvindu þinni áreynslulaust. Hvort sem þú ert að safna fyrir nýjum bíl, draumahúsinu þínu, fríi eða öðrum áfanga, hjálpar WalletUp þér að halda hvatningu og stefnu með sjónrænni framvindueftirfylgni og snjöllum sparnaðartillögum.",
+    "features": {
+      "customGoals": {
+        "title": "Sérsniðin markmið",
+        "description": "Búðu til markmið fyrir bíl, hús, frí eða hvað sem er"
+      },
+      "visualProgress": {
+        "title": "Sjónræn framvinda",
+        "description": "Sjáðu hversu nálægt þú ert að ná markmiðum þínum"
+      },
+      "deadlineTracking": {
+        "title": "Tímamarkaeftirfylgni",
+        "description": "Settu markdagsetningar og fáðu áminningar"
+      },
+      "smartSuggestions": {
+        "title": "Snjallar tillögur",
+        "description": "Fáðu ráð um hvernig þú náir markmiðum þínum hraðar"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ KNÚIÐ AF GERVIGREIND",
+    "title": "Persónulegi fjármálaaðstoðarmaðurinn þinn",
+    "description": "WalletUp notar fullkomna gervigreind til að skilja eyðsluvenjur þínar og veita persónulega innsýn. Fáðu snjallar tillögur, sjálfvirka flokkun útgjalda og forspárgreiningu sem hjálpar þér að taka betri fjárhagslegar ákvarðanir.",
+    "features": {
+      "smartCategorization": {
+        "title": "Snjöll flokkun",
+        "description": "Gervigreind flokkar færslurnar þínar sjálfkrafa"
+      },
+      "predictiveAnalytics": {
+        "title": "Forspárgreining",
+        "description": "Spáðu fyrir um framtíðar eyðslumynstur og þróun"
+      },
+      "personalizedTips": {
+        "title": "Persónuleg ráð",
+        "description": "Fáðu sérsniðin ráð byggð á venjum þínum"
+      },
+      "budgetOptimization": {
+        "title": "Fjárhagsáætlunarhagræðing",
+        "description": "Gervigreind hjálpar þér að finna sparnaðartækifæri"
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Zurück",
+    "getStarted": "Loslegen",
+    "continue": "Weiter",
+    "saving": "Wird gespeichert...",
+    "complete": "Abschließen"
+  },
+  "welcomeStep": {
+    "title": "Schnelleinrichtung",
+    "description": "Beantworten Sie ein paar Fragen und wir bereiten Ihr Konto vor."
+  },
+  "currencyStep": {
+    "title": "Wählen Sie Ihre Währung",
+    "subtitle": "Wählen Sie Ihre Hauptwährung",
+    "placeholder": "Währung auswählen...",
+    "loading": "Währungen werden geladen..."
+  },
+  "countryStep": {
+    "title": "Woher kommen Sie?",
+    "subtitle": "Wählen Sie Ihr Land",
+    "placeholder": "Land auswählen...",
+    "loading": "Länder werden geladen..."
+  },
+  "useCaseStep": {
+    "title": "Wie werden Sie WalletUp nutzen?",
+    "subtitle": "Wählen Sie Ihren primären Anwendungsfall",
+    "options": {
+      "personal": { "label": "Persönliche Finanzen" },
+      "family": { "label": "Familienbudget" },
+      "business": { "label": "Kleinunternehmen" },
+      "freelance": { "label": "Freiberufler" }
+    }
+  },
+  "goalsStep": {
+    "title": "Finanzielle Ziele",
+    "subtitle": "Wählen Sie alle Zutreffenden",
+    "options": {
+      "save": "Ersparnisse aufbauen",
+      "budget": "Budget einhalten",
+      "debt": "Schulden abbauen",
+      "invest": "Mit Investieren beginnen",
+      "track": "Ausgaben verfolgen",
+      "plan": "Für die Zukunft planen"
+    },
+    "selectedCount_one": "{{count}} Ziel ausgewählt",
+    "selectedCount_other": "{{count}} Ziele ausgewählt"
+  },
+  "aiPreferencesStep": {
+    "title": "Passen Sie Ihren KI-Assistenten an",
+    "subtitle": "Helfen Sie uns, Ihr KI-Erlebnis für bessere Empfehlungen zu personalisieren",
+    "occupationLabel": "Was ist Ihr Beruf?",
+    "occupationPlaceholder": "z. B. Ingenieur, Lehrer, Unternehmer...",
+    "incomeLabel": "Wie hoch ist Ihr monatliches Einkommen?",
+    "incomePlaceholder": "Geben Sie Ihr monatliches Einkommen ein (optional)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Bitte treffen Sie eine Auswahl, um fortzufahren",
+    "goalRequired": "Bitte wählen Sie mindestens ein finanzielles Ziel aus",
+    "completeSuccess": "Einrichtung abgeschlossen! Sie werden zu Ihrem Dashboard weitergeleitet...",
+    "completeFailed": "Einstellungen konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+    "loadFailed": "Daten konnten nicht geladen werden"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Gentagende transaktioner",
+    "subtitle": "Administrer dine gentagende udgifter og indtægter",
+    "addButton": "Tilføj gentagende",
+    "loading": "Indlæser gentagende transaktioner..."
+  },
+  "stats": {
+    "active": "Aktive gentagende",
+    "monthlyCommitment": "Månedlig forpligtelse",
+    "totalActive": "Samlet aktivt beløb"
+  },
+  "empty": {
+    "message": "Ingen gentagende transaktioner endnu",
+    "cta": "Opret din første gentagende transaktion"
+  },
+  "card": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "frequency": "Frekvens",
+    "nextDue": "Næste forfald",
+    "started": "Startet",
+    "ends": "Slutter",
+    "amount": "Beløb",
+    "deactivate": "Deaktiver",
+    "activate": "Aktiver",
+    "edit": "Rediger",
+    "delete": "Slet"
+  },
+  "frequencyLabels": {
+    "weekly": "Hver uge",
+    "biWeekly": "Hver 2. uge",
+    "monthly": "Hver måned",
+    "quarterly": "Hver 3. måned",
+    "semiAnnually": "Hver 6. måned",
+    "annually": "Hvert år"
+  },
+  "modal": {
+    "editTitle": "Rediger gentagende",
+    "addTitle": "Tilføj gentagende transaktion",
+    "titleLabel": "Titel *",
+    "titlePlaceholder": "f.eks. Månedlig husleje, Løn",
+    "descriptionLabel": "Beskrivelse",
+    "descriptionPlaceholder": "Valgfri beskrivelse",
+    "amountLabel": "Beløb *",
+    "accountLabel": "Konto *",
+    "selectAccount": "Vælg konto",
+    "typeLabel": "Type *",
+    "selectType": "Vælg type",
+    "categoryLabel": "Kategori *",
+    "selectCategory": "Vælg kategori",
+    "frequencyLabel": "Frekvens *",
+    "startDateLabel": "Startdato *",
+    "endDateLabel": "Slutdato (Valgfrit)",
+    "activeLabel": "Aktiv",
+    "cancel": "Annuller",
+    "update": "Opdater",
+    "create": "Opret",
+    "frequencyOptions": {
+      "weekly": "Ugentlig",
+      "biWeekly": "Hver 2. uge",
+      "monthly": "Månedlig",
+      "quarterly": "Hver 3. måned",
+      "semiAnnually": "Hver 6. måned",
+      "annually": "Årlig"
+    },
+    "errors": {
+      "titleRequired": "Titel er påkrævet",
+      "amountInvalid": "Beløbet skal være større end 0",
+      "startDateRequired": "Startdato er påkrævet",
+      "accountRequired": "Konto er påkrævet",
+      "categoryRequired": "Kategori er påkrævet",
+      "typeRequired": "Type er påkrævet",
+      "endDateInvalid": "Slutdato skal være efter startdato"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { Transaction } from '@/types/model.types';
 import { formatCurrency } from '@/utils/formatters';
 
@@ -6,6 +7,7 @@ interface TransactionStatsProps {
 }
 
 export const TransactionStats = ({ transactions }: TransactionStatsProps) => {
+  const { t } = useTranslation('transactions');
   const totalIncome = transactions
     .filter((t) => t.transactionType?.name === 'Income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -19,7 +21,7 @@ export const TransactionStats = ({ transactions }: TransactionStatsProps) => {
       <div className="bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-gray-400 text-sm mb-1">Total Transactions</p>
+            <p className="text-gray-400 text-sm mb-1">{t('stats.totalTransactions')}</p>
             <p className="text-3xl font-bold text-white">{transactions.length}</p>
           </div>
           <div className="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center">
@@ -43,7 +45,7 @@ export const TransactionStats = ({ transactions }: TransactionStatsProps) => {
       <div className="bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-gray-400 text-sm mb-1">Total Income</p>
+            <p className="text-gray-400 text-sm mb-1">{t('stats.totalIncome')}</p>
             <p className="text-3xl font-bold text-green-400">{formatCurrency(totalIncome)}</p>
           </div>
           <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
@@ -67,7 +69,7 @@ export const TransactionStats = ({ transactions }: TransactionStatsProps) => {
       <div className="bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-gray-400 text-sm mb-1">Total Expenses</p>
+            <p className="text-gray-400 text-sm mb-1">{t('stats.totalExpenses')}</p>
             <p className="text-3xl font-bold text-red-400">{formatCurrency(totalExpenses)}</p>
           </div>
           <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">

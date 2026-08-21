@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface StatCardProps {
   value: string;
   label: string;
@@ -13,12 +15,13 @@ const StatCard = ({ value, label }: StatCardProps) => {
 };
 
 export const StatsSection = () => {
+  const { t } = useTranslation('home');
   return (
     <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <StatCard value="10K+" label="Active Users" />
-        <StatCard value="$500M+" label="Tracked Expenses" />
-        <StatCard value="99.9%" label="Uptime" />
+        <StatCard value="10K+" label={t('statsSection.activeUsers')} />
+        <StatCard value="$500M+" label={t('statsSection.trackedExpenses')} />
+        <StatCard value="99.9%" label={t('statsSection.uptime')} />
       </div>
     </div>
   );

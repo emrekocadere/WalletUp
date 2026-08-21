@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { RegisterRequest } from '@/types/auth.types';
 import { GoogleSignInButton } from './GoogleSignInButton';
 
@@ -9,6 +10,7 @@ interface RegisterFormProps {
 }
 
 export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFormProps) => {
+  const { t } = useTranslation('auth');
   const [formData, setFormData] = useState<RegisterRequest>({
     email: '',
     password: '',
@@ -22,15 +24,15 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
     const newErrors: Partial<Record<keyof RegisterRequest, string>> = {};
 
     if (!formData.email) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('registerForm.errors.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = t('registerForm.errors.emailInvalid');
     }
 
     if (!formData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = t('registerForm.errors.passwordRequired');
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      newErrors.password = t('registerForm.errors.passwordTooShort');
     }
 
     setErrors(newErrors);
@@ -64,7 +66,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-200">
-            Name
+            {t('registerForm.name')}
           </label>
           <input
             id="name"
@@ -74,13 +76,13 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
             onChange={handleChange}
             disabled={isLoading}
             className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-            placeholder="John"
+            placeholder={t('registerForm.namePlaceholder')}
           />
         </div>
 
         <div>
           <label htmlFor="surname" className="block text-sm font-semibold text-gray-200">
-            Surname <span className="text-red-500">*</span>
+            {t('registerForm.surname')} <span className="text-red-500">*</span>
           </label>
           <input
             id="surname"
@@ -91,7 +93,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
             onChange={handleChange}
             disabled={isLoading}
             className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-            placeholder="Doe"
+            placeholder={t('registerForm.surnamePlaceholder')}
           />
           {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
         </div>
@@ -99,7 +101,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
 
       <div>
         <label htmlFor="email" className="block text-sm font-semibold text-gray-200">
-          Email <span className="text-red-500">*</span>
+          {t('registerForm.email')} <span className="text-red-500">*</span>
         </label>
         <input
           id="email"
@@ -110,14 +112,14 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
           onChange={handleChange}
           disabled={isLoading}
           className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-          placeholder="you@example.com"
+          placeholder={t('registerForm.emailPlaceholder')}
         />
         {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
       </div>
 
       <div>
         <label htmlFor="password" className="block text-sm font-semibold text-gray-200">
-          Password <span className="text-red-500">*</span>
+          {t('registerForm.password')} <span className="text-red-500">*</span>
         </label>
         <input
           id="password"
@@ -128,7 +130,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
           onChange={handleChange}
           disabled={isLoading}
           className="mt-1 block w-full rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30"
-          placeholder="••••••••"
+          placeholder={t('registerForm.passwordPlaceholder')}
         />
         {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
       </div>
@@ -138,7 +140,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
         disabled={isLoading}
         className="w-full py-4 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
       >
-        {isLoading ? 'Creating account...' : 'Create Account'}
+        {isLoading ? t('registerForm.submitting') : t('registerForm.submit')}
       </button>
 
       <GoogleSignInButton

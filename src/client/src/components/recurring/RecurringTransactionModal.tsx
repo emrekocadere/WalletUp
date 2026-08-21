@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RecurringTransaction, RecurrenceFrequency } from '@/types/model.types';
 import type { RootState } from '@/store/store';
 
@@ -10,16 +11,10 @@ interface Props {
   onSave: (transaction: RecurringTransaction) => void;
 }
 
-const FREQUENCIES: { value: RecurrenceFrequency; label: string }[] = [
-  { value: 'Weekly', label: 'Weekly' },
-  { value: 'BiWeekly', label: 'Every 2 weeks' },
-  { value: 'Monthly', label: 'Monthly' },
-  { value: 'Quarterly', label: 'Every 3 months' },
-  { value: 'SemiAnnually', label: 'Every 6 months' },
-  { value: 'Annually', label: 'Yearly' },
-];
+const FREQUENCY_VALUES: RecurrenceFrequency[] = ['Weekly', 'BiWeekly', 'Monthly', 'Quarterly', 'SemiAnnually', 'Annually'];
 
 export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSave }: Props) => {
+  const { t } = useTranslation('recurring');
   const { categories, transactionTypes } = useSelector((state: RootState) => state.appData);
 
   const [formData, setFormData] = useState<Partial<RecurringTransaction>>({
@@ -50,15 +45,15 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
   const validate = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.title?.trim()) newErrors.title = 'Title is required';
-    if (!formData.amount || formData.amount <= 0) newErrors.amount = 'Amount must be greater than 0';
-    if (!formData.startDate) newErrors.startDate = 'Start date is required';
-    if (!formData.account?.id) newErrors.account = 'Account is required';
-    if (!formData.category?.id) newErrors.category = 'Category is required';
-    if (!formData.transactionType?.id) newErrors.transactionType = 'Type is required';
+    if (!formData.title?.trim()) newErrors.title = t('modal.errors.titleRequired');
+    if (!formData.amount || formData.amount <= 0) newErrors.amount = t('modal.errors.amountInvalid');
+    if (!formData.startDate) newErrors.startDate = t('modal.errors.startDateRequired');
+    if (!formData.account?.id) newErrors.account = t('modal.errors.accountRequired');
+    if (!formData.category?.id) newErrors.category = t('modal.errors.categoryRequired');
+    if (!formData.transactionType?.id) newErrors.transactionType = t('modal.errors.typeRequired');
 
     if (formData.endDate && formData.startDate && formData.endDate < formData.startDate) {
-      newErrors.endDate = 'End date must be after start date';
+      newErrors.endDate = t('modal.errors.endDateInvalid');
     }
 
     setErrors(newErrors);
@@ -89,7 +84,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
         {/* Header */}
         <div className="sticky top-0 flex items-center justify-between p-6 border-b border-slate-700 bg-slate-800">
           <h2 className="text-xl font-bold text-white">
-            {transaction ? 'Edit Recurring' : 'Add Recurring Transaction'}
+            {transaction ? t('modal.editTitle') : t('modal.addTitle')}
           </h2>
           <button
             onClick={onClose}
@@ -106,13 +101,13 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Title */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Title *
+              {t('modal.titleLabel')}
             </label>
             <input
               type="text"
               value={formData.title || ''}
               onChange={e => handleChange('title', e.target.value)}
-              placeholder="e.g., Monthly Rent, Salary"
+              placeholder={t('modal.titlePlaceholder')}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 ${
                 errors.title ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
               }`}
@@ -123,12 +118,12 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Description */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Description
+              {t('modal.descriptionLabel')}
             </label>
             <textarea
               value={formData.description || ''}
               onChange={e => handleChange('description', e.target.value)}
-              placeholder="Optional description"
+              placeholder={t('modal.descriptionPlaceholder')}
               rows={2}
               className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
             />
@@ -137,7 +132,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Amount */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Amount *
+              {t('modal.amountLabel')}
             </label>
             <input
               type="number"
@@ -156,7 +151,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Account */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Account *
+              {t('modal.accountLabel')}
             </label>
             <select
               value={formData.account?.id || ''}
@@ -168,7 +163,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 errors.account ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
               }`}
             >
-              <option value="">Select account</option>
+              <option value="">{t('modal.selectAccount')}</option>
               {accounts.map(acc => (
                 <option key={acc.id} value={acc.id}>
                   {acc.name}
@@ -181,7 +176,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Transaction Type */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Type *
+              {t('modal.typeLabel')}
             </label>
             <select
               value={formData.transactionType?.id || ''}
@@ -193,7 +188,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 errors.transactionType ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
               }`}
             >
-              <option value="">Select type</option>
+              <option value="">{t('modal.selectType')}</option>
               {transactionTypes.map(t => (
                 <option key={t.id} value={t.id}>
                   {t.name}
@@ -206,7 +201,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Category */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Category *
+              {t('modal.categoryLabel')}
             </label>
             <select
               value={formData.category?.id || ''}
@@ -218,7 +213,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 errors.category ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
               }`}
             >
-              <option value="">Select category</option>
+              <option value="">{t('modal.selectCategory')}</option>
               {categories.map(cat => (
                 <option key={cat.id} value={cat.id}>
                   {cat.name}
@@ -231,16 +226,16 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Frequency */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Frequency *
+              {t('modal.frequencyLabel')}
             </label>
             <select
               value={formData.frequency || 'Monthly'}
               onChange={e => handleChange('frequency', e.target.value)}
               className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
             >
-              {FREQUENCIES.map(f => (
-                <option key={f.value} value={f.value}>
-                  {f.label}
+              {FREQUENCY_VALUES.map(value => (
+                <option key={value} value={value}>
+                  {t(`modal.frequencyOptions.${value.charAt(0).toLowerCase() + value.slice(1)}`)}
                 </option>
               ))}
             </select>
@@ -249,7 +244,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* Start Date */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              Start Date *
+              {t('modal.startDateLabel')}
             </label>
             <input
               type="date"
@@ -265,7 +260,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
           {/* End Date */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-1">
-              End Date (Optional)
+              {t('modal.endDateLabel')}
             </label>
             <input
               type="date"
@@ -287,7 +282,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               className="w-4 h-4 rounded border-slate-600 bg-slate-700 cursor-pointer"
             />
             <label className="text-sm font-medium text-slate-300 cursor-pointer">
-              Active
+              {t('modal.activeLabel')}
             </label>
           </div>
 
@@ -298,13 +293,13 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               onClick={onClose}
               className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
             >
-              Cancel
+              {t('modal.cancel')}
             </button>
             <button
               type="submit"
               className="flex-1 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
             >
-              {transaction ? 'Update' : 'Create'}
+              {transaction ? t('modal.update') : t('modal.create')}
             </button>
           </div>
         </form>

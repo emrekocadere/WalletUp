@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import { transactionsApi } from '@/api/endpoints/transactions.api';
 
@@ -22,6 +23,7 @@ export const AddTransactionModal = ({
   onSuccess,
   onShowToast,
 }: AddTransactionModalProps) => {
+  const { t } = useTranslation('transactions');
   const { transactionTypes } = useSelector((state: RootState) => state.appData);
   const [transactionTypeId, setTransactionTypeId] = useState('');
   const [amount, setAmount] = useState('');
@@ -44,18 +46,18 @@ export const AddTransactionModal = ({
 
     const amountValue = parseFloat(amount);
     if (isNaN(amountValue) || amountValue <= 0) {
-      alert('Please enter a valid amount');
+      alert(t('addModal.invalidAmount'));
       return;
     }
 
     const finalAccountId = defaultAccountId || accountId;
     if (!finalAccountId) {
-      alert('Please select an account');
+      alert(t('addModal.selectAccountError'));
       return;
     }
 
     if (!categoryId) {
-      alert('Please select a category');
+      alert(t('addModal.selectCategoryError'));
       return;
     }
 
@@ -86,15 +88,15 @@ export const AddTransactionModal = ({
         setDate(new Date().toISOString().split('T')[0]);
         if (!defaultAccountId) setAccountId('');
 
-        onShowToast?.('Added successfully', 'success');
+        onShowToast?.(t('addModal.successToast'), 'success');
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(String(result.error || 'Failed to create transaction'), 'error');
+        onShowToast?.(String(result.error || t('addModal.failToast')), 'error');
       }
     } catch (err) {
       console.error('Failed to create transaction:', err);
-      onShowToast?.('Failed to create transaction. Please try again.', 'error');
+      onShowToast?.(t('addModal.failToastRetry'), 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -107,7 +109,7 @@ export const AddTransactionModal = ({
       <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Add Transaction</h2>
+            <h2 className="text-2xl font-bold text-white">{t('addModal.title')}</h2>
             <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -123,7 +125,7 @@ export const AddTransactionModal = ({
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Type</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.type')}</label>
                 <select
                   value={transactionTypeId}
                   onChange={(e) => setTransactionTypeId(e.target.value)}
@@ -146,11 +148,11 @@ export const AddTransactionModal = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Amount</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.amount')}</label>
                 <input
                   type="number"
                   step="0.01"
-                  placeholder="0.00"
+                  placeholder={t('addModal.amountPlaceholder')}
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   required
@@ -160,10 +162,10 @@ export const AddTransactionModal = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Title</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.titleLabel')}</label>
               <input
                 type="text"
-                placeholder="Transaction title"
+                placeholder={t('addModal.titlePlaceholder')}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -172,11 +174,11 @@ export const AddTransactionModal = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Description (optional)
+                {t('addModal.description')}
               </label>
               <textarea
                 rows={3}
-                placeholder="Add details..."
+                placeholder={t('addModal.descriptionPlaceholder')}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
@@ -186,7 +188,7 @@ export const AddTransactionModal = ({
             <div className={`grid grid-cols-1 ${defaultAccountId ? 'md:grid-cols-1' : 'md:grid-cols-2'} gap-6`}>
               {!defaultAccountId && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Account</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.account')}</label>
                   <select
                     value={accountId}
                     onChange={(e) => setAccountId(e.target.value)}
@@ -200,7 +202,7 @@ export const AddTransactionModal = ({
                       paddingRight: '2.5rem'
                     }}
                   >
-                    <option value="" className="bg-slate-800 text-white">Select account</option>
+                    <option value="" className="bg-slate-800 text-white">{t('addModal.selectAccount')}</option>
                     {accounts.map((account) => (
                       <option key={account.id} value={account.id} className="bg-slate-800 text-white">
                         {account.name}
@@ -211,7 +213,7 @@ export const AddTransactionModal = ({
               )}
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Category</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.category')}</label>
                 <select
                   value={categoryId}
                   onChange={(e) => setCategoryId(e.target.value)}
@@ -225,7 +227,7 @@ export const AddTransactionModal = ({
                     paddingRight: '2.5rem'
                   }}
                 >
-                  <option value="" className="bg-slate-800 text-white">Select category</option>
+                  <option value="" className="bg-slate-800 text-white">{t('addModal.selectCategory')}</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id} className="bg-slate-800 text-white">
                       {category.name}
@@ -236,7 +238,7 @@ export const AddTransactionModal = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Date</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.date')}</label>
               <input
                 type="date"
                 value={date}
@@ -253,14 +255,14 @@ export const AddTransactionModal = ({
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Cancel
+                {t('addModal.cancel')}
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Adding...' : 'Add Transaction'}
+                {isSubmitting ? t('addModal.submitting') : t('addModal.submit')}
               </button>
             </div>
           </form>

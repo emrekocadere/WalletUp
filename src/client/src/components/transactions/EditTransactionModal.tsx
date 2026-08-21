@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import { transactionsApi } from '@/api/endpoints/transactions.api';
 
@@ -35,6 +36,7 @@ export const EditTransactionModal = ({
   onSuccess,
   onShowToast,
 }: EditTransactionModalProps) => {
+  const { t } = useTranslation('transactions');
   const { transactionTypes } = useSelector((state: RootState) => state.appData);
   const [transactionTypeId, setTransactionTypeId] = useState('');
   const [amount, setAmount] = useState('');
@@ -72,14 +74,14 @@ export const EditTransactionModal = ({
       });
 
       if (result.isSuccess) {
-        onShowToast?.('Updated successfully', 'success');
+        onShowToast?.(t('editModal.successToast'), 'success');
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(String(result.error || 'Failed to update'), 'error');
+        onShowToast?.(String(result.error || t('editModal.failToast')), 'error');
       }
     } catch (err) {
-      onShowToast?.('Failed to update', 'error');
+      onShowToast?.(t('editModal.failToast'), 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -91,14 +93,14 @@ export const EditTransactionModal = ({
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">Edit Transaction</h2>
+          <h2 className="text-2xl font-bold text-white">{t('editModal.title')}</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-white">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Type</label>
+              <label className="block text-sm text-gray-300 mb-1">{t('editModal.type')}</label>
               <select value={transactionTypeId} onChange={(e) => setTransactionTypeId(e.target.value)} required className={selectClass}>
                 {transactionTypes.map((type: { id: string; name: string }) => (
                   <option key={type.id} value={type.id}>{type.name}</option>
@@ -106,25 +108,25 @@ export const EditTransactionModal = ({
               </select>
             </div>
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Amount</label>
+              <label className="block text-sm text-gray-300 mb-1">{t('editModal.amount')}</label>
               <input type="number" step="0.01" value={amount} onChange={(e) => setAmount(e.target.value)} required className={inputClass} />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-1">Title</label>
+            <label className="block text-sm text-gray-300 mb-1">{t('editModal.titleLabel')}</label>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={inputClass} />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-1">Description</label>
+            <label className="block text-sm text-gray-300 mb-1">{t('editModal.description')}</label>
             <textarea rows={2} value={description} onChange={(e) => setDescription(e.target.value)} className={inputClass + " resize-none"} />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-1">Category</label>
+            <label className="block text-sm text-gray-300 mb-1">{t('editModal.category')}</label>
             <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} required className={selectClass}>
-              <option value="">Select category</option>
+              <option value="">{t('editModal.selectCategory')}</option>
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>{cat.name}</option>
               ))}
@@ -132,16 +134,16 @@ export const EditTransactionModal = ({
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-1">Date</label>
+            <label className="block text-sm text-gray-300 mb-1">{t('editModal.date')}</label>
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className={inputClass} />
           </div>
 
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose} disabled={isSubmitting} className="flex-1 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl disabled:opacity-50">
-              Cancel
+              {t('editModal.cancel')}
             </button>
             <button type="submit" disabled={isSubmitting} className="flex-1 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl disabled:opacity-50">
-              {isSubmitting ? 'Updating...' : 'Update'}
+              {isSubmitting ? t('editModal.submitting') : t('editModal.submit')}
             </button>
           </div>
         </form>

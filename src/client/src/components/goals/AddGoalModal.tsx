@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { goalsApi } from '@/api/endpoints/goals.api';
 import { transactionsApi } from '@/api/endpoints/transactions.api';
 import type { Currency } from '@/types/model.types';
@@ -12,6 +13,7 @@ interface AddGoalModalProps {
 }
 
 export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoalModalProps) => {
+  const { t } = useTranslation('goals');
   const [name, setName] = useState('');
   const [targetAmount, setTargetAmount] = useState('');
   const [description, setDescription] = useState('');
@@ -36,7 +38,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
       }
     } catch (error) {
       console.error('Failed to load currencies:', error);
-      onShowToast?.('Failed to load currencies', 'error');
+      onShowToast?.(t('addModal.toastLoadCurrenciesFailed'), 'error');
     } finally {
       setIsLoadingCurrencies(false);
     }
@@ -47,17 +49,17 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
 
     const amount = parseFloat(targetAmount);
     if (isNaN(amount) || amount <= 0) {
-      alert('Please enter a valid target amount');
+      alert(t('addModal.errors.invalidAmount'));
       return;
     }
 
     if (!name.trim()) {
-      alert('Please enter a goal name');
+      alert(t('addModal.errors.nameRequired'));
       return;
     }
 
     if (!currencyId) {
-      alert('Please select a currency');
+      alert(t('addModal.errors.currencyRequired'));
       return;
     }
 
@@ -76,15 +78,15 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
         setDescription('');
         setCurrencyId(currencies[0]?.id || '');
 
-        onShowToast?.('Created successfully', 'success');
+        onShowToast?.(t('addModal.toastSuccess'), 'success');
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(String(result.error || 'Failed to create goal'), 'error');
+        onShowToast?.(String(result.error || t('addModal.toastFailed')), 'error');
       }
     } catch (err) {
       console.error('Failed to create goal:', err);
-      onShowToast?.('Failed to create goal. Please try again.', 'error');
+      onShowToast?.(t('addModal.toastFailedRetry'), 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -97,7 +99,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
       <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Create New Goal</h2>
+            <h2 className="text-2xl font-bold text-white">{t('addModal.title')}</h2>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-white transition-colors"
@@ -116,10 +118,10 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Goal Name</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.nameLabel')}</label>
                 <input
                   type="text"
-                  placeholder="e.g., Emergency Fund"
+                  placeholder={t('addModal.namePlaceholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -128,10 +130,10 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Currency</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.currencyLabel')}</label>
                 {isLoadingCurrencies ? (
                   <div className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-gray-400 flex items-center">
-                    Loading currencies...
+                    {t('addModal.loadingCurrencies')}
                   </div>
                 ) : (
                   <select
@@ -140,7 +142,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
                     required
                     className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                   >
-                    <option value="">Select a currency</option>
+                    <option value="">{t('addModal.currencyPlaceholder')}</option>
                     {currencies.map((currency) => (
                       <option key={currency.id} value={currency.id}>
                         {currency.iso4217Code}
@@ -153,7 +155,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Target Amount</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.targetLabel')}</label>
                 <input
                   type="number"
                   step="0.01"
@@ -167,10 +169,10 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Description (optional)</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('addModal.descriptionLabel')}</label>
               <textarea
                 rows={3}
-                placeholder="Add some details about your goal..."
+                placeholder={t('addModal.descriptionPlaceholder')}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
@@ -184,14 +186,14 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Cancel
+                {t('addModal.cancel')}
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Creating...' : 'Create Goal'}
+                {isSubmitting ? t('addModal.submitting') : t('addModal.submit')}
               </button>
             </div>
           </form>

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Skýrslur",
+    "subtitle": "Árlegt fjárhagsyfirlit fyrir {{year}}",
+    "loading": "Hleð skýrslum..."
+  },
+  "summary": {
+    "totalIncome": "Heildartekjur",
+    "totalExpenses": "Heildarútgjöld",
+    "netSavings": "Nettósparnaður",
+    "percentOfIncome": "{{percent}}% af tekjum",
+    "avgMonthly": "Meðaltal á mánuði",
+    "netSavingsSubtext": "nettósparnaður"
+  },
+  "monthlyBarChart": {
+    "title": "Mánaðarlegar tekjur á móti útgjöldum",
+    "income": "Tekjur",
+    "expenses": "Útgjöld"
+  },
+  "netSavingsChart": {
+    "title": "Þróun nettósparnaðar",
+    "label": "Nettósparnaður",
+    "tooltipPrefix": "Nettó"
+  },
+  "categoryChart": {
+    "title": "Eyðsla eftir flokki",
+    "noData": "Engin eyðslugögn fyrir þennan mánuð"
+  },
+  "topCategories": {
+    "title": "Efstu flokkar",
+    "noData": "Engin eyðslugögn fyrir þennan mánuð"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Rapporter",
+    "subtitle": "Årlig ekonomisk översikt för {{year}}",
+    "loading": "Läser in rapporter..."
+  },
+  "summary": {
+    "totalIncome": "Total inkomst",
+    "totalExpenses": "Totala utgifter",
+    "netSavings": "Nettobesparing",
+    "percentOfIncome": "{{percent}}% av inkomsten",
+    "avgMonthly": "Genomsnitt/månad",
+    "netSavingsSubtext": "nettobesparing"
+  },
+  "monthlyBarChart": {
+    "title": "Månatlig inkomst vs. utgifter",
+    "income": "Inkomst",
+    "expenses": "Utgifter"
+  },
+  "netSavingsChart": {
+    "title": "Trend för nettobesparing",
+    "label": "Nettobesparing",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Utgifter per kategori",
+    "noData": "Inga utgiftsdata för denna månad"
+  },
+  "topCategories": {
+    "title": "Toppkategorier",
+    "noData": "Inga utgiftsdata för denna månad"
+  }
+}

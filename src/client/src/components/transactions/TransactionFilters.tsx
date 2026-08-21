@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { formatCurrency } from '@/utils/formatters';
 
 interface TransactionFiltersProps {
@@ -29,6 +30,7 @@ export const TransactionFilters = ({
   onClearFilters,
   hideAccountFilter = false,
 }: TransactionFiltersProps) => {
+  const { t } = useTranslation('transactions');
   const hasActiveFilters =
     filterType !== 'all' ||
     filterAccount !== 'all' ||
@@ -37,11 +39,11 @@ export const TransactionFilters = ({
 
   return (
     <div className="bg-white/5 backdrop-blur-xl p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-white/10 mb-6 sm:mb-8">
-      <h3 className="text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Filters</h3>
+      <h3 className="text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">{t('filters.title')}</h3>
       <div className={`grid grid-cols-2 ${hideAccountFilter ? 'md:grid-cols-3' : 'md:grid-cols-4'} gap-3 sm:gap-4`}>
         {/* Period Filter */}
         <div>
-          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">Period</label>
+          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">{t('filters.period')}</label>
           <select
             value={filterPeriod}
             onChange={(e) => setFilterPeriod(e.target.value)}
@@ -54,15 +56,15 @@ export const TransactionFilters = ({
               paddingRight: '2.5rem'
             }}
           >
-            <option value="all" className="bg-slate-800 text-white">All Time</option>
-            <option value="week" className="bg-slate-800 text-white">Last 7 Days</option>
-            <option value="month" className="bg-slate-800 text-white">Last 30 Days</option>
+            <option value="all" className="bg-slate-800 text-white">{t('filters.allTime')}</option>
+            <option value="week" className="bg-slate-800 text-white">{t('filters.last7Days')}</option>
+            <option value="month" className="bg-slate-800 text-white">{t('filters.last30Days')}</option>
           </select>
         </div>
 
         {/* Type Filter */}
         <div>
-          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">Type</label>
+          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">{t('filters.type')}</label>
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
@@ -75,16 +77,16 @@ export const TransactionFilters = ({
               paddingRight: '2.5rem'
             }}
           >
-            <option value="all" className="bg-slate-800 text-white">All Types</option>
-            <option value="Income" className="bg-slate-800 text-white">Income</option>
-            <option value="Expense" className="bg-slate-800 text-white">Expense</option>
+            <option value="all" className="bg-slate-800 text-white">{t('filters.allTypes')}</option>
+            <option value="Income" className="bg-slate-800 text-white">{t('filters.income')}</option>
+            <option value="Expense" className="bg-slate-800 text-white">{t('filters.expense')}</option>
           </select>
         </div>
 
         {/* Account Filter */}
         {!hideAccountFilter && (
           <div>
-            <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">Account</label>
+            <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">{t('filters.account')}</label>
             <select
               value={filterAccount}
               onChange={(e) => setFilterAccount(e.target.value)}
@@ -97,7 +99,7 @@ export const TransactionFilters = ({
                 paddingRight: '2.5rem'
               }}
             >
-              <option value="all" className="bg-slate-800 text-white">All Accounts</option>
+              <option value="all" className="bg-slate-800 text-white">{t('filters.allAccounts')}</option>
               {accounts.map((account) => (
                 <option key={account.id} value={account.id} className="bg-slate-800 text-white">
                   {account.name} ({formatCurrency(account.balance)})
@@ -109,7 +111,7 @@ export const TransactionFilters = ({
 
         {/* Category Filter */}
         <div>
-          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">Category</label>
+          <label className="block text-xs sm:text-sm text-gray-400 mb-1.5 sm:mb-2">{t('filters.category')}</label>
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
@@ -122,7 +124,7 @@ export const TransactionFilters = ({
               paddingRight: '2.5rem'
             }}
           >
-            <option value="all" className="bg-slate-800 text-white">All Categories</option>
+            <option value="all" className="bg-slate-800 text-white">{t('filters.allCategories')}</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id} className="bg-slate-800 text-white">
                 {category.name}
@@ -138,7 +140,7 @@ export const TransactionFilters = ({
           onClick={onClearFilters}
           className="mt-3 sm:mt-4 text-xs sm:text-sm text-primary-400 hover:text-primary-300 transition-colors"
         >
-          Clear all filters
+          {t('filters.clearAll')}
         </button>
       )}
     </div>

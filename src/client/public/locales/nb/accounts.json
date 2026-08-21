@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Kontoer",
+    "subtitle": "Følg med på økonomien din med flere kontoer.",
+    "addAccount": "Legg til konto",
+    "loading": "Laster kontoer..."
+  },
+  "accountDetailPage": {
+    "loading": "Laster kontodetaljer...",
+    "failedToLoad": "Kunne ikke laste kontoen",
+    "backToAccounts": "← Tilbake til kontoer",
+    "subtitle": "Se kontosaldoen din og alle transaksjoner.",
+    "deleteSuccess": "Kontoen ble slettet",
+    "deleteFailed": "Kunne ikke slette kontoen"
+  },
+  "editAccountModal": {
+    "title": "Rediger konto",
+    "accountName": "Kontonavn",
+    "accountNamePlaceholder": "f.eks. Brukskonto, Sparekonto",
+    "accountType": "Kontotype",
+    "currency": "Valuta",
+    "unknown": "Ukjent",
+    "cancel": "Avbryt",
+    "save": "Lagre",
+    "noChanges": "Ingen endringer gjort",
+    "updated": "Kontoen ble oppdatert",
+    "updateFailed": "Kunne ikke oppdatere kontoen"
+  },
+  "addAccountModal": {
+    "title": "Legg til ny konto",
+    "accountName": "Kontonavn",
+    "accountNamePlaceholder": "f.eks. Brukskonto, Sparekonto osv.",
+    "accountType": "Kontotype",
+    "currency": "Valuta",
+    "unknown": "Ukjent",
+    "loading": "Laster...",
+    "initialBalance": "Startsaldo",
+    "cancel": "Avbryt",
+    "submit": "Legg til konto",
+    "invalidBalance": "Ugyldig saldo",
+    "created": "Opprettet",
+    "createFailed": "Kunne ikke opprette kontoen"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Total saldo",
+    "accounts": "Kontoer"
+  },
+  "accountListSection": {
+    "loading": "Laster kontoer...",
+    "created": "Opprettet {{date}}",
+    "viewDetails": "Vis detaljer"
+  },
+  "accountTransactionsPanel": {
+    "title": "Nylige transaksjoner",
+    "allTransactions": "Alle transaksjoner",
+    "empty": "Ingen transaksjoner registrert for denne kontoen ennå.",
+    "category": "Kategori"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Opprettet {{date}}",
+    "loading": "Laster kontoinformasjon...",
+    "currency": "Valuta",
+    "accountType": "Kontotype",
+    "transactions": "Transaksjoner",
+    "addTransaction": "Legg til transaksjon",
+    "edit": "Rediger",
+    "exportCsv": "Eksporter som CSV",
+    "export": "Eksporter",
+    "deleteAccount": "Slett konto",
+    "delete": "Slett",
+    "noTransactionsToExport": "Ingen transaksjoner å eksportere",
+    "noAccountsAvailable": "Ingen kontoer tilgjengelig",
+    "exportedCsv": "Transaksjoner eksportert som CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Sammendrag",
+    "quickOverview": "Rask oversikt",
+    "latestActivity": "Siste aktivitet",
+    "totalTransactions": "Totalt {{count}} transaksjoner"
+  }
+}

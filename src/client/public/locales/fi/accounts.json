@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Tilit",
+    "subtitle": "Seuraa talouttasi useilla tileillä.",
+    "addAccount": "Lisää tili",
+    "loading": "Ladataan tilejä..."
+  },
+  "accountDetailPage": {
+    "loading": "Ladataan tilin tietoja...",
+    "failedToLoad": "Tilin lataaminen epäonnistui",
+    "backToAccounts": "← Takaisin tileihin",
+    "subtitle": "Tarkastele tilisi saldoa ja kaikkia tapahtumia.",
+    "deleteSuccess": "Tili poistettu",
+    "deleteFailed": "Tilin poistaminen epäonnistui"
+  },
+  "editAccountModal": {
+    "title": "Muokkaa tiliä",
+    "accountName": "Tilin nimi",
+    "accountNamePlaceholder": "esim. Käyttötili, Säästötili",
+    "accountType": "Tilin tyyppi",
+    "currency": "Valuutta",
+    "unknown": "Tuntematon",
+    "cancel": "Peruuta",
+    "save": "Tallenna",
+    "noChanges": "Ei muutoksia",
+    "updated": "Tili päivitetty",
+    "updateFailed": "Tilin päivittäminen epäonnistui"
+  },
+  "addAccountModal": {
+    "title": "Lisää uusi tili",
+    "accountName": "Tilin nimi",
+    "accountNamePlaceholder": "esim. Käyttötili, Säästötili jne.",
+    "accountType": "Tilin tyyppi",
+    "currency": "Valuutta",
+    "unknown": "Tuntematon",
+    "loading": "Ladataan...",
+    "initialBalance": "Alkusaldo",
+    "cancel": "Peruuta",
+    "submit": "Lisää tili",
+    "invalidBalance": "Virheellinen saldo",
+    "created": "Luotu onnistuneesti",
+    "createFailed": "Tilin luominen epäonnistui"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Kokonaissaldo",
+    "accounts": "Tilit"
+  },
+  "accountListSection": {
+    "loading": "Ladataan tilejä...",
+    "created": "Luotu {{date}}",
+    "viewDetails": "Näytä tiedot"
+  },
+  "accountTransactionsPanel": {
+    "title": "Viimeisimmät tapahtumat",
+    "allTransactions": "Kaikki tapahtumat",
+    "empty": "Tälle tilille ei ole vielä kirjattu tapahtumia.",
+    "category": "Kategoria"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Luotu {{date}}",
+    "loading": "Ladataan tilin tietoja...",
+    "currency": "Valuutta",
+    "accountType": "Tilin tyyppi",
+    "transactions": "Tapahtumat",
+    "addTransaction": "Lisää tapahtuma",
+    "edit": "Muokkaa",
+    "exportCsv": "Vie CSV-muodossa",
+    "export": "Vie",
+    "deleteAccount": "Poista tili",
+    "delete": "Poista",
+    "noTransactionsToExport": "Ei vietäviä tapahtumia",
+    "noAccountsAvailable": "Ei tilejä saatavilla",
+    "exportedCsv": "Tapahtumat viety CSV-muodossa"
+  },
+  "accountStatusPanel": {
+    "summary": "Yhteenveto",
+    "quickOverview": "Pikakatsaus",
+    "latestActivity": "Viimeisin toiminta",
+    "totalTransactions": "Yhteensä {{count}} tapahtumaa"
+  }
+}

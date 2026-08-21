@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Konten",
+    "subtitle": "Behalten Sie Ihre Finanzen mit mehreren Konten im Blick.",
+    "addAccount": "Konto hinzufügen",
+    "loading": "Konten werden geladen..."
+  },
+  "accountDetailPage": {
+    "loading": "Kontodetails werden geladen...",
+    "failedToLoad": "Konto konnte nicht geladen werden",
+    "backToAccounts": "← Zurück zu Konten",
+    "subtitle": "Sehen Sie Ihren Kontostand und alle Transaktionen ein.",
+    "deleteSuccess": "Konto erfolgreich gelöscht",
+    "deleteFailed": "Konto konnte nicht gelöscht werden"
+  },
+  "editAccountModal": {
+    "title": "Konto bearbeiten",
+    "accountName": "Kontoname",
+    "accountNamePlaceholder": "z. B. Girokonto, Sparkonto",
+    "accountType": "Kontotyp",
+    "currency": "Währung",
+    "unknown": "Unbekannt",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "noChanges": "Keine Änderungen vorgenommen",
+    "updated": "Konto erfolgreich aktualisiert",
+    "updateFailed": "Konto konnte nicht aktualisiert werden"
+  },
+  "addAccountModal": {
+    "title": "Neues Konto hinzufügen",
+    "accountName": "Kontoname",
+    "accountNamePlaceholder": "z. B. Girokonto, Sparkonto usw.",
+    "accountType": "Kontotyp",
+    "currency": "Währung",
+    "unknown": "Unbekannt",
+    "loading": "Wird geladen...",
+    "initialBalance": "Anfangssaldo",
+    "cancel": "Abbrechen",
+    "submit": "Konto hinzufügen",
+    "invalidBalance": "Ungültiger Saldo",
+    "created": "Erfolgreich erstellt",
+    "createFailed": "Konto konnte nicht erstellt werden"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Gesamtsaldo",
+    "accounts": "Konten"
+  },
+  "accountListSection": {
+    "loading": "Konten werden geladen...",
+    "created": "Erstellt am {{date}}",
+    "viewDetails": "Details anzeigen"
+  },
+  "accountTransactionsPanel": {
+    "title": "Letzte Transaktionen",
+    "allTransactions": "Alle Transaktionen",
+    "empty": "Für dieses Konto sind noch keine Transaktionen erfasst.",
+    "category": "Kategorie"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Erstellt am {{date}}",
+    "loading": "Kontoinformationen werden geladen...",
+    "currency": "Währung",
+    "accountType": "Kontotyp",
+    "transactions": "Transaktionen",
+    "addTransaction": "Transaktion hinzufügen",
+    "edit": "Bearbeiten",
+    "exportCsv": "Als CSV exportieren",
+    "export": "Exportieren",
+    "deleteAccount": "Konto löschen",
+    "delete": "Löschen",
+    "noTransactionsToExport": "Keine Transaktionen zum Exportieren",
+    "noAccountsAvailable": "Keine Konten verfügbar",
+    "exportedCsv": "Transaktionen als CSV exportiert"
+  },
+  "accountStatusPanel": {
+    "summary": "Zusammenfassung",
+    "quickOverview": "Kurzübersicht",
+    "latestActivity": "Letzte Aktivität",
+    "totalTransactions": "Insgesamt {{count}} Transaktionen"
+  }
+}

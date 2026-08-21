@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -18,7 +19,7 @@ import type { Transaction, Account } from '@/types/model.types';
 
 
 export const TransactionsPage = () => {
-
+  const { t } = useTranslation('transactions');
   const { categories, transactionTypes } = useSelector((state: RootState) => state.appData);
 
   const [showAddModal, setShowAddModal] = useState(false);
@@ -106,18 +107,18 @@ export const TransactionsPage = () => {
 
   const exportToCSV = () => {
     if (filteredTransactions.length === 0) {
-      setToast({ message: 'No transactions to export', type: 'error' });
+      setToast({ message: t('page.noTransactionsToExport'), type: 'error' });
       return;
     }
 
     exportTransactionsToCSV(filteredTransactions, accounts);
-    setToast({ message: 'Transactions exported as CSV', type: 'success' });
+    setToast({ message: t('page.exportedSuccess'), type: 'success' });
   };
 
   const filteredTransactions = transactions;
 
   if (isLoading) {
-    return <PageLoader message="Loading transactions..." />;
+    return <PageLoader message={t('page.loading')} />;
   }
 
   return (
@@ -128,8 +129,8 @@ export const TransactionsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 lg:mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">Transactions</h1>
-              <p className="text-sm sm:text-base text-gray-400">Manage and track your transactions</p>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">{t('page.title')}</h1>
+              <p className="text-sm sm:text-base text-gray-400">{t('page.subtitle')}</p>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
               <button
@@ -149,8 +150,8 @@ export const TransactionsPage = () => {
                     d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0111.25 19.5H6.75z"
                   />
                 </svg>
-                <span className="hidden sm:inline">Export CSV</span>
-                <span className="sm:hidden">Export</span>
+                <span className="hidden sm:inline">{t('page.exportCsv')}</span>
+                <span className="sm:hidden">{t('page.export')}</span>
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
@@ -169,7 +170,7 @@ export const TransactionsPage = () => {
                     d="M12 4v16m8-8H4"
                   />
                 </svg>
-                Add Transaction
+                {t('page.addTransaction')}
               </button>
             </div>
           </div>

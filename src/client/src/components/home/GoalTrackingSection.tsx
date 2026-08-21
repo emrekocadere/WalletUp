@@ -1,4 +1,9 @@
+import { useTranslation } from 'react-i18next';
+
+const FEATURE_KEYS = ['customGoals', 'visualProgress', 'deadlineTracking', 'smartSuggestions'] as const;
+
 export const GoalTrackingSection = () => {
+  const { t } = useTranslation('home');
   return (
     <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
       <div className="bg-primary-500/5 backdrop-blur-xl p-12 rounded-3xl border border-primary-500/20">
@@ -20,59 +25,28 @@ export const GoalTrackingSection = () => {
           {/* Right side - Content */}
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4">
-              <span className="text-xs font-semibold text-indigo-300">GOAL TRACKING</span>
+              <span className="text-xs font-semibold text-indigo-300">{t('goalTrackingSection.badge')}</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Achieve Your Financial Dreams
+              {t('goalTrackingSection.title')}
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Set meaningful financial goals and track your progress effortlessly. Whether you're saving for a new car, your dream house, a vacation, or any other milestone, WalletUp helps you stay motivated and on track with visual progress tracking and smart savings recommendations.
+              {t('goalTrackingSection.description')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {FEATURE_KEYS.map((key) => (
+                <div key={key} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">{t(`goalTrackingSection.features.${key}.title`)}</h4>
+                    <p className="text-sm text-gray-400">{t(`goalTrackingSection.features.${key}.description`)}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Custom Goals</h4>
-                  <p className="text-sm text-gray-400">Create goals for car, house, vacation, or anything</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Visual Progress</h4>
-                  <p className="text-sm text-gray-400">See how close you are to achieving your goals</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Deadline Tracking</h4>
-                  <p className="text-sm text-gray-400">Set target dates and get reminders</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Smart Suggestions</h4>
-                  <p className="text-sm text-gray-400">Get tips on how to reach your goals faster</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

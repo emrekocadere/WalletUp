@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface AIInsightCardProps {
   title: string;
@@ -17,6 +18,7 @@ export const AIInsightCard = ({
   variant = 'primary',
   showToggle = true
 }: AIInsightCardProps) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const content = showToggle ? (isExpanded ? fullContent : summary) : fullContent;
 
@@ -71,7 +73,7 @@ export const AIInsightCard = ({
             <div className="flex items-center gap-2 mb-1">
               <h3 className="text-sm font-semibold text-white">{title}</h3>
               <span className="px-2 py-0.5 text-xs font-medium bg-indigo-500/20 text-blue-500 rounded-full">
-                AI Insight
+                {t('common.aiInsightBadge')}
               </span>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
@@ -86,7 +88,7 @@ export const AIInsightCard = ({
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center gap-2 text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors mt-2 group"
           >
-            <span>{isExpanded ? 'Show less' : 'Show more'}</span>
+            <span>{isExpanded ? t('common.showLess') : t('common.showMore')}</span>
             <svg
               className={`w-4 h-4 group-hover:translate-x-0.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
               fill="none"

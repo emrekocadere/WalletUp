@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Konton",
+    "subtitle": "Håll koll på din ekonomi med flera konton.",
+    "addAccount": "Lägg till konto",
+    "loading": "Läser in konton..."
+  },
+  "accountDetailPage": {
+    "loading": "Läser in kontodetaljer...",
+    "failedToLoad": "Det gick inte att läsa in kontot",
+    "backToAccounts": "← Tillbaka till konton",
+    "subtitle": "Se ditt kontosaldo och alla transaktioner.",
+    "deleteSuccess": "Kontot togs bort",
+    "deleteFailed": "Det gick inte att ta bort kontot"
+  },
+  "editAccountModal": {
+    "title": "Redigera konto",
+    "accountName": "Kontonamn",
+    "accountNamePlaceholder": "t.ex. Lönekonto, Sparkonto",
+    "accountType": "Kontotyp",
+    "currency": "Valuta",
+    "unknown": "Okänd",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "noChanges": "Inga ändringar gjorda",
+    "updated": "Kontot har uppdaterats",
+    "updateFailed": "Det gick inte att uppdatera kontot"
+  },
+  "addAccountModal": {
+    "title": "Lägg till nytt konto",
+    "accountName": "Kontonamn",
+    "accountNamePlaceholder": "t.ex. Lönekonto, Sparkonto osv.",
+    "accountType": "Kontotyp",
+    "currency": "Valuta",
+    "unknown": "Okänd",
+    "loading": "Läser in...",
+    "initialBalance": "Startsaldo",
+    "cancel": "Avbryt",
+    "submit": "Lägg till konto",
+    "invalidBalance": "Ogiltigt saldo",
+    "created": "Skapades",
+    "createFailed": "Det gick inte att skapa kontot"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Totalt saldo",
+    "accounts": "Konton"
+  },
+  "accountListSection": {
+    "loading": "Läser in konton...",
+    "created": "Skapat {{date}}",
+    "viewDetails": "Visa detaljer"
+  },
+  "accountTransactionsPanel": {
+    "title": "Senaste transaktioner",
+    "allTransactions": "Alla transaktioner",
+    "empty": "Inga transaktioner registrerade för det här kontot ännu.",
+    "category": "Kategori"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Skapat {{date}}",
+    "loading": "Läser in kontoinformation...",
+    "currency": "Valuta",
+    "accountType": "Kontotyp",
+    "transactions": "Transaktioner",
+    "addTransaction": "Lägg till transaktion",
+    "edit": "Redigera",
+    "exportCsv": "Exportera som CSV",
+    "export": "Exportera",
+    "deleteAccount": "Ta bort konto",
+    "delete": "Ta bort",
+    "noTransactionsToExport": "Inga transaktioner att exportera",
+    "noAccountsAvailable": "Inga konton tillgängliga",
+    "exportedCsv": "Transaktioner exporterade som CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Sammanfattning",
+    "quickOverview": "Snabb översikt",
+    "latestActivity": "Senaste aktivitet",
+    "totalTransactions": "Totalt {{count}} transaktioner"
+  }
+}

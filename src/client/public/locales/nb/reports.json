@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Rapporter",
+    "subtitle": "Årlig økonomisk oversikt for {{year}}",
+    "loading": "Laster rapporter..."
+  },
+  "summary": {
+    "totalIncome": "Total inntekt",
+    "totalExpenses": "Totale utgifter",
+    "netSavings": "Netto sparing",
+    "percentOfIncome": "{{percent}}% av inntekten",
+    "avgMonthly": "Gj.snitt månedlig",
+    "netSavingsSubtext": "netto sparing"
+  },
+  "monthlyBarChart": {
+    "title": "Månedlig inntekt vs. utgifter",
+    "income": "Inntekt",
+    "expenses": "Utgifter"
+  },
+  "netSavingsChart": {
+    "title": "Utvikling i netto sparing",
+    "label": "Netto sparing",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Forbruk etter kategori",
+    "noData": "Ingen forbruksdata for denne måneden"
+  },
+  "topCategories": {
+    "title": "Toppkategorier",
+    "noData": "Ingen forbruksdata for denne måneden"
+  }
+}

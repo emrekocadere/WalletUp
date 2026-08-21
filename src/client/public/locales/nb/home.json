@@ -1,0 +1,141 @@
+{
+  "header": {
+    "features": "Funksjoner",
+    "whyUs": "Hvorfor oss",
+    "signIn": "Logg inn",
+    "getStarted": "Kom i gang"
+  },
+  "hero": {
+    "titleLine1": "Pengene dine,",
+    "titleLine2": "Smartere.",
+    "subtitle": "Følg med på hver utgift, nå hvert mål — drevet av AI-innsikt som faktisk forstår dine økonomiske vaner.",
+    "startFree": "Start gratis",
+    "signIn": "Logg inn"
+  },
+  "featuresSection": {
+    "eyebrow": "Pengene dine, spesifisert",
+    "titlePrefix": "Laget for hvordan du ",
+    "titleEmphasis": "faktisk",
+    "titleSuffix": " lever",
+    "subtitle": "Delene av appen folk åpner hver uke, ikke de fra demoen.",
+    "items": {
+      "insights": {
+        "name": "AI-drevet innsikt",
+        "description": "Personlige råd basert på dine faktiske forbruksmønstre — ikke generiske budsjett-tips."
+      },
+      "reports": {
+        "name": "Rapporter og analyser",
+        "description": "Et helt år med inntekter og utgifter, fordelt på måned og kategori."
+      },
+      "goals": {
+        "name": "Målsporing",
+        "description": "Sett et mål, legg til penger når du kan, og se linjen faktisk bevege seg."
+      },
+      "recurring": {
+        "name": "Gjentakende transaksjoner",
+        "description": "Husleie, lønn, abonnementer — sett opp én gang, så registrerer de seg selv hver periode."
+      },
+      "multiCurrency": {
+        "name": "Flere valutaer",
+        "description": "Hold kontoer i hvilken som helst valuta, konvertert live til den du faktisk tenker i."
+      },
+      "security": {
+        "name": "Sikre økter",
+        "description": "Krypterte innlogginger som stille fornyer seg selv — og logger ut akkurat når de skal."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Klar til å ta",
+    "titleEmphasis": "kontroll?",
+    "subtitle": "Start din økonomiske reise i dag — gratis, ikke noe kredittkort nødvendig.",
+    "getStartedFree": "Kom i gang gratis",
+    "signIn": "Logg inn"
+  },
+  "footer": {
+    "tagline": "AI-drevet smart pengehåndtering. Følg med på utgifter, nå mål.",
+    "copyright": "{{year}} WalletUp · Utviklet av Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Aktive brukere",
+    "trackedExpenses": "Sporede utgifter",
+    "uptime": "Oppetid"
+  },
+  "pricingSection": {
+    "title": "Enkel, gjennomsiktig prising",
+    "subtitle": "Start gratis, oppgrader når du trenger mer kraft",
+    "free": {
+      "name": "Gratis",
+      "price": "0 kr",
+      "period": "for alltid",
+      "description": "Perfekt for å komme i gang med utgiftssporing",
+      "features": [
+        "Ubegrenset utgiftssporing",
+        "Grunnleggende analyser",
+        "Flere kontoer",
+        "Manuell kategorisering"
+      ]
+    },
+    "plus": {
+      "badge": "2 MÅNEDER GRATIS PRØVE",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ måned",
+      "description": "Avanserte AI-funksjoner for smartere pengehåndtering",
+      "everythingInFree": "Alt i Gratis, pluss:",
+      "features": [
+        { "title": "AI-drevet kategorisering", "description": "Automatisk og smart" },
+        { "title": "Prediktiv analyse", "description": "Forutse forbruk" },
+        { "title": "Personlig innsikt", "description": "Skreddersydde anbefalinger" },
+        { "title": "Budsjettoptimalisering", "description": "AI-drevne besparelser" }
+      ],
+      "prioritySupport": "Prioritert støtte"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "MÅLSPORING",
+    "title": "Nå dine økonomiske drømmer",
+    "description": "Sett meningsfulle økonomiske mål og følg fremgangen din uten anstrengelse. Enten du sparer til en ny bil, drømmehuset, en ferie eller en annen milepæl, hjelper WalletUp deg med å holde motivasjonen oppe med visuell fremgangssporing og smarte sparetips.",
+    "features": {
+      "customGoals": {
+        "title": "Egendefinerte mål",
+        "description": "Lag mål for bil, hus, ferie eller hva som helst"
+      },
+      "visualProgress": {
+        "title": "Visuell fremgang",
+        "description": "Se hvor nær du er å nå målene dine"
+      },
+      "deadlineTracking": {
+        "title": "Fristsporing",
+        "description": "Sett måldatoer og få påminnelser"
+      },
+      "smartSuggestions": {
+        "title": "Smarte forslag",
+        "description": "Få tips om hvordan du når målene dine raskere"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ AI-DREVET",
+    "title": "Din personlige økonomiassistent",
+    "description": "WalletUp bruker avansert kunstig intelligens for å forstå forbruksvanene dine og gi personlig innsikt. Få smarte anbefalinger, automatisk kategorisering av utgifter og prediktive analyser som hjelper deg å ta bedre økonomiske beslutninger.",
+    "features": {
+      "smartCategorization": {
+        "title": "Smart kategorisering",
+        "description": "AI kategoriserer transaksjonene dine automatisk"
+      },
+      "predictiveAnalytics": {
+        "title": "Prediktiv analyse",
+        "description": "Forutse fremtidige forbruksmønstre og trender"
+      },
+      "personalizedTips": {
+        "title": "Personlige tips",
+        "description": "Få skreddersydde råd basert på vanene dine"
+      },
+      "budgetOptimization": {
+        "title": "Budsjettoptimalisering",
+        "description": "AI hjelper deg med å finne sparemuligheter"
+      }
+    }
+  }
+}

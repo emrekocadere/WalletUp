@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Accounts",
+    "subtitle": "Track your finances with multiple accounts.",
+    "addAccount": "Add Account",
+    "loading": "Loading accounts..."
+  },
+  "accountDetailPage": {
+    "loading": "Loading account details...",
+    "failedToLoad": "Failed to load account",
+    "backToAccounts": "← Back to Accounts",
+    "subtitle": "View your account balance and all transactions.",
+    "deleteSuccess": "Account deleted successfully",
+    "deleteFailed": "Failed to delete account"
+  },
+  "editAccountModal": {
+    "title": "Edit Account",
+    "accountName": "Account Name",
+    "accountNamePlaceholder": "e.g., Main Checking, Savings",
+    "accountType": "Account Type",
+    "currency": "Currency",
+    "unknown": "Unknown",
+    "cancel": "Cancel",
+    "save": "Save",
+    "noChanges": "No changes made",
+    "updated": "Account updated successfully",
+    "updateFailed": "Failed to update account"
+  },
+  "addAccountModal": {
+    "title": "Add New Account",
+    "accountName": "Account Name",
+    "accountNamePlaceholder": "e.g., Main Checking, Savings, etc.",
+    "accountType": "Account Type",
+    "currency": "Currency",
+    "unknown": "Unknown",
+    "loading": "Loading...",
+    "initialBalance": "Initial Balance",
+    "cancel": "Cancel",
+    "submit": "Add Account",
+    "invalidBalance": "Invalid balance",
+    "created": "Created successfully",
+    "createFailed": "Failed to create account"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Total Balance",
+    "accounts": "Accounts"
+  },
+  "accountListSection": {
+    "loading": "Loading accounts...",
+    "created": "Created {{date}}",
+    "viewDetails": "View Details"
+  },
+  "accountTransactionsPanel": {
+    "title": "Recent Transactions",
+    "allTransactions": "All Transactions",
+    "empty": "No transactions recorded for this account yet.",
+    "category": "Category"
+  },
+  "accountSummarySection": {
+    "balance": "Balance",
+    "created": "Created {{date}}",
+    "loading": "Loading account information...",
+    "currency": "Currency",
+    "accountType": "Account Type",
+    "transactions": "Transactions",
+    "addTransaction": "Add Transaction",
+    "edit": "Edit",
+    "exportCsv": "Export CSV",
+    "export": "Export",
+    "deleteAccount": "Delete Account",
+    "delete": "Delete",
+    "noTransactionsToExport": "No transactions to export",
+    "noAccountsAvailable": "No accounts available",
+    "exportedCsv": "Transactions exported as CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Summary",
+    "quickOverview": "Quick Overview",
+    "latestActivity": "Latest Activity",
+    "totalTransactions": "Total {{count}} transactions"
+  }
+}

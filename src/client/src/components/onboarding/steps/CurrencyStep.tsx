@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { SelectCombobox } from '@/components/SelectCombobox';
 import type { Currency } from '@/types/model.types';
 
@@ -8,11 +9,12 @@ interface CurrencyStepProps {
 }
 
 export const CurrencyStep = ({ currencies, selectedCurrency, onCurrencyChange }: CurrencyStepProps) => {
+  const { t } = useTranslation('onboarding');
   return (
     <div className="flex-1">
       <div className="mb-6 text-center">
-        <h2 className="text-2xl font-bold text-white mb-2">Choose Your Currency</h2>
-        <p className="text-gray-400">Select your primary currency</p>
+        <h2 className="text-2xl font-bold text-white mb-2">{t('currencyStep.title')}</h2>
+        <p className="text-gray-400">{t('currencyStep.subtitle')}</p>
       </div>
 
       <div className="max-w-md mx-auto">
@@ -24,13 +26,13 @@ export const CurrencyStep = ({ currencies, selectedCurrency, onCurrencyChange }:
             }))}
             value={selectedCurrency}
             onChange={onCurrencyChange}
-            placeholder="Select currency..."
+            placeholder={t('currencyStep.placeholder')}
             icon="💱"
           />
         ) : (
           <div className="text-center text-gray-400 py-8">
             <div className="animate-spin w-6 h-6 border-2 border-primary-500 border-t-transparent rounded-full mx-auto mb-2"></div>
-            Loading currencies...
+            {t('currencyStep.loading')}
           </div>
         )}
       </div>

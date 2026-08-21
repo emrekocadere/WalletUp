@@ -1,0 +1,82 @@
+{
+  "accountsPage": {
+    "title": "Reikningar",
+    "subtitle": "Fylgstu með fjármálum þínum með mörgum reikningum.",
+    "addAccount": "Bæta við reikningi",
+    "loading": "Hleð reikningum..."
+  },
+  "accountDetailPage": {
+    "loading": "Hleð upplýsingum um reikning...",
+    "failedToLoad": "Ekki tókst að hlaða reikningi",
+    "backToAccounts": "← Til baka í reikninga",
+    "subtitle": "Skoðaðu stöðu reikningsins og allar færslur.",
+    "deleteSuccess": "Reikningi eytt",
+    "deleteFailed": "Ekki tókst að eyða reikningi"
+  },
+  "editAccountModal": {
+    "title": "Breyta reikningi",
+    "accountName": "Nafn reiknings",
+    "accountNamePlaceholder": "t.d. Aðalreikningur, Sparnaður",
+    "accountType": "Tegund reiknings",
+    "currency": "Gjaldmiðill",
+    "unknown": "Óþekkt",
+    "cancel": "Hætta við",
+    "save": "Vista",
+    "noChanges": "Engar breytingar gerðar",
+    "updated": "Reikningur uppfærður",
+    "updateFailed": "Ekki tókst að uppfæra reikning"
+  },
+  "addAccountModal": {
+    "title": "Bæta við nýjum reikningi",
+    "accountName": "Nafn reiknings",
+    "accountNamePlaceholder": "t.d. Aðalreikningur, Sparnaður o.fl.",
+    "accountType": "Tegund reiknings",
+    "currency": "Gjaldmiðill",
+    "unknown": "Óþekkt",
+    "loading": "Hleð...",
+    "initialBalance": "Upphafsstaða",
+    "cancel": "Hætta við",
+    "submit": "Bæta við reikningi",
+    "invalidBalance": "Ógild staða",
+    "created": "Stofnað",
+    "createFailed": "Ekki tókst að stofna reikning"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Heildarstaða",
+    "accounts": "Reikningar"
+  },
+  "accountListSection": {
+    "loading": "Hleð reikningum...",
+    "created": "Stofnað {{date}}",
+    "viewDetails": "Skoða nánar"
+  },
+  "accountTransactionsPanel": {
+    "title": "Nýlegar færslur",
+    "allTransactions": "Allar færslur",
+    "empty": "Engar færslur skráðar á þennan reikning ennþá.",
+    "category": "Flokkur"
+  },
+  "accountSummarySection": {
+    "balance": "Staða",
+    "created": "Stofnað {{date}}",
+    "loading": "Hleð upplýsingum um reikning...",
+    "currency": "Gjaldmiðill",
+    "accountType": "Tegund reiknings",
+    "transactions": "Færslur",
+    "addTransaction": "Bæta við færslu",
+    "edit": "Breyta",
+    "exportCsv": "Flytja út sem CSV",
+    "export": "Flytja út",
+    "deleteAccount": "Eyða reikningi",
+    "delete": "Eyða",
+    "noTransactionsToExport": "Engar færslur til að flytja út",
+    "noAccountsAvailable": "Engir reikningar tiltækir",
+    "exportedCsv": "Færslur fluttar út sem CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Samantekt",
+    "quickOverview": "Fljótlegt yfirlit",
+    "latestActivity": "Nýjasta hreyfing",
+    "totalTransactions": "Alls {{count}} færslur"
+  }
+}

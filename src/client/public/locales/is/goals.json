@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Fjárhagsleg markmið",
+    "subtitle": "Fylgstu með sparnaðarmarkmiðum þínum og haltu áhuganum",
+    "addNewGoal": "Bæta við nýju markmiði",
+    "loading": "Hleð markmiðum...",
+    "deleteSuccess": "Markmiði eytt",
+    "deleteFailed": "Ekki tókst að eyða markmiði",
+    "deleteFailedRetry": "Ekki tókst að eyða markmiði. Reyndu aftur."
+  },
+  "goalCard": {
+    "edit": "Breyta",
+    "delete": "Eyða",
+    "progress": "Framvinda",
+    "current": "Núverandi",
+    "target": "Markmið",
+    "addMoney": "Bæta við peningum"
+  },
+  "emptyState": {
+    "title": "Engin markmið ennþá",
+    "subtitle": "Byrjaðu að setja þér fjárhagsleg markmið til að fylgjast með framvindu",
+    "cta": "Stofnaðu fyrsta markmiðið þitt"
+  },
+  "statsCards": {
+    "activeGoals": "Virk markmið",
+    "totalTarget": "Heildarmarkmið",
+    "totalSaved": "Samtals sparað"
+  },
+  "editModal": {
+    "title": "Breyta markmiði",
+    "nameLabel": "Nafn markmiðs",
+    "namePlaceholder": "t.d. Neyðarsjóður",
+    "targetLabel": "Markmiðsupphæð",
+    "descriptionLabel": "Lýsing (valfrjálst)",
+    "descriptionPlaceholder": "Bættu við nánari upplýsingum um markmiðið þitt...",
+    "cancel": "Hætta við",
+    "submit": "Uppfæra markmið",
+    "submitting": "Uppfærir...",
+    "errors": {
+      "invalidAmount": "Vinsamlegast sláðu inn gilda markmiðsupphæð",
+      "nameRequired": "Vinsamlegast sláðu inn nafn markmiðs",
+      "noChanges": "Engar breytingar til að vista"
+    },
+    "toastSuccess": "Markmið uppfært",
+    "toastFailed": "Ekki tókst að uppfæra markmið",
+    "toastFailedRetry": "Ekki tókst að uppfæra markmið. Reyndu aftur."
+  },
+  "addModal": {
+    "title": "Stofna nýtt markmið",
+    "nameLabel": "Nafn markmiðs",
+    "namePlaceholder": "t.d. Neyðarsjóður",
+    "currencyLabel": "Gjaldmiðill",
+    "currencyPlaceholder": "Veldu gjaldmiðil",
+    "loadingCurrencies": "Hleð gjaldmiðlum...",
+    "targetLabel": "Markmiðsupphæð",
+    "descriptionLabel": "Lýsing (valfrjálst)",
+    "descriptionPlaceholder": "Bættu við nánari upplýsingum um markmiðið þitt...",
+    "cancel": "Hætta við",
+    "submit": "Stofna markmið",
+    "submitting": "Stofnar...",
+    "errors": {
+      "invalidAmount": "Vinsamlegast sláðu inn gilda markmiðsupphæð",
+      "nameRequired": "Vinsamlegast sláðu inn nafn markmiðs",
+      "currencyRequired": "Vinsamlegast veldu gjaldmiðil"
+    },
+    "toastSuccess": "Stofnað",
+    "toastFailed": "Ekki tókst að stofna markmið",
+    "toastFailedRetry": "Ekki tókst að stofna markmið. Reyndu aftur.",
+    "toastLoadCurrenciesFailed": "Ekki tókst að hlaða gjaldmiðlum"
+  },
+  "addMoneyModal": {
+    "title": "Bæta peningum við markmið",
+    "current": "Núverandi:",
+    "target": "Markmið:",
+    "remaining": "Eftir:",
+    "transactionType": "Tegund færslu",
+    "transactionTypePlaceholder": "Veldu tegund færslu",
+    "amountLabel": "Upphæð til að bæta við",
+    "newTotal": "Ný samtala: {{amount}}",
+    "cancel": "Hætta við",
+    "submit": "Bæta við peningum",
+    "submitting": "Bætir við...",
+    "errors": {
+      "invalidAmount": "Vinsamlegast sláðu inn gilda upphæð",
+      "typeRequired": "Vinsamlegast veldu tegund færslu"
+    },
+    "toastFailed": "Ekki tókst að bæta við peningum",
+    "toastFailedRetry": "Ekki tókst að bæta við peningum. Reyndu aftur."
+  }
+}

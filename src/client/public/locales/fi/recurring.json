@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Toistuvat tapahtumat",
+    "subtitle": "Hallitse toistuvia menojasi ja tulojasi",
+    "addButton": "Lisää toistuva",
+    "loading": "Ladataan toistuvia tapahtumia..."
+  },
+  "stats": {
+    "active": "Aktiiviset toistuvat",
+    "monthlyCommitment": "Kuukausittainen sitoumus",
+    "totalActive": "Aktiivinen kokonaissumma"
+  },
+  "empty": {
+    "message": "Ei vielä toistuvia tapahtumia",
+    "cta": "Luo ensimmäinen toistuva tapahtumasi"
+  },
+  "card": {
+    "active": "Aktiivinen",
+    "inactive": "Ei aktiivinen",
+    "frequency": "Toistuvuus",
+    "nextDue": "Seuraava erääntyminen",
+    "started": "Alkoi",
+    "ends": "Päättyy",
+    "amount": "Summa",
+    "deactivate": "Poista käytöstä",
+    "activate": "Aktivoi",
+    "edit": "Muokkaa",
+    "delete": "Poista"
+  },
+  "frequencyLabels": {
+    "weekly": "Joka viikko",
+    "biWeekly": "Joka 2. viikko",
+    "monthly": "Joka kuukausi",
+    "quarterly": "Joka 3. kuukausi",
+    "semiAnnually": "Joka 6. kuukausi",
+    "annually": "Joka vuosi"
+  },
+  "modal": {
+    "editTitle": "Muokkaa toistuvaa",
+    "addTitle": "Lisää toistuva tapahtuma",
+    "titleLabel": "Otsikko *",
+    "titlePlaceholder": "esim. Kuukausivuokra, Palkka",
+    "descriptionLabel": "Kuvaus",
+    "descriptionPlaceholder": "Valinnainen kuvaus",
+    "amountLabel": "Summa *",
+    "accountLabel": "Tili *",
+    "selectAccount": "Valitse tili",
+    "typeLabel": "Tyyppi *",
+    "selectType": "Valitse tyyppi",
+    "categoryLabel": "Luokka *",
+    "selectCategory": "Valitse luokka",
+    "frequencyLabel": "Toistuvuus *",
+    "startDateLabel": "Alkamispäivä *",
+    "endDateLabel": "Päättymispäivä (Valinnainen)",
+    "activeLabel": "Aktiivinen",
+    "cancel": "Peruuta",
+    "update": "Päivitä",
+    "create": "Luo",
+    "frequencyOptions": {
+      "weekly": "Viikoittain",
+      "biWeekly": "Joka 2. viikko",
+      "monthly": "Kuukausittain",
+      "quarterly": "Joka 3. kuukausi",
+      "semiAnnually": "Joka 6. kuukausi",
+      "annually": "Vuosittain"
+    },
+    "errors": {
+      "titleRequired": "Otsikko vaaditaan",
+      "amountInvalid": "Summan on oltava suurempi kuin 0",
+      "startDateRequired": "Alkamispäivä vaaditaan",
+      "accountRequired": "Tili vaaditaan",
+      "categoryRequired": "Luokka vaaditaan",
+      "typeRequired": "Tyyppi vaaditaan",
+      "endDateInvalid": "Päättymispäivän on oltava alkamispäivän jälkeen"
+    }
+  }
+}

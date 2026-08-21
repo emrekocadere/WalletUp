@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Reports",
+    "subtitle": "Annual financial overview for {{year}}",
+    "loading": "Loading reports..."
+  },
+  "summary": {
+    "totalIncome": "Total Income",
+    "totalExpenses": "Total Expenses",
+    "netSavings": "Net Savings",
+    "percentOfIncome": "{{percent}}% of income",
+    "avgMonthly": "Avg. Monthly",
+    "netSavingsSubtext": "net savings"
+  },
+  "monthlyBarChart": {
+    "title": "Monthly Income vs Expenses",
+    "income": "Income",
+    "expenses": "Expenses"
+  },
+  "netSavingsChart": {
+    "title": "Net Savings Trend",
+    "label": "Net Savings",
+    "tooltipPrefix": "Net"
+  },
+  "categoryChart": {
+    "title": "Spending by Category",
+    "noData": "No spending data for this month"
+  },
+  "topCategories": {
+    "title": "Top Categories",
+    "noData": "No spending data for this month"
+  }
+}

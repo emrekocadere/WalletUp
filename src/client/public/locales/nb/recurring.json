@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Gjentakende transaksjoner",
+    "subtitle": "Administrer dine gjentakende utgifter og inntekter",
+    "addButton": "Legg til gjentakende",
+    "loading": "Laster gjentakende transaksjoner..."
+  },
+  "stats": {
+    "active": "Aktive gjentakende",
+    "monthlyCommitment": "Månedlig forpliktelse",
+    "totalActive": "Totalt aktivt beløp"
+  },
+  "empty": {
+    "message": "Ingen gjentakende transaksjoner ennå",
+    "cta": "Opprett din første gjentakende transaksjon"
+  },
+  "card": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "frequency": "Frekvens",
+    "nextDue": "Neste forfall",
+    "started": "Startet",
+    "ends": "Slutter",
+    "amount": "Beløp",
+    "deactivate": "Deaktiver",
+    "activate": "Aktiver",
+    "edit": "Rediger",
+    "delete": "Slett"
+  },
+  "frequencyLabels": {
+    "weekly": "Hver uke",
+    "biWeekly": "Hver 2. uke",
+    "monthly": "Hver måned",
+    "quarterly": "Hver 3. måned",
+    "semiAnnually": "Hver 6. måned",
+    "annually": "Hvert år"
+  },
+  "modal": {
+    "editTitle": "Rediger gjentakende",
+    "addTitle": "Legg til gjentakende transaksjon",
+    "titleLabel": "Tittel *",
+    "titlePlaceholder": "f.eks. Månedlig husleie, Lønn",
+    "descriptionLabel": "Beskrivelse",
+    "descriptionPlaceholder": "Valgfri beskrivelse",
+    "amountLabel": "Beløp *",
+    "accountLabel": "Konto *",
+    "selectAccount": "Velg konto",
+    "typeLabel": "Type *",
+    "selectType": "Velg type",
+    "categoryLabel": "Kategori *",
+    "selectCategory": "Velg kategori",
+    "frequencyLabel": "Frekvens *",
+    "startDateLabel": "Startdato *",
+    "endDateLabel": "Sluttdato (Valgfritt)",
+    "activeLabel": "Aktiv",
+    "cancel": "Avbryt",
+    "update": "Oppdater",
+    "create": "Opprett",
+    "frequencyOptions": {
+      "weekly": "Ukentlig",
+      "biWeekly": "Hver 2. uke",
+      "monthly": "Månedlig",
+      "quarterly": "Hver 3. måned",
+      "semiAnnually": "Hver 6. måned",
+      "annually": "Årlig"
+    },
+    "errors": {
+      "titleRequired": "Tittel er påkrevd",
+      "amountInvalid": "Beløpet må være større enn 0",
+      "startDateRequired": "Startdato er påkrevd",
+      "accountRequired": "Konto er påkrevd",
+      "categoryRequired": "Kategori er påkrevd",
+      "typeRequired": "Type er påkrevd",
+      "endDateInvalid": "Sluttdato må være etter startdato"
+    }
+  }
+}

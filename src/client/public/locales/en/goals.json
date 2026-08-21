@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Financial Goals",
+    "subtitle": "Track your savings goals and stay motivated",
+    "addNewGoal": "Add New Goal",
+    "loading": "Loading goals...",
+    "deleteSuccess": "Goal deleted successfully",
+    "deleteFailed": "Failed to delete goal",
+    "deleteFailedRetry": "Failed to delete goal. Please try again."
+  },
+  "goalCard": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "progress": "Progress",
+    "current": "Current",
+    "target": "Target",
+    "addMoney": "Add Money"
+  },
+  "emptyState": {
+    "title": "No Goals Yet",
+    "subtitle": "Start setting financial goals to track your progress",
+    "cta": "Create Your First Goal"
+  },
+  "statsCards": {
+    "activeGoals": "Active Goals",
+    "totalTarget": "Total Target",
+    "totalSaved": "Total Saved"
+  },
+  "editModal": {
+    "title": "Edit Goal",
+    "nameLabel": "Goal Name",
+    "namePlaceholder": "e.g., Emergency Fund",
+    "targetLabel": "Target Amount",
+    "descriptionLabel": "Description (optional)",
+    "descriptionPlaceholder": "Add some details about your goal...",
+    "cancel": "Cancel",
+    "submit": "Update Goal",
+    "submitting": "Updating...",
+    "errors": {
+      "invalidAmount": "Please enter a valid target amount",
+      "nameRequired": "Please enter a goal name",
+      "noChanges": "No changes to save"
+    },
+    "toastSuccess": "Goal updated successfully",
+    "toastFailed": "Failed to update goal",
+    "toastFailedRetry": "Failed to update goal. Please try again."
+  },
+  "addModal": {
+    "title": "Create New Goal",
+    "nameLabel": "Goal Name",
+    "namePlaceholder": "e.g., Emergency Fund",
+    "currencyLabel": "Currency",
+    "currencyPlaceholder": "Select a currency",
+    "loadingCurrencies": "Loading currencies...",
+    "targetLabel": "Target Amount",
+    "descriptionLabel": "Description (optional)",
+    "descriptionPlaceholder": "Add some details about your goal...",
+    "cancel": "Cancel",
+    "submit": "Create Goal",
+    "submitting": "Creating...",
+    "errors": {
+      "invalidAmount": "Please enter a valid target amount",
+      "nameRequired": "Please enter a goal name",
+      "currencyRequired": "Please select a currency"
+    },
+    "toastSuccess": "Created successfully",
+    "toastFailed": "Failed to create goal",
+    "toastFailedRetry": "Failed to create goal. Please try again.",
+    "toastLoadCurrenciesFailed": "Failed to load currencies"
+  },
+  "addMoneyModal": {
+    "title": "Add Money to Goal",
+    "current": "Current:",
+    "target": "Target:",
+    "remaining": "Remaining:",
+    "transactionType": "Transaction Type",
+    "transactionTypePlaceholder": "Select transaction type",
+    "amountLabel": "Amount to Add",
+    "newTotal": "New total: {{amount}}",
+    "cancel": "Cancel",
+    "submit": "Add Money",
+    "submitting": "Adding...",
+    "errors": {
+      "invalidAmount": "Please enter a valid amount",
+      "typeRequired": "Please select a transaction type"
+    },
+    "toastFailed": "Failed to add money",
+    "toastFailedRetry": "Failed to add money. Please try again."
+  }
+}

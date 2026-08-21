@@ -1,4 +1,11 @@
 {
+  "common": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "hideDetails": "Hide details",
+    "aiInsightBadge": "AI Insight",
+    "aiInsightsUnavailable": "AI insights are not available yet."
+  },
   "nav": {
     "menu": "Menu",
     "dashboard": "Dashboard",
@@ -90,6 +97,13 @@
     "thisMonth": "This month",
     "aiInsightsEmpty": "AI insights are preparing. Check back soon.",
     "recentTransactions": "Recent Transactions",
-    "viewAll": "View all →"
+    "viewAll": "View all →",
+    "loadingTransactions": "Loading transactions...",
+    "noTransactions": "No transactions yet",
+    "noTransactionsSubtitle": "Create an account and add your first transaction",
+    "noDescription": "No description",
+    "uncategorized": "Uncategorized",
+    "unknownType": "Unknown",
+    "spendingByCategory": "Spending by Category"
   }
 }

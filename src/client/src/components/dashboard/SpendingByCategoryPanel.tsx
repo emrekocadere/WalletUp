@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface CategorySpending {
   name: string;
   percentage: number;
@@ -9,9 +11,10 @@ interface SpendingByCategoryPanelProps {
 }
 
 export const SpendingByCategoryPanel = ({ categories }: SpendingByCategoryPanelProps) => {
+  const { t } = useTranslation();
   return (
     <div className="bg-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10 ">
-      <h2 className="text-xl font-bold text-white mb-6">Spending by Category</h2>
+      <h2 className="text-xl font-bold text-white mb-6">{t('dashboard.spendingByCategory')}</h2>
 
       <div className="space-y-5">
         {categories.map((category, index) => (

@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Ekonomiska mål",
+    "subtitle": "Följ dina sparmål och håll motivationen uppe",
+    "addNewGoal": "Lägg till nytt mål",
+    "loading": "Läser in mål...",
+    "deleteSuccess": "Målet togs bort",
+    "deleteFailed": "Kunde inte ta bort målet",
+    "deleteFailedRetry": "Kunde inte ta bort målet. Försök igen."
+  },
+  "goalCard": {
+    "edit": "Redigera",
+    "delete": "Ta bort",
+    "progress": "Framsteg",
+    "current": "Nuvarande",
+    "target": "Mål",
+    "addMoney": "Lägg till pengar"
+  },
+  "emptyState": {
+    "title": "Inga mål ännu",
+    "subtitle": "Börja sätta ekonomiska mål för att följa dina framsteg",
+    "cta": "Skapa ditt första mål"
+  },
+  "statsCards": {
+    "activeGoals": "Aktiva mål",
+    "totalTarget": "Totalt mål",
+    "totalSaved": "Totalt sparat"
+  },
+  "editModal": {
+    "title": "Redigera mål",
+    "nameLabel": "Målnamn",
+    "namePlaceholder": "t.ex. Nödfond",
+    "targetLabel": "Målbelopp",
+    "descriptionLabel": "Beskrivning (valfritt)",
+    "descriptionPlaceholder": "Lägg till detaljer om ditt mål...",
+    "cancel": "Avbryt",
+    "submit": "Uppdatera mål",
+    "submitting": "Uppdaterar...",
+    "errors": {
+      "invalidAmount": "Ange ett giltigt målbelopp",
+      "nameRequired": "Ange ett målnamn",
+      "noChanges": "Inga ändringar att spara"
+    },
+    "toastSuccess": "Målet uppdaterades",
+    "toastFailed": "Kunde inte uppdatera målet",
+    "toastFailedRetry": "Kunde inte uppdatera målet. Försök igen."
+  },
+  "addModal": {
+    "title": "Skapa nytt mål",
+    "nameLabel": "Målnamn",
+    "namePlaceholder": "t.ex. Nödfond",
+    "currencyLabel": "Valuta",
+    "currencyPlaceholder": "Välj en valuta",
+    "loadingCurrencies": "Läser in valutor...",
+    "targetLabel": "Målbelopp",
+    "descriptionLabel": "Beskrivning (valfritt)",
+    "descriptionPlaceholder": "Lägg till detaljer om ditt mål...",
+    "cancel": "Avbryt",
+    "submit": "Skapa mål",
+    "submitting": "Skapar...",
+    "errors": {
+      "invalidAmount": "Ange ett giltigt målbelopp",
+      "nameRequired": "Ange ett målnamn",
+      "currencyRequired": "Välj en valuta"
+    },
+    "toastSuccess": "Skapades",
+    "toastFailed": "Kunde inte skapa målet",
+    "toastFailedRetry": "Kunde inte skapa målet. Försök igen.",
+    "toastLoadCurrenciesFailed": "Kunde inte läsa in valutor"
+  },
+  "addMoneyModal": {
+    "title": "Lägg till pengar till mål",
+    "current": "Nuvarande:",
+    "target": "Mål:",
+    "remaining": "Återstår:",
+    "transactionType": "Transaktionstyp",
+    "transactionTypePlaceholder": "Välj transaktionstyp",
+    "amountLabel": "Belopp att lägga till",
+    "newTotal": "Ny summa: {{amount}}",
+    "cancel": "Avbryt",
+    "submit": "Lägg till pengar",
+    "submitting": "Lägger till...",
+    "errors": {
+      "invalidAmount": "Ange ett giltigt belopp",
+      "typeRequired": "Välj en transaktionstyp"
+    },
+    "toastFailed": "Kunde inte lägga till pengar",
+    "toastFailedRetry": "Kunde inte lägga till pengar. Försök igen."
+  }
+}

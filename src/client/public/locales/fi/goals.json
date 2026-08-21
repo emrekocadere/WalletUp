@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Taloudelliset tavoitteet",
+    "subtitle": "Seuraa säästötavoitteitasi ja pysy motivoituneena",
+    "addNewGoal": "Lisää uusi tavoite",
+    "loading": "Ladataan tavoitteita...",
+    "deleteSuccess": "Tavoite poistettiin",
+    "deleteFailed": "Tavoitteen poistaminen epäonnistui",
+    "deleteFailedRetry": "Tavoitteen poistaminen epäonnistui. Yritä uudelleen."
+  },
+  "goalCard": {
+    "edit": "Muokkaa",
+    "delete": "Poista",
+    "progress": "Edistyminen",
+    "current": "Nykyinen",
+    "target": "Tavoite",
+    "addMoney": "Lisää rahaa"
+  },
+  "emptyState": {
+    "title": "Ei vielä tavoitteita",
+    "subtitle": "Aloita asettamalla taloudellisia tavoitteita edistymisen seuraamiseksi",
+    "cta": "Luo ensimmäinen tavoitteesi"
+  },
+  "statsCards": {
+    "activeGoals": "Aktiiviset tavoitteet",
+    "totalTarget": "Tavoite yhteensä",
+    "totalSaved": "Säästetty yhteensä"
+  },
+  "editModal": {
+    "title": "Muokkaa tavoitetta",
+    "nameLabel": "Tavoitteen nimi",
+    "namePlaceholder": "esim. Hätärahasto",
+    "targetLabel": "Tavoitesumma",
+    "descriptionLabel": "Kuvaus (valinnainen)",
+    "descriptionPlaceholder": "Lisää tietoja tavoitteestasi...",
+    "cancel": "Peruuta",
+    "submit": "Päivitä tavoite",
+    "submitting": "Päivitetään...",
+    "errors": {
+      "invalidAmount": "Anna kelvollinen tavoitesumma",
+      "nameRequired": "Anna tavoitteen nimi",
+      "noChanges": "Ei tallennettavia muutoksia"
+    },
+    "toastSuccess": "Tavoite päivitetty",
+    "toastFailed": "Tavoitteen päivittäminen epäonnistui",
+    "toastFailedRetry": "Tavoitteen päivittäminen epäonnistui. Yritä uudelleen."
+  },
+  "addModal": {
+    "title": "Luo uusi tavoite",
+    "nameLabel": "Tavoitteen nimi",
+    "namePlaceholder": "esim. Hätärahasto",
+    "currencyLabel": "Valuutta",
+    "currencyPlaceholder": "Valitse valuutta",
+    "loadingCurrencies": "Ladataan valuuttoja...",
+    "targetLabel": "Tavoitesumma",
+    "descriptionLabel": "Kuvaus (valinnainen)",
+    "descriptionPlaceholder": "Lisää tietoja tavoitteestasi...",
+    "cancel": "Peruuta",
+    "submit": "Luo tavoite",
+    "submitting": "Luodaan...",
+    "errors": {
+      "invalidAmount": "Anna kelvollinen tavoitesumma",
+      "nameRequired": "Anna tavoitteen nimi",
+      "currencyRequired": "Valitse valuutta"
+    },
+    "toastSuccess": "Luotu onnistuneesti",
+    "toastFailed": "Tavoitteen luominen epäonnistui",
+    "toastFailedRetry": "Tavoitteen luominen epäonnistui. Yritä uudelleen.",
+    "toastLoadCurrenciesFailed": "Valuuttojen lataaminen epäonnistui"
+  },
+  "addMoneyModal": {
+    "title": "Lisää rahaa tavoitteeseen",
+    "current": "Nykyinen:",
+    "target": "Tavoite:",
+    "remaining": "Jäljellä:",
+    "transactionType": "Tapahtumatyyppi",
+    "transactionTypePlaceholder": "Valitse tapahtumatyyppi",
+    "amountLabel": "Lisättävä summa",
+    "newTotal": "Uusi summa: {{amount}}",
+    "cancel": "Peruuta",
+    "submit": "Lisää rahaa",
+    "submitting": "Lisätään...",
+    "errors": {
+      "invalidAmount": "Anna kelvollinen summa",
+      "typeRequired": "Valitse tapahtumatyyppi"
+    },
+    "toastFailed": "Rahan lisääminen epäonnistui",
+    "toastFailedRetry": "Rahan lisääminen epäonnistui. Yritä uudelleen."
+  }
+}

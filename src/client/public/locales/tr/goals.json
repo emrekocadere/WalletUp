@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Finansal Hedefler",
+    "subtitle": "Tasarruf hedeflerinizi takip edin ve motive kalın",
+    "addNewGoal": "Yeni Hedef Ekle",
+    "loading": "Hedefler yükleniyor...",
+    "deleteSuccess": "Hedef başarıyla silindi",
+    "deleteFailed": "Hedef silinemedi",
+    "deleteFailedRetry": "Hedef silinemedi. Lütfen tekrar deneyin."
+  },
+  "goalCard": {
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "progress": "İlerleme",
+    "current": "Mevcut",
+    "target": "Hedef",
+    "addMoney": "Para Ekle"
+  },
+  "emptyState": {
+    "title": "Henüz Hedef Yok",
+    "subtitle": "İlerlemenizi takip etmek için finansal hedefler belirlemeye başlayın",
+    "cta": "İlk Hedefinizi Oluşturun"
+  },
+  "statsCards": {
+    "activeGoals": "Aktif Hedefler",
+    "totalTarget": "Toplam Hedef",
+    "totalSaved": "Toplam Biriken"
+  },
+  "editModal": {
+    "title": "Hedefi Düzenle",
+    "nameLabel": "Hedef Adı",
+    "namePlaceholder": "örn. Acil Durum Fonu",
+    "targetLabel": "Hedef Tutar",
+    "descriptionLabel": "Açıklama (isteğe bağlı)",
+    "descriptionPlaceholder": "Hedefiniz hakkında birkaç detay ekleyin...",
+    "cancel": "İptal",
+    "submit": "Hedefi Güncelle",
+    "submitting": "Güncelleniyor...",
+    "errors": {
+      "invalidAmount": "Lütfen geçerli bir hedef tutar girin",
+      "nameRequired": "Lütfen bir hedef adı girin",
+      "noChanges": "Kaydedilecek değişiklik yok"
+    },
+    "toastSuccess": "Hedef başarıyla güncellendi",
+    "toastFailed": "Hedef güncellenemedi",
+    "toastFailedRetry": "Hedef güncellenemedi. Lütfen tekrar deneyin."
+  },
+  "addModal": {
+    "title": "Yeni Hedef Oluştur",
+    "nameLabel": "Hedef Adı",
+    "namePlaceholder": "örn. Acil Durum Fonu",
+    "currencyLabel": "Para Birimi",
+    "currencyPlaceholder": "Bir para birimi seçin",
+    "loadingCurrencies": "Para birimleri yükleniyor...",
+    "targetLabel": "Hedef Tutar",
+    "descriptionLabel": "Açıklama (isteğe bağlı)",
+    "descriptionPlaceholder": "Hedefiniz hakkında birkaç detay ekleyin...",
+    "cancel": "İptal",
+    "submit": "Hedef Oluştur",
+    "submitting": "Oluşturuluyor...",
+    "errors": {
+      "invalidAmount": "Lütfen geçerli bir hedef tutar girin",
+      "nameRequired": "Lütfen bir hedef adı girin",
+      "currencyRequired": "Lütfen bir para birimi seçin"
+    },
+    "toastSuccess": "Başarıyla oluşturuldu",
+    "toastFailed": "Hedef oluşturulamadı",
+    "toastFailedRetry": "Hedef oluşturulamadı. Lütfen tekrar deneyin.",
+    "toastLoadCurrenciesFailed": "Para birimleri yüklenemedi"
+  },
+  "addMoneyModal": {
+    "title": "Hedefe Para Ekle",
+    "current": "Mevcut:",
+    "target": "Hedef:",
+    "remaining": "Kalan:",
+    "transactionType": "İşlem Türü",
+    "transactionTypePlaceholder": "İşlem türü seçin",
+    "amountLabel": "Eklenecek Tutar",
+    "newTotal": "Yeni toplam: {{amount}}",
+    "cancel": "İptal",
+    "submit": "Para Ekle",
+    "submitting": "Ekleniyor...",
+    "errors": {
+      "invalidAmount": "Lütfen geçerli bir tutar girin",
+      "typeRequired": "Lütfen bir işlem türü seçin"
+    },
+    "toastFailed": "Para eklenemedi",
+    "toastFailedRetry": "Para eklenemedi. Lütfen tekrar deneyin."
+  }
+}

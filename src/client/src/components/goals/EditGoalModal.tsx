@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Goal } from '@/types/model.types';
 import { goalsApi } from '@/api/endpoints/goals.api';
 import { getCurrencySymbol } from '@/utils/formatters';
@@ -12,6 +13,7 @@ interface EditGoalModalProps {
 }
 
 export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }: EditGoalModalProps) => {
+  const { t } = useTranslation('goals');
   const [name, setName] = useState('');
   const [targetAmount, setTargetAmount] = useState('');
   const [description, setDescription] = useState('');
@@ -33,12 +35,12 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
 
     const amount = parseFloat(targetAmount);
     if (isNaN(amount) || amount <= 0) {
-      onShowToast?.('Please enter a valid target amount', 'error');
+      onShowToast?.(t('editModal.errors.invalidAmount'), 'error');
       return;
     }
 
     if (!name.trim()) {
-      onShowToast?.('Please enter a goal name', 'error');
+      onShowToast?.(t('editModal.errors.nameRequired'), 'error');
       return;
     }
 
@@ -59,7 +61,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
 
       // If no changes, show message and return
       if (Object.keys(payload).length === 0) {
-        onShowToast?.('No changes to save', 'error');
+        onShowToast?.(t('editModal.errors.noChanges'), 'error');
         setIsSubmitting(false);
         return;
       }
@@ -67,15 +69,15 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
       const result = await goalsApi.update(goal.id, payload);
 
       if (result.isSuccess) {
-        onShowToast?.('Goal updated successfully', 'success');
+        onShowToast?.(t('editModal.toastSuccess'), 'success');
         onSuccess?.();
         onClose();
       } else {
-        onShowToast?.(String(result.error || 'Failed to update goal'), 'error');
+        onShowToast?.(String(result.error || t('editModal.toastFailed')), 'error');
       }
     } catch (err) {
       console.error('Failed to update goal:', err);
-      onShowToast?.('Failed to update goal. Please try again.', 'error');
+      onShowToast?.(t('editModal.toastFailedRetry'), 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -88,7 +90,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
       <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Edit Goal</h2>
+            <h2 className="text-2xl font-bold text-white">{t('editModal.title')}</h2>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-white transition-colors"
@@ -107,10 +109,10 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Goal Name</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('editModal.nameLabel')}</label>
                 <input
                   type="text"
-                  placeholder="e.g., Emergency Fund"
+                  placeholder={t('editModal.namePlaceholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -119,7 +121,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Target Amount</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">{t('editModal.targetLabel')}</label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">{currencySymbol}</span>
                   <input
@@ -136,10 +138,10 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Description (optional)</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">{t('editModal.descriptionLabel')}</label>
               <textarea
                 rows={3}
-                placeholder="Add some details about your goal..."
+                placeholder={t('editModal.descriptionPlaceholder')}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
@@ -153,14 +155,14 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Cancel
+                {t('editModal.cancel')}
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Updating...' : 'Update Goal'}
+                {isSubmitting ? t('editModal.submitting') : t('editModal.submit')}
               </button>
             </div>
           </form>

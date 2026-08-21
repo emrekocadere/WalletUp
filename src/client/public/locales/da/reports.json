@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Rapporter",
+    "subtitle": "Årligt økonomisk overblik for {{year}}",
+    "loading": "Indlæser rapporter..."
+  },
+  "summary": {
+    "totalIncome": "Samlet indkomst",
+    "totalExpenses": "Samlede udgifter",
+    "netSavings": "Nettoopsparing",
+    "percentOfIncome": "{{percent}}% af indkomsten",
+    "avgMonthly": "Gns. månedligt",
+    "netSavingsSubtext": "nettoopsparing"
+  },
+  "monthlyBarChart": {
+    "title": "Månedlig indkomst vs. udgifter",
+    "income": "Indkomst",
+    "expenses": "Udgifter"
+  },
+  "netSavingsChart": {
+    "title": "Udvikling i nettoopsparing",
+    "label": "Nettoopsparing",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Forbrug efter kategori",
+    "noData": "Ingen forbrugsdata for denne måned"
+  },
+  "topCategories": {
+    "title": "Topkategorier",
+    "noData": "Ingen forbrugsdata for denne måned"
+  }
+}

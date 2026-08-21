@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Geri",
+    "getStarted": "Başla",
+    "continue": "Devam Et",
+    "saving": "Kaydediliyor...",
+    "complete": "Tamamla"
+  },
+  "welcomeStep": {
+    "title": "Hızlı kurulum",
+    "description": "Birkaç soruyu yanıtlayın, hesabınızı hazır hale getirelim."
+  },
+  "currencyStep": {
+    "title": "Para Biriminizi Seçin",
+    "subtitle": "Ana para biriminizi seçin",
+    "placeholder": "Para birimi seçin...",
+    "loading": "Para birimleri yükleniyor..."
+  },
+  "countryStep": {
+    "title": "Nerelisiniz?",
+    "subtitle": "Ülkenizi seçin",
+    "placeholder": "Ülkenizi seçin...",
+    "loading": "Ülkeler yükleniyor..."
+  },
+  "useCaseStep": {
+    "title": "WalletUp'ı Nasıl Kullanacaksınız?",
+    "subtitle": "Birincil kullanım amacınızı seçin",
+    "options": {
+      "personal": { "label": "Kişisel Finans" },
+      "family": { "label": "Aile Bütçesi" },
+      "business": { "label": "Küçük İşletme" },
+      "freelance": { "label": "Serbest Çalışan" }
+    }
+  },
+  "goalsStep": {
+    "title": "Finansal Hedefler",
+    "subtitle": "Uygun olan tümünü seçin",
+    "options": {
+      "save": "Birikim Yap",
+      "budget": "Bütçeye Uy",
+      "debt": "Borçları Kapat",
+      "invest": "Yatırıma Başla",
+      "track": "Harcamaları Takip Et",
+      "plan": "Geleceği Planla"
+    },
+    "selectedCount_one": "{{count}} hedef seçildi",
+    "selectedCount_other": "{{count}} hedef seçildi"
+  },
+  "aiPreferencesStep": {
+    "title": "Yapay Zeka Asistanınızı Özelleştirin",
+    "subtitle": "Daha iyi öneriler için yapay zeka deneyiminizi kişiselleştirmemize yardımcı olun",
+    "occupationLabel": "Mesleğiniz nedir?",
+    "occupationPlaceholder": "örn. Mühendis, Öğretmen, Girişimci...",
+    "incomeLabel": "Aylık geliriniz nedir?",
+    "incomePlaceholder": "Aylık gelirinizi girin (isteğe bağlı)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Devam etmek için bir seçim yapın",
+    "goalRequired": "Lütfen en az bir finansal hedef seçin",
+    "completeSuccess": "Kurulum tamamlandı! Panele yönlendiriliyorsunuz...",
+    "completeFailed": "Tercihler kaydedilemedi. Lütfen tekrar deneyin.",
+    "loadFailed": "Veriler yüklenemedi"
+  }
+}

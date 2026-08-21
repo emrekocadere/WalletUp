@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Hero = () => {
+  const { t } = useTranslation('home');
   return (
     <section className="relative min-h-screen flex items-center pt-40 pb-16 px-4 overflow-hidden">
       {/* Video Background */}
@@ -37,15 +39,15 @@ export const Hero = () => {
           {/* Left: Text */}
           <div className="space-y-8 text-center mx-auto max-w-4xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="text-white">Your Money,</span>
+              <span className="text-white">{t('hero.titleLine1')}</span>
               <br />
               <span className="text-violet-500">
-                Smarter.
+                {t('hero.titleLine2')}
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-100 leading-relaxed font-medium">
-              Track every expense, hit every goal — powered by AI insights that actually understand your financial habits.
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
@@ -53,7 +55,7 @@ export const Hero = () => {
                 to="/register"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 text-white font-bold rounded-2xl transition-colors duration-200"
               >
-                Start for Free
+                {t('hero.startFree')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -62,7 +64,7 @@ export const Hero = () => {
                 to="/login"
                 className="inline-flex items-center justify-center px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-2xl border border-white/15 transition-all"
               >
-                Sign In
+                {t('hero.signIn')}
               </Link>
             </div>
           </div>

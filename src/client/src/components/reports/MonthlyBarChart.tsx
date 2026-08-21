@@ -7,10 +7,10 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { useTranslation } from 'react-i18next';
+import { formatNumber, getMonthNames } from '@/utils/formatters';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
-
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 interface Props {
   incomeData: number[];
@@ -19,11 +19,13 @@ interface Props {
 }
 
 export const MonthlyBarChart = ({ incomeData, expenseData, currency }: Props) => {
+  const { t } = useTranslation('reports');
+  const MONTHS = getMonthNames('short');
   const data = {
     labels: MONTHS,
     datasets: [
       {
-        label: 'Income',
+        label: t('monthlyBarChart.income'),
         data: incomeData,
         backgroundColor: 'rgba(34, 197, 94, 0.75)',
         borderColor: 'rgba(34, 197, 94, 1)',
@@ -32,7 +34,7 @@ export const MonthlyBarChart = ({ incomeData, expenseData, currency }: Props) =>
         borderSkipped: false,
       },
       {
-        label: 'Expenses',
+        label: t('monthlyBarChart.expenses'),
         data: expenseData,
         backgroundColor: 'rgba(239, 68, 68, 0.75)',
         borderColor: 'rgba(239, 68, 68, 1)',
@@ -59,7 +61,7 @@ export const MonthlyBarChart = ({ incomeData, expenseData, currency }: Props) =>
         callbacks: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           label: (ctx: any) =>
-            ` ${ctx.dataset.label}: ${currency}${(ctx.parsed.y ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            ` ${ctx.dataset.label}: ${currency}${formatNumber(ctx.parsed.y ?? 0, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
         },
       },
     },
@@ -75,7 +77,7 @@ export const MonthlyBarChart = ({ incomeData, expenseData, currency }: Props) =>
           font: { size: 11 },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           callback: (value: any) =>
-            `${currency}${Number(value).toLocaleString('en-US')}`,
+            `${currency}${formatNumber(Number(value))}`,
         },
         grid: { color: 'rgba(51, 65, 85, 0.4)' },
         border: { color: 'rgba(51, 65, 85, 0.6)' },
