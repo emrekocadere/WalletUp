@@ -47,7 +47,7 @@ public class IdentityService(
         // Token Section
         
         List<Claim> authClaims = [
-            new (ClaimTypes.Name, user.UserName),
+            new (ClaimTypes.Name, user.Name),
             new(ClaimTypes.NameIdentifier,user.Id.ToString()),
             new (ClaimTypes.Role, "user"),
             new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -98,7 +98,7 @@ public class IdentityService(
         // Token Section
         
         List<Claim> authClaims = [
-            new (ClaimTypes.Name, user.UserName!),
+            new (ClaimTypes.Name, user.Name),
             new(ClaimTypes.NameIdentifier,user.Id.ToString())
         ];
         
@@ -148,7 +148,7 @@ public class IdentityService(
         var userRoles = await userManager.GetRolesAsync(user);
         List<Claim> authClaims = new()
         {
-            new Claim(ClaimTypes.Name, $"{user.Name} {user.Surname}"),
+            new Claim(ClaimTypes.Name, user.Name),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
         };
         
@@ -242,7 +242,7 @@ public class IdentityService(
             var userRoles = await userManager.GetRolesAsync(user);
             List<Claim> authClaims = new()
             {
-                new Claim(ClaimTypes.Name, user.UserName!),
+                new Claim(ClaimTypes.Name, user.Name),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
