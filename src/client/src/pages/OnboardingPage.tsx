@@ -217,6 +217,9 @@ export const OnboardingPage = () => {
               <AIPreferencesStep
                 aiPreferences={onboardingData.aiPreferences}
                 onAIPreferencesChange={handleAIPreferencesChange}
+                currencyCode={
+                  currencies.find((curr) => curr.id === onboardingData.baseCurrency)?.iso4217Code
+                }
               />
             )}
           </div>

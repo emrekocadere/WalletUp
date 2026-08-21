@@ -1,11 +1,14 @@
 import type { AIPreferences } from '@/types/model.types';
+import { getCurrencySymbol } from '@/utils/formatters';
 
 interface AIPreferencesStepProps {
   aiPreferences: AIPreferences;
   onAIPreferencesChange: (preferences: Partial<AIPreferences>) => void;
+  currencyCode?: string;
 }
 
-export const AIPreferencesStep = ({ aiPreferences, onAIPreferencesChange }: AIPreferencesStepProps) => {
+export const AIPreferencesStep = ({ aiPreferences, onAIPreferencesChange, currencyCode }: AIPreferencesStepProps) => {
+  const currencySymbol = getCurrencySymbol(currencyCode);
   const handleInputChange = (key: keyof AIPreferences, value: any) => {
     onAIPreferencesChange({ [key]: value });
   };
@@ -32,14 +35,19 @@ export const AIPreferencesStep = ({ aiPreferences, onAIPreferencesChange }: AIPr
 
         <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
           <label className="text-white font-semibold text-sm mb-3 block">What's your monthly income?</label>
-          <input
-            type="number"
-            placeholder="Enter your monthly income (optional)"
-            value={aiPreferences.incomeRange || ''}
-            onChange={(e) => handleInputChange('incomeRange', e.target.value)}
-            className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:border-primary-400/50 focus:outline-none transition-colors"
-            min="0"
-          />
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+              {currencySymbol}
+            </span>
+            <input
+              type="number"
+              placeholder="Enter your monthly income (optional)"
+              value={aiPreferences.incomeRange || ''}
+              onChange={(e) => handleInputChange('incomeRange', e.target.value)}
+              className="w-full pl-9 pr-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:border-primary-400/50 focus:outline-none transition-colors"
+              min="0"
+            />
+          </div>
         </div>
 
        
