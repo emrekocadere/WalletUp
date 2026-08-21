@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { LanguageDropdown } from '@/components/common/LanguageDropdown';
 
 export const Header = () => {
   const { t } = useTranslation('home');
@@ -40,6 +41,7 @@ export const Header = () => {
             >
               {t('header.getStarted')}
             </Link>
+            <LanguageDropdown className="hidden sm:flex" align="right" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors"
@@ -67,6 +69,9 @@ export const Header = () => {
               <Link to="/login" className="px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all font-medium text-sm">
                 {t('header.signIn')}
               </Link>
+              <div className="px-4 py-2">
+                <LanguageDropdown />
+              </div>
             </nav>
           </div>
         )}
