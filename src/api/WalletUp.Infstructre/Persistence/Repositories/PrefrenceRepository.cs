@@ -19,7 +19,7 @@ public class PrefrenceRepository : Repository<Preference>, IPrefrenceRepository
             .FirstOrDefault(x => x.UserId == userId);
     }
 
-    public void Update(Guid userId, Guid? currencyId, Guid? countryId, string? occupation, double? monthlyIncome)
+    public void Update(Guid userId, Guid? currencyId, Guid? countryId, string? occupation, double? monthlyIncome, string? language)
     {
         var preference = _dbSet.FirstOrDefault(x => x.UserId == userId);
         
@@ -46,6 +46,11 @@ public class PrefrenceRepository : Repository<Preference>, IPrefrenceRepository
         if (monthlyIncome.HasValue)
         {
             preference.MonthlyIncome = monthlyIncome.Value;
+        }
+
+        if (language != null)
+        {
+            preference.Language = language;
         }
     }
 }

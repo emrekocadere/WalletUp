@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { logout } from '@/store/slices/authSlice';
 import { authApi } from '@/api/endpoints/auth.api';
 import type { ApiError } from '@/types/common.types';
@@ -10,6 +11,7 @@ interface DeleteAccountSectionProps {
 }
 
 export const DeleteAccountSection = ({ onToast }: DeleteAccountSectionProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -26,13 +28,13 @@ export const DeleteAccountSection = ({ onToast }: DeleteAccountSectionProps) => 
 
       dispatch(logout());
 
-      onToast({ message: 'Account deleted successfully', type: 'success' });
+      onToast({ message: t('settings.deleteAccount.toastSuccess'), type: 'success' });
 
 
       setTimeout(() => navigate('/'), 1200);
     } catch (err) {
       const apiError = err as ApiError;
-      onToast({ message: apiError.message || 'Failed to delete account. Please try again.', type: 'error' });
+      onToast({ message: apiError.message || t('settings.deleteAccount.toastFailed'), type: 'error' });
     } finally {
       setIsDeleting(false);
     }
@@ -47,8 +49,8 @@ export const DeleteAccountSection = ({ onToast }: DeleteAccountSectionProps) => 
           </svg>
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-semibold text-white mb-2">Delete Account</h3>
-          <p className="text-gray-400 mb-4">Permanently delete your account and all associated data. This action cannot be undone.</p>
+          <h3 className="text-xl font-semibold text-white mb-2">{t('settings.deleteAccount.title')}</h3>
+          <p className="text-gray-400 mb-4">{t('settings.deleteAccount.description')}</p>
 
           <div className="flex">
             <button
@@ -56,7 +58,7 @@ export const DeleteAccountSection = ({ onToast }: DeleteAccountSectionProps) => 
               disabled={isDeleting}
               className="px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-red-800 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors"
             >
-              {isDeleting ? 'Deleting...' : 'Delete Account'}
+              {isDeleting ? t('settings.deleteAccount.deleting') : t('settings.deleteAccount.button')}
             </button>
           </div>
         </div>

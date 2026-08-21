@@ -7,7 +7,8 @@ public record UpdatePreferenceCommand(
     Guid? CurrencyId,
     Guid? CountryId,
     string? Occupation,
-    double? MonthlyIncome):IRequest<Result>;
+    double? MonthlyIncome,
+    string? Language):IRequest<Result>;
     
     
     

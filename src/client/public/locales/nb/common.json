@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Meny",
+    "dashboard": "Oversikt",
+    "accounts": "Kontoer",
+    "transactions": "Transaksjoner",
+    "goals": "Mål",
+    "recurring": "Gjentakende",
+    "reports": "Rapporter",
+    "settings": "Innstillinger"
+  },
+  "settings": {
+    "title": "Innstillinger",
+    "subtitle": "Tilpass appen etter dine preferanser",
+    "cancel": "Avbryt",
+    "save": "Lagre",
+    "saving": "Lagrer...",
+    "loadFailed": "Kunne ikke laste data",
+    "saved": "Innstillingene ble lagret",
+    "saveFailed": "Kunne ikke lagre innstillingene",
+    "currency": {
+      "title": "Grunnvaluta",
+      "subtitle": "Standardvaluta for alle transaksjoner",
+      "placeholder": "Velg valuta"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Regionale innstillinger",
+      "placeholder": "Velg land"
+    },
+    "language": {
+      "title": "Språk",
+      "subtitle": "Grensesnittspråk",
+      "placeholder": "Velg språk"
+    },
+    "personal": {
+      "title": "Personlig informasjon",
+      "subtitle": "Valgfrie detaljer",
+      "occupation": "Yrke",
+      "optional": "(Valgfritt)",
+      "occupationPlaceholder": "f.eks. Programvareutvikler",
+      "monthlyIncome": "Månedlig inntekt",
+      "monthlyIncomePlaceholder": "Angi din månedlige inntekt"
+    },
+    "changePassword": {
+      "title": "Endre passord",
+      "subtitle": "Oppdater passordet til kontoen din",
+      "current": "Nåværende passord",
+      "currentPlaceholder": "Skriv inn nåværende passord",
+      "new": "Nytt passord",
+      "newPlaceholder": "Skriv inn nytt passord",
+      "confirm": "Bekreft passord",
+      "confirmPlaceholder": "Bekreft det nye passordet",
+      "cancel": "Avbryt",
+      "submit": "Endre passord",
+      "submitting": "Oppdaterer...",
+      "toastSuccess": "Passordet ble endret",
+      "toastFailed": "Kunne ikke endre passordet",
+      "errors": {
+        "currentRequired": "Nåværende passord er påkrevd",
+        "newRequired": "Nytt passord er påkrevd",
+        "newTooShort": "Passordet må være minst 6 tegn",
+        "confirmRequired": "Bekreft det nye passordet",
+        "mismatch": "Passordene stemmer ikke overens"
+      }
+    },
+    "deleteAccount": {
+      "title": "Slett konto",
+      "description": "Slett kontoen din og alle tilknyttede data permanent. Denne handlingen kan ikke angres.",
+      "button": "Slett konto",
+      "deleting": "Sletter...",
+      "toastSuccess": "Kontoen ble slettet",
+      "toastFailed": "Kunne ikke slette kontoen. Prøv igjen."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Velkommen tilbake, {{name}}!",
+    "defaultUser": "Bruker",
+    "subtitle": "Her er din økonomiske oversikt",
+    "loading": "Laster oversikt...",
+    "totalBalance": "Total saldo",
+    "totalBalanceSubtitle": "Din nåværende totale saldo",
+    "monthlySpending": "Månedlig forbruk",
+    "percentOfIncome": "-{{percent}}% av inntekten",
+    "noIncome": "Ingen inntekt denne måneden",
+    "goals": "Mål",
+    "activeGoal": "Aktivt mål",
+    "activeGoals": "Aktive mål",
+    "transactions": "Transaksjoner",
+    "thisMonth": "Denne måneden",
+    "aiInsightsEmpty": "AI-innsikt forberedes. Sjekk tilbake snart.",
+    "recentTransactions": "Nylige transaksjoner",
+    "viewAll": "Vis alle →"
+  }
+}

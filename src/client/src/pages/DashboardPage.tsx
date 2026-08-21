@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -11,11 +12,12 @@ import { SpendingByCategoryPanel } from '@/components/dashboard/SpendingByCatego
 import { authService } from '@/services/auth.service';
 import { AIInsightsSection } from '@/components/common/AIInsightsSection';
 import { useAIInsights } from '@/hooks/useAIInsights';
-import { getCurrencySymbol } from '@/utils/formatters';
+import { getCurrencySymbol, formatNumber } from '@/utils/formatters';
 import type { Transaction, CategoryExpense } from '@/types/model.types';
 import { PageLoader } from '@/components/common/PageLoader';
 
 export const DashboardPage = () => {
+  const { t } = useTranslation();
   const { accessToken } = useSelector((state: RootState) => state.auth);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -92,7 +94,7 @@ export const DashboardPage = () => {
   });
   
   if (isLoading) {
-    return <PageLoader message="Loading dashboard..." />;
+    return <PageLoader message={t('dashboard.loading')} />;
   }
 
   return (
@@ -103,17 +105,17 @@ export const DashboardPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12">
           <div className="mb-8 lg:mb-12">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
-              Welcome back, {userName || 'User'}!
+              {t('dashboard.welcomeBack', { name: userName || t('dashboard.defaultUser') })}
             </h1>
-            <p className="text-sm sm:text-base text-gray-400">Here's your financial overview</p>
+            <p className="text-sm sm:text-base text-gray-400">{t('dashboard.subtitle')}</p>
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 lg:mb-12">
             <StatCard
-              title="Total Balance"
-              value={`${getCurrencySymbol(preferredCurrency)}${currentTotalBalance.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-              subtitle="Your current total balance"
+              title={t('dashboard.totalBalance')}
+              value={`${getCurrencySymbol(preferredCurrency)}${formatNumber(currentTotalBalance, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              subtitle={t('dashboard.totalBalanceSubtitle')}
               iconBgColor="bg-indigo-500/20"
               iconColor="text-indigo-400"
               borderHoverColor="indigo-500/50"
@@ -126,9 +128,9 @@ export const DashboardPage = () => {
             />
 
             <StatCard
-              title="Monthly Spending"
-              value={`${getCurrencySymbol(preferredCurrency)}${monthlySpending.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-              subtitle={monthlyIncome > 0 ? `-${((monthlySpending / monthlyIncome) * 100).toFixed(1)}% of income` : 'No income this month'}
+              title={t('dashboard.monthlySpending')}
+              value={`${getCurrencySymbol(preferredCurrency)}${formatNumber(monthlySpending, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+              subtitle={monthlyIncome > 0 ? t('dashboard.percentOfIncome', { percent: ((monthlySpending / monthlyIncome) * 100).toFixed(1) }) : t('dashboard.noIncome')}
               iconBgColor="bg-red-500/20"
               iconColor="text-red-400"
               borderHoverColor="red-500/50"
@@ -141,9 +143,9 @@ export const DashboardPage = () => {
             />
 
             <StatCard
-              title="Goals"
+              title={t('dashboard.goals')}
               value={goalQuantity.toString()}
-              subtitle={goalQuantity === 1 ? "Active goal" : "Active goals"}
+              subtitle={goalQuantity === 1 ? t('dashboard.activeGoal') : t('dashboard.activeGoals')}
               iconBgColor="bg-indigo-500/20"
               iconColor="text-indigo-400"
               borderHoverColor="indigo-500/50"
@@ -156,9 +158,9 @@ export const DashboardPage = () => {
             />
 
             <StatCard
-              title="Transactions"
+              title={t('dashboard.transactions')}
               value={transactionCount.toString()}
-              subtitle="This month"
+              subtitle={t('dashboard.thisMonth')}
               iconBgColor="bg-indigo-500/20"
               iconColor="text-indigo-400"
               borderHoverColor="indigo-500/50"
@@ -177,7 +179,7 @@ export const DashboardPage = () => {
               insights={insights}
               loading={insightsLoading}
               error={insightsError}
-              emptyMessage="AI insights are preparing. Check back soon."
+              emptyMessage={t('dashboard.aiInsightsEmpty')}
             />
           </div>
 
@@ -186,9 +188,9 @@ export const DashboardPage = () => {
             {/* Recent Transactions */}
             <div className="lg:col-span-2 bg-slate-800/50 p-4 sm:p-6 lg:p-8 rounded-xl border border-slate-700/50">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-white">Recent Transactions</h2>
+                <h2 className="text-xl font-bold text-white">{t('dashboard.recentTransactions')}</h2>
                 <Link to="/transactions" className="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
-                  View all →
+                  {t('dashboard.viewAll')}
                 </Link>
               </div>
 
@@ -199,10 +201,10 @@ export const DashboardPage = () => {
             <SpendingByCategoryPanel categories={categoryData} />
           </div>
         </div>
-      </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </main>
     </div>
   );
 };

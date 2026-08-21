@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Oversigt",
+    "accounts": "Konti",
+    "transactions": "Transaktioner",
+    "goals": "Mål",
+    "recurring": "Gentagende",
+    "reports": "Rapporter",
+    "settings": "Indstillinger"
+  },
+  "settings": {
+    "title": "Indstillinger",
+    "subtitle": "Tilpas applikationen efter dine præferencer",
+    "cancel": "Annuller",
+    "save": "Gem",
+    "saving": "Gemmer...",
+    "loadFailed": "Kunne ikke indlæse data",
+    "saved": "Indstillinger gemt",
+    "saveFailed": "Kunne ikke gemme indstillinger",
+    "currency": {
+      "title": "Basisvaluta",
+      "subtitle": "Standardvaluta for alle transaktioner",
+      "placeholder": "Vælg valuta"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Regionale indstillinger",
+      "placeholder": "Vælg land"
+    },
+    "language": {
+      "title": "Sprog",
+      "subtitle": "Grænsefladesprog",
+      "placeholder": "Vælg sprog"
+    },
+    "personal": {
+      "title": "Personlige oplysninger",
+      "subtitle": "Valgfrie detaljer",
+      "occupation": "Erhverv",
+      "optional": "(Valgfrit)",
+      "occupationPlaceholder": "f.eks. Softwareudvikler",
+      "monthlyIncome": "Månedlig indkomst",
+      "monthlyIncomePlaceholder": "Angiv din månedlige indkomst"
+    },
+    "changePassword": {
+      "title": "Skift adgangskode",
+      "subtitle": "Opdater din kontos adgangskode",
+      "current": "Nuværende adgangskode",
+      "currentPlaceholder": "Indtast din nuværende adgangskode",
+      "new": "Ny adgangskode",
+      "newPlaceholder": "Indtast din nye adgangskode",
+      "confirm": "Bekræft adgangskode",
+      "confirmPlaceholder": "Bekræft din nye adgangskode",
+      "cancel": "Annuller",
+      "submit": "Skift adgangskode",
+      "submitting": "Opdaterer...",
+      "toastSuccess": "Adgangskoden er ændret",
+      "toastFailed": "Kunne ikke ændre adgangskoden",
+      "errors": {
+        "currentRequired": "Nuværende adgangskode er påkrævet",
+        "newRequired": "Ny adgangskode er påkrævet",
+        "newTooShort": "Adgangskoden skal være mindst 6 tegn",
+        "confirmRequired": "Bekræft venligst din nye adgangskode",
+        "mismatch": "Adgangskoderne stemmer ikke overens"
+      }
+    },
+    "deleteAccount": {
+      "title": "Slet konto",
+      "description": "Slet din konto og alle tilknyttede data permanent. Denne handling kan ikke fortrydes.",
+      "button": "Slet konto",
+      "deleting": "Sletter...",
+      "toastSuccess": "Kontoen blev slettet",
+      "toastFailed": "Kunne ikke slette kontoen. Prøv igen."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Velkommen tilbage, {{name}}!",
+    "defaultUser": "Bruger",
+    "subtitle": "Her er dit økonomiske overblik",
+    "loading": "Indlæser oversigt...",
+    "totalBalance": "Samlet saldo",
+    "totalBalanceSubtitle": "Din nuværende samlede saldo",
+    "monthlySpending": "Månedligt forbrug",
+    "percentOfIncome": "-{{percent}}% af indkomsten",
+    "noIncome": "Ingen indkomst denne måned",
+    "goals": "Mål",
+    "activeGoal": "Aktivt mål",
+    "activeGoals": "Aktive mål",
+    "transactions": "Transaktioner",
+    "thisMonth": "Denne måned",
+    "aiInsightsEmpty": "AI-indsigter forberedes. Kig forbi igen snart.",
+    "recentTransactions": "Seneste transaktioner",
+    "viewAll": "Se alle →"
+  }
+}

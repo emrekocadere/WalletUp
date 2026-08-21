@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Valikko",
+    "dashboard": "Yhteenveto",
+    "accounts": "Tilit",
+    "transactions": "Tapahtumat",
+    "goals": "Tavoitteet",
+    "recurring": "Toistuvat",
+    "reports": "Raportit",
+    "settings": "Asetukset"
+  },
+  "settings": {
+    "title": "Asetukset",
+    "subtitle": "Mukauta sovellusta mieltymystesi mukaan",
+    "cancel": "Peruuta",
+    "save": "Tallenna",
+    "saving": "Tallennetaan...",
+    "loadFailed": "Tietojen lataaminen epäonnistui",
+    "saved": "Asetukset tallennettu",
+    "saveFailed": "Asetusten tallentaminen epäonnistui",
+    "currency": {
+      "title": "Peruusvaluutta",
+      "subtitle": "Kaikkien tapahtumien oletusvaluutta",
+      "placeholder": "Valitse valuutta"
+    },
+    "country": {
+      "title": "Maa",
+      "subtitle": "Alueelliset asetukset",
+      "placeholder": "Valitse maa"
+    },
+    "language": {
+      "title": "Kieli",
+      "subtitle": "Käyttöliittymän kieli",
+      "placeholder": "Valitse kieli"
+    },
+    "personal": {
+      "title": "Henkilötiedot",
+      "subtitle": "Valinnaiset tiedot",
+      "occupation": "Ammatti",
+      "optional": "(Valinnainen)",
+      "occupationPlaceholder": "esim. Ohjelmistokehittäjä",
+      "monthlyIncome": "Kuukausitulot",
+      "monthlyIncomePlaceholder": "Anna kuukausitulosi"
+    },
+    "changePassword": {
+      "title": "Vaihda salasana",
+      "subtitle": "Päivitä tilisi salasana",
+      "current": "Nykyinen salasana",
+      "currentPlaceholder": "Anna nykyinen salasanasi",
+      "new": "Uusi salasana",
+      "newPlaceholder": "Anna uusi salasanasi",
+      "confirm": "Vahvista salasana",
+      "confirmPlaceholder": "Vahvista uusi salasanasi",
+      "cancel": "Peruuta",
+      "submit": "Vaihda salasana",
+      "submitting": "Päivitetään...",
+      "toastSuccess": "Salasana vaihdettu",
+      "toastFailed": "Salasanan vaihtaminen epäonnistui",
+      "errors": {
+        "currentRequired": "Nykyinen salasana vaaditaan",
+        "newRequired": "Uusi salasana vaaditaan",
+        "newTooShort": "Salasanan on oltava vähintään 6 merkkiä",
+        "confirmRequired": "Vahvista uusi salasanasi",
+        "mismatch": "Salasanat eivät täsmää"
+      }
+    },
+    "deleteAccount": {
+      "title": "Poista tili",
+      "description": "Poista tilisi ja kaikki siihen liittyvät tiedot pysyvästi. Tätä toimintoa ei voi peruuttaa.",
+      "button": "Poista tili",
+      "deleting": "Poistetaan...",
+      "toastSuccess": "Tili poistettu",
+      "toastFailed": "Tilin poistaminen epäonnistui. Yritä uudelleen."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Tervetuloa takaisin, {{name}}!",
+    "defaultUser": "Käyttäjä",
+    "subtitle": "Tässä on taloudellinen yleiskatsauksesi",
+    "loading": "Ladataan yhteenvetoa...",
+    "totalBalance": "Kokonaissaldo",
+    "totalBalanceSubtitle": "Nykyinen kokonaissaldosi",
+    "monthlySpending": "Kuukausittaiset kulut",
+    "percentOfIncome": "-{{percent}} % tuloista",
+    "noIncome": "Ei tuloja tässä kuussa",
+    "goals": "Tavoitteet",
+    "activeGoal": "Aktiivinen tavoite",
+    "activeGoals": "Aktiiviset tavoitteet",
+    "transactions": "Tapahtumat",
+    "thisMonth": "Tässä kuussa",
+    "aiInsightsEmpty": "Tekoälyn oivalluksia valmistellaan. Katso pian uudelleen.",
+    "recentTransactions": "Viimeisimmät tapahtumat",
+    "viewAll": "Näytä kaikki →"
+  }
+}

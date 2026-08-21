@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { apiClient } from '@/api/client/axios.client';
 import type { Result } from '@/types/common.types';
 
@@ -7,6 +8,7 @@ interface ChangePasswordSectionProps {
 }
 
 export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -20,17 +22,17 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.currentPassword) {
-      newErrors.currentPassword = 'Current password is required';
+      newErrors.currentPassword = t('settings.changePassword.errors.currentRequired');
     }
     if (!formData.newPassword) {
-      newErrors.newPassword = 'New password is required';
+      newErrors.newPassword = t('settings.changePassword.errors.newRequired');
     } else if (formData.newPassword.length < 6) {
-      newErrors.newPassword = 'Password must be at least 6 characters';
+      newErrors.newPassword = t('settings.changePassword.errors.newTooShort');
     }
     if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your new password';
+      newErrors.confirmPassword = t('settings.changePassword.errors.confirmRequired');
     } else if (formData.newPassword !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+      newErrors.confirmPassword = t('settings.changePassword.errors.mismatch');
     }
 
     setErrors(newErrors);
@@ -48,15 +50,15 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
       });
 
       if (response.data.isSuccess) {
-        onToast({ message: 'Password changed successfully', type: 'success' });
+        onToast({ message: t('settings.changePassword.toastSuccess'), type: 'success' });
         setFormData({ currentPassword: '', newPassword: '', confirmPassword: '' });
         setErrors({});
         setIsExpanded(false);
       } else {
-        onToast({ message: String(response.data.error || 'Failed to change password'), type: 'error' });
+        onToast({ message: String(response.data.error || t('settings.changePassword.toastFailed')), type: 'error' });
       }
     } catch (error: any) {
-      const errorMessage = error.response?.data?.message || 'Failed to change password';
+      const errorMessage = error.response?.data?.message || t('settings.changePassword.toastFailed');
       onToast({ message: errorMessage, type: 'error' });
     } finally {
       setIsLoading(false);
@@ -81,8 +83,8 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
             </svg>
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-semibold text-white">Change Password</h3>
-            <p className="text-sm text-gray-400">Update your account password</p>
+            <h3 className="text-lg font-semibold text-white">{t('settings.changePassword.title')}</h3>
+            <p className="text-sm text-gray-400">{t('settings.changePassword.subtitle')}</p>
           </div>
         </div>
         <svg
@@ -99,7 +101,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
         <div className="border-t border-slate-700 px-6 py-6 space-y-4">
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Current Password</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">{t('settings.changePassword.current')}</label>
             <input
               type="password"
               value={formData.currentPassword}
@@ -109,7 +111,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
                   setErrors({ ...errors, currentPassword: '' });
                 }
               }}
-              placeholder="Enter your current password"
+              placeholder={t('settings.changePassword.currentPlaceholder')}
               className="w-full px-4 py-2.5 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             />
             {errors.currentPassword && (
@@ -119,7 +121,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
 
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">New Password</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">{t('settings.changePassword.new')}</label>
             <input
               type="password"
               value={formData.newPassword}
@@ -129,7 +131,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
                   setErrors({ ...errors, newPassword: '' });
                 }
               }}
-              placeholder="Enter your new password"
+              placeholder={t('settings.changePassword.newPlaceholder')}
               className="w-full px-4 py-2.5 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             />
             {errors.newPassword && (
@@ -139,7 +141,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
 
       
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Confirm Password</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">{t('settings.changePassword.confirm')}</label>
             <input
               type="password"
               value={formData.confirmPassword}
@@ -149,7 +151,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
                   setErrors({ ...errors, confirmPassword: '' });
                 }
               }}
-              placeholder="Confirm your new password"
+              placeholder={t('settings.changePassword.confirmPlaceholder')}
               className="w-full px-4 py-2.5 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             />
             {errors.confirmPassword && (
@@ -167,14 +169,14 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
               className="flex-1 px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors"
               disabled={isLoading}
             >
-              Cancel
+              {t('settings.changePassword.cancel')}
             </button>
             <button
               onClick={handleChangePassword}
               disabled={isLoading || !formData.currentPassword || !formData.newPassword || !formData.confirmPassword}
               className="flex-1 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-primary-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? 'Updating...' : 'Change Password'}
+              {isLoading ? t('settings.changePassword.submitting') : t('settings.changePassword.submit')}
             </button>
           </div>
         </div>

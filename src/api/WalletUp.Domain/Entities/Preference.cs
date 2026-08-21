@@ -12,4 +12,5 @@ public class Preference
     public virtual Country? Country { get; set; }
     public string? Occupation { get; set; }
     public double? MonthlyIncome { get; set; }
+    public string? Language { get; set; }
 }

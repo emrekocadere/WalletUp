@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Meny",
+    "dashboard": "Översikt",
+    "accounts": "Konton",
+    "transactions": "Transaktioner",
+    "goals": "Mål",
+    "recurring": "Återkommande",
+    "reports": "Rapporter",
+    "settings": "Inställningar"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "subtitle": "Anpassa appen efter dina preferenser",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "saving": "Sparar...",
+    "loadFailed": "Det gick inte att läsa in data",
+    "saved": "Inställningarna har sparats",
+    "saveFailed": "Det gick inte att spara inställningarna",
+    "currency": {
+      "title": "Basvaluta",
+      "subtitle": "Standardvaluta för alla transaktioner",
+      "placeholder": "Välj valuta"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Regionala inställningar",
+      "placeholder": "Välj land"
+    },
+    "language": {
+      "title": "Språk",
+      "subtitle": "Gränssnittsspråk",
+      "placeholder": "Välj språk"
+    },
+    "personal": {
+      "title": "Personlig information",
+      "subtitle": "Valfria uppgifter",
+      "occupation": "Yrke",
+      "optional": "(Valfritt)",
+      "occupationPlaceholder": "t.ex. Mjukvaruutvecklare",
+      "monthlyIncome": "Månadsinkomst",
+      "monthlyIncomePlaceholder": "Ange din månadsinkomst"
+    },
+    "changePassword": {
+      "title": "Byt lösenord",
+      "subtitle": "Uppdatera lösenordet för ditt konto",
+      "current": "Nuvarande lösenord",
+      "currentPlaceholder": "Ange ditt nuvarande lösenord",
+      "new": "Nytt lösenord",
+      "newPlaceholder": "Ange ditt nya lösenord",
+      "confirm": "Bekräfta lösenord",
+      "confirmPlaceholder": "Bekräfta ditt nya lösenord",
+      "cancel": "Avbryt",
+      "submit": "Byt lösenord",
+      "submitting": "Uppdaterar...",
+      "toastSuccess": "Lösenordet har ändrats",
+      "toastFailed": "Det gick inte att ändra lösenordet",
+      "errors": {
+        "currentRequired": "Nuvarande lösenord krävs",
+        "newRequired": "Nytt lösenord krävs",
+        "newTooShort": "Lösenordet måste vara minst 6 tecken",
+        "confirmRequired": "Bekräfta ditt nya lösenord",
+        "mismatch": "Lösenorden matchar inte"
+      }
+    },
+    "deleteAccount": {
+      "title": "Ta bort konto",
+      "description": "Ta bort ditt konto och all tillhörande data permanent. Denna åtgärd kan inte ångras.",
+      "button": "Ta bort konto",
+      "deleting": "Tar bort...",
+      "toastSuccess": "Kontot togs bort",
+      "toastFailed": "Det gick inte att ta bort kontot. Försök igen."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Välkommen tillbaka, {{name}}!",
+    "defaultUser": "Användare",
+    "subtitle": "Här är din ekonomiska översikt",
+    "loading": "Läser in översikt...",
+    "totalBalance": "Totalt saldo",
+    "totalBalanceSubtitle": "Ditt nuvarande totala saldo",
+    "monthlySpending": "Månatliga utgifter",
+    "percentOfIncome": "-{{percent}}% av inkomsten",
+    "noIncome": "Ingen inkomst denna månad",
+    "goals": "Mål",
+    "activeGoal": "Aktivt mål",
+    "activeGoals": "Aktiva mål",
+    "transactions": "Transaktioner",
+    "thisMonth": "Denna månad",
+    "aiInsightsEmpty": "AI-insikter förbereds. Kolla igen snart.",
+    "recentTransactions": "Senaste transaktioner",
+    "viewAll": "Visa alla →"
+  }
+}

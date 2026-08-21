@@ -16,6 +16,7 @@ export interface CreatePreferenceRequest {
   countryId: string;
   occupation?: string;
   monthlyIncome?: number;
+  language?: string;
 }
 
 export interface UpdatePreferenceRequest {
@@ -23,6 +24,7 @@ export interface UpdatePreferenceRequest {
   countryId?: string;
   occupation?: string;
   monthlyIncome?: number;
+  language?: string;
 }
 
 

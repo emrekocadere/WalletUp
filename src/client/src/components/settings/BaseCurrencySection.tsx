@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { Currency } from '@/types/model.types';
 
 interface BaseCurrencySectionProps {
@@ -7,6 +8,7 @@ interface BaseCurrencySectionProps {
 }
 
 export const BaseCurrencySection = ({ value, onChange, currencies }: BaseCurrencySectionProps) => {
+  const { t } = useTranslation();
   return (
     <div className="bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10 ">
       <div className="flex items-center gap-3 mb-4">
@@ -16,8 +18,8 @@ export const BaseCurrencySection = ({ value, onChange, currencies }: BaseCurrenc
           </svg>
         </div>
         <div>
-          <h2 className="text-lg font-semibold text-white">Base Currency</h2>
-          <p className="text-sm text-gray-400">Default currency for all transactions</p>
+          <h2 className="text-lg font-semibold text-white">{t('settings.currency.title')}</h2>
+          <p className="text-sm text-gray-400">{t('settings.currency.subtitle')}</p>
         </div>
       </div>
       <select
@@ -25,7 +27,7 @@ export const BaseCurrencySection = ({ value, onChange, currencies }: BaseCurrenc
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:border-primary-500/50 focus:outline-none transition-colors"
       >
-        <option value="">Select currency</option>
+        <option value="">{t('settings.currency.placeholder')}</option>
         {currencies.map((curr) => (
           <option key={curr.id} value={curr.id}>
             {curr.iso4217Code} 

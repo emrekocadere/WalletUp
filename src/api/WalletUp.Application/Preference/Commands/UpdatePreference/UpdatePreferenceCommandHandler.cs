@@ -16,7 +16,8 @@ public class UpdatePreferenceCommandHandler(
             request.CurrencyId,
             request.CountryId,
             request.Occupation,
-            request.MonthlyIncome);
+            request.MonthlyIncome,
+            request.Language);
         
         await   prefrenceRepository.SaveChanges();
         

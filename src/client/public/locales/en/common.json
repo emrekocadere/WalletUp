@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "accounts": "Accounts",
+    "transactions": "Transactions",
+    "goals": "Goals",
+    "recurring": "Recurring",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize the application according to your preferences",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving...",
+    "loadFailed": "Failed to load data",
+    "saved": "Settings saved successfully",
+    "saveFailed": "Failed to save settings",
+    "currency": {
+      "title": "Base Currency",
+      "subtitle": "Default currency for all transactions",
+      "placeholder": "Select currency"
+    },
+    "country": {
+      "title": "Country",
+      "subtitle": "Regional settings",
+      "placeholder": "Select country"
+    },
+    "language": {
+      "title": "Language",
+      "subtitle": "Interface language",
+      "placeholder": "Select language"
+    },
+    "personal": {
+      "title": "Personal Information",
+      "subtitle": "Optional details",
+      "occupation": "Occupation",
+      "optional": "(Optional)",
+      "occupationPlaceholder": "e.g. Software Engineer",
+      "monthlyIncome": "Monthly Income",
+      "monthlyIncomePlaceholder": "Enter your monthly income"
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "Update your account password",
+      "current": "Current Password",
+      "currentPlaceholder": "Enter your current password",
+      "new": "New Password",
+      "newPlaceholder": "Enter your new password",
+      "confirm": "Confirm Password",
+      "confirmPlaceholder": "Confirm your new password",
+      "cancel": "Cancel",
+      "submit": "Change Password",
+      "submitting": "Updating...",
+      "toastSuccess": "Password changed successfully",
+      "toastFailed": "Failed to change password",
+      "errors": {
+        "currentRequired": "Current password is required",
+        "newRequired": "New password is required",
+        "newTooShort": "Password must be at least 6 characters",
+        "confirmRequired": "Please confirm your new password",
+        "mismatch": "Passwords do not match"
+      }
+    },
+    "deleteAccount": {
+      "title": "Delete Account",
+      "description": "Permanently delete your account and all associated data. This action cannot be undone.",
+      "button": "Delete Account",
+      "deleting": "Deleting...",
+      "toastSuccess": "Account deleted successfully",
+      "toastFailed": "Failed to delete account. Please try again."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Welcome back, {{name}}!",
+    "defaultUser": "User",
+    "subtitle": "Here's your financial overview",
+    "loading": "Loading dashboard...",
+    "totalBalance": "Total Balance",
+    "totalBalanceSubtitle": "Your current total balance",
+    "monthlySpending": "Monthly Spending",
+    "percentOfIncome": "-{{percent}}% of income",
+    "noIncome": "No income this month",
+    "goals": "Goals",
+    "activeGoal": "Active goal",
+    "activeGoals": "Active goals",
+    "transactions": "Transactions",
+    "thisMonth": "This month",
+    "aiInsightsEmpty": "AI insights are preparing. Check back soon.",
+    "recentTransactions": "Recent Transactions",
+    "viewAll": "View all →"
+  }
+}

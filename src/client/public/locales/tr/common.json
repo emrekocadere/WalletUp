@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Menü",
+    "dashboard": "Panel",
+    "accounts": "Hesaplar",
+    "transactions": "İşlemler",
+    "goals": "Hedefler",
+    "recurring": "Tekrarlanan",
+    "reports": "Raporlar",
+    "settings": "Ayarlar"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Uygulamayı tercihlerinize göre özelleştirin",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "loadFailed": "Veriler yüklenemedi",
+    "saved": "Ayarlar başarıyla kaydedildi",
+    "saveFailed": "Ayarlar kaydedilemedi",
+    "currency": {
+      "title": "Ana Para Birimi",
+      "subtitle": "Tüm işlemler için varsayılan para birimi",
+      "placeholder": "Para birimi seçin"
+    },
+    "country": {
+      "title": "Ülke",
+      "subtitle": "Bölgesel ayarlar",
+      "placeholder": "Ülke seçin"
+    },
+    "language": {
+      "title": "Dil",
+      "subtitle": "Arayüz dili",
+      "placeholder": "Dil seçin"
+    },
+    "personal": {
+      "title": "Kişisel Bilgiler",
+      "subtitle": "İsteğe bağlı bilgiler",
+      "occupation": "Meslek",
+      "optional": "(İsteğe bağlı)",
+      "occupationPlaceholder": "örn. Yazılım Mühendisi",
+      "monthlyIncome": "Aylık Gelir",
+      "monthlyIncomePlaceholder": "Aylık gelirinizi girin"
+    },
+    "changePassword": {
+      "title": "Şifre Değiştir",
+      "subtitle": "Hesap şifrenizi güncelleyin",
+      "current": "Mevcut Şifre",
+      "currentPlaceholder": "Mevcut şifrenizi girin",
+      "new": "Yeni Şifre",
+      "newPlaceholder": "Yeni şifrenizi girin",
+      "confirm": "Şifreyi Onayla",
+      "confirmPlaceholder": "Yeni şifrenizi onaylayın",
+      "cancel": "İptal",
+      "submit": "Şifreyi Değiştir",
+      "submitting": "Güncelleniyor...",
+      "toastSuccess": "Şifre başarıyla değiştirildi",
+      "toastFailed": "Şifre değiştirilemedi",
+      "errors": {
+        "currentRequired": "Mevcut şifre gerekli",
+        "newRequired": "Yeni şifre gerekli",
+        "newTooShort": "Şifre en az 6 karakter olmalı",
+        "confirmRequired": "Lütfen yeni şifrenizi onaylayın",
+        "mismatch": "Şifreler eşleşmiyor"
+      }
+    },
+    "deleteAccount": {
+      "title": "Hesabı Sil",
+      "description": "Hesabınızı ve ilişkili tüm verileri kalıcı olarak silin. Bu işlem geri alınamaz.",
+      "button": "Hesabı Sil",
+      "deleting": "Siliniyor...",
+      "toastSuccess": "Hesap başarıyla silindi",
+      "toastFailed": "Hesap silinemedi. Lütfen tekrar deneyin."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Tekrar hoş geldin, {{name}}!",
+    "defaultUser": "Kullanıcı",
+    "subtitle": "İşte finansal genel bakışınız",
+    "loading": "Panel yükleniyor...",
+    "totalBalance": "Toplam Bakiye",
+    "totalBalanceSubtitle": "Mevcut toplam bakiyeniz",
+    "monthlySpending": "Aylık Harcama",
+    "percentOfIncome": "Gelirin %-{{percent}}'i",
+    "noIncome": "Bu ay gelir yok",
+    "goals": "Hedefler",
+    "activeGoal": "Aktif hedef",
+    "activeGoals": "Aktif hedefler",
+    "transactions": "İşlemler",
+    "thisMonth": "Bu ay",
+    "aiInsightsEmpty": "Yapay zeka içgörüleri hazırlanıyor. Daha sonra tekrar kontrol edin.",
+    "recentTransactions": "Son İşlemler",
+    "viewAll": "Tümünü gör →"
+  }
+}

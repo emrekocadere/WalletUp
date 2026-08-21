@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface PreferencesSectionProps {
   value: {
@@ -16,6 +17,7 @@ interface PreferencesSectionProps {
 }
 
 export const PreferencesSection = ({ value, onChange }: PreferencesSectionProps) => {
+  const { t } = useTranslation();
   const [localValue, setLocalValue] = useState(value);
 
   useEffect(() => {
@@ -37,28 +39,28 @@ export const PreferencesSection = ({ value, onChange }: PreferencesSectionProps)
           </svg>
         </div>
         <div>
-          <h2 className="text-lg font-semibold text-white">Personal Information</h2>
-          <p className="text-sm text-gray-400">Optional details</p>
+          <h2 className="text-lg font-semibold text-white">{t('settings.personal.title')}</h2>
+          <p className="text-sm text-gray-400">{t('settings.personal.subtitle')}</p>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">Occupation <span className="text-gray-500">(Optional)</span></label>
+          <label className="block text-sm font-medium text-gray-300 mb-2">{t('settings.personal.occupation')} <span className="text-gray-500">{t('settings.personal.optional')}</span></label>
           <input
             type="text"
             value={localValue.occupation || ''}
             onChange={(e) => handleChange('occupation', e.target.value || undefined)}
-            placeholder="e.g. Software Engineer"
+            placeholder={t('settings.personal.occupationPlaceholder')}
             className="w-full px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-primary-500/50 focus:outline-none transition-colors"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">Monthly Income <span className="text-gray-500">(Optional)</span></label>
+          <label className="block text-sm font-medium text-gray-300 mb-2">{t('settings.personal.monthlyIncome')} <span className="text-gray-500">{t('settings.personal.optional')}</span></label>
           <input
             type="number"
             value={localValue.monthlyIncome || ''}
             onChange={(e) => handleChange('monthlyIncome', e.target.value ? parseFloat(e.target.value) : undefined)}
-            placeholder="Enter your monthly income"
+            placeholder={t('settings.personal.monthlyIncomePlaceholder')}
             className="w-full px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-primary-500/50 focus:outline-none transition-colors"
           />
         </div>

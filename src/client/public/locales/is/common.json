@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Valmynd",
+    "dashboard": "Yfirlit",
+    "accounts": "Reikningar",
+    "transactions": "Færslur",
+    "goals": "Markmið",
+    "recurring": "Endurteknar",
+    "reports": "Skýrslur",
+    "settings": "Stillingar"
+  },
+  "settings": {
+    "title": "Stillingar",
+    "subtitle": "Sérsníddu forritið að þínum óskum",
+    "cancel": "Hætta við",
+    "save": "Vista",
+    "saving": "Vistar...",
+    "loadFailed": "Ekki tókst að hlaða gögnum",
+    "saved": "Stillingar vistaðar",
+    "saveFailed": "Ekki tókst að vista stillingar",
+    "currency": {
+      "title": "Grunngjaldmiðill",
+      "subtitle": "Sjálfgefinn gjaldmiðill fyrir allar færslur",
+      "placeholder": "Veldu gjaldmiðil"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Svæðisstillingar",
+      "placeholder": "Veldu land"
+    },
+    "language": {
+      "title": "Tungumál",
+      "subtitle": "Tungumál viðmóts",
+      "placeholder": "Veldu tungumál"
+    },
+    "personal": {
+      "title": "Persónulegar upplýsingar",
+      "subtitle": "Valfrjálsar upplýsingar",
+      "occupation": "Starf",
+      "optional": "(Valfrjálst)",
+      "occupationPlaceholder": "t.d. Hugbúnaðarverkfræðingur",
+      "monthlyIncome": "Mánaðartekjur",
+      "monthlyIncomePlaceholder": "Sláðu inn mánaðartekjur þínar"
+    },
+    "changePassword": {
+      "title": "Breyta lykilorði",
+      "subtitle": "Uppfærðu lykilorð reikningsins þíns",
+      "current": "Núverandi lykilorð",
+      "currentPlaceholder": "Sláðu inn núverandi lykilorð",
+      "new": "Nýtt lykilorð",
+      "newPlaceholder": "Sláðu inn nýtt lykilorð",
+      "confirm": "Staðfesta lykilorð",
+      "confirmPlaceholder": "Staðfestu nýja lykilorðið",
+      "cancel": "Hætta við",
+      "submit": "Breyta lykilorði",
+      "submitting": "Uppfærir...",
+      "toastSuccess": "Lykilorði breytt",
+      "toastFailed": "Ekki tókst að breyta lykilorði",
+      "errors": {
+        "currentRequired": "Núverandi lykilorð er nauðsynlegt",
+        "newRequired": "Nýtt lykilorð er nauðsynlegt",
+        "newTooShort": "Lykilorð verður að vera minnst 6 stafir",
+        "confirmRequired": "Vinsamlegast staðfestu nýja lykilorðið",
+        "mismatch": "Lykilorð stemma ekki"
+      }
+    },
+    "deleteAccount": {
+      "title": "Eyða reikningi",
+      "description": "Eyddu reikningnum þínum og öllum tengdum gögnum varanlega. Ekki er hægt að afturkalla þessa aðgerð.",
+      "button": "Eyða reikningi",
+      "deleting": "Eyðir...",
+      "toastSuccess": "Reikningi eytt",
+      "toastFailed": "Ekki tókst að eyða reikningi. Reyndu aftur."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Velkomin/n aftur, {{name}}!",
+    "defaultUser": "Notandi",
+    "subtitle": "Hér er fjárhagsyfirlitið þitt",
+    "loading": "Hleð yfirliti...",
+    "totalBalance": "Heildarstaða",
+    "totalBalanceSubtitle": "Núverandi heildarstaða þín",
+    "monthlySpending": "Mánaðarleg eyðsla",
+    "percentOfIncome": "-{{percent}}% af tekjum",
+    "noIncome": "Engar tekjur þennan mánuð",
+    "goals": "Markmið",
+    "activeGoal": "Virkt markmið",
+    "activeGoals": "Virk markmið",
+    "transactions": "Færslur",
+    "thisMonth": "Þennan mánuð",
+    "aiInsightsEmpty": "Gervigreindarinnsýn er í undirbúningi. Líttu við aftur fljótlega.",
+    "recentTransactions": "Nýlegar færslur",
+    "viewAll": "Sjá allt →"
+  }
+}

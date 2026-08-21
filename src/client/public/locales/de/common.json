@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "menu": "Menü",
+    "dashboard": "Übersicht",
+    "accounts": "Konten",
+    "transactions": "Transaktionen",
+    "goals": "Ziele",
+    "recurring": "Wiederkehrend",
+    "reports": "Berichte",
+    "settings": "Einstellungen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Passen Sie die Anwendung an Ihre Vorlieben an",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "saving": "Wird gespeichert...",
+    "loadFailed": "Daten konnten nicht geladen werden",
+    "saved": "Einstellungen erfolgreich gespeichert",
+    "saveFailed": "Einstellungen konnten nicht gespeichert werden",
+    "currency": {
+      "title": "Basiswährung",
+      "subtitle": "Standardwährung für alle Transaktionen",
+      "placeholder": "Währung auswählen"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Regionale Einstellungen",
+      "placeholder": "Land auswählen"
+    },
+    "language": {
+      "title": "Sprache",
+      "subtitle": "Sprache der Oberfläche",
+      "placeholder": "Sprache auswählen"
+    },
+    "personal": {
+      "title": "Persönliche Informationen",
+      "subtitle": "Optionale Angaben",
+      "occupation": "Beruf",
+      "optional": "(Optional)",
+      "occupationPlaceholder": "z. B. Softwareentwickler",
+      "monthlyIncome": "Monatliches Einkommen",
+      "monthlyIncomePlaceholder": "Geben Sie Ihr monatliches Einkommen ein"
+    },
+    "changePassword": {
+      "title": "Passwort ändern",
+      "subtitle": "Aktualisieren Sie Ihr Kontopasswort",
+      "current": "Aktuelles Passwort",
+      "currentPlaceholder": "Geben Sie Ihr aktuelles Passwort ein",
+      "new": "Neues Passwort",
+      "newPlaceholder": "Geben Sie Ihr neues Passwort ein",
+      "confirm": "Passwort bestätigen",
+      "confirmPlaceholder": "Bestätigen Sie Ihr neues Passwort",
+      "cancel": "Abbrechen",
+      "submit": "Passwort ändern",
+      "submitting": "Wird aktualisiert...",
+      "toastSuccess": "Passwort erfolgreich geändert",
+      "toastFailed": "Passwort konnte nicht geändert werden",
+      "errors": {
+        "currentRequired": "Aktuelles Passwort ist erforderlich",
+        "newRequired": "Neues Passwort ist erforderlich",
+        "newTooShort": "Das Passwort muss mindestens 6 Zeichen lang sein",
+        "confirmRequired": "Bitte bestätigen Sie Ihr neues Passwort",
+        "mismatch": "Passwörter stimmen nicht überein"
+      }
+    },
+    "deleteAccount": {
+      "title": "Konto löschen",
+      "description": "Löschen Sie Ihr Konto und alle zugehörigen Daten dauerhaft. Diese Aktion kann nicht rückgängig gemacht werden.",
+      "button": "Konto löschen",
+      "deleting": "Wird gelöscht...",
+      "toastSuccess": "Konto erfolgreich gelöscht",
+      "toastFailed": "Konto konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Willkommen zurück, {{name}}!",
+    "defaultUser": "Benutzer",
+    "subtitle": "Hier ist Ihre finanzielle Übersicht",
+    "loading": "Übersicht wird geladen...",
+    "totalBalance": "Gesamtsaldo",
+    "totalBalanceSubtitle": "Ihr aktueller Gesamtsaldo",
+    "monthlySpending": "Monatliche Ausgaben",
+    "percentOfIncome": "-{{percent}}% des Einkommens",
+    "noIncome": "Kein Einkommen diesen Monat",
+    "goals": "Ziele",
+    "activeGoal": "Aktives Ziel",
+    "activeGoals": "Aktive Ziele",
+    "transactions": "Transaktionen",
+    "thisMonth": "Diesen Monat",
+    "aiInsightsEmpty": "KI-Einblicke werden vorbereitet. Schauen Sie später wieder vorbei.",
+    "recentTransactions": "Letzte Transaktionen",
+    "viewAll": "Alle anzeigen →"
+  }
+}
