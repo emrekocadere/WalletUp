@@ -3,12 +3,12 @@ using MediatR;
 
 namespace WalletUp.Application.Transaction.Commands.CreateTransaction;
 
-public class CreateTransactionCommand : IRequest<Result>
+public record CreateTransactionCommand : IRequest<Result>
 {
-    public Guid AccountId { get; set; }
-    public Guid CategoryId { get; set; }
-    public Guid TransactionTypeId { get; set; }
-    public double Amount { get; set; }
-    public string? Title { get; set; }
-    public string? Description { get; set; }
+    public Guid AccountId { get; init; }
+    public Guid CategoryId { get; init; }
+    public Guid TransactionTypeId { get; init; }
+    public double Amount { get; init; }
+    public string? Title { get; init; }
+    public string? Description { get; init; }
 }

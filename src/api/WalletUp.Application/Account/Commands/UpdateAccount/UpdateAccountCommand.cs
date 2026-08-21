@@ -3,10 +3,10 @@ using MediatR;
 
 namespace WalletUp.Application.Account.Commands.UpdateAccount;
 
-public class UpdateAccountCommand:IRequest<Result>
+public record UpdateAccountCommand:IRequest<Result>
 {
-    public Guid Id { get; set; }
-    public string? Name { get; set; }
-    public Guid? CurrencyId { get; set; }
-    public Guid? AccountTypeId { get; set; }
+    public Guid Id { get; init; }
+    public string? Name { get; init; }
+    public Guid? CurrencyId { get; init; }
+    public Guid? AccountTypeId { get; init; }
 }
