@@ -106,7 +106,7 @@ export const AccountDetailPage = () => {
 
   if (!account || isError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div className="min-h-screen bg-[#0d1224]">
         <Header />
         <main className="lg:ml-64">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-16 lg:pt-12">
@@ -125,7 +125,7 @@ export const AccountDetailPage = () => {
   const typeLabel = account.accountType.name;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-[#0d1224]">
       <Header />
 
       <main className="lg:ml-64">
@@ -198,7 +198,7 @@ export const AccountDetailPage = () => {
 
 
 
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
+          <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden">
             <TransactionTable
               transactions={filteredTransactions}
               isLoading={isLoading}

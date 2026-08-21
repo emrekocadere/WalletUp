@@ -50,7 +50,7 @@ export const AccountsPage = () => {
       <Header />
 
       <main className="lg:ml-64">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12 space-y-6 lg:space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 pt-16 lg:pt-12 space-y-6 lg:space-y-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Accounts</h1>

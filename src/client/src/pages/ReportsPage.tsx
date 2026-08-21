@@ -100,7 +100,7 @@ export const ReportsPage = () => {
           {/* Page title */}
           <div className="mb-8">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">Reports</h1>
-            <p className="text-sm sm:text-base text-slate-400">Annual financial overview for {new Date().getFullYear()}</p>
+            <p className="text-sm sm:text-base text-gray-400">Annual financial overview for {new Date().getFullYear()}</p>
           </div>
 
           {/* Summary cards */}
