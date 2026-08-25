@@ -42,6 +42,10 @@
       "security": {
         "name": "Secure Sessions",
         "description": "Encrypted logins that quietly renew themselves — and sign out the moment they should."
+      },
+      "csvExport": {
+        "name": "CSV Export",
+        "description": "Pull any filtered view of your transactions into a spreadsheet in one click."
       }
     }
   },

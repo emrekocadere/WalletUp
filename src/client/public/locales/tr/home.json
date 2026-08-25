@@ -42,6 +42,10 @@
       "security": {
         "name": "Güvenli Oturumlar",
         "description": "Sessizce kendini yenileyen şifreli girişler — ve tam zamanında oturumu kapatan."
+      },
+      "csvExport": {
+        "name": "CSV Export",
+        "description": "İşlemlerinin filtrelediğin herhangi bir görünümünü tek tıkla tabloya aktar."
       }
     }
   },
