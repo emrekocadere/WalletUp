@@ -59,7 +59,7 @@ export const RecentTransactionsPanel = ({ transactions, isLoading, currency = 'U
                   {transaction.description || t('dashboard.noDescription')}
                 </p>
                 <div className="flex items-center gap-3 mt-1">
-                  <span className="text-xs text-indigo-300 px-2 py-1 bg-indigo-500/15 border border-indigo-500/20 rounded-full hover:border-indigo-400/40 transition-all">
+                  <span className="text-xs text-violet-300 px-2 py-1 bg-violet-500/15 border border-violet-500/20 rounded-full hover:border-violet-400/40 transition-all">
                     {transaction.category?.name || t('dashboard.uncategorized')}
                   </span>
                   {date && (

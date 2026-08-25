@@ -80,7 +80,7 @@ export const RecurringTransactionCard = ({
         <div className="flex flex-col items-end gap-3 flex-shrink-0">
           <div className="text-right">
             <p className="text-xs text-slate-500 mb-1">{t('card.amount')}</p>
-            <p className="text-xl font-bold text-indigo-400">
+            <p className="text-xl font-bold text-violet-400">
               {currencySymbol}
               {formatNumber(transaction.amount, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>

@@ -37,7 +37,7 @@ export const Header = () => {
             </Link>
             <Link
               to="/register"
-              className="px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold rounded-xl transition-colors duration-200"
+              className="px-5 py-2.5 bg-violet-500 hover:bg-violet-700 text-white text-sm font-semibold rounded-xl transition-colors duration-200"
             >
               {t('header.getStarted')}
             </Link>

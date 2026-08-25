@@ -140,7 +140,7 @@ export const RecurringTransactionsPage = () => {
             </div>
             <button
               onClick={() => handleOpenModal()}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors flex-shrink-0"
+              className="flex items-center gap-2 px-4 py-2 bg-violet-500 hover:bg-violet-700 text-white text-sm font-medium rounded-lg transition-colors flex-shrink-0"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -171,7 +171,7 @@ export const RecurringTransactionsPage = () => {
             </div>
             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
               <p className="text-xs text-slate-400 mb-1">{t('stats.totalActive')}</p>
-              <p className="text-2xl font-bold text-indigo-400">
+              <p className="text-2xl font-bold text-violet-400">
                 {currencySymbol}
                 {formatNumber(
                   recurringTransactions
@@ -192,7 +192,7 @@ export const RecurringTransactionsPage = () => {
               <p className="text-slate-400 mb-4">{t('empty.message')}</p>
               <button
                 onClick={() => handleOpenModal()}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500 hover:bg-violet-700 text-white text-sm font-medium rounded-lg transition-colors"
               >
                 {t('empty.cta')}
               </button>

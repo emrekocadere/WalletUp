@@ -21,7 +21,7 @@ interface SummaryCardProps {
 const VARIANT_STYLES = {
   green:  { bg: 'bg-green-500/10',  border: 'border-green-500/20',  text: 'text-green-400',  icon: 'bg-green-500/20'  },
   red:    { bg: 'bg-red-500/10',    border: 'border-red-500/20',    text: 'text-red-400',    icon: 'bg-red-500/20'    },
-  indigo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/20', text: 'text-indigo-400', icon: 'bg-indigo-500/20' },
+  indigo: { bg: 'bg-violet-500/10', border: 'border-violet-500/20', text: 'text-violet-400', icon: 'bg-violet-500/20' },
   amber:  { bg: 'bg-amber-500/10',  border: 'border-amber-500/20',  text: 'text-amber-400',  icon: 'bg-amber-500/20'  },
 };
 
@@ -129,7 +129,7 @@ export const ReportsPage = () => {
               subtext={totalIncome > 0 ? t('summary.percentOfIncome', { percent: ((netSavings / totalIncome) * 100).toFixed(1) }) : undefined}
               variant={netSavings >= 0 ? 'indigo' : 'red'}
               icon={
-                <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               }
@@ -173,7 +173,7 @@ export const ReportsPage = () => {
                 <select
                   value={selectedMonth}
                   onChange={e => setSelectedMonth(Number(e.target.value))}
-                  className="text-sm bg-slate-700 border border-slate-600 text-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                  className="text-sm bg-slate-700 border border-slate-600 text-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-violet-500 cursor-pointer"
                 >
                   {MONTHS.map((m, i) => (
                     <option key={i} value={i}>{m}</option>
@@ -211,7 +211,7 @@ export const ReportsPage = () => {
                         </div>
                         <div className="w-full bg-slate-700 rounded-full h-1.5">
                           <div
-                            className="h-1.5 rounded-full bg-indigo-500 transition-all duration-500"
+                            className="h-1.5 rounded-full bg-violet-500 transition-all duration-500"
                             style={{ width: `${Math.min(cat.percentage, 100)}%` }}
                           />
                         </div>

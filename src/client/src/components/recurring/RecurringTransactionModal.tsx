@@ -109,7 +109,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               onChange={e => handleChange('title', e.target.value)}
               placeholder={t('modal.titlePlaceholder')}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 ${
-                errors.title ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.title ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             />
             {errors.title && <p className="text-xs text-red-400 mt-1">{errors.title}</p>}
@@ -125,7 +125,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               onChange={e => handleChange('description', e.target.value)}
               placeholder={t('modal.descriptionPlaceholder')}
               rows={2}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
             />
           </div>
 
@@ -142,7 +142,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               onChange={e => handleChange('amount', parseFloat(e.target.value))}
               placeholder="0.00"
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 ${
-                errors.amount ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.amount ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             />
             {errors.amount && <p className="text-xs text-red-400 mt-1">{errors.amount}</p>}
@@ -160,7 +160,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 handleChange('account', account);
               }}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 cursor-pointer ${
-                errors.account ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.account ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             >
               <option value="">{t('modal.selectAccount')}</option>
@@ -185,7 +185,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 handleChange('transactionType', transactionType);
               }}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 cursor-pointer ${
-                errors.transactionType ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.transactionType ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             >
               <option value="">{t('modal.selectType')}</option>
@@ -210,7 +210,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
                 handleChange('category', category);
               }}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 cursor-pointer ${
-                errors.category ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.category ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             >
               <option value="">{t('modal.selectCategory')}</option>
@@ -231,7 +231,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
             <select
               value={formData.frequency || 'Monthly'}
               onChange={e => handleChange('frequency', e.target.value)}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-violet-500 cursor-pointer"
             >
               {FREQUENCY_VALUES.map(value => (
                 <option key={value} value={value}>
@@ -251,7 +251,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               value={formData.startDate || ''}
               onChange={e => handleChange('startDate', e.target.value)}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 ${
-                errors.startDate ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.startDate ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             />
             {errors.startDate && <p className="text-xs text-red-400 mt-1">{errors.startDate}</p>}
@@ -267,7 +267,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
               value={formData.endDate || ''}
               onChange={e => handleChange('endDate', e.target.value)}
               className={`w-full px-3 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:ring-2 ${
-                errors.endDate ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-indigo-500'
+                errors.endDate ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:ring-violet-500'
               }`}
             />
             {errors.endDate && <p className="text-xs text-red-400 mt-1">{errors.endDate}</p>}
@@ -297,7 +297,7 @@ export const RecurringTransactionModal = ({ transaction, accounts, onClose, onSa
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
+              className="flex-1 px-4 py-2 bg-violet-500 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors"
             >
               {transaction ? t('modal.update') : t('modal.create')}
             </button>

@@ -138,7 +138,7 @@ export const RegisterForm = ({ onSubmit, isLoading = false, error }: RegisterFor
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
+        className="w-full py-4 px-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
       >
         {isLoading ? t('registerForm.submitting') : t('registerForm.submit')}
       </button>

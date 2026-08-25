@@ -58,7 +58,7 @@ export const AIInsightsSection = ({
         <button
           type="button"
           onClick={() => setShowDetails((prev) => !prev)}
-          className="flex items-center gap-2 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
+          className="flex items-center gap-2 text-xs font-medium text-blue-400 hover:text-blue-300 transition-colors"
         >
           <span>{showDetails ? t('common.hideDetails') : t('common.showMore')}</span>
           <svg

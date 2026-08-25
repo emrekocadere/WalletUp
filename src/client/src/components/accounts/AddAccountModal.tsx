@@ -167,7 +167,7 @@ export const AddAccountModal = ({ isOpen, onClose, onSubmit, onShowToast }: AddA
               </button>
               <button
                 type="submit"
-                className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-indigo-500/30"
+                className="flex-1 px-6 py-3 bg-violet-500 hover:bg-violet-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-violet-500/30"
               >
                 {t('addAccountModal.submit')}
               </button>

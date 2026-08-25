@@ -191,7 +191,7 @@ export const AddGoalModal = ({ isOpen, onClose, onSuccess, onShowToast }: AddGoa
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-violet-500 hover:bg-violet-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? t('addModal.submitting') : t('addModal.submit')}
               </button>

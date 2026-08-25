@@ -53,7 +53,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
               <Link
                 to="/register"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 text-white font-bold rounded-2xl transition-colors duration-200"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-2xl transition-colors duration-200"
               >
                 {t('hero.startFree')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

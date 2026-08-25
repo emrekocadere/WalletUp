@@ -72,7 +72,7 @@ export const AIInsightCard = ({
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="text-sm font-semibold text-white">{title}</h3>
-              <span className="px-2 py-0.5 text-xs font-medium bg-indigo-500/20 text-blue-500 rounded-full">
+              <span className="px-2 py-0.5 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full">
                 {t('common.aiInsightBadge')}
               </span>
             </div>
@@ -86,7 +86,7 @@ export const AIInsightCard = ({
         {showToggle && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors mt-2 group"
+            className="flex items-center gap-2 text-xs font-medium text-blue-400 hover:text-blue-300 transition-colors mt-2 group"
           >
             <span>{isExpanded ? t('common.showLess') : t('common.showMore')}</span>
             <svg

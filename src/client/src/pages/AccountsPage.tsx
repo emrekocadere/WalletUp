@@ -63,7 +63,7 @@ export const AccountsPage = () => {
             <button
               type="button"
               onClick={() => setIsAddModalOpen(true)}
-              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-violet-500 hover:bg-violet-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
               {t('accountsPage.addAccount')}
             </button>

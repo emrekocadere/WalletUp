@@ -26,7 +26,7 @@ export const CTASection = () => {
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <Link
                 to="/register"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-2xl transition-colors duration-200 whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-2xl transition-colors duration-200 whitespace-nowrap"
               >
                 {t('ctaSection.getStartedFree')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

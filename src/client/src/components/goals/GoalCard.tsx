@@ -82,8 +82,8 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
         </div>
         <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-gradient-to-r from-primary-500 to-primary-400 transition-all duration-500`}
-            style={{ width: `${Math.min(progress, 100)}%` }}
+            className={`h-full bg-green-500 transition-all duration-500`}
+            style={{ width: `${Math.max(0, Math.min(progress, 100))}%` }}
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
       <div className="flex gap-2 mt-4">
         <button
           onClick={() => onAddMoney?.(goal.id)}
-          className="flex-1 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-lg transition-colors"
+          className="flex-1 px-4 py-2 bg-violet-500/15 border border-violet-500/40 hover:bg-violet-500/25 text-violet-300 text-sm font-semibold rounded-lg transition-colors"
         >
           {t('goalCard.addMoney')}
         </button>

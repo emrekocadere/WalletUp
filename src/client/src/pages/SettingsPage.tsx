@@ -160,7 +160,7 @@ export const SettingsPage = () => {
             <button
               onClick={handleSave}
               disabled={isLoading}
-              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
+              className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-violet-500 hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
               {isLoading ? t('settings.saving') : t('settings.save')}
             </button>

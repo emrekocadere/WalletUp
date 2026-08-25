@@ -24,8 +24,8 @@ export const AISettingsSection = ({
   return (
     <div className="bg-white/5 backdrop-blur-xl p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
-          <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+          <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
@@ -45,7 +45,7 @@ export const AISettingsSection = ({
           <button
             onClick={() => onAIEnabledChange(!aiEnabled)}
             className={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors ${
-              aiEnabled ? 'bg-primary-500' : 'bg-slate-700'
+              aiEnabled ? 'bg-blue-500' : 'bg-slate-700'
             }`}
           >
             <span
@@ -86,7 +86,7 @@ export const AISettingsSection = ({
               <select
                 value={aiInsightsFrequency}
                 onChange={(e) => onFrequencyChange(e.target.value)}
-                className="w-full px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:border-primary-500/50 focus:outline-none transition-colors"
+                className="w-full px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:border-blue-500/50 focus:outline-none transition-colors"
               >
                 {frequencies.map((freq) => (
                   <option key={freq.value} value={freq.value}>
