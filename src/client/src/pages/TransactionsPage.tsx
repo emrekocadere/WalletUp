@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import type { RootState } from '@/store/store';
@@ -8,6 +8,7 @@ import { Toast } from '@/components/common/Toast';
 import { PageLoader } from '@/components/common/PageLoader';
 import { TransactionTable } from '@/components/transactions/TransactionTable';
 import { TransactionFilters } from '@/components/transactions/TransactionFilters';
+import { Pagination } from '@/components/common/Pagination';
 import { AddTransactionModal } from '@/components/transactions/AddTransactionModal';
 import { EditTransactionModal } from '@/components/transactions/EditTransactionModal';
 import { AIInsightsSection } from '@/components/common/AIInsightsSection';
@@ -17,6 +18,7 @@ import { accountsApi } from '@/api/endpoints/accounts.api';
 import { exportTransactionsToCSV } from '@/utils/exportToCSV';
 import type { Transaction, Account } from '@/types/model.types';
 
+const PAGE_SIZE = 20;
 
 export const TransactionsPage = () => {
   const { t } = useTranslation('transactions');
@@ -33,6 +35,9 @@ export const TransactionsPage = () => {
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
 
 
   const { insights, loading: insightsLoading } = useAIInsights({
@@ -40,59 +45,74 @@ export const TransactionsPage = () => {
     taskName: 'financial_advice'
   });
 
+  const buildFilters = useCallback(() => {
+    const filters: {
+      categoryId?: string;
+      transactionTypeId?: string;
+      accountId?: string;
+      startDate?: string;
+      endDate?: string;
+      page?: number;
+      pageSize?: number;
+    } = { page, pageSize: PAGE_SIZE };
+
+    if (filterCategory !== 'all') {
+      filters.categoryId = filterCategory;
+    }
+
+    if (filterType !== 'all') {
+      const typeObj = transactionTypes.find(t => t.name?.toLowerCase() === filterType.toLowerCase());
+      if (typeObj?.id) {
+        filters.transactionTypeId = typeObj.id;
+      }
+    }
+
+    if (filterAccount !== 'all') {
+      filters.accountId = filterAccount;
+    }
+
+    if (filterPeriod !== 'all') {
+      const now = new Date();
+      let startDate: Date;
+
+      if (filterPeriod === 'week') {
+        startDate = new Date(now);
+        startDate.setDate(now.getDate() - 7);
+      } else if (filterPeriod === 'month') {
+        startDate = new Date(now);
+        startDate.setMonth(now.getMonth() - 1);
+      } else {
+        startDate = new Date(now);
+        startDate.setDate(now.getDate() - 7);
+      }
+
+      filters.startDate = startDate.toISOString();
+      filters.endDate = now.toISOString();
+    }
+
+    return filters;
+  }, [page, filterCategory, filterType, filterAccount, filterPeriod, transactionTypes]);
+
+  const fetchTransactions = useCallback(async () => {
+    const result = await transactionsApi.getAll(buildFilters());
+    setTransactions(result.items);
+    setTotalPages(result.totalPages);
+    setTotalCount(result.totalCount);
+  }, [buildFilters]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        
-        const filters: {
-          categoryId?: string;
-          transactionTypeId?: string;
-          accountId?: string;
-          startDate?: string;
-          endDate?: string;
-        } = {};
-        
-        if (filterCategory !== 'all') {
-          filters.categoryId = filterCategory;
-        }
-        
-        if (filterType !== 'all') {
-          const typeObj = transactionTypes.find(t => t.name?.toLowerCase() === filterType.toLowerCase());
-          if (typeObj?.id) {
-            filters.transactionTypeId = typeObj.id;
-          }
-        }
-        
-        if (filterAccount !== 'all') {
-          filters.accountId = filterAccount;
-        }
-        
-        if (filterPeriod !== 'all') {
-          const now = new Date();
-          let startDate: Date;
-          
-          if (filterPeriod === 'week') {
-            startDate = new Date(now);
-            startDate.setDate(now.getDate() - 7);
-          } else if (filterPeriod === 'month') {
-            startDate = new Date(now);
-            startDate.setMonth(now.getMonth() - 1);
-          } else {
-            startDate = new Date(now);
-            startDate.setDate(now.getDate() - 7);
-          }
-          
-          filters.startDate = startDate.toISOString();
-          filters.endDate = now.toISOString();
-        }
 
-        const [transactionsData, accountsData] = await Promise.all([
-          transactionsApi.getAll(filters),
+        const [transactionsResult, accountsData] = await Promise.all([
+          transactionsApi.getAll(buildFilters()),
           accountsApi.getAll(),
         ]);
 
-        setTransactions(transactionsData);
+        setTransactions(transactionsResult.items);
+        setTotalPages(transactionsResult.totalPages);
+        setTotalCount(transactionsResult.totalCount);
         setAccounts(accountsData.accounts);
       } catch (error) {
         console.error('Request failed:', error);
@@ -102,20 +122,28 @@ export const TransactionsPage = () => {
     };
 
     fetchData();
-  }, [filterType, filterAccount, filterCategory, filterPeriod, transactionTypes]);
+  }, [buildFilters]);
+
+  // Reset to first page whenever filters change
+  useEffect(() => {
+    setPage(1);
+  }, [filterType, filterAccount, filterCategory, filterPeriod]);
 
 
-  const exportToCSV = () => {
-    if (filteredTransactions.length === 0) {
+  const exportToCSV = async () => {
+    if (totalCount === 0) {
       setToast({ message: t('page.noTransactionsToExport'), type: 'error' });
       return;
     }
 
-    exportTransactionsToCSV(filteredTransactions, accounts);
-    setToast({ message: t('page.exportedSuccess'), type: 'success' });
+    try {
+      const all = await transactionsApi.getAll({ ...buildFilters(), page: 1, pageSize: totalCount });
+      exportTransactionsToCSV(all.items, accounts);
+      setToast({ message: t('page.exportedSuccess'), type: 'success' });
+    } catch (error) {
+      console.error('Failed to export transactions:', error);
+    }
   };
-
-  const filteredTransactions = transactions;
 
   if (isLoading) {
     return <PageLoader message={t('page.loading')} />;
@@ -175,7 +203,7 @@ export const TransactionsPage = () => {
             </div>
           </div>
 
-  
+
           <TransactionFilters
             filterPeriod={filterPeriod}
             setFilterPeriod={setFilterPeriod}
@@ -201,7 +229,7 @@ export const TransactionsPage = () => {
 
           <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden">
             <TransactionTable
-              transactions={filteredTransactions}
+              transactions={transactions}
               isLoading={isLoading}
               accounts={accounts}
               hasFilters={
@@ -216,10 +244,17 @@ export const TransactionsPage = () => {
               }}
               onDelete={async (transactionId) => {
                 await transactionsApi.delete(transactionId);
-                const updatedTransactions = await transactionsApi.getAll();
-                setTransactions(updatedTransactions);
+                await fetchTransactions();
               }}
               onShowToast={(message, type) => setToast({ message, type })}
+            />
+
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              totalCount={totalCount}
+              pageSize={PAGE_SIZE}
+              onPageChange={setPage}
             />
           </div>
         </div>
@@ -233,10 +268,9 @@ export const TransactionsPage = () => {
         accounts={accounts}
         categories={categories}
         onSuccess={async () => {
-
           try {
-            const updatedTransactions = await transactionsApi.getAll();
-            setTransactions(updatedTransactions);
+            setPage(1);
+            await fetchTransactions();
           } catch (error) {
             console.error('Failed to reload transactions:', error);
           }
@@ -254,8 +288,7 @@ export const TransactionsPage = () => {
         categories={categories}
         onSuccess={async () => {
           try {
-            const updatedTransactions = await transactionsApi.getAll();
-            setTransactions(updatedTransactions);
+            await fetchTransactions();
           } catch (error) {
             console.error('Failed to reload transactions:', error);
           }

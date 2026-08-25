@@ -52,11 +52,11 @@ export const DashboardPage = () => {
 
 
         const [transactionsResult, dashboardResult] = await Promise.all([
-          transactionsApi.getAll(),
+          transactionsApi.getAll({ page: 1, pageSize: 5 }),
           transactionsApi.getDashboard(currentMonth),
         ]);
 
-        setTransactions(transactionsResult);
+        setTransactions(transactionsResult.items);
         setMonthlySpending(dashboardResult.expense);
         setMonthlyIncome(dashboardResult.income);
         setTransactionCount(dashboardResult.quantity);

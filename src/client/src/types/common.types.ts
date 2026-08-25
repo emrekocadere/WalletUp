@@ -23,3 +23,11 @@ export interface Currency {
   id: string;
   iso4217Code: string;
 }
+
+export interface PagedResult<T> {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+}

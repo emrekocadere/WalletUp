@@ -34,14 +34,18 @@ public class TransactionController(IMediator mediator) : ControllerBase
         [FromQuery] Guid? categoryId = null,
         [FromQuery] Guid? transactionTypeId = null,
         [FromQuery] DateTime? startDate = null,
-        [FromQuery] DateTime? endDate = null)
+        [FromQuery] DateTime? endDate = null,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         var result = await mediator.Send(new GetTransactionsQuery(
             accountId,
             categoryId,
             transactionTypeId,
             startDate,
-            endDate
+            endDate,
+            page,
+            pageSize
         ));
         return this.ToActionResult(result);
     }
@@ -91,14 +95,18 @@ public class TransactionController(IMediator mediator) : ControllerBase
         [FromQuery] Guid? transactionTypeId = null,
         [FromQuery] Guid? accountId = null,
         [FromQuery] DateTime? startDate = null,
-        [FromQuery] DateTime? endDate = null)
+        [FromQuery] DateTime? endDate = null,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         var result = await mediator.Send(new GetTransactionsQuery(
             accountId,
             categoryId,
             transactionTypeId,
             startDate,
-            endDate
+            endDate,
+            page,
+            pageSize
         ));
         return this.ToActionResult(result);
     }

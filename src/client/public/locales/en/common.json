@@ -6,6 +6,11 @@
     "aiInsightBadge": "AI Insight",
     "aiInsightsUnavailable": "AI insights are not available yet."
   },
+  "pagination": {
+    "range": "Showing {{start}}-{{end}} of {{total}}",
+    "previous": "Previous",
+    "next": "Next"
+  },
   "nav": {
     "menu": "Menu",
     "dashboard": "Dashboard",

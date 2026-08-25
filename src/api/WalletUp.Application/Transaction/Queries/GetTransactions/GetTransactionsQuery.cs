@@ -10,5 +10,7 @@ public record GetTransactionsQuery(
     Guid? CategoryId = null,
     Guid? TransactionTypeId = null,
     DateTime? StartDate = null,
-    DateTime? EndDate = null
-): IRequest<ResultT<List<TransactionDto>>>;
+    DateTime? EndDate = null,
+    int Page = 1,
+    int PageSize = 20
+): IRequest<ResultT<PagedResult<TransactionDto>>>;

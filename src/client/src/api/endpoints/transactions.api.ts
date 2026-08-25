@@ -8,7 +8,7 @@ import type {
 } from '@/types/model.types';
 
 import type {  CreateTransactionRequest } from '@/types/request.types';
-import type { Result, ResultT } from '@/types/common.types';
+import type { Result, ResultT, PagedResult } from '@/types/common.types';
 import { Category } from '@/types/model.types';
 
 export const transactionsApi = {
@@ -31,12 +31,14 @@ export const transactionsApi = {
     if (filters?.startDate) params.append('startDate', filters.startDate);
     if (filters?.endDate) params.append('endDate', filters.endDate);
     
+    params.append('pageSize', '1000');
+
     if (params.toString()) {
       url += `?${params.toString()}`;
     }
-    
-    const { data } = await apiClient.get<ResultT<Transaction[]>>(url);
-    return data.value!;
+
+    const { data } = await apiClient.get<ResultT<PagedResult<Transaction>>>(url);
+    return data.value!.items;
   },
 
   create: async (transaction: CreateTransactionRequest): Promise<Result> => {
@@ -80,9 +82,11 @@ export const transactionsApi = {
     accountId?: string;
     startDate?: string;
     endDate?: string;
-  }): Promise<Transaction[]> => {
+    page?: number;
+    pageSize?: number;
+  }): Promise<PagedResult<Transaction>> => {
     let url = '/Transaction';
-    
+
     // Query string parametreleri ekle
     const params = new URLSearchParams();
     if (filters?.categoryId) params.append('categoryId', filters.categoryId);
@@ -90,12 +94,14 @@ export const transactionsApi = {
     if (filters?.accountId) params.append('accountId', filters.accountId);
     if (filters?.startDate) params.append('startDate', filters.startDate);
     if (filters?.endDate) params.append('endDate', filters.endDate);
-    
+    params.append('page', String(filters?.page ?? 1));
+    params.append('pageSize', String(filters?.pageSize ?? 20));
+
     if (params.toString()) {
       url += `?${params.toString()}`;
     }
-    
-    const { data } = await apiClient.get<ResultT<Transaction[]>>(url);
+
+    const { data } = await apiClient.get<ResultT<PagedResult<Transaction>>>(url);
     return data.value!;
   },
 

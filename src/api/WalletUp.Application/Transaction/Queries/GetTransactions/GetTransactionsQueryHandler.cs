@@ -14,9 +14,9 @@ public class GetTransactionsQueryHandler(
     IApplicationDbContext dbContext,
     IUserContext userContext
 )
-: IRequestHandler<GetTransactionsQuery, ResultT<List<TransactionDto>>>
+: IRequestHandler<GetTransactionsQuery, ResultT<PagedResult<TransactionDto>>>
 {
-    public async Task<ResultT<List<TransactionDto>>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
+    public async Task<ResultT<PagedResult<TransactionDto>>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
     {
         var query = dbContext.Transactions
             .AsNoTracking()
@@ -51,9 +51,25 @@ public class GetTransactionsQueryHandler(
             query = query.Where(x => x.Date <= request.EndDate.Value);
         }
 
-        var transactions = await query.ToListAsync(cancellationToken);
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        var page = request.Page < 1 ? 1 : request.Page;
+        var pageSize = request.PageSize < 1 ? 20 : request.PageSize;
+
+        var transactions = await query
+            .OrderByDescending(x => x.Date)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
 
         var transactionDtos = mapper.Map<List<TransactionDto>>(transactions);
-        return transactionDtos;
+
+        return new PagedResult<TransactionDto>
+        {
+            Items = transactionDtos,
+            Page = page,
+            PageSize = pageSize,
+            TotalCount = totalCount
+        };
     }
 }

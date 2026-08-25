@@ -6,6 +6,11 @@
     "aiInsightBadge": "Yapay Zeka İçgörüsü",
     "aiInsightsUnavailable": "Yapay zeka içgörüleri henüz kullanılamıyor."
   },
+  "pagination": {
+    "range": "{{total}} kayıttan {{start}}-{{end}} arası gösteriliyor",
+    "previous": "Önceki",
+    "next": "Sonraki"
+  },
   "nav": {
     "menu": "Menü",
     "dashboard": "Panel",
