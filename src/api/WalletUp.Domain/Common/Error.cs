@@ -25,4 +25,7 @@ public static class Errors
     public static Error UnexpectedError { get; } = new("UnexpectedError", "An unexpected error occurred.");
     public static Error SameAccountTransfer { get; } = new("SameAccountTransfer", "Cannot transfer money to the same account.");
     public static Error CurrencyConversionFailed { get; } = new("CurrencyConversionFailed", "Could not convert between the account currencies.");
+    public static Error CurrencyNotFound { get; } = new("CurrencyNotFound", "Currency not found.");
+    public static Error AccountTypeNotFound { get; } = new("AccountTypeNotFound", "Account type not found.");
+    public static Error Validation(string description) => new("ValidationError", description);
 }

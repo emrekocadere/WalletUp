@@ -2,6 +2,7 @@ using AutoMapper;
 using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WalletUp.Application.Common.Services;
 
@@ -18,6 +19,15 @@ public class CreateAccountCommandHandler(
     {
         var currentUserId = userContext.UserId;
         logger.LogInformation("Creating account for user {UserId} with initial balance: {InitialBalance}", currentUserId, request.InitialBalance);
+
+        var currencyExists = await dbContext.Currencies.AnyAsync(x => x.Id == request.CurrencyId, cancellationToken);
+        if (!currencyExists)
+            return Errors.CurrencyNotFound;
+
+        var accountTypeExists = await dbContext.AccountTypes.AnyAsync(x => x.Id == request.AccountTypeId, cancellationToken);
+        if (!accountTypeExists)
+            return Errors.AccountTypeNotFound;
+
         var account = mapper.Map<WalletUp.Domain.Entities.Account>(request);
         account.UserId = userContext.UserId;
 

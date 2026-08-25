@@ -26,6 +26,8 @@ public class AccountController(IMediator mediator):ControllerBase
             return Ok(result);
         if(result.Error?.Id == nameof(Errors.UnexpectedError))
             return StatusCode(500, result);
+        if(result.Error?.Id == nameof(Errors.CurrencyNotFound) || result.Error?.Id == nameof(Errors.AccountTypeNotFound))
+            return NotFound(result);
         return BadRequest(result);
     }
     
