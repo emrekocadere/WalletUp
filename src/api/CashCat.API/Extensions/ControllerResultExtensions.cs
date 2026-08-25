@@ -16,7 +16,7 @@ public static class ControllerResultExtensions
         {
             nameof(Errors.UnexpectedError) => controller.StatusCode(StatusCodes.Status500InternalServerError, result),
             nameof(Errors.Forbidden) => controller.StatusCode(StatusCodes.Status403Forbidden, result),
-            not null when result.Error!.Id.EndsWith("NotFound") => controller.NotFound(result),
+            "NotFound" => controller.NotFound(result),
             _ => controller.BadRequest(result)
         };
     }

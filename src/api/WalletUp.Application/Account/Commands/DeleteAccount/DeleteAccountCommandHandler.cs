@@ -20,7 +20,7 @@ public class DeleteAccountCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.AccountId, cancellationToken);
 
         if (account is null)
-            return Errors.AccountNotFound;
+            return Errors.NotFound("Account");
 
         if (!account.CanDelete(currentUserId))
             return Errors.Forbidden;

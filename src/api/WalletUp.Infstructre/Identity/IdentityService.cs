@@ -86,7 +86,7 @@ public class IdentityService(
 
         if (user == null)
         {
-            return Errors.UserNotFound;
+            return Errors.NotFound("User");
         }
        
         var result= await userManager.CheckPasswordAsync(user,command.Password);
@@ -142,7 +142,7 @@ public class IdentityService(
         var user = await userManager.FindByIdAsync(tokenInfo.UserId.ToString());
         if (user is null)
         {
-            return Errors.UserNotFound;
+            return Errors.NotFound("User");
         }
 
 
@@ -233,7 +233,7 @@ public class IdentityService(
                 var createResult = await userManager.CreateAsync(user);
                 if (!createResult.Succeeded)
                 { 
-                    return Errors.AccountNotFound;
+                    return Errors.NotFound("Account");
                 }
 
                 await userManager.AddToRoleAsync(user, "user");

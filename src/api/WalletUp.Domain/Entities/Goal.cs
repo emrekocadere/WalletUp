@@ -18,4 +18,5 @@ public class Goal
     
     
     public bool CanDelete(Guid userId) => UserId == userId;
+    public bool CanUpdate(Guid userId) => UserId == userId;
 }

@@ -22,7 +22,7 @@ public class GetAccountQueryHandler(
             .FirstOrDefaultAsync(x => x.Id == request.AccountId && x.UserId == userContext.UserId, cancellationToken);
 
         if (account is null)
-            return Errors.AccountNotFound;
+            return Errors.NotFound("Account");
 
         var accountDto = mapper.Map<AccountDto>(account);
 

@@ -22,11 +22,11 @@ public class CreateAccountCommandHandler(
 
         var currencyExists = await dbContext.Currencies.AnyAsync(x => x.Id == request.CurrencyId, cancellationToken);
         if (!currencyExists)
-            return Errors.CurrencyNotFound;
+            return Errors.NotFound("Currency");
 
         var accountTypeExists = await dbContext.AccountTypes.AnyAsync(x => x.Id == request.AccountTypeId, cancellationToken);
         if (!accountTypeExists)
-            return Errors.AccountTypeNotFound;
+            return Errors.NotFound("Account type");
 
         var account = mapper.Map<WalletUp.Domain.Entities.Account>(request);
         account.UserId = userContext.UserId;

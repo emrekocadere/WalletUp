@@ -14,4 +14,6 @@ public class Transaction
     public TransactionType? TransactionType { get; set; }
     public Account? Account { get; set; }
     public Category? Category { get; set; }
+
+    public bool CanDelete(Guid userId) => Account?.UserId == userId;
 }

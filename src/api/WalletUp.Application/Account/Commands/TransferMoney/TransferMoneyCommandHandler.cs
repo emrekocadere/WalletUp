@@ -31,7 +31,7 @@ public class TransferMoneyCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.ToAccountId && x.UserId == currentUserId, cancellationToken);
 
         if (fromAccount is null || toAccount is null)
-            return Errors.AccountNotFound;
+            return Errors.NotFound("Account");
 
         var fromAccountNetAmount = await dbContext.Transactions
             .AsNoTracking()

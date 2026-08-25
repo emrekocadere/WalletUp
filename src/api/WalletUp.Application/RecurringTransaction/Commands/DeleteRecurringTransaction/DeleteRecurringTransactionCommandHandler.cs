@@ -18,7 +18,7 @@ public class DeleteRecurringTransactionCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.Id && x.Account!.UserId == userContext.UserId, cancellationToken);
         if (recurringTransaction is null)
         {
-            return Errors.RecurringTransactionNotFound;
+            return Errors.NotFound("Recurring transaction");
         }
 
         dbContext.RecurringTransactions.Remove(recurringTransaction);

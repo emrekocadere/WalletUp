@@ -16,7 +16,7 @@ public class UpdatePreferenceCommandHandler(
         var preference = await dbContext.Preferences.FirstOrDefaultAsync(x => x.UserId == userContext.UserId, cancellationToken);
 
         if (preference is null)
-            return Errors.PreferenceNotFound;
+            return Errors.NotFound("Preference");
 
         if (request.CurrencyId.HasValue)
         {

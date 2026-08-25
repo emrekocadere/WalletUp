@@ -1,6 +1,7 @@
 using WalletUp.Application.Abstractions;
 using WalletUp.Domain.Common;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using WalletUp.Application.Common.Services;
 
 
@@ -19,7 +20,7 @@ public class UpdateAccountCommandHandler(
 
         if (account is null)
         {
-            return Errors.AccountNotFound;
+            return Errors.NotFound("Account");
         }
 
         if (!account.CanUpdate(currentUserId))
@@ -29,11 +30,19 @@ public class UpdateAccountCommandHandler(
         
         if (request.AccountTypeId != null)
         {
+            var accountTypeExists = await dbContext.AccountTypes.AnyAsync(x => x.Id == request.AccountTypeId.Value, cancellationToken);
+            if (!accountTypeExists)
+                return Errors.NotFound("Account type");
+
             account.AccountTypeId = request.AccountTypeId.Value;
         }
 
         if (request.CurrencyId != null)
         {
+            var currencyExists = await dbContext.Currencies.AnyAsync(x => x.Id == request.CurrencyId.Value, cancellationToken);
+            if (!currencyExists)
+                return Errors.NotFound("Currency");
+
             account.CurrencyId = request.CurrencyId.Value;
         }
 

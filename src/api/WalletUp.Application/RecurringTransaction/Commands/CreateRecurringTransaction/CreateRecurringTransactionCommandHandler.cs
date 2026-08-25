@@ -23,7 +23,7 @@ public class CreateRecurringTransactionCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.AccountId, cancellationToken);
         if (account is null || account.UserId != userContext.UserId)
         {
-            return Errors.AccountNotFound;
+            return Errors.NotFound("Account");
         }
 
         var recurringTransaction = mapper.Map<Domain.Entities.RecurringTransaction>(request);

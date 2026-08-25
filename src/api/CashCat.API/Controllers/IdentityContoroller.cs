@@ -46,7 +46,7 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
         var refreshToken = Request.Cookies["refreshToken"];
         if (string.IsNullOrEmpty(refreshToken))
         {
-            return Unauthorized(Result.Failure(Errors.AccountNotFound));
+            return Unauthorized(Result.Failure(Errors.NotFound("Account")));
         }
 
         // Access token'ı header'dan al (varsa)
