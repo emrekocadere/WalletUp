@@ -10,52 +10,43 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Account.Dtos;
-using WalletUp.Domain.Common;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class AccountController(IMediator mediator):ControllerBase
 {
     [HttpPost]
     public async Task<ActionResult> CreateAccount(CreateAccountCommand command)
     {
        var result = await mediator.Send(command);
-        if(result.IsSuccess)
-            return Ok(result);
-        if(result.Error?.Id == nameof(Errors.UnexpectedError))
-            return StatusCode(500, result);
-        if(result.Error?.Id == nameof(Errors.CurrencyNotFound) || result.Error?.Id == nameof(Errors.AccountTypeNotFound))
-            return NotFound(result);
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpGet]
     public async Task<ActionResult> GetAccounts()
     {
         var result = await mediator.Send(new GetAccountsQuery());
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpGet("{accountId}")]
     public async Task<ActionResult> GetAccount(Guid accountId)
     {
         var result = await mediator.Send(new GetAccountQuery(accountId));
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAccounts(Guid id)
     {
         var result = await mediator.Send(new DeleteAccountCommand(id));
-        if(result.IsSuccess)
-            return Ok(result);
-        if(result.Error?.Id == nameof(Errors.Forbidden))
-            return StatusCode(403, result);
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdateAccount(Guid id, UpdateAccountRequest request)
     {
@@ -67,18 +58,14 @@ public class AccountController(IMediator mediator):ControllerBase
             AccountTypeId = request.AccountTypeId
         };
         var result = await mediator.Send(command);
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpPost("transfer")]
     public async Task<ActionResult> TransferMoney(TransferMoneyCommand command)
     {
         var result = await mediator.Send(command);
-        if (result.IsSuccess)
-            return Ok(result);
-        if (result.Error?.Id == nameof(Errors.AccountNotFound))
-            return NotFound(result);
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpGet("AccountTypes")]
@@ -86,7 +73,7 @@ public class AccountController(IMediator mediator):ControllerBase
     public async Task<ActionResult> GetAccountTypes()
     {
         var result = await mediator.Send(new GetAccountTypesQuery());
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
 }

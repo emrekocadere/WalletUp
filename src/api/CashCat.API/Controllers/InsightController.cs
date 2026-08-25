@@ -1,11 +1,14 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Insight.Queries.GetInsight;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class InsightController(IMediator mediator): ControllerBase
 {
      [HttpGet]
@@ -13,10 +16,10 @@ public class InsightController(IMediator mediator): ControllerBase
      {
           var query = new GetInsightQuery(taskName);
           var result = await mediator.Send(query);
-          
+
           if (!result.IsSuccess)
-               return BadRequest(result.Error?.Description);
-               
+               return this.ToErrorResult(result);
+
           return Ok(result.Value);
      }
 }

@@ -15,32 +15,32 @@ public class UpdatePreferenceCommandHandler(
     {
         var preference = await dbContext.Preferences.FirstOrDefaultAsync(x => x.UserId == userContext.UserId, cancellationToken);
 
-        if (preference != null)
+        if (preference is null)
+            return Errors.PreferenceNotFound;
+
+        if (request.CurrencyId.HasValue)
         {
-            if (request.CurrencyId.HasValue)
-            {
-                preference.CurrencyId = request.CurrencyId.Value;
-            }
+            preference.CurrencyId = request.CurrencyId.Value;
+        }
 
-            if (request.CountryId.HasValue)
-            {
-                preference.CountryId = request.CountryId.Value;
-            }
+        if (request.CountryId.HasValue)
+        {
+            preference.CountryId = request.CountryId.Value;
+        }
 
-            if (request.Occupation != null)
-            {
-                preference.Occupation = request.Occupation;
-            }
+        if (request.Occupation != null)
+        {
+            preference.Occupation = request.Occupation;
+        }
 
-            if (request.MonthlyIncome.HasValue)
-            {
-                preference.MonthlyIncome = request.MonthlyIncome.Value;
-            }
+        if (request.MonthlyIncome.HasValue)
+        {
+            preference.MonthlyIncome = request.MonthlyIncome.Value;
+        }
 
-            if (request.Language != null)
-            {
-                preference.Language = request.Language;
-            }
+        if (request.Language != null)
+        {
+            preference.Language = request.Language;
         }
 
         await dbContext.SaveChangesAsync(cancellationToken);

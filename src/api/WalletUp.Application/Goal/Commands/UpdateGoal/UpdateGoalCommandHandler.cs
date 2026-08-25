@@ -11,6 +11,9 @@ public class UpdateGoalCommandHandler(
     public async Task<Result> Handle(UpdateGoalCommand request, CancellationToken cancellationToken)
     {
         var goal = await dbContext.Goals.FindAsync(new object[] { request.Id }, cancellationToken);
+        if (goal is null)
+            return Errors.GoalNotFound;
+
         if(request.Description!=null)
         {
             goal.Description=request.Description;

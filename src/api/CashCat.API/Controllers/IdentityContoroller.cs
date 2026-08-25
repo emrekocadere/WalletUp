@@ -4,10 +4,12 @@ using WalletUp.Application.Identity.Commands.Login;
 using WalletUp.Application.Identity.Dtos;
 using WalletUp.Domain.Common;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Identity.Commands.DeleteUser;
 using WalletUp.Application.Identity.Commands.RefreshToken;
 using WalletUp.Application.Identity.Commands.Logout;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
@@ -124,16 +126,18 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
     }
     
     [HttpDelete]
+    [Authorize]
     public async Task<ActionResult> DeleteUser()
     {
         var result = await mediator.Send(new DeleteUserCommand());
-        return Ok(result);
+        return this.ToActionResult(result);
     }
     [HttpPost("logout")]
+    [Authorize]
     public async Task<ActionResult> Logout()
     {
         var result = await mediator.Send(new LogoutCommand());
         Response.Cookies.Delete("refreshToken", new CookieOptions { Path = "/" });
-        return Ok(result);
+        return this.ToActionResult(result);
     }
 }

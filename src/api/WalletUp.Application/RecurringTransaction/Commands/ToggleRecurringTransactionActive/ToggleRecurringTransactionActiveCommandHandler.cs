@@ -20,7 +20,7 @@ public class ToggleRecurringTransactionActiveCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.Id && x.Account!.UserId == userContext.UserId, cancellationToken);
         if (recurringTransaction is null)
         {
-            return Errors.AccountNotFound;
+            return Errors.RecurringTransactionNotFound;
         }
 
         recurringTransaction.IsActive = !recurringTransaction.IsActive;

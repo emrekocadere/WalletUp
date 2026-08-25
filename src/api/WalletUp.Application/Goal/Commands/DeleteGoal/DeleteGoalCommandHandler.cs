@@ -11,16 +11,11 @@ public class DeleteGoalCommandHandler(
     public async Task<Result> Handle(DeleteGoalCommand request, CancellationToken cancellationToken)
     {
         var goal = await dbContext.Goals.FindAsync(new object[] { request.GoalId }, cancellationToken);
-        if (goal != null)
-        {
-            dbContext.Goals.Remove(goal);
-        }
+        if (goal is null)
+            return Errors.GoalNotFound;
 
-        var affectedRows = await dbContext.SaveChangesAsync(cancellationToken);
-        if(affectedRows>0)
-            return Result.Success();
-        else
-            return Result.Failure(Errors.AccountNotFound);
-
+        dbContext.Goals.Remove(goal);
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return Result.Success();
     }
 }

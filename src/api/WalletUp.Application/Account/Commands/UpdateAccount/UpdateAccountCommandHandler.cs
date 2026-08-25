@@ -15,10 +15,14 @@ public class UpdateAccountCommandHandler(
     {
         var currentUserId = userContext.UserId;
 
-        var account = await dbContext.Accounts.FindAsync(new object[] { request.Id }, cancellationToken);
-        var canUpdate = account.CanUpdate(currentUserId);
-        
-        if (!canUpdate)
+        var account = await dbContext.Accounts.FindAsync(request.Id, cancellationToken);
+
+        if (account is null)
+        {
+            return Errors.AccountNotFound;
+        }
+
+        if (!account.CanUpdate(currentUserId))
         {
             return Errors.Forbidden;
         }

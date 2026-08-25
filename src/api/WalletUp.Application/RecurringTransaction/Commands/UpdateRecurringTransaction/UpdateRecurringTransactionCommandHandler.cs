@@ -20,7 +20,7 @@ public class UpdateRecurringTransactionCommandHandler(
             .FirstOrDefaultAsync(x => x.Id == request.Id && x.Account!.UserId == userContext.UserId, cancellationToken);
         if (recurringTransaction is null)
         {
-            return Errors.AccountNotFound;
+            return Errors.RecurringTransactionNotFound;
         }
 
         var newStartDate = request.StartDate.ToUniversalTime();

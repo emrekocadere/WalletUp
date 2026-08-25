@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Goal.Commands.UpdateGoal;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
@@ -18,47 +19,47 @@ public class GoalController(IMediator mediator):ControllerBase
     public async  Task<ActionResult> CreateGoal(CreateGoalCommand command)
     {
         var result =await  mediator.Send(command);
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpGet("api/Goal")]
     public async  Task<ActionResult> GetGoals()
     {
         var result =await  mediator.Send(new GetGoalsQuery());
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpPost("api/Goal/{goalId}/Transaction")]
     public async  Task<ActionResult> AddTransactionToGoal(Guid goalId,AddGoalTransactionRequest request)
     {
         var command = new AddTransactionToGoalCommand(
             goalId,
             request.Amount,
-            request.TransactionTypeId); 
-        
+            request.TransactionTypeId);
+
         var result =await  mediator.Send(command);
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpDelete("api/Goal/{goalId}")]
     public async  Task<ActionResult> AddTransactionToGoal(Guid goalId)
     {
         var command = new DeleteGoalCommand(goalId);
         var result =await  mediator.Send(command);
-        return Ok(result);
+        return this.ToActionResult(result);
     }
-    
+
     [HttpPatch("api/Goal/{id}")]
     public async  Task<ActionResult> UpdateGoal(Guid id,UpdateGoalRequest request)
     {
-        var command=new UpdateGoalCommand( 
+        var command=new UpdateGoalCommand(
             id,
             request.Name,
             request.Description,
             request.Target);
-        
+
         var result =await  mediator.Send(command);
-        return Ok(result);
+        return this.ToActionResult(result);
     }
 
 }

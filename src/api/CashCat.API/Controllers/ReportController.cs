@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Report.Queries.GetAnnualReport;
 using WalletUp.Domain.Common;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
@@ -15,11 +16,6 @@ public class ReportController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> GetAnnualReport(int? year = null)
     {
         var result = await mediator.Send(new GetAnnualReportQuery(year ?? DateTime.UtcNow.Year));
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 }

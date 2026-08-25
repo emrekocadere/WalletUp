@@ -8,6 +8,7 @@ using WalletUp.Application.RecurringTransaction.Commands.UpdateRecurringTransact
 using WalletUp.Application.RecurringTransaction.Dtos;
 using WalletUp.Application.RecurringTransaction.Queries.GetRecurringTransactions;
 using WalletUp.Domain.Common;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
@@ -20,14 +21,14 @@ public class RecurringTransactionController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> GetRecurringTransactions()
     {
         var result = await mediator.Send(new GetRecurringTransactionsQuery());
-        return result.IsSuccess ? Ok(result) : BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpPost]
     public async Task<ActionResult<Result>> CreateRecurringTransaction(CreateRecurringTransactionCommand command)
     {
         var result = await mediator.Send(command);
-        return result.IsSuccess ? Ok(result) : BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpPut("{id}")]
@@ -46,20 +47,20 @@ public class RecurringTransactionController(IMediator mediator) : ControllerBase
             request.IsActive);
 
         var result = await mediator.Send(command);
-        return result.IsSuccess ? Ok(result) : BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Result>> DeleteRecurringTransaction(Guid id)
     {
         var result = await mediator.Send(new DeleteRecurringTransactionCommand(id));
-        return result.IsSuccess ? Ok(result) : BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpPatch("{id}/toggle-active")]
     public async Task<ActionResult<Result>> ToggleActive(Guid id)
     {
         var result = await mediator.Send(new ToggleRecurringTransactionActiveCommand(id));
-        return result.IsSuccess ? Ok(result) : BadRequest(result);
+        return this.ToActionResult(result);
     }
 }

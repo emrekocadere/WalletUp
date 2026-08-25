@@ -18,9 +18,11 @@ public class DeleteAccountCommandHandler(
             .Include(x => x.AccountType)
             .Include(x => x.Currency)
             .FirstOrDefaultAsync(x => x.Id == request.AccountId, cancellationToken);
-        var canDelete = account.CanDelete(currentUserId);
 
-        if (!canDelete)
+        if (account is null)
+            return Errors.AccountNotFound;
+
+        if (!account.CanDelete(currentUserId))
             return Errors.Forbidden;
 
         dbContext.Accounts.Remove(account);

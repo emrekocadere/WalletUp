@@ -27,5 +27,9 @@ public static class Errors
     public static Error CurrencyConversionFailed { get; } = new("CurrencyConversionFailed", "Could not convert between the account currencies.");
     public static Error CurrencyNotFound { get; } = new("CurrencyNotFound", "Currency not found.");
     public static Error AccountTypeNotFound { get; } = new("AccountTypeNotFound", "Account type not found.");
+    public static Error GoalNotFound { get; } = new("GoalNotFound", "Goal not found.");
+    public static Error RecurringTransactionNotFound { get; } = new("RecurringTransactionNotFound", "Recurring transaction not found.");
+    public static Error TransactionNotFound { get; } = new("TransactionNotFound", "Transaction not found.");
+    public static Error PreferenceNotFound { get; } = new("PreferenceNotFound", "Preference not found.");
     public static Error Validation(string description) => new("ValidationError", description);
 }

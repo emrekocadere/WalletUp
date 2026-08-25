@@ -13,15 +13,13 @@ public class AddTransactionToGoalCommandHandler(
 {
     public async Task<Result> Handle(AddTransactionToGoalCommand request, CancellationToken cancellationToken)
     {
-        var transaction = mapper.Map<GoalTransaction>(request);
         var goal = await dbContext.Goals.FindAsync(new object[] { request.GoaldId }, cancellationToken);
+        if (goal is null)
+            return Errors.GoalNotFound;
+
+        var transaction = mapper.Map<GoalTransaction>(request);
         dbContext.GoalTransactions.Add(transaction);
-        var affecredRows = await dbContext.SaveChangesAsync(cancellationToken);
-        if (affecredRows > 0)
-            return Result.Success();
-        else
-        {
-            return Result.Failure(Errors.AccountNotFound);
-        }
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return Result.Success();
     }
 }

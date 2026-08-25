@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Transaction.Commands.UpdateTransaction;
 using WalletUp.Application.Transaction.Dtos;
 using WalletUp.Application.Transaction.Queries.GetCountries;
+using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
 
@@ -24,12 +25,7 @@ public class TransactionController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> CreateTransaction(CreateTransactionCommand command)
     {
         var result = await mediator.Send(command);
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpGet("{accountId}")]
@@ -47,24 +43,14 @@ public class TransactionController(IMediator mediator) : ControllerBase
             startDate,
             endDate
         ));
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpDelete("{transactionId}")]
     public async Task<ActionResult<Result>> DeleteTransaction(Guid transactionId)
     {
         var result = await mediator.Send(new DeleteTransactionCommand(transactionId));
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [AllowAnonymous]
@@ -72,12 +58,7 @@ public class TransactionController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> GetCurrencies()
     {
         var result = await mediator.Send(new GetCurrenciesQuery());
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [AllowAnonymous]
@@ -85,12 +66,7 @@ public class TransactionController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> GetCategories()
     {
         var result = await mediator.Send(new GetCategoriesQuery());
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [AllowAnonymous]
@@ -98,25 +74,15 @@ public class TransactionController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<Result>> GetTransactionTypes()
     {
         var result = await mediator.Send(new GetTransactionTypesQuery());
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
-    
+
     [AllowAnonymous]
     [HttpGet("countries")]
     public async Task<ActionResult<Result>> GetCountries()
     {
         var result = await mediator.Send(new GetCountriesQuery());
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpGet]
@@ -134,24 +100,14 @@ public class TransactionController(IMediator mediator) : ControllerBase
             startDate,
             endDate
         ));
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpGet("dashboard/{month}")]
     public async Task<ActionResult<Result>> GetDashboard(int month, [FromQuery] int? year = null)
     {
         var result = await mediator.Send(new GetDashboardQuery(month, year));
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 
     [HttpPut("{id}")]
@@ -168,11 +124,6 @@ public class TransactionController(IMediator mediator) : ControllerBase
             request.CategoryId
         );
         var result = await mediator.Send(command);
-        if (result.IsSuccess)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return this.ToActionResult(result);
     }
 }

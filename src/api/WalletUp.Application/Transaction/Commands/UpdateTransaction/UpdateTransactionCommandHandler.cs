@@ -11,6 +11,9 @@ public class UpdateTransactionCommandHandler(
     public async Task<Result> Handle(UpdateTransactionCommand request, CancellationToken cancellationToken)
     {
         var transaction = await dbContext.Transactions.FindAsync(new object[] { request.TransactionId }, cancellationToken);
+        if (transaction is null)
+            return Errors.TransactionNotFound;
+
         if (request.Title != null)
         {
             transaction.Title = request.Title;
