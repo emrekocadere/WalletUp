@@ -23,4 +23,6 @@ public static class Errors
     public static Error InvalidReportRequest { get; } = new("InvalidReportRequest", "Invalid report request. Year must be between 2000 and next year.");
     public static Error InvalidRefreshToken { get; } = new("InvalidRefreshToken", "Refresh token is invalid or has expired.");
     public static Error UnexpectedError { get; } = new("UnexpectedError", "An unexpected error occurred.");
+    public static Error SameAccountTransfer { get; } = new("SameAccountTransfer", "Cannot transfer money to the same account.");
+    public static Error CurrencyConversionFailed { get; } = new("CurrencyConversionFailed", "Could not convert between the account currencies.");
 }

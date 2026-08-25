@@ -14,6 +14,7 @@ public class DatabaseSeeder(CashCatDbContext db)
             await SeedCountriesAsync();
             await SeedAccountTypesAsync();
             await SeedTransactionTypesAsync();
+            await SeedTransferCategoryAsync();
             await SeedRolesAsync();
     }
 
@@ -111,6 +112,18 @@ public class DatabaseSeeder(CashCatDbContext db)
 
         await db.SaveChangesAsync();
     }
+    private async Task SeedTransferCategoryAsync()
+    {
+        if (await db.Categories.AnyAsync(x => x.Name == "Transfer"))
+        {
+            return;
+        }
+
+        db.Categories.Add(new Category { Name = "Transfer" });
+
+        await db.SaveChangesAsync();
+    }
+
     private async Task SeedRolesAsync()
     {
         if (await db.Roles.AnyAsync())

@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using WalletUp.Application.Account.Commands.CreateAccount;
 using WalletUp.Application.Account.Commands.DeleteAccount;
+using WalletUp.Application.Account.Commands.TransferMoney;
 using WalletUp.Application.Account.Commands.UpdateAccount;
 using WalletUp.Application.Account.Queries.GetAccount;
 using WalletUp.Application.Account.Queries.GetAccounts;
@@ -67,6 +68,17 @@ public class AccountController(IMediator mediator):ControllerBase
         return Ok(result);
     }
     
+    [HttpPost("transfer")]
+    public async Task<ActionResult> TransferMoney(TransferMoneyCommand command)
+    {
+        var result = await mediator.Send(command);
+        if (result.IsSuccess)
+            return Ok(result);
+        if (result.Error?.Id == nameof(Errors.AccountNotFound))
+            return NotFound(result);
+        return BadRequest(result);
+    }
+
     [HttpGet("AccountTypes")]
     [AllowAnonymous]
     public async Task<ActionResult> GetAccountTypes()
