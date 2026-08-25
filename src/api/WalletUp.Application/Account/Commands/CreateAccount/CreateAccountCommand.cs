@@ -9,5 +9,4 @@ public record CreateAccountCommand:IRequest<Result>
     public Guid AccountTypeId { get; init; }
     public double InitialBalance { get; init; }
     public Guid  CurrencyId { get; init; }
-    public DateTime CreatedAt { get; init; }
 }
