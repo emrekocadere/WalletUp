@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Paran,",
-    "titleLine2": "Daha Akıllı.",
+    "titleLine2": "Daha Akıllı",
     "subtitle": "Her harcamayı takip et, her hedefe ulaş — finansal alışkanlıklarını gerçekten anlayan yapay zeka içgörüleriyle.",
     "startFree": "Ücretsiz Başla",
     "signIn": "Giriş Yap"
@@ -88,10 +88,22 @@
       "description": "Daha akıllı para yönetimi için gelişmiş yapay zeka özellikleri",
       "everythingInFree": "Ücretsiz'deki her şey, artı:",
       "features": [
-        { "title": "Yapay zeka destekli kategorilendirme", "description": "Otomatik ve akıllı" },
-        { "title": "Tahmine dayalı analiz", "description": "Harcamayı öngör" },
-        { "title": "Kişiselleştirilmiş içgörüler", "description": "Özel öneriler" },
-        { "title": "Bütçe optimizasyonu", "description": "Yapay zeka destekli tasarruf" }
+        {
+          "title": "Yapay zeka destekli kategorilendirme",
+          "description": "Otomatik ve akıllı"
+        },
+        {
+          "title": "Tahmine dayalı analiz",
+          "description": "Harcamayı öngör"
+        },
+        {
+          "title": "Kişiselleştirilmiş içgörüler",
+          "description": "Özel öneriler"
+        },
+        {
+          "title": "Bütçe optimizasyonu",
+          "description": "Yapay zeka destekli tasarruf"
+        }
       ],
       "prioritySupport": "Öncelikli destek"
     }

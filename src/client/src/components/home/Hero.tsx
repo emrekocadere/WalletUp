@@ -39,11 +39,16 @@ export const Hero = () => {
           {/* Left: Text */}
           <div className="space-y-8 text-center mx-auto max-w-4xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="text-white">{t('hero.titleLine1')}</span>
+              <span
+                className="text-white"
+                style={{ textShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3)' }}
+              >
+                {t('hero.titleLine1')}
+              </span>
               <br />
               <span
-                className="text-purple-400 block sm:inline text-6xl sm:text-7xl lg:text-8xl animate-neon-flicker"
-                style={{ fontFamily: '"Neonderthaw", cursive', fontWeight: 400 }}
+                className="text-purple-400 block sm:inline mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-6xl tracking-wide animate-neon-flicker"
+                style={{ fontFamily: '"Rubik Mono One", sans-serif' }}
               >
                 {t('hero.titleLine2')}
               </span>

@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Your Money,",
-    "titleLine2": "Smarter.",
+    "titleLine2": "Smarter",
     "subtitle": "Track every expense, hit every goal — powered by AI insights that actually understand your financial habits.",
     "startFree": "Start for Free",
     "signIn": "Sign In"
@@ -88,10 +88,22 @@
       "description": "Advanced AI features for smarter money management",
       "everythingInFree": "Everything in Free, plus:",
       "features": [
-        { "title": "AI-powered categorization", "description": "Automatic & smart" },
-        { "title": "Predictive analytics", "description": "Forecast spending" },
-        { "title": "Personalized insights", "description": "Custom recommendations" },
-        { "title": "Budget optimization", "description": "AI-driven savings" }
+        {
+          "title": "AI-powered categorization",
+          "description": "Automatic & smart"
+        },
+        {
+          "title": "Predictive analytics",
+          "description": "Forecast spending"
+        },
+        {
+          "title": "Personalized insights",
+          "description": "Custom recommendations"
+        },
+        {
+          "title": "Budget optimization",
+          "description": "AI-driven savings"
+        }
       ],
       "prioritySupport": "Priority support"
     }

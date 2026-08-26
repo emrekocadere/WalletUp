@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "I tuoi soldi,",
-    "titleLine2": "più intelligenti.",
+    "titleLine2": "più intelligenti",
     "subtitle": "Monitora ogni spesa, raggiungi ogni obiettivo — grazie ad analisi IA che comprendono davvero le tue abitudini finanziarie.",
     "startFree": "Inizia gratis",
     "signIn": "Accedi"
@@ -88,10 +88,22 @@
       "description": "Funzionalità IA avanzate per una gestione del denaro più intelligente",
       "everythingInFree": "Tutto quello del piano Gratuito, più:",
       "features": [
-        { "title": "Categorizzazione con IA", "description": "Automatica e intelligente" },
-        { "title": "Analisi predittive", "description": "Prevedi le spese" },
-        { "title": "Analisi personalizzate", "description": "Consigli su misura" },
-        { "title": "Ottimizzazione del budget", "description": "Risparmi guidati dall'IA" }
+        {
+          "title": "Categorizzazione con IA",
+          "description": "Automatica e intelligente"
+        },
+        {
+          "title": "Analisi predittive",
+          "description": "Prevedi le spese"
+        },
+        {
+          "title": "Analisi personalizzate",
+          "description": "Consigli su misura"
+        },
+        {
+          "title": "Ottimizzazione del budget",
+          "description": "Risparmi guidati dall'IA"
+        }
       ],
       "prioritySupport": "Supporto prioritario"
     }

@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Jouw geld,",
-    "titleLine2": "slimmer.",
+    "titleLine2": "slimmer",
     "subtitle": "Houd elke uitgave bij, behaal elk doel — mogelijk gemaakt door AI-inzichten die jouw financiële gewoontes echt begrijpen.",
     "startFree": "Gratis beginnen",
     "signIn": "Inloggen"
@@ -88,10 +88,22 @@
       "description": "Geavanceerde AI-functies voor slimmer geldbeheer",
       "everythingInFree": "Alles van Gratis, plus:",
       "features": [
-        { "title": "AI-gestuurde categorisering", "description": "Automatisch en slim" },
-        { "title": "Voorspellende analyses", "description": "Voorspel uitgaven" },
-        { "title": "Persoonlijke inzichten", "description": "Aanbevelingen op maat" },
-        { "title": "Budgetoptimalisatie", "description": "AI-gestuurde besparingen" }
+        {
+          "title": "AI-gestuurde categorisering",
+          "description": "Automatisch en slim"
+        },
+        {
+          "title": "Voorspellende analyses",
+          "description": "Voorspel uitgaven"
+        },
+        {
+          "title": "Persoonlijke inzichten",
+          "description": "Aanbevelingen op maat"
+        },
+        {
+          "title": "Budgetoptimalisatie",
+          "description": "AI-gestuurde besparingen"
+        }
       ],
       "prioritySupport": "Prioritaire ondersteuning"
     }

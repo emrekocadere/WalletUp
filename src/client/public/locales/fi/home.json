@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Rahasi,",
-    "titleLine2": "Fiksummin.",
+    "titleLine2": "Fiksummin",
     "subtitle": "Seuraa jokaista kulua, saavuta jokainen tavoite — tekoälyn oivallusten voimalla, jotka todella ymmärtävät talousta.",
     "startFree": "Aloita ilmaiseksi",
     "signIn": "Kirjaudu sisään"
@@ -84,10 +84,22 @@
       "description": "Edistyneitä tekoälyominaisuuksia älykkäämpään rahanhallintaan",
       "everythingInFree": "Kaikki Ilmaisessa, sekä:",
       "features": [
-        { "title": "Tekoälypohjainen luokittelu", "description": "Automaattista ja älykästä" },
-        { "title": "Ennakoiva analytiikka", "description": "Ennusta kulutusta" },
-        { "title": "Henkilökohtaiset oivallukset", "description": "Räätälöityjä suosituksia" },
-        { "title": "Budjetin optimointi", "description": "Tekoälyn ohjaamaa säästämistä" }
+        {
+          "title": "Tekoälypohjainen luokittelu",
+          "description": "Automaattista ja älykästä"
+        },
+        {
+          "title": "Ennakoiva analytiikka",
+          "description": "Ennusta kulutusta"
+        },
+        {
+          "title": "Henkilökohtaiset oivallukset",
+          "description": "Räätälöityjä suosituksia"
+        },
+        {
+          "title": "Budjetin optimointi",
+          "description": "Tekoälyn ohjaamaa säästämistä"
+        }
       ],
       "prioritySupport": "Etusijainen tuki"
     }

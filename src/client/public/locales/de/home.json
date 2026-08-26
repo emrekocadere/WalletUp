@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Ihr Geld,",
-    "titleLine2": "Smarter.",
+    "titleLine2": "Smarter",
     "subtitle": "Verfolgen Sie jede Ausgabe, erreichen Sie jedes Ziel — mit KI-Einblicken, die Ihre finanziellen Gewohnheiten wirklich verstehen.",
     "startFree": "Kostenlos starten",
     "signIn": "Anmelden"
@@ -84,10 +84,22 @@
       "description": "Erweiterte KI-Funktionen für smarteres Geldmanagement",
       "everythingInFree": "Alles aus Kostenlos, plus:",
       "features": [
-        { "title": "KI-gestützte Kategorisierung", "description": "Automatisch & intelligent" },
-        { "title": "Prädiktive Analysen", "description": "Ausgaben vorhersagen" },
-        { "title": "Personalisierte Einblicke", "description": "Individuelle Empfehlungen" },
-        { "title": "Budgetoptimierung", "description": "KI-gestütztes Sparen" }
+        {
+          "title": "KI-gestützte Kategorisierung",
+          "description": "Automatisch & intelligent"
+        },
+        {
+          "title": "Prädiktive Analysen",
+          "description": "Ausgaben vorhersagen"
+        },
+        {
+          "title": "Personalisierte Einblicke",
+          "description": "Individuelle Empfehlungen"
+        },
+        {
+          "title": "Budgetoptimierung",
+          "description": "KI-gestütztes Sparen"
+        }
       ],
       "prioritySupport": "Priorisierter Support"
     }

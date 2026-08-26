@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Peningarnir þínir,",
-    "titleLine2": "Snjallari.",
+    "titleLine2": "Snjallari",
     "subtitle": "Fylgstu með hverri útgjöldum, náðu hverju markmiði — knúið af gervigreindarinnsýn sem skilur raunverulega fjárhagsvenjur þínar.",
     "startFree": "Byrja frítt",
     "signIn": "Skrá inn"
@@ -84,10 +84,22 @@
       "description": "Fullkomnir gervigreindareiginleikar fyrir snjallari fjárstýringu",
       "everythingInFree": "Allt í Frítt, auk þess:",
       "features": [
-        { "title": "Gervigreindarknúin flokkun", "description": "Sjálfvirkt og snjallt" },
-        { "title": "Forspárgreining", "description": "Spá fyrir um eyðslu" },
-        { "title": "Persónuleg innsýn", "description": "Sérsniðnar tillögur" },
-        { "title": "Fjárhagsáætlunarhagræðing", "description": "Gervigreindarknúinn sparnaður" }
+        {
+          "title": "Gervigreindarknúin flokkun",
+          "description": "Sjálfvirkt og snjallt"
+        },
+        {
+          "title": "Forspárgreining",
+          "description": "Spá fyrir um eyðslu"
+        },
+        {
+          "title": "Persónuleg innsýn",
+          "description": "Sérsniðnar tillögur"
+        },
+        {
+          "title": "Fjárhagsáætlunarhagræðing",
+          "description": "Gervigreindarknúinn sparnaður"
+        }
       ],
       "prioritySupport": "Forgangsþjónusta"
     }

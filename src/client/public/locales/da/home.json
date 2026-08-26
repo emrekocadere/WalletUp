@@ -7,7 +7,7 @@
   },
   "hero": {
     "titleLine1": "Dine penge,",
-    "titleLine2": "Smartere.",
+    "titleLine2": "Smartere",
     "subtitle": "Hold styr på hver udgift, nå hvert mål — drevet af AI-indsigter, der rent faktisk forstår dine økonomiske vaner.",
     "startFree": "Start gratis",
     "signIn": "Log ind"
@@ -84,10 +84,22 @@
       "description": "Avancerede AI-funktioner til smartere pengehåndtering",
       "everythingInFree": "Alt i Gratis, plus:",
       "features": [
-        { "title": "AI-drevet kategorisering", "description": "Automatisk og smart" },
-        { "title": "Prædiktiv analyse", "description": "Forudsig forbrug" },
-        { "title": "Personlig indsigt", "description": "Skræddersyede anbefalinger" },
-        { "title": "Budgetoptimering", "description": "AI-drevne besparelser" }
+        {
+          "title": "AI-drevet kategorisering",
+          "description": "Automatisk og smart"
+        },
+        {
+          "title": "Prædiktiv analyse",
+          "description": "Forudsig forbrug"
+        },
+        {
+          "title": "Personlig indsigt",
+          "description": "Skræddersyede anbefalinger"
+        },
+        {
+          "title": "Budgetoptimering",
+          "description": "AI-drevne besparelser"
+        }
       ],
       "prioritySupport": "Prioriteret support"
     }
