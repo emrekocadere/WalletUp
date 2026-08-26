@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Objectifs financiers",
+    "subtitle": "Suivez vos objectifs d'épargne et restez motivé",
+    "addNewGoal": "Ajouter un objectif",
+    "loading": "Chargement des objectifs...",
+    "deleteSuccess": "Objectif supprimé avec succès",
+    "deleteFailed": "Échec de la suppression de l'objectif",
+    "deleteFailedRetry": "Échec de la suppression de l'objectif. Veuillez réessayer."
+  },
+  "goalCard": {
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "progress": "Progression",
+    "current": "Actuel",
+    "target": "Objectif",
+    "addMoney": "Ajouter de l'argent"
+  },
+  "emptyState": {
+    "title": "Aucun objectif pour l'instant",
+    "subtitle": "Commencez à définir des objectifs financiers pour suivre votre progression",
+    "cta": "Créer votre premier objectif"
+  },
+  "statsCards": {
+    "activeGoals": "Objectifs actifs",
+    "totalTarget": "Objectif total",
+    "totalSaved": "Total épargné"
+  },
+  "editModal": {
+    "title": "Modifier l'objectif",
+    "nameLabel": "Nom de l'objectif",
+    "namePlaceholder": "ex. Fonds d'urgence",
+    "targetLabel": "Montant cible",
+    "descriptionLabel": "Description (facultatif)",
+    "descriptionPlaceholder": "Ajoutez des détails sur votre objectif...",
+    "cancel": "Annuler",
+    "submit": "Mettre à jour l'objectif",
+    "submitting": "Mise à jour...",
+    "errors": {
+      "invalidAmount": "Veuillez saisir un montant cible valide",
+      "nameRequired": "Veuillez saisir un nom d'objectif",
+      "noChanges": "Aucune modification à enregistrer"
+    },
+    "toastSuccess": "Objectif mis à jour avec succès",
+    "toastFailed": "Échec de la mise à jour de l'objectif",
+    "toastFailedRetry": "Échec de la mise à jour de l'objectif. Veuillez réessayer."
+  },
+  "addModal": {
+    "title": "Créer un nouvel objectif",
+    "nameLabel": "Nom de l'objectif",
+    "namePlaceholder": "ex. Fonds d'urgence",
+    "currencyLabel": "Devise",
+    "currencyPlaceholder": "Sélectionner une devise",
+    "loadingCurrencies": "Chargement des devises...",
+    "targetLabel": "Montant cible",
+    "descriptionLabel": "Description (facultatif)",
+    "descriptionPlaceholder": "Ajoutez des détails sur votre objectif...",
+    "cancel": "Annuler",
+    "submit": "Créer l'objectif",
+    "submitting": "Création...",
+    "errors": {
+      "invalidAmount": "Veuillez saisir un montant cible valide",
+      "nameRequired": "Veuillez saisir un nom d'objectif",
+      "currencyRequired": "Veuillez sélectionner une devise"
+    },
+    "toastSuccess": "Créé avec succès",
+    "toastFailed": "Échec de la création de l'objectif",
+    "toastFailedRetry": "Échec de la création de l'objectif. Veuillez réessayer.",
+    "toastLoadCurrenciesFailed": "Échec du chargement des devises"
+  },
+  "addMoneyModal": {
+    "title": "Ajouter de l'argent à l'objectif",
+    "current": "Actuel :",
+    "target": "Objectif :",
+    "remaining": "Restant :",
+    "transactionType": "Type de transaction",
+    "transactionTypePlaceholder": "Sélectionner le type de transaction",
+    "amountLabel": "Montant à ajouter",
+    "newTotal": "Nouveau total : {{amount}}",
+    "cancel": "Annuler",
+    "submit": "Ajouter de l'argent",
+    "submitting": "Ajout en cours...",
+    "errors": {
+      "invalidAmount": "Veuillez saisir un montant valide",
+      "typeRequired": "Veuillez sélectionner un type de transaction"
+    },
+    "toastFailed": "Échec de l'ajout d'argent",
+    "toastFailedRetry": "Échec de l'ajout d'argent. Veuillez réessayer."
+  }
+}

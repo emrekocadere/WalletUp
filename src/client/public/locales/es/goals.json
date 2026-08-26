@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Objetivos financieros",
+    "subtitle": "Sigue tus objetivos de ahorro y mantente motivado",
+    "addNewGoal": "Añadir nuevo objetivo",
+    "loading": "Cargando objetivos...",
+    "deleteSuccess": "Objetivo eliminado correctamente",
+    "deleteFailed": "Error al eliminar el objetivo",
+    "deleteFailedRetry": "Error al eliminar el objetivo. Inténtalo de nuevo."
+  },
+  "goalCard": {
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "progress": "Progreso",
+    "current": "Actual",
+    "target": "Objetivo",
+    "addMoney": "Añadir dinero"
+  },
+  "emptyState": {
+    "title": "Aún no hay objetivos",
+    "subtitle": "Empieza a definir objetivos financieros para seguir tu progreso",
+    "cta": "Crea tu primer objetivo"
+  },
+  "statsCards": {
+    "activeGoals": "Objetivos activos",
+    "totalTarget": "Objetivo total",
+    "totalSaved": "Total ahorrado"
+  },
+  "editModal": {
+    "title": "Editar objetivo",
+    "nameLabel": "Nombre del objetivo",
+    "namePlaceholder": "p. ej., Fondo de emergencia",
+    "targetLabel": "Importe objetivo",
+    "descriptionLabel": "Descripción (opcional)",
+    "descriptionPlaceholder": "Añade detalles sobre tu objetivo...",
+    "cancel": "Cancelar",
+    "submit": "Actualizar objetivo",
+    "submitting": "Actualizando...",
+    "errors": {
+      "invalidAmount": "Introduce un importe objetivo válido",
+      "nameRequired": "Introduce un nombre para el objetivo",
+      "noChanges": "No hay cambios que guardar"
+    },
+    "toastSuccess": "Objetivo actualizado correctamente",
+    "toastFailed": "Error al actualizar el objetivo",
+    "toastFailedRetry": "Error al actualizar el objetivo. Inténtalo de nuevo."
+  },
+  "addModal": {
+    "title": "Crear nuevo objetivo",
+    "nameLabel": "Nombre del objetivo",
+    "namePlaceholder": "p. ej., Fondo de emergencia",
+    "currencyLabel": "Moneda",
+    "currencyPlaceholder": "Selecciona una moneda",
+    "loadingCurrencies": "Cargando monedas...",
+    "targetLabel": "Importe objetivo",
+    "descriptionLabel": "Descripción (opcional)",
+    "descriptionPlaceholder": "Añade detalles sobre tu objetivo...",
+    "cancel": "Cancelar",
+    "submit": "Crear objetivo",
+    "submitting": "Creando...",
+    "errors": {
+      "invalidAmount": "Introduce un importe objetivo válido",
+      "nameRequired": "Introduce un nombre para el objetivo",
+      "currencyRequired": "Selecciona una moneda"
+    },
+    "toastSuccess": "Creado correctamente",
+    "toastFailed": "Error al crear el objetivo",
+    "toastFailedRetry": "Error al crear el objetivo. Inténtalo de nuevo.",
+    "toastLoadCurrenciesFailed": "Error al cargar las monedas"
+  },
+  "addMoneyModal": {
+    "title": "Añadir dinero al objetivo",
+    "current": "Actual:",
+    "target": "Objetivo:",
+    "remaining": "Restante:",
+    "transactionType": "Tipo de transacción",
+    "transactionTypePlaceholder": "Selecciona el tipo de transacción",
+    "amountLabel": "Importe a añadir",
+    "newTotal": "Nuevo total: {{amount}}",
+    "cancel": "Cancelar",
+    "submit": "Añadir dinero",
+    "submitting": "Añadiendo...",
+    "errors": {
+      "invalidAmount": "Introduce un importe válido",
+      "typeRequired": "Selecciona un tipo de transacción"
+    },
+    "toastFailed": "Error al añadir dinero",
+    "toastFailedRetry": "Error al añadir dinero. Inténtalo de nuevo."
+  }
+}

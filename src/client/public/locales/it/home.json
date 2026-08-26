@@ -1,0 +1,145 @@
+{
+  "header": {
+    "features": "Funzionalità",
+    "whyUs": "Perché noi",
+    "signIn": "Accedi",
+    "getStarted": "Inizia"
+  },
+  "hero": {
+    "titleLine1": "I tuoi soldi,",
+    "titleLine2": "più intelligenti.",
+    "subtitle": "Monitora ogni spesa, raggiungi ogni obiettivo — grazie ad analisi IA che comprendono davvero le tue abitudini finanziarie.",
+    "startFree": "Inizia gratis",
+    "signIn": "Accedi"
+  },
+  "featuresSection": {
+    "eyebrow": "I tuoi soldi, voce per voce",
+    "titlePrefix": "Pensato per come ",
+    "titleEmphasis": "vivi davvero",
+    "titleSuffix": "",
+    "subtitle": "Le funzionalità che le persone aprono ogni settimana, non quelle della demo.",
+    "items": {
+      "insights": {
+        "name": "Analisi basate sull'IA",
+        "description": "Consigli personalizzati basati sulle tue reali abitudini di spesa, non generici suggerimenti di budget."
+      },
+      "reports": {
+        "name": "Report e analisi",
+        "description": "Un anno intero di entrate e spese, suddiviso per mese e categoria."
+      },
+      "goals": {
+        "name": "Monitoraggio obiettivi",
+        "description": "Imposta un obiettivo, aggiungi denaro quando puoi e guarda la barra avanzare davvero."
+      },
+      "recurring": {
+        "name": "Transazioni ricorrenti",
+        "description": "Affitto, stipendio, abbonamenti — imposta una volta e si registrano da soli a ogni ciclo."
+      },
+      "multiCurrency": {
+        "name": "Multi-valuta",
+        "description": "Tieni conti in qualsiasi valuta, convertiti in tempo reale in quella che usi davvero."
+      },
+      "security": {
+        "name": "Sessioni sicure",
+        "description": "Accessi crittografati che si rinnovano silenziosamente — e si disconnettono al momento giusto."
+      },
+      "csvExport": {
+        "name": "Esportazione CSV",
+        "description": "Esporta qualsiasi vista filtrata delle tue transazioni in un foglio di calcolo con un clic."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Pronto a prendere il",
+    "titleEmphasis": "controllo?",
+    "subtitle": "Inizia oggi il tuo percorso finanziario — gratis, senza carta di credito.",
+    "getStartedFree": "Inizia gratis",
+    "signIn": "Accedi"
+  },
+  "footer": {
+    "tagline": "Gestione intelligente del denaro basata sull'IA. Monitora le spese, raggiungi gli obiettivi.",
+    "copyright": "{{year}} WalletUp · Sviluppato da Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Utenti attivi",
+    "trackedExpenses": "Spese monitorate",
+    "uptime": "Uptime"
+  },
+  "pricingSection": {
+    "title": "Prezzi semplici e trasparenti",
+    "subtitle": "Inizia gratis, passa a un livello superiore quando ti serve più potenza",
+    "free": {
+      "name": "Gratuito",
+      "price": "0 €",
+      "period": "per sempre",
+      "description": "Perfetto per iniziare con il monitoraggio delle spese",
+      "features": [
+        "Monitoraggio spese illimitato",
+        "Analisi di base",
+        "Più conti",
+        "Categorizzazione manuale"
+      ]
+    },
+    "plus": {
+      "badge": "2 MESI DI PROVA GRATUITA",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ mese",
+      "description": "Funzionalità IA avanzate per una gestione del denaro più intelligente",
+      "everythingInFree": "Tutto quello del piano Gratuito, più:",
+      "features": [
+        { "title": "Categorizzazione con IA", "description": "Automatica e intelligente" },
+        { "title": "Analisi predittive", "description": "Prevedi le spese" },
+        { "title": "Analisi personalizzate", "description": "Consigli su misura" },
+        { "title": "Ottimizzazione del budget", "description": "Risparmi guidati dall'IA" }
+      ],
+      "prioritySupport": "Supporto prioritario"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "MONITORAGGIO OBIETTIVI",
+    "title": "Realizza i tuoi sogni finanziari",
+    "description": "Imposta obiettivi finanziari significativi e monitora i tuoi progressi senza sforzo. Che tu stia risparmiando per un'auto nuova, la casa dei tuoi sogni, una vacanza o qualsiasi altro traguardo, WalletUp ti aiuta a restare motivato con il monitoraggio visivo dei progressi e consigli di risparmio intelligenti.",
+    "features": {
+      "customGoals": {
+        "title": "Obiettivi personalizzati",
+        "description": "Crea obiettivi per auto, casa, vacanze o qualsiasi altra cosa"
+      },
+      "visualProgress": {
+        "title": "Progresso visivo",
+        "description": "Scopri quanto sei vicino a raggiungere i tuoi obiettivi"
+      },
+      "deadlineTracking": {
+        "title": "Monitoraggio scadenze",
+        "description": "Imposta date obiettivo e ricevi promemoria"
+      },
+      "smartSuggestions": {
+        "title": "Suggerimenti intelligenti",
+        "description": "Ricevi consigli su come raggiungere i tuoi obiettivi più velocemente"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ POTENZIATO DALL'IA",
+    "title": "Il tuo assistente finanziario personale",
+    "description": "WalletUp utilizza un'intelligenza artificiale avanzata per comprendere le tue abitudini di spesa e fornire analisi personalizzate. Ottieni consigli intelligenti, categorizzazione automatica delle spese e analisi predittive per aiutarti a prendere decisioni finanziarie migliori.",
+    "features": {
+      "smartCategorization": {
+        "title": "Categorizzazione intelligente",
+        "description": "L'IA categorizza automaticamente le tue transazioni"
+      },
+      "predictiveAnalytics": {
+        "title": "Analisi predittive",
+        "description": "Prevedi le tendenze e i modelli di spesa futuri"
+      },
+      "personalizedTips": {
+        "title": "Consigli personalizzati",
+        "description": "Ricevi consigli su misura basati sulle tue abitudini"
+      },
+      "budgetOptimization": {
+        "title": "Ottimizzazione del budget",
+        "description": "L'IA ti aiuta a trovare opportunità di risparmio"
+      }
+    }
+  }
+}

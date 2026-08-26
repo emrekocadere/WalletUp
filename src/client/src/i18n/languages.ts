@@ -13,6 +13,11 @@ export const SUPPORTED_LANGUAGES: SupportedLanguage[] = [
   { code: 'da', nativeName: 'Dansk', intlLocale: 'da-DK' },
   { code: 'is', nativeName: 'Íslenska', intlLocale: 'is-IS' },
   { code: 'fi', nativeName: 'Suomi', intlLocale: 'fi-FI' },
+  { code: 'fr', nativeName: 'Français', intlLocale: 'fr-FR' },
+  { code: 'it', nativeName: 'Italiano', intlLocale: 'it-IT' },
+  { code: 'nl', nativeName: 'Nederlands', intlLocale: 'nl-NL' },
+  { code: 'es', nativeName: 'Español', intlLocale: 'es-ES' },
+  { code: 'pt', nativeName: 'Português', intlLocale: 'pt-PT' },
 ];
 
 export const DEFAULT_LANGUAGE_CODE = 'en';

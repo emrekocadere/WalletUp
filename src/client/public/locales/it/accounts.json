@@ -1,0 +1,100 @@
+{
+  "accountsPage": {
+    "title": "Conti",
+    "subtitle": "Tieni traccia delle tue finanze con più conti.",
+    "addAccount": "Aggiungi conto",
+    "loading": "Caricamento conti..."
+  },
+  "accountDetailPage": {
+    "loading": "Caricamento dettagli conto...",
+    "failedToLoad": "Impossibile caricare il conto",
+    "backToAccounts": "← Torna ai conti",
+    "subtitle": "Visualizza il saldo del tuo conto e tutte le transazioni.",
+    "deleteSuccess": "Conto eliminato con successo",
+    "deleteFailed": "Impossibile eliminare il conto"
+  },
+  "editAccountModal": {
+    "title": "Modifica conto",
+    "accountName": "Nome del conto",
+    "accountNamePlaceholder": "es. Conto corrente, Risparmi",
+    "accountType": "Tipo di conto",
+    "currency": "Valuta",
+    "unknown": "Sconosciuto",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "noChanges": "Nessuna modifica effettuata",
+    "updated": "Conto aggiornato con successo",
+    "updateFailed": "Impossibile aggiornare il conto"
+  },
+  "addAccountModal": {
+    "title": "Aggiungi nuovo conto",
+    "accountName": "Nome del conto",
+    "accountNamePlaceholder": "es. Conto corrente, Risparmi, ecc.",
+    "accountType": "Tipo di conto",
+    "currency": "Valuta",
+    "unknown": "Sconosciuto",
+    "loading": "Caricamento...",
+    "initialBalance": "Saldo iniziale",
+    "cancel": "Annulla",
+    "submit": "Aggiungi conto",
+    "invalidBalance": "Saldo non valido",
+    "created": "Creato con successo",
+    "createFailed": "Impossibile creare il conto"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Saldo totale",
+    "accounts": "Conti"
+  },
+  "accountListSection": {
+    "loading": "Caricamento conti...",
+    "created": "Creato il {{date}}",
+    "viewDetails": "Visualizza dettagli"
+  },
+  "accountTransactionsPanel": {
+    "title": "Transazioni recenti",
+    "allTransactions": "Tutte le transazioni",
+    "empty": "Nessuna transazione registrata per questo conto.",
+    "category": "Categoria"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Creato il {{date}}",
+    "loading": "Caricamento informazioni conto...",
+    "currency": "Valuta",
+    "accountType": "Tipo di conto",
+    "transactions": "Transazioni",
+    "addTransaction": "Aggiungi transazione",
+    "transfer": "Trasferisci",
+    "edit": "Modifica",
+    "exportCsv": "Esporta CSV",
+    "export": "Esporta",
+    "deleteAccount": "Elimina conto",
+    "delete": "Elimina",
+    "noTransactionsToExport": "Nessuna transazione da esportare",
+    "noAccountsAvailable": "Nessun conto disponibile",
+    "exportedCsv": "Transazioni esportate come CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Riepilogo",
+    "quickOverview": "Panoramica rapida",
+    "latestActivity": "Ultima attività",
+    "totalTransactions": "Totale {{count}} transazioni"
+  },
+  "transferModal": {
+    "title": "Trasferisci denaro",
+    "fromAccount": "Conto di origine",
+    "toAccount": "Conto di destinazione",
+    "selectAccount": "Seleziona conto",
+    "amount": "Importo",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Nota facoltativa",
+    "cancel": "Annulla",
+    "submit": "Trasferisci",
+    "submitting": "Trasferimento in corso...",
+    "success": "Denaro trasferito con successo",
+    "failed": "Impossibile trasferire il denaro",
+    "selectBothAccounts": "Seleziona entrambi i conti",
+    "sameAccount": "Il conto di origine e quello di destinazione devono essere diversi",
+    "invalidAmount": "Inserisci un importo valido"
+  }
+}

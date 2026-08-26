@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Relatórios",
+    "subtitle": "Visão financeira anual de {{year}}",
+    "loading": "A carregar relatórios..."
+  },
+  "summary": {
+    "totalIncome": "Receita total",
+    "totalExpenses": "Despesas totais",
+    "netSavings": "Poupança líquida",
+    "percentOfIncome": "{{percent}}% da receita",
+    "avgMonthly": "Média mensal",
+    "netSavingsSubtext": "poupança líquida"
+  },
+  "monthlyBarChart": {
+    "title": "Receitas vs. despesas mensais",
+    "income": "Receita",
+    "expenses": "Despesas"
+  },
+  "netSavingsChart": {
+    "title": "Tendência de poupança líquida",
+    "label": "Poupança líquida",
+    "tooltipPrefix": "Líquido"
+  },
+  "categoryChart": {
+    "title": "Despesas por categoria",
+    "noData": "Sem dados de despesas para este mês"
+  },
+  "topCategories": {
+    "title": "Principais categorias",
+    "noData": "Sem dados de despesas para este mês"
+  }
+}

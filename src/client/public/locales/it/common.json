@@ -1,0 +1,115 @@
+{
+  "common": {
+    "showMore": "Mostra di più",
+    "showLess": "Mostra meno",
+    "hideDetails": "Nascondi dettagli",
+    "aiInsightBadge": "Analisi IA",
+    "aiInsightsUnavailable": "Le analisi IA non sono ancora disponibili."
+  },
+  "pagination": {
+    "range": "Visualizzazione {{start}}-{{end}} di {{total}}",
+    "previous": "Precedente",
+    "next": "Successivo"
+  },
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "accounts": "Conti",
+    "transactions": "Transazioni",
+    "goals": "Obiettivi",
+    "recurring": "Ricorrenti",
+    "reports": "Report",
+    "settings": "Impostazioni",
+    "logout": "Esci"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "subtitle": "Personalizza l'applicazione in base alle tue preferenze",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "loadFailed": "Impossibile caricare i dati",
+    "saved": "Impostazioni salvate con successo",
+    "saveFailed": "Impossibile salvare le impostazioni",
+    "currency": {
+      "title": "Valuta base",
+      "subtitle": "Valuta predefinita per tutte le transazioni",
+      "placeholder": "Seleziona valuta"
+    },
+    "country": {
+      "title": "Paese",
+      "subtitle": "Impostazioni regionali",
+      "placeholder": "Seleziona paese"
+    },
+    "language": {
+      "title": "Lingua",
+      "subtitle": "Lingua dell'interfaccia",
+      "placeholder": "Seleziona lingua"
+    },
+    "personal": {
+      "title": "Informazioni personali",
+      "subtitle": "Dettagli facoltativi",
+      "occupation": "Occupazione",
+      "optional": "(Facoltativo)",
+      "occupationPlaceholder": "es. Ingegnere del software",
+      "monthlyIncome": "Reddito mensile",
+      "monthlyIncomePlaceholder": "Inserisci il tuo reddito mensile"
+    },
+    "changePassword": {
+      "title": "Cambia password",
+      "subtitle": "Aggiorna la password del tuo account",
+      "current": "Password attuale",
+      "currentPlaceholder": "Inserisci la password attuale",
+      "new": "Nuova password",
+      "newPlaceholder": "Inserisci la nuova password",
+      "confirm": "Conferma password",
+      "confirmPlaceholder": "Conferma la nuova password",
+      "cancel": "Annulla",
+      "submit": "Cambia password",
+      "submitting": "Aggiornamento...",
+      "toastSuccess": "Password cambiata con successo",
+      "toastFailed": "Impossibile cambiare la password",
+      "errors": {
+        "currentRequired": "La password attuale è obbligatoria",
+        "newRequired": "La nuova password è obbligatoria",
+        "newTooShort": "La password deve contenere almeno 6 caratteri",
+        "confirmRequired": "Conferma la nuova password",
+        "mismatch": "Le password non corrispondono"
+      }
+    },
+    "deleteAccount": {
+      "title": "Elimina account",
+      "description": "Elimina definitivamente il tuo account e tutti i dati associati. Questa azione non può essere annullata.",
+      "button": "Elimina account",
+      "deleting": "Eliminazione...",
+      "toastSuccess": "Account eliminato con successo",
+      "toastFailed": "Impossibile eliminare l'account. Riprova."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Bentornato, {{name}}!",
+    "defaultUser": "Utente",
+    "subtitle": "Ecco la tua panoramica finanziaria",
+    "loading": "Caricamento dashboard...",
+    "totalBalance": "Saldo totale",
+    "totalBalanceSubtitle": "Il tuo saldo totale attuale",
+    "monthlySpending": "Spese mensili",
+    "percentOfIncome": "-{{percent}}% del reddito",
+    "noIncome": "Nessuna entrata questo mese",
+    "goals": "Obiettivi",
+    "activeGoal": "Obiettivo attivo",
+    "activeGoals": "Obiettivi attivi",
+    "transactions": "Transazioni",
+    "thisMonth": "Questo mese",
+    "aiInsightsEmpty": "Le analisi IA si stanno preparando. Torna presto.",
+    "recentTransactions": "Transazioni recenti",
+    "viewAll": "Vedi tutte →",
+    "loadingTransactions": "Caricamento transazioni...",
+    "noTransactions": "Nessuna transazione ancora",
+    "noTransactionsSubtitle": "Crea un conto e aggiungi la tua prima transazione",
+    "noDescription": "Nessuna descrizione",
+    "uncategorized": "Senza categoria",
+    "unknownType": "Sconosciuto",
+    "spendingByCategory": "Spese per categoria"
+  }
+}

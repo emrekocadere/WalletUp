@@ -1,0 +1,90 @@
+{
+  "goalsPage": {
+    "title": "Financiële doelen",
+    "subtitle": "Houd je spaardoelen bij en blijf gemotiveerd",
+    "addNewGoal": "Nieuw doel toevoegen",
+    "loading": "Doelen laden...",
+    "deleteSuccess": "Doel succesvol verwijderd",
+    "deleteFailed": "Doel verwijderen mislukt",
+    "deleteFailedRetry": "Doel verwijderen mislukt. Probeer het opnieuw."
+  },
+  "goalCard": {
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "progress": "Voortgang",
+    "current": "Huidig",
+    "target": "Doel",
+    "addMoney": "Geld toevoegen"
+  },
+  "emptyState": {
+    "title": "Nog geen doelen",
+    "subtitle": "Begin met het instellen van financiële doelen om je voortgang bij te houden",
+    "cta": "Maak je eerste doel aan"
+  },
+  "statsCards": {
+    "activeGoals": "Actieve doelen",
+    "totalTarget": "Totaal doel",
+    "totalSaved": "Totaal gespaard"
+  },
+  "editModal": {
+    "title": "Doel bewerken",
+    "nameLabel": "Naam van het doel",
+    "namePlaceholder": "bijv. Noodfonds",
+    "targetLabel": "Doelbedrag",
+    "descriptionLabel": "Omschrijving (optioneel)",
+    "descriptionPlaceholder": "Voeg details toe over je doel...",
+    "cancel": "Annuleren",
+    "submit": "Doel bijwerken",
+    "submitting": "Bijwerken...",
+    "errors": {
+      "invalidAmount": "Voer een geldig doelbedrag in",
+      "nameRequired": "Voer een naam voor het doel in",
+      "noChanges": "Geen wijzigingen om op te slaan"
+    },
+    "toastSuccess": "Doel succesvol bijgewerkt",
+    "toastFailed": "Doel bijwerken mislukt",
+    "toastFailedRetry": "Doel bijwerken mislukt. Probeer het opnieuw."
+  },
+  "addModal": {
+    "title": "Nieuw doel aanmaken",
+    "nameLabel": "Naam van het doel",
+    "namePlaceholder": "bijv. Noodfonds",
+    "currencyLabel": "Valuta",
+    "currencyPlaceholder": "Selecteer een valuta",
+    "loadingCurrencies": "Valuta's laden...",
+    "targetLabel": "Doelbedrag",
+    "descriptionLabel": "Omschrijving (optioneel)",
+    "descriptionPlaceholder": "Voeg details toe over je doel...",
+    "cancel": "Annuleren",
+    "submit": "Doel aanmaken",
+    "submitting": "Aanmaken...",
+    "errors": {
+      "invalidAmount": "Voer een geldig doelbedrag in",
+      "nameRequired": "Voer een naam voor het doel in",
+      "currencyRequired": "Selecteer een valuta"
+    },
+    "toastSuccess": "Succesvol aangemaakt",
+    "toastFailed": "Doel aanmaken mislukt",
+    "toastFailedRetry": "Doel aanmaken mislukt. Probeer het opnieuw.",
+    "toastLoadCurrenciesFailed": "Valuta's laden mislukt"
+  },
+  "addMoneyModal": {
+    "title": "Geld toevoegen aan doel",
+    "current": "Huidig:",
+    "target": "Doel:",
+    "remaining": "Resterend:",
+    "transactionType": "Transactietype",
+    "transactionTypePlaceholder": "Selecteer transactietype",
+    "amountLabel": "Toe te voegen bedrag",
+    "newTotal": "Nieuw totaal: {{amount}}",
+    "cancel": "Annuleren",
+    "submit": "Geld toevoegen",
+    "submitting": "Toevoegen...",
+    "errors": {
+      "invalidAmount": "Voer een geldig bedrag in",
+      "typeRequired": "Selecteer een transactietype"
+    },
+    "toastFailed": "Geld toevoegen mislukt",
+    "toastFailedRetry": "Geld toevoegen mislukt. Probeer het opnieuw."
+  }
+}

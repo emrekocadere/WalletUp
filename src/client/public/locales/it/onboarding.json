@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Indietro",
+    "getStarted": "Inizia",
+    "continue": "Continua",
+    "saving": "Salvataggio...",
+    "complete": "Completa"
+  },
+  "welcomeStep": {
+    "title": "Configurazione rapida",
+    "description": "Rispondi ad alcune domande e prepareremo il tuo account."
+  },
+  "currencyStep": {
+    "title": "Scegli la tua valuta",
+    "subtitle": "Seleziona la tua valuta principale",
+    "placeholder": "Seleziona valuta...",
+    "loading": "Caricamento valute..."
+  },
+  "countryStep": {
+    "title": "Da dove vieni?",
+    "subtitle": "Seleziona il tuo paese",
+    "placeholder": "Seleziona il tuo paese...",
+    "loading": "Caricamento paesi..."
+  },
+  "useCaseStep": {
+    "title": "Come userai WalletUp?",
+    "subtitle": "Scegli il tuo utilizzo principale",
+    "options": {
+      "personal": { "label": "Finanze personali" },
+      "family": { "label": "Budget familiare" },
+      "business": { "label": "Piccola impresa" },
+      "freelance": { "label": "Libero professionista" }
+    }
+  },
+  "goalsStep": {
+    "title": "Obiettivi finanziari",
+    "subtitle": "Seleziona tutto ciò che si applica",
+    "options": {
+      "save": "Costruire risparmi",
+      "budget": "Rispettare il budget",
+      "debt": "Estinguere debiti",
+      "invest": "Iniziare a investire",
+      "track": "Monitorare le spese",
+      "plan": "Pianificare il futuro"
+    },
+    "selectedCount_one": "{{count}} obiettivo selezionato",
+    "selectedCount_other": "{{count}} obiettivi selezionati"
+  },
+  "aiPreferencesStep": {
+    "title": "Personalizza il tuo assistente IA",
+    "subtitle": "Aiutaci a personalizzare la tua esperienza IA per consigli migliori",
+    "occupationLabel": "Qual è la tua occupazione?",
+    "occupationPlaceholder": "es. Ingegnere, Insegnante, Imprenditore...",
+    "incomeLabel": "Qual è il tuo reddito mensile?",
+    "incomePlaceholder": "Inserisci il tuo reddito mensile (facoltativo)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Effettua una selezione per continuare",
+    "goalRequired": "Seleziona almeno un obiettivo finanziario",
+    "completeSuccess": "Configurazione completata! Ti stiamo portando alla tua dashboard...",
+    "completeFailed": "Impossibile salvare le preferenze. Riprova.",
+    "loadFailed": "Impossibile caricare i dati"
+  }
+}

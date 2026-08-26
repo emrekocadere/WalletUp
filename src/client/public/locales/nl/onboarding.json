@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Terug",
+    "getStarted": "Aan de slag",
+    "continue": "Doorgaan",
+    "saving": "Opslaan...",
+    "complete": "Voltooien"
+  },
+  "welcomeStep": {
+    "title": "Snelle installatie",
+    "description": "Beantwoord een paar vragen en we maken je account klaar."
+  },
+  "currencyStep": {
+    "title": "Kies je valuta",
+    "subtitle": "Selecteer je hoofdvaluta",
+    "placeholder": "Selecteer valuta...",
+    "loading": "Valuta's laden..."
+  },
+  "countryStep": {
+    "title": "Waar kom je vandaan?",
+    "subtitle": "Selecteer je land",
+    "placeholder": "Selecteer je land...",
+    "loading": "Landen laden..."
+  },
+  "useCaseStep": {
+    "title": "Hoe ga je WalletUp gebruiken?",
+    "subtitle": "Kies je belangrijkste gebruiksdoel",
+    "options": {
+      "personal": { "label": "Persoonlijke financiën" },
+      "family": { "label": "Gezinsbudget" },
+      "business": { "label": "Kleine onderneming" },
+      "freelance": { "label": "Freelancer" }
+    }
+  },
+  "goalsStep": {
+    "title": "Financiële doelen",
+    "subtitle": "Selecteer alles wat van toepassing is",
+    "options": {
+      "save": "Spaargeld opbouwen",
+      "budget": "Je aan een budget houden",
+      "debt": "Schulden aflossen",
+      "invest": "Beginnen met beleggen",
+      "track": "Uitgaven bijhouden",
+      "plan": "Plannen voor de toekomst"
+    },
+    "selectedCount_one": "{{count}} doel geselecteerd",
+    "selectedCount_other": "{{count}} doelen geselecteerd"
+  },
+  "aiPreferencesStep": {
+    "title": "Pas je AI-assistent aan",
+    "subtitle": "Help ons je AI-ervaring te personaliseren voor betere aanbevelingen",
+    "occupationLabel": "Wat is je beroep?",
+    "occupationPlaceholder": "bijv. Ingenieur, Leraar, Ondernemer...",
+    "incomeLabel": "Wat is je maandinkomen?",
+    "incomePlaceholder": "Voer je maandinkomen in (optioneel)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Maak een keuze om door te gaan",
+    "goalRequired": "Selecteer minstens één financieel doel",
+    "completeSuccess": "Installatie voltooid! Je wordt naar je dashboard gebracht...",
+    "completeFailed": "Voorkeuren opslaan mislukt. Probeer het opnieuw.",
+    "loadFailed": "Gegevens laden mislukt"
+  }
+}

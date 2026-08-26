@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Rapporten",
+    "subtitle": "Jaarlijks financieel overzicht voor {{year}}",
+    "loading": "Rapporten laden..."
+  },
+  "summary": {
+    "totalIncome": "Totaal inkomen",
+    "totalExpenses": "Totale uitgaven",
+    "netSavings": "Netto besparing",
+    "percentOfIncome": "{{percent}}% van inkomen",
+    "avgMonthly": "Gem. per maand",
+    "netSavingsSubtext": "netto besparing"
+  },
+  "monthlyBarChart": {
+    "title": "Maandelijkse inkomsten vs uitgaven",
+    "income": "Inkomen",
+    "expenses": "Uitgaven"
+  },
+  "netSavingsChart": {
+    "title": "Trend netto besparing",
+    "label": "Netto besparing",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Uitgaven per categorie",
+    "noData": "Geen uitgavengegevens voor deze maand"
+  },
+  "topCategories": {
+    "title": "Topcategorieën",
+    "noData": "Geen uitgavengegevens voor deze maand"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "back": "Retour",
+    "getStarted": "Commencer",
+    "continue": "Continuer",
+    "saving": "Enregistrement...",
+    "complete": "Terminer"
+  },
+  "welcomeStep": {
+    "title": "Configuration rapide",
+    "description": "Répondez à quelques questions et nous préparerons votre compte."
+  },
+  "currencyStep": {
+    "title": "Choisissez votre devise",
+    "subtitle": "Sélectionnez votre devise principale",
+    "placeholder": "Sélectionner une devise...",
+    "loading": "Chargement des devises..."
+  },
+  "countryStep": {
+    "title": "D'où venez-vous ?",
+    "subtitle": "Sélectionnez votre pays",
+    "placeholder": "Sélectionnez votre pays...",
+    "loading": "Chargement des pays..."
+  },
+  "useCaseStep": {
+    "title": "Comment allez-vous utiliser WalletUp ?",
+    "subtitle": "Choisissez votre usage principal",
+    "options": {
+      "personal": { "label": "Finances personnelles" },
+      "family": { "label": "Budget familial" },
+      "business": { "label": "Petite entreprise" },
+      "freelance": { "label": "Freelance" }
+    }
+  },
+  "goalsStep": {
+    "title": "Objectifs financiers",
+    "subtitle": "Sélectionnez tout ce qui s'applique",
+    "options": {
+      "save": "Constituer une épargne",
+      "budget": "Respecter un budget",
+      "debt": "Rembourser une dette",
+      "invest": "Commencer à investir",
+      "track": "Suivre les dépenses",
+      "plan": "Planifier l'avenir"
+    },
+    "selectedCount_one": "{{count}} objectif sélectionné",
+    "selectedCount_other": "{{count}} objectifs sélectionnés"
+  },
+  "aiPreferencesStep": {
+    "title": "Personnalisez votre assistant IA",
+    "subtitle": "Aidez-nous à personnaliser votre expérience IA pour de meilleures recommandations",
+    "occupationLabel": "Quelle est votre profession ?",
+    "occupationPlaceholder": "ex. Ingénieur, Enseignant, Entrepreneur...",
+    "incomeLabel": "Quel est votre revenu mensuel ?",
+    "incomePlaceholder": "Entrez votre revenu mensuel (facultatif)"
+  },
+  "onboardingPage": {
+    "selectionRequired": "Veuillez faire une sélection pour continuer",
+    "goalRequired": "Veuillez sélectionner au moins un objectif financier",
+    "completeSuccess": "Configuration terminée ! Direction votre tableau de bord...",
+    "completeFailed": "Échec de l'enregistrement des préférences. Veuillez réessayer.",
+    "loadFailed": "Échec du chargement des données"
+  }
+}

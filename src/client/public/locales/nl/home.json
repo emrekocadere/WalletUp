@@ -1,0 +1,145 @@
+{
+  "header": {
+    "features": "Functies",
+    "whyUs": "Waarom wij",
+    "signIn": "Inloggen",
+    "getStarted": "Aan de slag"
+  },
+  "hero": {
+    "titleLine1": "Jouw geld,",
+    "titleLine2": "slimmer.",
+    "subtitle": "Houd elke uitgave bij, behaal elk doel — mogelijk gemaakt door AI-inzichten die jouw financiële gewoontes echt begrijpen.",
+    "startFree": "Gratis beginnen",
+    "signIn": "Inloggen"
+  },
+  "featuresSection": {
+    "eyebrow": "Jouw geld, uitgesplitst",
+    "titlePrefix": "Gebouwd voor hoe je ",
+    "titleEmphasis": "echt",
+    "titleSuffix": " leeft",
+    "subtitle": "De onderdelen die mensen elke week openen, niet die uit de demo.",
+    "items": {
+      "insights": {
+        "name": "AI-gestuurde inzichten",
+        "description": "Persoonlijk advies op basis van je werkelijke uitgavenpatronen — geen generieke budgettips."
+      },
+      "reports": {
+        "name": "Rapporten en analyses",
+        "description": "Een volledig jaar aan inkomsten en uitgaven, uitgesplitst per maand en categorie."
+      },
+      "goals": {
+        "name": "Doelvolging",
+        "description": "Stel een doel in, voeg geld toe wanneer je kunt, en zie de balk daadwerkelijk vooruitgaan."
+      },
+      "recurring": {
+        "name": "Terugkerende transacties",
+        "description": "Huur, salaris, abonnementen — eenmaal instellen, en ze registreren zichzelf elke cyclus."
+      },
+      "multiCurrency": {
+        "name": "Meerdere valuta's",
+        "description": "Houd rekeningen aan in elke valuta, live omgerekend naar de valuta waar je echt in denkt."
+      },
+      "security": {
+        "name": "Beveiligde sessies",
+        "description": "Versleutelde logins die zichzelf stilletjes vernieuwen — en op het juiste moment uitloggen."
+      },
+      "csvExport": {
+        "name": "CSV-export",
+        "description": "Haal elke gefilterde weergave van je transacties met één klik naar een spreadsheet."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Klaar om de",
+    "titleEmphasis": "controle te nemen?",
+    "subtitle": "Begin vandaag nog aan je financiële reis — gratis, geen creditcard nodig.",
+    "getStartedFree": "Gratis beginnen",
+    "signIn": "Inloggen"
+  },
+  "footer": {
+    "tagline": "AI-gestuurd slim geldbeheer. Houd uitgaven bij, bereik doelen.",
+    "copyright": "{{year}} WalletUp · Ontwikkeld door Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Actieve gebruikers",
+    "trackedExpenses": "Bijgehouden uitgaven",
+    "uptime": "Beschikbaarheid"
+  },
+  "pricingSection": {
+    "title": "Eenvoudige, transparante prijzen",
+    "subtitle": "Begin gratis, upgrade wanneer je meer kracht nodig hebt",
+    "free": {
+      "name": "Gratis",
+      "price": "€ 0",
+      "period": "voor altijd",
+      "description": "Perfect om te beginnen met het bijhouden van uitgaven",
+      "features": [
+        "Onbeperkt uitgaven bijhouden",
+        "Basisanalyses",
+        "Meerdere rekeningen",
+        "Handmatige categorisering"
+      ]
+    },
+    "plus": {
+      "badge": "2 MAANDEN GRATIS PROBEREN",
+      "name": "Plus",
+      "price": "€ 7",
+      "period": "/ maand",
+      "description": "Geavanceerde AI-functies voor slimmer geldbeheer",
+      "everythingInFree": "Alles van Gratis, plus:",
+      "features": [
+        { "title": "AI-gestuurde categorisering", "description": "Automatisch en slim" },
+        { "title": "Voorspellende analyses", "description": "Voorspel uitgaven" },
+        { "title": "Persoonlijke inzichten", "description": "Aanbevelingen op maat" },
+        { "title": "Budgetoptimalisatie", "description": "AI-gestuurde besparingen" }
+      ],
+      "prioritySupport": "Prioritaire ondersteuning"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "DOELVOLGING",
+    "title": "Realiseer je financiële dromen",
+    "description": "Stel betekenisvolle financiële doelen in en volg je voortgang moeiteloos. Of je nu spaart voor een nieuwe auto, je droomhuis, een vakantie of een andere mijlpaal, WalletUp helpt je gemotiveerd te blijven met visuele voortgangsweergave en slimme spaartips.",
+    "features": {
+      "customGoals": {
+        "title": "Aangepaste doelen",
+        "description": "Maak doelen voor auto, huis, vakantie of iets anders"
+      },
+      "visualProgress": {
+        "title": "Visuele voortgang",
+        "description": "Zie hoe dicht je bij het behalen van je doelen bent"
+      },
+      "deadlineTracking": {
+        "title": "Deadline bijhouden",
+        "description": "Stel streefdata in en ontvang herinneringen"
+      },
+      "smartSuggestions": {
+        "title": "Slimme suggesties",
+        "description": "Krijg tips om je doelen sneller te bereiken"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ AANGEDREVEN DOOR AI",
+    "title": "Jouw persoonlijke financiële assistent",
+    "description": "WalletUp gebruikt geavanceerde kunstmatige intelligentie om je uitgavenpatronen te begrijpen en persoonlijke inzichten te bieden. Krijg slimme aanbevelingen, automatische categorisering van uitgaven en voorspellende analyses om betere financiële beslissingen te nemen.",
+    "features": {
+      "smartCategorization": {
+        "title": "Slimme categorisering",
+        "description": "AI categoriseert je transacties automatisch"
+      },
+      "predictiveAnalytics": {
+        "title": "Voorspellende analyses",
+        "description": "Voorspel toekomstige uitgavenpatronen en trends"
+      },
+      "personalizedTips": {
+        "title": "Persoonlijke tips",
+        "description": "Krijg advies op maat, gebaseerd op je gewoontes"
+      },
+      "budgetOptimization": {
+        "title": "Budgetoptimalisatie",
+        "description": "AI helpt je besparingsmogelijkheden te vinden"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Report",
+    "subtitle": "Panoramica finanziaria annuale per il {{year}}",
+    "loading": "Caricamento report..."
+  },
+  "summary": {
+    "totalIncome": "Entrate totali",
+    "totalExpenses": "Spese totali",
+    "netSavings": "Risparmio netto",
+    "percentOfIncome": "{{percent}}% del reddito",
+    "avgMonthly": "Media mensile",
+    "netSavingsSubtext": "risparmio netto"
+  },
+  "monthlyBarChart": {
+    "title": "Entrate vs spese mensili",
+    "income": "Entrate",
+    "expenses": "Spese"
+  },
+  "netSavingsChart": {
+    "title": "Andamento del risparmio netto",
+    "label": "Risparmio netto",
+    "tooltipPrefix": "Netto"
+  },
+  "categoryChart": {
+    "title": "Spese per categoria",
+    "noData": "Nessun dato di spesa per questo mese"
+  },
+  "topCategories": {
+    "title": "Categorie principali",
+    "noData": "Nessun dato di spesa per questo mese"
+  }
+}

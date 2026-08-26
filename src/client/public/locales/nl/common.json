@@ -1,0 +1,115 @@
+{
+  "common": {
+    "showMore": "Meer weergeven",
+    "showLess": "Minder weergeven",
+    "hideDetails": "Details verbergen",
+    "aiInsightBadge": "AI-inzicht",
+    "aiInsightsUnavailable": "AI-inzichten zijn nog niet beschikbaar."
+  },
+  "pagination": {
+    "range": "{{start}}-{{end}} van {{total}} weergegeven",
+    "previous": "Vorige",
+    "next": "Volgende"
+  },
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "accounts": "Rekeningen",
+    "transactions": "Transacties",
+    "goals": "Doelen",
+    "recurring": "Terugkerend",
+    "reports": "Rapporten",
+    "settings": "Instellingen",
+    "logout": "Uitloggen"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "subtitle": "Pas de applicatie aan naar jouw voorkeuren",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "saving": "Opslaan...",
+    "loadFailed": "Gegevens laden mislukt",
+    "saved": "Instellingen succesvol opgeslagen",
+    "saveFailed": "Instellingen opslaan mislukt",
+    "currency": {
+      "title": "Basisvaluta",
+      "subtitle": "Standaardvaluta voor alle transacties",
+      "placeholder": "Selecteer valuta"
+    },
+    "country": {
+      "title": "Land",
+      "subtitle": "Regionale instellingen",
+      "placeholder": "Selecteer land"
+    },
+    "language": {
+      "title": "Taal",
+      "subtitle": "Taal van de interface",
+      "placeholder": "Selecteer taal"
+    },
+    "personal": {
+      "title": "Persoonlijke informatie",
+      "subtitle": "Optionele gegevens",
+      "occupation": "Beroep",
+      "optional": "(Optioneel)",
+      "occupationPlaceholder": "bijv. Softwareontwikkelaar",
+      "monthlyIncome": "Maandinkomen",
+      "monthlyIncomePlaceholder": "Voer je maandinkomen in"
+    },
+    "changePassword": {
+      "title": "Wachtwoord wijzigen",
+      "subtitle": "Werk het wachtwoord van je account bij",
+      "current": "Huidig wachtwoord",
+      "currentPlaceholder": "Voer je huidige wachtwoord in",
+      "new": "Nieuw wachtwoord",
+      "newPlaceholder": "Voer je nieuwe wachtwoord in",
+      "confirm": "Bevestig wachtwoord",
+      "confirmPlaceholder": "Bevestig je nieuwe wachtwoord",
+      "cancel": "Annuleren",
+      "submit": "Wachtwoord wijzigen",
+      "submitting": "Bijwerken...",
+      "toastSuccess": "Wachtwoord succesvol gewijzigd",
+      "toastFailed": "Wachtwoord wijzigen mislukt",
+      "errors": {
+        "currentRequired": "Huidig wachtwoord is verplicht",
+        "newRequired": "Nieuw wachtwoord is verplicht",
+        "newTooShort": "Wachtwoord moet minimaal 6 tekens bevatten",
+        "confirmRequired": "Bevestig je nieuwe wachtwoord",
+        "mismatch": "Wachtwoorden komen niet overeen"
+      }
+    },
+    "deleteAccount": {
+      "title": "Account verwijderen",
+      "description": "Verwijder je account en alle bijbehorende gegevens permanent. Deze actie kan niet ongedaan worden gemaakt.",
+      "button": "Account verwijderen",
+      "deleting": "Verwijderen...",
+      "toastSuccess": "Account succesvol verwijderd",
+      "toastFailed": "Account verwijderen mislukt. Probeer het opnieuw."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Welkom terug, {{name}}!",
+    "defaultUser": "Gebruiker",
+    "subtitle": "Hier is je financiële overzicht",
+    "loading": "Dashboard laden...",
+    "totalBalance": "Totaalsaldo",
+    "totalBalanceSubtitle": "Je huidige totaalsaldo",
+    "monthlySpending": "Maandelijkse uitgaven",
+    "percentOfIncome": "-{{percent}}% van inkomen",
+    "noIncome": "Geen inkomen deze maand",
+    "goals": "Doelen",
+    "activeGoal": "Actief doel",
+    "activeGoals": "Actieve doelen",
+    "transactions": "Transacties",
+    "thisMonth": "Deze maand",
+    "aiInsightsEmpty": "AI-inzichten worden voorbereid. Kom snel terug.",
+    "recentTransactions": "Recente transacties",
+    "viewAll": "Alles bekijken →",
+    "loadingTransactions": "Transacties laden...",
+    "noTransactions": "Nog geen transacties",
+    "noTransactionsSubtitle": "Maak een rekening aan en voeg je eerste transactie toe",
+    "noDescription": "Geen omschrijving",
+    "uncategorized": "Niet gecategoriseerd",
+    "unknownType": "Onbekend",
+    "spendingByCategory": "Uitgaven per categorie"
+  }
+}

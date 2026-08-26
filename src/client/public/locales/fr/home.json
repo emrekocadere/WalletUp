@@ -1,0 +1,145 @@
+{
+  "header": {
+    "features": "Fonctionnalités",
+    "whyUs": "Pourquoi nous",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer"
+  },
+  "hero": {
+    "titleLine1": "Votre argent,",
+    "titleLine2": "plus intelligent.",
+    "subtitle": "Suivez chaque dépense, atteignez chaque objectif — grâce à des analyses IA qui comprennent vraiment vos habitudes financières.",
+    "startFree": "Commencer gratuitement",
+    "signIn": "Se connecter"
+  },
+  "featuresSection": {
+    "eyebrow": "Votre argent, poste par poste",
+    "titlePrefix": "Conçu pour votre ",
+    "titleEmphasis": "vraie",
+    "titleSuffix": " vie",
+    "subtitle": "Les fonctionnalités que les gens ouvrent chaque semaine, pas celles de la démo.",
+    "items": {
+      "insights": {
+        "name": "Analyses basées sur l'IA",
+        "description": "Des conseils personnalisés basés sur vos habitudes de dépenses réelles — pas des astuces budgétaires génériques."
+      },
+      "reports": {
+        "name": "Rapports et analyses",
+        "description": "Une année complète de revenus et de dépenses, répartie par mois et par catégorie."
+      },
+      "goals": {
+        "name": "Suivi des objectifs",
+        "description": "Fixez un objectif, ajoutez de l'argent quand vous le pouvez, et regardez la barre progresser réellement."
+      },
+      "recurring": {
+        "name": "Transactions récurrentes",
+        "description": "Loyer, salaire, abonnements — configurez une fois, et elles s'enregistrent seules à chaque cycle."
+      },
+      "multiCurrency": {
+        "name": "Multi-devises",
+        "description": "Détenez des comptes dans n'importe quelle devise, convertis en direct vers celle que vous utilisez réellement."
+      },
+      "security": {
+        "name": "Sessions sécurisées",
+        "description": "Des connexions chiffrées qui se renouvellent discrètement — et se déconnectent au bon moment."
+      },
+      "csvExport": {
+        "name": "Export CSV",
+        "description": "Récupérez n'importe quelle vue filtrée de vos transactions dans un tableur en un clic."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Prêt à prendre le",
+    "titleEmphasis": "contrôle ?",
+    "subtitle": "Commencez votre parcours financier dès aujourd'hui — gratuit, sans carte bancaire.",
+    "getStartedFree": "Commencer gratuitement",
+    "signIn": "Se connecter"
+  },
+  "footer": {
+    "tagline": "Gestion d'argent intelligente basée sur l'IA. Suivez vos dépenses, atteignez vos objectifs.",
+    "copyright": "{{year}} WalletUp · Développé par Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Utilisateurs actifs",
+    "trackedExpenses": "Dépenses suivies",
+    "uptime": "Disponibilité"
+  },
+  "pricingSection": {
+    "title": "Des tarifs simples et transparents",
+    "subtitle": "Commencez gratuitement, passez à la vitesse supérieure quand vous en avez besoin",
+    "free": {
+      "name": "Gratuit",
+      "price": "0 €",
+      "period": "pour toujours",
+      "description": "Parfait pour débuter avec le suivi des dépenses",
+      "features": [
+        "Suivi des dépenses illimité",
+        "Analyses de base",
+        "Plusieurs comptes",
+        "Catégorisation manuelle"
+      ]
+    },
+    "plus": {
+      "badge": "2 MOIS D'ESSAI GRATUIT",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ mois",
+      "description": "Des fonctionnalités IA avancées pour une gestion d'argent plus intelligente",
+      "everythingInFree": "Tout ce qui est inclus dans Gratuit, plus :",
+      "features": [
+        { "title": "Catégorisation par IA", "description": "Automatique et intelligente" },
+        { "title": "Analyses prédictives", "description": "Prévoyez vos dépenses" },
+        { "title": "Analyses personnalisées", "description": "Recommandations sur mesure" },
+        { "title": "Optimisation du budget", "description": "Économies pilotées par l'IA" }
+      ],
+      "prioritySupport": "Support prioritaire"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "SUIVI DES OBJECTIFS",
+    "title": "Réalisez vos rêves financiers",
+    "description": "Définissez des objectifs financiers significatifs et suivez votre progression sans effort. Que vous épargniez pour une voiture, la maison de vos rêves, des vacances ou toute autre étape, WalletUp vous aide à rester motivé grâce au suivi visuel de la progression et à des recommandations d'épargne intelligentes.",
+    "features": {
+      "customGoals": {
+        "title": "Objectifs personnalisés",
+        "description": "Créez des objectifs pour une voiture, une maison, des vacances, ou autre chose"
+      },
+      "visualProgress": {
+        "title": "Progression visuelle",
+        "description": "Voyez à quel point vous êtes proche d'atteindre vos objectifs"
+      },
+      "deadlineTracking": {
+        "title": "Suivi des échéances",
+        "description": "Définissez des dates cibles et recevez des rappels"
+      },
+      "smartSuggestions": {
+        "title": "Suggestions intelligentes",
+        "description": "Obtenez des conseils pour atteindre vos objectifs plus vite"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ PROPULSÉ PAR L'IA",
+    "title": "Votre assistant financier personnel",
+    "description": "WalletUp utilise une intelligence artificielle avancée pour comprendre vos habitudes de dépenses et vous fournir des analyses personnalisées. Obtenez des recommandations intelligentes, une catégorisation automatique des dépenses et des analyses prédictives pour prendre de meilleures décisions financières.",
+    "features": {
+      "smartCategorization": {
+        "title": "Catégorisation intelligente",
+        "description": "L'IA catégorise automatiquement vos transactions"
+      },
+      "predictiveAnalytics": {
+        "title": "Analyses prédictives",
+        "description": "Prévoyez les tendances et habitudes de dépenses futures"
+      },
+      "personalizedTips": {
+        "title": "Conseils personnalisés",
+        "description": "Obtenez des conseils sur mesure basés sur vos habitudes"
+      },
+      "budgetOptimization": {
+        "title": "Optimisation du budget",
+        "description": "L'IA vous aide à trouver des opportunités d'économie"
+      }
+    }
+  }
+}

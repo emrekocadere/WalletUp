@@ -1,0 +1,145 @@
+{
+  "header": {
+    "features": "Funcionalidades",
+    "whyUs": "Porquê nós",
+    "signIn": "Iniciar sessão",
+    "getStarted": "Começar"
+  },
+  "hero": {
+    "titleLine1": "O seu dinheiro,",
+    "titleLine2": "mais inteligente.",
+    "subtitle": "Acompanhe cada despesa, alcance cada objetivo — com análises de IA que compreendem verdadeiramente os seus hábitos financeiros.",
+    "startFree": "Comece gratuitamente",
+    "signIn": "Iniciar sessão"
+  },
+  "featuresSection": {
+    "eyebrow": "O seu dinheiro, discriminado",
+    "titlePrefix": "Criado para como ",
+    "titleEmphasis": "vive realmente",
+    "titleSuffix": "",
+    "subtitle": "As partes da aplicação que as pessoas abrem todas as semanas, não as da demonstração.",
+    "items": {
+      "insights": {
+        "name": "Análises baseadas em IA",
+        "description": "Conselhos personalizados com base nos seus padrões de gastos reais — não dicas genéricas de orçamento."
+      },
+      "reports": {
+        "name": "Relatórios e análises",
+        "description": "Um ano completo de receitas e despesas, dividido por mês e categoria."
+      },
+      "goals": {
+        "name": "Acompanhamento de objetivos",
+        "description": "Defina uma meta, adicione dinheiro quando puder, e veja a barra avançar de verdade."
+      },
+      "recurring": {
+        "name": "Transações recorrentes",
+        "description": "Renda, salário, subscrições — configure uma vez e são registadas automaticamente em cada ciclo."
+      },
+      "multiCurrency": {
+        "name": "Multi-moeda",
+        "description": "Mantenha contas em qualquer moeda, convertidas em tempo real para aquela em que realmente pensa."
+      },
+      "security": {
+        "name": "Sessões seguras",
+        "description": "Inícios de sessão encriptados que se renovam discretamente — e terminam sessão no momento certo."
+      },
+      "csvExport": {
+        "name": "Exportação CSV",
+        "description": "Leve qualquer vista filtrada das suas transações para uma folha de cálculo com um clique."
+      }
+    }
+  },
+  "ctaSection": {
+    "titlePrefix": "Pronto para assumir o",
+    "titleEmphasis": "controlo?",
+    "subtitle": "Comece hoje a sua jornada financeira — grátis, sem cartão de crédito.",
+    "getStartedFree": "Comece gratuitamente",
+    "signIn": "Iniciar sessão"
+  },
+  "footer": {
+    "tagline": "Gestão de dinheiro inteligente com IA. Acompanhe despesas, alcance objetivos.",
+    "copyright": "{{year}} WalletUp · Desenvolvido por Salih Emre Kocadere"
+  },
+  "statsSection": {
+    "activeUsers": "Utilizadores ativos",
+    "trackedExpenses": "Despesas monitorizadas",
+    "uptime": "Disponibilidade"
+  },
+  "pricingSection": {
+    "title": "Preços simples e transparentes",
+    "subtitle": "Comece grátis, atualize quando precisar de mais poder",
+    "free": {
+      "name": "Gratuito",
+      "price": "0 €",
+      "period": "para sempre",
+      "description": "Perfeito para começar com o acompanhamento de despesas",
+      "features": [
+        "Acompanhamento de despesas ilimitado",
+        "Análises básicas",
+        "Várias contas",
+        "Categorização manual"
+      ]
+    },
+    "plus": {
+      "badge": "2 MESES DE TESTE GRATUITO",
+      "name": "Plus",
+      "price": "7 €",
+      "period": "/ mês",
+      "description": "Funcionalidades avançadas de IA para uma gestão de dinheiro mais inteligente",
+      "everythingInFree": "Tudo do plano Gratuito, mais:",
+      "features": [
+        { "title": "Categorização com IA", "description": "Automática e inteligente" },
+        { "title": "Análises preditivas", "description": "Preveja os seus gastos" },
+        { "title": "Análises personalizadas", "description": "Recomendações à medida" },
+        { "title": "Otimização de orçamento", "description": "Poupanças guiadas por IA" }
+      ],
+      "prioritySupport": "Suporte prioritário"
+    }
+  },
+  "goalTrackingSection": {
+    "badge": "ACOMPANHAMENTO DE OBJETIVOS",
+    "title": "Realize os seus sonhos financeiros",
+    "description": "Defina objetivos financeiros significativos e acompanhe o seu progresso sem esforço. Quer esteja a poupar para um carro novo, a casa dos seus sonhos, umas férias ou qualquer outro marco, o WalletUp ajuda-o a manter-se motivado com acompanhamento visual do progresso e recomendações de poupança inteligentes.",
+    "features": {
+      "customGoals": {
+        "title": "Objetivos personalizados",
+        "description": "Crie objetivos para carro, casa, férias ou qualquer coisa"
+      },
+      "visualProgress": {
+        "title": "Progresso visual",
+        "description": "Veja o quão perto está de alcançar os seus objetivos"
+      },
+      "deadlineTracking": {
+        "title": "Acompanhamento de prazos",
+        "description": "Defina datas-alvo e receba lembretes"
+      },
+      "smartSuggestions": {
+        "title": "Sugestões inteligentes",
+        "description": "Receba dicas sobre como alcançar os seus objetivos mais rápido"
+      }
+    }
+  },
+  "aiFeatureSection": {
+    "badge": "✨ COM TECNOLOGIA DE IA",
+    "title": "O seu assistente financeiro pessoal",
+    "description": "O WalletUp utiliza inteligência artificial avançada para compreender os seus hábitos de consumo e fornecer análises personalizadas. Obtenha recomendações inteligentes, categorização automática de despesas e análises preditivas para o ajudar a tomar melhores decisões financeiras.",
+    "features": {
+      "smartCategorization": {
+        "title": "Categorização inteligente",
+        "description": "A IA categoriza automaticamente as suas transações"
+      },
+      "predictiveAnalytics": {
+        "title": "Análises preditivas",
+        "description": "Preveja padrões e tendências de gastos futuros"
+      },
+      "personalizedTips": {
+        "title": "Dicas personalizadas",
+        "description": "Receba conselhos à medida com base nos seus hábitos"
+      },
+      "budgetOptimization": {
+        "title": "Otimização de orçamento",
+        "description": "A IA ajuda-o a encontrar oportunidades de poupança"
+      }
+    }
+  }
+}

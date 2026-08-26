@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Informes",
+    "subtitle": "Resumen financiero anual de {{year}}",
+    "loading": "Cargando informes..."
+  },
+  "summary": {
+    "totalIncome": "Ingresos totales",
+    "totalExpenses": "Gastos totales",
+    "netSavings": "Ahorro neto",
+    "percentOfIncome": "{{percent}}% de los ingresos",
+    "avgMonthly": "Media mensual",
+    "netSavingsSubtext": "ahorro neto"
+  },
+  "monthlyBarChart": {
+    "title": "Ingresos vs. gastos mensuales",
+    "income": "Ingresos",
+    "expenses": "Gastos"
+  },
+  "netSavingsChart": {
+    "title": "Tendencia del ahorro neto",
+    "label": "Ahorro neto",
+    "tooltipPrefix": "Neto"
+  },
+  "categoryChart": {
+    "title": "Gastos por categoría",
+    "noData": "No hay datos de gasto para este mes"
+  },
+  "topCategories": {
+    "title": "Categorías principales",
+    "noData": "No hay datos de gasto para este mes"
+  }
+}

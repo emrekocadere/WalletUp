@@ -1,0 +1,100 @@
+{
+  "accountsPage": {
+    "title": "Rekeningen",
+    "subtitle": "Houd je financiën bij met meerdere rekeningen.",
+    "addAccount": "Rekening toevoegen",
+    "loading": "Rekeningen laden..."
+  },
+  "accountDetailPage": {
+    "loading": "Rekeningdetails laden...",
+    "failedToLoad": "Rekening laden mislukt",
+    "backToAccounts": "← Terug naar rekeningen",
+    "subtitle": "Bekijk je rekeningsaldo en alle transacties.",
+    "deleteSuccess": "Rekening succesvol verwijderd",
+    "deleteFailed": "Rekening verwijderen mislukt"
+  },
+  "editAccountModal": {
+    "title": "Rekening bewerken",
+    "accountName": "Rekeningnaam",
+    "accountNamePlaceholder": "bijv. Betaalrekening, Spaarrekening",
+    "accountType": "Rekeningtype",
+    "currency": "Valuta",
+    "unknown": "Onbekend",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "noChanges": "Geen wijzigingen aangebracht",
+    "updated": "Rekening succesvol bijgewerkt",
+    "updateFailed": "Rekening bijwerken mislukt"
+  },
+  "addAccountModal": {
+    "title": "Nieuwe rekening toevoegen",
+    "accountName": "Rekeningnaam",
+    "accountNamePlaceholder": "bijv. Betaalrekening, Spaarrekening, enz.",
+    "accountType": "Rekeningtype",
+    "currency": "Valuta",
+    "unknown": "Onbekend",
+    "loading": "Laden...",
+    "initialBalance": "Beginsaldo",
+    "cancel": "Annuleren",
+    "submit": "Rekening toevoegen",
+    "invalidBalance": "Ongeldig saldo",
+    "created": "Succesvol aangemaakt",
+    "createFailed": "Rekening aanmaken mislukt"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Totaalsaldo",
+    "accounts": "Rekeningen"
+  },
+  "accountListSection": {
+    "loading": "Rekeningen laden...",
+    "created": "Aangemaakt op {{date}}",
+    "viewDetails": "Details bekijken"
+  },
+  "accountTransactionsPanel": {
+    "title": "Recente transacties",
+    "allTransactions": "Alle transacties",
+    "empty": "Nog geen transacties geregistreerd voor deze rekening.",
+    "category": "Categorie"
+  },
+  "accountSummarySection": {
+    "balance": "Saldo",
+    "created": "Aangemaakt op {{date}}",
+    "loading": "Rekeninginformatie laden...",
+    "currency": "Valuta",
+    "accountType": "Rekeningtype",
+    "transactions": "Transacties",
+    "addTransaction": "Transactie toevoegen",
+    "transfer": "Overboeken",
+    "edit": "Bewerken",
+    "exportCsv": "Exporteren als CSV",
+    "export": "Exporteren",
+    "deleteAccount": "Rekening verwijderen",
+    "delete": "Verwijderen",
+    "noTransactionsToExport": "Geen transacties om te exporteren",
+    "noAccountsAvailable": "Geen rekeningen beschikbaar",
+    "exportedCsv": "Transacties geëxporteerd als CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Samenvatting",
+    "quickOverview": "Snel overzicht",
+    "latestActivity": "Laatste activiteit",
+    "totalTransactions": "Totaal {{count}} transacties"
+  },
+  "transferModal": {
+    "title": "Geld overboeken",
+    "fromAccount": "Van rekening",
+    "toAccount": "Naar rekening",
+    "selectAccount": "Selecteer rekening",
+    "amount": "Bedrag",
+    "description": "Omschrijving",
+    "descriptionPlaceholder": "Optionele notitie",
+    "cancel": "Annuleren",
+    "submit": "Overboeken",
+    "submitting": "Bezig met overboeken...",
+    "success": "Geld succesvol overgeboekt",
+    "failed": "Geld overboeken mislukt",
+    "selectBothAccounts": "Selecteer beide rekeningen",
+    "sameAccount": "Bron- en doelrekening moeten verschillend zijn",
+    "invalidAmount": "Voer een geldig bedrag in"
+  }
+}

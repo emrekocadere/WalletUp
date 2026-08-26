@@ -1,0 +1,33 @@
+{
+  "page": {
+    "title": "Rapports",
+    "subtitle": "Aperçu financier annuel pour {{year}}",
+    "loading": "Chargement des rapports..."
+  },
+  "summary": {
+    "totalIncome": "Revenu total",
+    "totalExpenses": "Dépenses totales",
+    "netSavings": "Épargne nette",
+    "percentOfIncome": "{{percent}}% du revenu",
+    "avgMonthly": "Moyenne mensuelle",
+    "netSavingsSubtext": "épargne nette"
+  },
+  "monthlyBarChart": {
+    "title": "Revenus vs dépenses mensuels",
+    "income": "Revenus",
+    "expenses": "Dépenses"
+  },
+  "netSavingsChart": {
+    "title": "Tendance de l'épargne nette",
+    "label": "Épargne nette",
+    "tooltipPrefix": "Net"
+  },
+  "categoryChart": {
+    "title": "Dépenses par catégorie",
+    "noData": "Aucune donnée de dépenses pour ce mois"
+  },
+  "topCategories": {
+    "title": "Principales catégories",
+    "noData": "Aucune donnée de dépenses pour ce mois"
+  }
+}

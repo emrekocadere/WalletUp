@@ -1,0 +1,87 @@
+{
+  "page": {
+    "title": "Transacciones recurrentes",
+    "subtitle": "Gestiona tus gastos e ingresos recurrentes",
+    "addButton": "Añadir recurrente",
+    "loading": "Cargando transacciones recurrentes..."
+  },
+  "stats": {
+    "active": "Recurrentes activas",
+    "monthlyCommitment": "Compromiso mensual",
+    "totalActive": "Importe activo total"
+  },
+  "empty": {
+    "message": "Aún no hay transacciones recurrentes",
+    "cta": "Crea tu primera transacción recurrente"
+  },
+  "toast": {
+    "created": "Transacción recurrente creada",
+    "updated": "Transacción recurrente actualizada",
+    "deleted": "Transacción recurrente eliminada",
+    "activated": "Transacción recurrente activada",
+    "deactivated": "Transacción recurrente desactivada",
+    "saveFailed": "Error al guardar la transacción recurrente",
+    "deleteFailed": "Error al eliminar la transacción recurrente",
+    "toggleFailed": "Error al actualizar la transacción recurrente"
+  },
+  "card": {
+    "active": "Activa",
+    "inactive": "Inactiva",
+    "frequency": "Frecuencia",
+    "nextDue": "Próximo vencimiento",
+    "started": "Iniciada",
+    "ends": "Termina",
+    "amount": "Importe",
+    "deactivate": "Desactivar",
+    "activate": "Activar",
+    "edit": "Editar",
+    "delete": "Eliminar"
+  },
+  "frequencyLabels": {
+    "weekly": "Cada semana",
+    "biWeekly": "Cada 2 semanas",
+    "monthly": "Cada mes",
+    "quarterly": "Cada 3 meses",
+    "semiAnnually": "Cada 6 meses",
+    "annually": "Cada año"
+  },
+  "modal": {
+    "editTitle": "Editar recurrente",
+    "addTitle": "Añadir transacción recurrente",
+    "titleLabel": "Título *",
+    "titlePlaceholder": "p. ej., Alquiler mensual, Nómina",
+    "descriptionLabel": "Descripción",
+    "descriptionPlaceholder": "Descripción opcional",
+    "amountLabel": "Importe *",
+    "accountLabel": "Cuenta *",
+    "selectAccount": "Selecciona una cuenta",
+    "typeLabel": "Tipo *",
+    "selectType": "Selecciona el tipo",
+    "categoryLabel": "Categoría *",
+    "selectCategory": "Selecciona una categoría",
+    "frequencyLabel": "Frecuencia *",
+    "startDateLabel": "Fecha de inicio *",
+    "endDateLabel": "Fecha de fin (opcional)",
+    "activeLabel": "Activa",
+    "cancel": "Cancelar",
+    "update": "Actualizar",
+    "create": "Crear",
+    "frequencyOptions": {
+      "weekly": "Semanal",
+      "biWeekly": "Cada 2 semanas",
+      "monthly": "Mensual",
+      "quarterly": "Cada 3 meses",
+      "semiAnnually": "Cada 6 meses",
+      "annually": "Anual"
+    },
+    "errors": {
+      "titleRequired": "El título es obligatorio",
+      "amountInvalid": "El importe debe ser mayor que 0",
+      "startDateRequired": "La fecha de inicio es obligatoria",
+      "accountRequired": "La cuenta es obligatoria",
+      "categoryRequired": "La categoría es obligatoria",
+      "typeRequired": "El tipo es obligatorio",
+      "endDateInvalid": "La fecha de fin debe ser posterior a la fecha de inicio"
+    }
+  }
+}

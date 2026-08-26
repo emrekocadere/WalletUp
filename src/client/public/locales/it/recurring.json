@@ -1,0 +1,87 @@
+{
+  "page": {
+    "title": "Transazioni ricorrenti",
+    "subtitle": "Gestisci le tue spese ed entrate ricorrenti",
+    "addButton": "Aggiungi ricorrenza",
+    "loading": "Caricamento transazioni ricorrenti..."
+  },
+  "stats": {
+    "active": "Ricorrenze attive",
+    "monthlyCommitment": "Impegno mensile",
+    "totalActive": "Importo attivo totale"
+  },
+  "empty": {
+    "message": "Nessuna transazione ricorrente ancora",
+    "cta": "Crea la tua prima transazione ricorrente"
+  },
+  "toast": {
+    "created": "Transazione ricorrente creata",
+    "updated": "Transazione ricorrente aggiornata",
+    "deleted": "Transazione ricorrente eliminata",
+    "activated": "Transazione ricorrente attivata",
+    "deactivated": "Transazione ricorrente disattivata",
+    "saveFailed": "Impossibile salvare la transazione ricorrente",
+    "deleteFailed": "Impossibile eliminare la transazione ricorrente",
+    "toggleFailed": "Impossibile aggiornare la transazione ricorrente"
+  },
+  "card": {
+    "active": "Attiva",
+    "inactive": "Inattiva",
+    "frequency": "Frequenza",
+    "nextDue": "Prossima scadenza",
+    "started": "Iniziata",
+    "ends": "Termina",
+    "amount": "Importo",
+    "deactivate": "Disattiva",
+    "activate": "Attiva",
+    "edit": "Modifica",
+    "delete": "Elimina"
+  },
+  "frequencyLabels": {
+    "weekly": "Ogni settimana",
+    "biWeekly": "Ogni 2 settimane",
+    "monthly": "Ogni mese",
+    "quarterly": "Ogni 3 mesi",
+    "semiAnnually": "Ogni 6 mesi",
+    "annually": "Ogni anno"
+  },
+  "modal": {
+    "editTitle": "Modifica ricorrenza",
+    "addTitle": "Aggiungi transazione ricorrente",
+    "titleLabel": "Titolo *",
+    "titlePlaceholder": "es. Affitto mensile, Stipendio",
+    "descriptionLabel": "Descrizione",
+    "descriptionPlaceholder": "Descrizione facoltativa",
+    "amountLabel": "Importo *",
+    "accountLabel": "Conto *",
+    "selectAccount": "Seleziona conto",
+    "typeLabel": "Tipo *",
+    "selectType": "Seleziona tipo",
+    "categoryLabel": "Categoria *",
+    "selectCategory": "Seleziona categoria",
+    "frequencyLabel": "Frequenza *",
+    "startDateLabel": "Data di inizio *",
+    "endDateLabel": "Data di fine (facoltativo)",
+    "activeLabel": "Attiva",
+    "cancel": "Annulla",
+    "update": "Aggiorna",
+    "create": "Crea",
+    "frequencyOptions": {
+      "weekly": "Settimanale",
+      "biWeekly": "Ogni 2 settimane",
+      "monthly": "Mensile",
+      "quarterly": "Ogni 3 mesi",
+      "semiAnnually": "Ogni 6 mesi",
+      "annually": "Annuale"
+    },
+    "errors": {
+      "titleRequired": "Il titolo è obbligatorio",
+      "amountInvalid": "L'importo deve essere maggiore di 0",
+      "startDateRequired": "La data di inizio è obbligatoria",
+      "accountRequired": "Il conto è obbligatorio",
+      "categoryRequired": "La categoria è obbligatoria",
+      "typeRequired": "Il tipo è obbligatorio",
+      "endDateInvalid": "La data di fine deve essere successiva alla data di inizio"
+    }
+  }
+}

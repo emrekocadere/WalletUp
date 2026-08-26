@@ -1,0 +1,100 @@
+{
+  "accountsPage": {
+    "title": "Comptes",
+    "subtitle": "Suivez vos finances avec plusieurs comptes.",
+    "addAccount": "Ajouter un compte",
+    "loading": "Chargement des comptes..."
+  },
+  "accountDetailPage": {
+    "loading": "Chargement des détails du compte...",
+    "failedToLoad": "Échec du chargement du compte",
+    "backToAccounts": "← Retour aux comptes",
+    "subtitle": "Consultez le solde de votre compte et toutes les transactions.",
+    "deleteSuccess": "Compte supprimé avec succès",
+    "deleteFailed": "Échec de la suppression du compte"
+  },
+  "editAccountModal": {
+    "title": "Modifier le compte",
+    "accountName": "Nom du compte",
+    "accountNamePlaceholder": "ex. Compte courant, Épargne",
+    "accountType": "Type de compte",
+    "currency": "Devise",
+    "unknown": "Inconnu",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "noChanges": "Aucune modification effectuée",
+    "updated": "Compte mis à jour avec succès",
+    "updateFailed": "Échec de la mise à jour du compte"
+  },
+  "addAccountModal": {
+    "title": "Ajouter un nouveau compte",
+    "accountName": "Nom du compte",
+    "accountNamePlaceholder": "ex. Compte courant, Épargne, etc.",
+    "accountType": "Type de compte",
+    "currency": "Devise",
+    "unknown": "Inconnu",
+    "loading": "Chargement...",
+    "initialBalance": "Solde initial",
+    "cancel": "Annuler",
+    "submit": "Ajouter le compte",
+    "invalidBalance": "Solde invalide",
+    "created": "Créé avec succès",
+    "createFailed": "Échec de la création du compte"
+  },
+  "accountsHeroStats": {
+    "totalBalance": "Solde total",
+    "accounts": "Comptes"
+  },
+  "accountListSection": {
+    "loading": "Chargement des comptes...",
+    "created": "Créé le {{date}}",
+    "viewDetails": "Voir les détails"
+  },
+  "accountTransactionsPanel": {
+    "title": "Transactions récentes",
+    "allTransactions": "Toutes les transactions",
+    "empty": "Aucune transaction enregistrée pour ce compte pour l'instant.",
+    "category": "Catégorie"
+  },
+  "accountSummarySection": {
+    "balance": "Solde",
+    "created": "Créé le {{date}}",
+    "loading": "Chargement des informations du compte...",
+    "currency": "Devise",
+    "accountType": "Type de compte",
+    "transactions": "Transactions",
+    "addTransaction": "Ajouter une transaction",
+    "transfer": "Transférer",
+    "edit": "Modifier",
+    "exportCsv": "Exporter en CSV",
+    "export": "Exporter",
+    "deleteAccount": "Supprimer le compte",
+    "delete": "Supprimer",
+    "noTransactionsToExport": "Aucune transaction à exporter",
+    "noAccountsAvailable": "Aucun compte disponible",
+    "exportedCsv": "Transactions exportées en CSV"
+  },
+  "accountStatusPanel": {
+    "summary": "Résumé",
+    "quickOverview": "Aperçu rapide",
+    "latestActivity": "Dernière activité",
+    "totalTransactions": "Total de {{count}} transactions"
+  },
+  "transferModal": {
+    "title": "Transférer de l'argent",
+    "fromAccount": "Compte source",
+    "toAccount": "Compte destinataire",
+    "selectAccount": "Sélectionner un compte",
+    "amount": "Montant",
+    "description": "Description",
+    "descriptionPlaceholder": "Note facultative",
+    "cancel": "Annuler",
+    "submit": "Transférer",
+    "submitting": "Transfert en cours...",
+    "success": "Argent transféré avec succès",
+    "failed": "Échec du transfert d'argent",
+    "selectBothAccounts": "Veuillez sélectionner les deux comptes",
+    "sameAccount": "Les comptes source et destinataire doivent être différents",
+    "invalidAmount": "Veuillez saisir un montant valide"
+  }
+}

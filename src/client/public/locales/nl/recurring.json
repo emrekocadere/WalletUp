@@ -1,0 +1,87 @@
+{
+  "page": {
+    "title": "Terugkerende transacties",
+    "subtitle": "Beheer je terugkerende uitgaven en inkomsten",
+    "addButton": "Terugkerende toevoegen",
+    "loading": "Terugkerende transacties laden..."
+  },
+  "stats": {
+    "active": "Actieve terugkerende",
+    "monthlyCommitment": "Maandelijkse verplichting",
+    "totalActive": "Totaal actief bedrag"
+  },
+  "empty": {
+    "message": "Nog geen terugkerende transacties",
+    "cta": "Maak je eerste terugkerende transactie aan"
+  },
+  "toast": {
+    "created": "Terugkerende transactie aangemaakt",
+    "updated": "Terugkerende transactie bijgewerkt",
+    "deleted": "Terugkerende transactie verwijderd",
+    "activated": "Terugkerende transactie geactiveerd",
+    "deactivated": "Terugkerende transactie gedeactiveerd",
+    "saveFailed": "Terugkerende transactie opslaan mislukt",
+    "deleteFailed": "Terugkerende transactie verwijderen mislukt",
+    "toggleFailed": "Terugkerende transactie bijwerken mislukt"
+  },
+  "card": {
+    "active": "Actief",
+    "inactive": "Inactief",
+    "frequency": "Frequentie",
+    "nextDue": "Volgende vervaldatum",
+    "started": "Gestart",
+    "ends": "Eindigt",
+    "amount": "Bedrag",
+    "deactivate": "Deactiveren",
+    "activate": "Activeren",
+    "edit": "Bewerken",
+    "delete": "Verwijderen"
+  },
+  "frequencyLabels": {
+    "weekly": "Elke week",
+    "biWeekly": "Elke 2 weken",
+    "monthly": "Elke maand",
+    "quarterly": "Elke 3 maanden",
+    "semiAnnually": "Elke 6 maanden",
+    "annually": "Elk jaar"
+  },
+  "modal": {
+    "editTitle": "Terugkerende bewerken",
+    "addTitle": "Terugkerende transactie toevoegen",
+    "titleLabel": "Titel *",
+    "titlePlaceholder": "bijv. Maandelijkse huur, Salaris",
+    "descriptionLabel": "Omschrijving",
+    "descriptionPlaceholder": "Optionele omschrijving",
+    "amountLabel": "Bedrag *",
+    "accountLabel": "Rekening *",
+    "selectAccount": "Selecteer rekening",
+    "typeLabel": "Type *",
+    "selectType": "Selecteer type",
+    "categoryLabel": "Categorie *",
+    "selectCategory": "Selecteer categorie",
+    "frequencyLabel": "Frequentie *",
+    "startDateLabel": "Startdatum *",
+    "endDateLabel": "Einddatum (optioneel)",
+    "activeLabel": "Actief",
+    "cancel": "Annuleren",
+    "update": "Bijwerken",
+    "create": "Aanmaken",
+    "frequencyOptions": {
+      "weekly": "Wekelijks",
+      "biWeekly": "Elke 2 weken",
+      "monthly": "Maandelijks",
+      "quarterly": "Elke 3 maanden",
+      "semiAnnually": "Elke 6 maanden",
+      "annually": "Jaarlijks"
+    },
+    "errors": {
+      "titleRequired": "Titel is verplicht",
+      "amountInvalid": "Bedrag moet groter zijn dan 0",
+      "startDateRequired": "Startdatum is verplicht",
+      "accountRequired": "Rekening is verplicht",
+      "categoryRequired": "Categorie is verplicht",
+      "typeRequired": "Type is verplicht",
+      "endDateInvalid": "Einddatum moet na de startdatum liggen"
+    }
+  }
+}

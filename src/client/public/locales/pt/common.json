@@ -1,0 +1,115 @@
+{
+  "common": {
+    "showMore": "Mostrar mais",
+    "showLess": "Mostrar menos",
+    "hideDetails": "Ocultar detalhes",
+    "aiInsightBadge": "Análise de IA",
+    "aiInsightsUnavailable": "As análises de IA ainda não estão disponíveis."
+  },
+  "pagination": {
+    "range": "A mostrar {{start}}-{{end}} de {{total}}",
+    "previous": "Anterior",
+    "next": "Seguinte"
+  },
+  "nav": {
+    "menu": "Menu",
+    "dashboard": "Painel",
+    "accounts": "Contas",
+    "transactions": "Transações",
+    "goals": "Objetivos",
+    "recurring": "Recorrentes",
+    "reports": "Relatórios",
+    "settings": "Definições",
+    "logout": "Terminar sessão"
+  },
+  "settings": {
+    "title": "Definições",
+    "subtitle": "Personalize a aplicação de acordo com as suas preferências",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "saving": "A guardar...",
+    "loadFailed": "Falha ao carregar os dados",
+    "saved": "Definições guardadas com sucesso",
+    "saveFailed": "Falha ao guardar as definições",
+    "currency": {
+      "title": "Moeda base",
+      "subtitle": "Moeda predefinida para todas as transações",
+      "placeholder": "Selecionar moeda"
+    },
+    "country": {
+      "title": "País",
+      "subtitle": "Definições regionais",
+      "placeholder": "Selecionar país"
+    },
+    "language": {
+      "title": "Idioma",
+      "subtitle": "Idioma da interface",
+      "placeholder": "Selecionar idioma"
+    },
+    "personal": {
+      "title": "Informações pessoais",
+      "subtitle": "Detalhes opcionais",
+      "occupation": "Profissão",
+      "optional": "(Opcional)",
+      "occupationPlaceholder": "ex. Engenheiro de software",
+      "monthlyIncome": "Rendimento mensal",
+      "monthlyIncomePlaceholder": "Introduza o seu rendimento mensal"
+    },
+    "changePassword": {
+      "title": "Alterar palavra-passe",
+      "subtitle": "Atualize a palavra-passe da sua conta",
+      "current": "Palavra-passe atual",
+      "currentPlaceholder": "Introduza a sua palavra-passe atual",
+      "new": "Nova palavra-passe",
+      "newPlaceholder": "Introduza a sua nova palavra-passe",
+      "confirm": "Confirmar palavra-passe",
+      "confirmPlaceholder": "Confirme a sua nova palavra-passe",
+      "cancel": "Cancelar",
+      "submit": "Alterar palavra-passe",
+      "submitting": "A atualizar...",
+      "toastSuccess": "Palavra-passe alterada com sucesso",
+      "toastFailed": "Falha ao alterar a palavra-passe",
+      "errors": {
+        "currentRequired": "A palavra-passe atual é obrigatória",
+        "newRequired": "A nova palavra-passe é obrigatória",
+        "newTooShort": "A palavra-passe deve ter pelo menos 6 caracteres",
+        "confirmRequired": "Confirme a sua nova palavra-passe",
+        "mismatch": "As palavras-passe não coincidem"
+      }
+    },
+    "deleteAccount": {
+      "title": "Eliminar conta",
+      "description": "Elimine permanentemente a sua conta e todos os dados associados. Esta ação não pode ser desfeita.",
+      "button": "Eliminar conta",
+      "deleting": "A eliminar...",
+      "toastSuccess": "Conta eliminada com sucesso",
+      "toastFailed": "Falha ao eliminar a conta. Tente novamente."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Bem-vindo de volta, {{name}}!",
+    "defaultUser": "Utilizador",
+    "subtitle": "Aqui está a sua visão geral financeira",
+    "loading": "A carregar o painel...",
+    "totalBalance": "Saldo total",
+    "totalBalanceSubtitle": "O seu saldo total atual",
+    "monthlySpending": "Despesas mensais",
+    "percentOfIncome": "-{{percent}}% do rendimento",
+    "noIncome": "Sem rendimento este mês",
+    "goals": "Objetivos",
+    "activeGoal": "Objetivo ativo",
+    "activeGoals": "Objetivos ativos",
+    "transactions": "Transações",
+    "thisMonth": "Este mês",
+    "aiInsightsEmpty": "As análises de IA estão a ser preparadas. Volte em breve.",
+    "recentTransactions": "Transações recentes",
+    "viewAll": "Ver todas →",
+    "loadingTransactions": "A carregar transações...",
+    "noTransactions": "Ainda não há transações",
+    "noTransactionsSubtitle": "Crie uma conta e adicione a sua primeira transação",
+    "noDescription": "Sem descrição",
+    "uncategorized": "Sem categoria",
+    "unknownType": "Desconhecido",
+    "spendingByCategory": "Despesas por categoria"
+  }
+}
