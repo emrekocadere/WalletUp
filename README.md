@@ -6,6 +6,16 @@
 
 🌐 **Live:** [walletup.io](https://walletup.io)
 
+## 📑 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Screenshots](#-screenshots)
+- [Technologies Summary](#-technologies-summary)
+
 ## 📋 Overview
 
 WalletUp is a full-stack personal finance management application that helps users track their spending, manage multiple accounts, set financial goals, and gain insights into their financial habits. Built with modern technologies and clean architecture principles, the application provides a seamless experience for managing personal finances.
