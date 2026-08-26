@@ -47,10 +47,10 @@ The client application is built with **React 19** and follows a modern component
 
 ### Backend
 
-The API is built with **.NET 8** following **Clean Architecture** and **CQRS** patterns:
+The API is built with **.NET 10** following **Clean Architecture** and **CQRS** patterns:
 
 **Tech Stack:**
-- **.NET 8** - Modern cross-platform framework
+- **.NET 10** - Modern cross-platform framework
 - **ASP.NET Core Web API** - RESTful API framework
 - **Entity Framework Core** - ORM for database operations
 - **PostgreSQL** - Relational database
@@ -73,7 +73,6 @@ The API is built with **.NET 8** following **Clean Architecture** and **CQRS** p
 **Key Patterns:**
 - Clean Architecture for separation of concerns
 - CQRS (Command Query Responsibility Segregation) with MediatR
-- Repository pattern for data access
 - Dependency Injection throughout
 - JWT-based authentication and authorization
 
@@ -97,7 +96,7 @@ The API is built with **.NET 8** following **Clean Architecture** and **CQRS** p
 | Layer | Technologies |
 |-------|-------------|
 | **Frontend** | React 19, TypeScript, Vite, Redux Toolkit, React Query, Tailwind CSS |
-| **Backend** | .NET 8, ASP.NET Core, Entity Framework Core, MediatR |
+| **Backend** | .NET 10, ASP.NET Core, Entity Framework Core, MediatR |
 | **Database** | PostgreSQL, Redis |
 | **Authentication** | JWT, Google OAuth |
-| **Architecture** | Clean Architecture, CQRS, Repository Pattern |
+| **Architecture** | Clean Architecture, CQRS |
