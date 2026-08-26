@@ -14,6 +14,16 @@
     "message": "Henüz tekrarlanan işlem yok",
     "cta": "İlk tekrarlanan işleminizi oluşturun"
   },
+  "toast": {
+    "created": "Tekrarlanan işlem oluşturuldu",
+    "updated": "Tekrarlanan işlem güncellendi",
+    "deleted": "Tekrarlanan işlem silindi",
+    "activated": "Tekrarlanan işlem aktif edildi",
+    "deactivated": "Tekrarlanan işlem devre dışı bırakıldı",
+    "saveFailed": "Tekrarlanan işlem kaydedilemedi",
+    "deleteFailed": "Tekrarlanan işlem silinemedi",
+    "toggleFailed": "Tekrarlanan işlem güncellenemedi"
+  },
   "card": {
     "active": "Aktif",
     "inactive": "Pasif",

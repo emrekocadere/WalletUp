@@ -14,6 +14,16 @@
     "message": "No recurring transactions yet",
     "cta": "Create your first recurring transaction"
   },
+  "toast": {
+    "created": "Recurring transaction created",
+    "updated": "Recurring transaction updated",
+    "deleted": "Recurring transaction deleted",
+    "activated": "Recurring transaction activated",
+    "deactivated": "Recurring transaction deactivated",
+    "saveFailed": "Failed to save recurring transaction",
+    "deleteFailed": "Failed to delete recurring transaction",
+    "toggleFailed": "Failed to update recurring transaction"
+  },
   "card": {
     "active": "Active",
     "inactive": "Inactive",

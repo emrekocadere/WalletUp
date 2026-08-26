@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PageLoader } from '@/components/common/PageLoader';
+import { Toast } from '@/components/common/Toast';
 import { RecurringTransactionCard } from '@/components/recurring/RecurringTransactionCard';
 import { RecurringTransactionModal } from '@/components/recurring/RecurringTransactionModal';
 import type { RecurringTransaction } from '@/types/model.types';
@@ -18,6 +19,7 @@ export const RecurringTransactionsPage = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [currency] = useState('USD');
   const [isLoading, setIsLoading] = useState(true);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const fetchRecurringTransactions = async () => {
     try {
@@ -89,8 +91,10 @@ export const RecurringTransactionsPage = () => {
       }
       await fetchRecurringTransactions();
       handleCloseModal();
+      setToast({ message: editingId ? t('toast.updated') : t('toast.created'), type: 'success' });
     } catch (error) {
       console.error('Failed to save recurring transaction:', error);
+      setToast({ message: t('toast.saveFailed'), type: 'error' });
     }
   };
 
@@ -98,19 +102,24 @@ export const RecurringTransactionsPage = () => {
     try {
       await recurringTransactionsApi.delete(id);
       setRecurringTransactions(prev => prev.filter(t => t.id !== id));
+      setToast({ message: t('toast.deleted'), type: 'success' });
     } catch (error) {
       console.error('Failed to delete recurring transaction:', error);
+      setToast({ message: t('toast.deleteFailed'), type: 'error' });
     }
   };
 
   const handleToggleActive = async (id: string) => {
     try {
       await recurringTransactionsApi.toggleActive(id);
+      const nowActive = !recurringTransactions.find(t => t.id === id)?.isActive;
       setRecurringTransactions(prev =>
-        prev.map(t => (t.id === id ? { ...t, isActive: !t.isActive } : t))
+        prev.map(t => (t.id === id ? { ...t, isActive: nowActive } : t))
       );
+      setToast({ message: nowActive ? t('toast.activated') : t('toast.deactivated'), type: 'success' });
     } catch (error) {
       console.error('Failed to toggle recurring transaction:', error);
+      setToast({ message: t('toast.toggleFailed'), type: 'error' });
     }
   };
 
@@ -222,6 +231,14 @@ export const RecurringTransactionsPage = () => {
           accounts={accounts}
           onClose={handleCloseModal}
           onSave={handleSave}
+        />
+      )}
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
         />
       )}
     </div>
