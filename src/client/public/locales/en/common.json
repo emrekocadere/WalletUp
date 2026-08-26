@@ -19,7 +19,8 @@
     "goals": "Goals",
     "recurring": "Recurring",
     "reports": "Reports",
-    "settings": "Settings"
+    "settings": "Settings",
+    "logout": "Log Out"
   },
   "settings": {
     "title": "Settings",

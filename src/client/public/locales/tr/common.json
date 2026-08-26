@@ -19,7 +19,8 @@
     "goals": "Hedefler",
     "recurring": "Tekrarlanan",
     "reports": "Raporlar",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap"
   },
   "settings": {
     "title": "Ayarlar",

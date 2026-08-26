@@ -1,6 +1,9 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { authApi } from '@/api/endpoints/auth.api';
+import { logout } from '@/store/slices/authSlice';
 
 const NAV_ITEMS = [
   {
@@ -38,8 +41,21 @@ const NAV_ITEMS = [
 export const Header = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isActive = (path: string) => location.pathname === path;
+
+  const handleLogout = async () => {
+    try {
+      await authApi.logout();
+    } catch (error) {
+      console.error('Logout request failed:', error);
+    } finally {
+      dispatch(logout());
+      navigate('/login');
+    }
+  };
 
   return (
     <>
@@ -105,6 +121,15 @@ export const Header = () => {
             </svg>
             <span className="font-medium">{t('nav.settings')}</span>
           </Link>
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span className="font-medium">{t('nav.logout')}</span>
+          </button>
         </div>
       </aside>
     </>
