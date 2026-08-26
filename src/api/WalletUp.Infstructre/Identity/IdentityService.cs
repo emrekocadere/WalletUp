@@ -115,8 +115,22 @@ public class IdentityService(
 
         var tokenInfo = dbContext.UserTokens.FirstOrDefault(x => x.UserId == user.Id);
 
-        tokenInfo.ExpiresAt = DateTime.UtcNow.AddDays(7);
-        tokenInfo.Value = refreshToken;
+        if (tokenInfo != null)
+        {
+            tokenInfo.ExpiresAt = DateTime.UtcNow.AddDays(7);
+            tokenInfo.Value = refreshToken;
+        }
+        else
+        {
+            dbContext.UserTokens.Add(new ApplicationUserToken
+            {
+                UserId = user.Id,
+                LoginProvider = "WalletUp",
+                Name = "RefreshToken",
+                Value = refreshToken,
+                ExpiresAt = DateTime.UtcNow.AddDays(7)
+            });
+        }
 
         await dbContext.SaveChangesAsync();
         
