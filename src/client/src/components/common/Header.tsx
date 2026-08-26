@@ -77,7 +77,7 @@ export const Header = () => {
               to={to}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                 isActive(to)
-                  ? 'bg-violet-500 text-white'
+                  ? 'bg-purple-500 text-white'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
               }`}
             >
@@ -95,7 +95,7 @@ export const Header = () => {
             to="/settings"
             className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
               isActive('/settings')
-                ? 'bg-violet-500 text-white'
+                ? 'bg-purple-500 text-white'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
             }`}
           >

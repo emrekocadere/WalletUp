@@ -174,7 +174,7 @@ export const ChangePasswordSection = ({ onToast }: ChangePasswordSectionProps) =
             <button
               onClick={handleChangePassword}
               disabled={isLoading || !formData.currentPassword || !formData.newPassword || !formData.confirmPassword}
-              className="flex-1 px-4 py-2.5 bg-violet-500 hover:bg-violet-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-violet-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-2.5 bg-purple-500 hover:bg-purple-700 text-white font-medium rounded-lg transition-all shadow-lg shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? t('settings.changePassword.submitting') : t('settings.changePassword.submit')}
             </button>

@@ -63,7 +63,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
           value={formData.email}
           onChange={handleChange}
           disabled={isLoading}
-          className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
+          className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400/50 focus:outline-none focus:ring-4 focus:ring-purple-500/10 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
             errors.email ? 'border-red-500/50 hover:border-red-500/70' : 'border-white/20'
           }`}
           placeholder={t('loginForm.emailPlaceholder')}
@@ -83,7 +83,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
           value={formData.password}
           onChange={handleChange}
           disabled={isLoading}
-          className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-500/20 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
+          className={`mt-1 block w-full rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400/50 focus:outline-none focus:ring-4 focus:ring-purple-500/10 disabled:bg-white/5 disabled:cursor-not-allowed transition-all duration-200 hover:border-white/30 ${
             errors.password ? 'border-red-500/50 hover:border-red-500/70' : 'border-white/20'
           }`}
           placeholder={t('loginForm.passwordPlaceholder')}
@@ -94,7 +94,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 px-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
+        className="w-full py-4 px-4 bg-purple-500 hover:bg-purple-700 text-white font-bold rounded-xl disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors duration-200"
       >
         {isLoading ? t('loginForm.submitting') : t('loginForm.submit')}
       </button>

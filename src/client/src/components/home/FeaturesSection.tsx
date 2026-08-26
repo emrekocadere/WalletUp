@@ -69,11 +69,11 @@ export const FeaturesSection = () => {
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         <div className="mb-14">
-          <p className="font-mono text-xs tracking-[0.25em] text-violet-400/80 uppercase mb-4">
+          <p className="font-mono text-xs tracking-[0.25em] text-purple-400/80 uppercase mb-4">
             {t('featuresSection.eyebrow')}
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.1]">
-            {t('featuresSection.titlePrefix')}<span className="text-violet-400 italic">{t('featuresSection.titleEmphasis')}</span>{t('featuresSection.titleSuffix')}
+            {t('featuresSection.titlePrefix')}<span className="text-purple-400 italic">{t('featuresSection.titleEmphasis')}</span>{t('featuresSection.titleSuffix')}
           </h2>
           <p className="text-gray-400 text-lg mt-4 max-w-md">
             {t('featuresSection.subtitle')}
@@ -89,7 +89,7 @@ export const FeaturesSection = () => {
                 i !== items.length - 1 ? 'border-b border-white/10' : ''
               }`}
             >
-              <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-500 group-hover:text-violet-400 group-hover:border-violet-400/30 transition-colors">
+              <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-gray-500 group-hover:text-purple-400 group-hover:border-purple-400/30 transition-colors">
                 <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   {item.icon}
                 </svg>
@@ -100,7 +100,7 @@ export const FeaturesSection = () => {
                   <h3 className="text-base font-bold text-white mb-1">{t(`featuresSection.items.${item.key}.name`)}</h3>
                   <p className="text-sm text-gray-400 leading-relaxed max-w-md">{t(`featuresSection.items.${item.key}.description`)}</p>
                 </div>
-                <span className="font-mono text-xs text-gray-600 group-hover:text-violet-400/70 transition-colors whitespace-nowrap flex-shrink-0">
+                <span className="font-mono text-xs text-gray-600 group-hover:text-purple-400/70 transition-colors whitespace-nowrap flex-shrink-0">
                   {item.path}
                 </span>
               </div>

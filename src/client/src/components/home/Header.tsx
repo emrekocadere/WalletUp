@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-5">
       <div className="max-w-6xl mx-auto">
-        <nav className="flex items-center justify-between px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/40">
+        <nav className="relative flex items-center justify-between px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/40">
           <Link to="/" className="flex items-center gap-2 group">
             <img
               src="/Logo2.svg"
@@ -19,7 +19,7 @@ export const Header = () => {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             <a href="#features" className="px-4 py-2 text-sm text-gray-200 hover:text-white hover:bg-white/8 rounded-xl transition-all font-medium">
               {t('header.features')}
             </a>
@@ -37,7 +37,7 @@ export const Header = () => {
             </Link>
             <Link
               to="/register"
-              className="px-5 py-2.5 bg-violet-500 hover:bg-violet-700 text-white text-sm font-semibold rounded-xl transition-colors duration-200"
+              className="px-5 py-2.5 bg-purple-500 hover:bg-purple-700 text-white text-sm font-semibold rounded-xl transition-colors duration-200"
             >
               {t('header.getStarted')}
             </Link>

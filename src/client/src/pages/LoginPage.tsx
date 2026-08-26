@@ -61,7 +61,7 @@ export const LoginPage = () => {
       <div className="min-h-screen bg-[#0d1224] flex items-center justify-center py-12 px-4 relative overflow-hidden">
         {/* Background orbs */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-violet-700/15 blur-[120px]" />
+          <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-purple-700/15 blur-[120px]" />
           <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
           {/* Grid */}
           <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -80,7 +80,7 @@ export const LoginPage = () => {
             <div>
               <h1 className="text-4xl font-black text-white leading-tight mb-3">
                 {t('login.welcome')}{' '}
-                <span className="text-violet-400">{t('login.welcomeHighlight')}</span>
+                <span className="text-purple-400">{t('login.welcomeHighlight')}</span>
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed">
                 {t('login.subtitle')}
@@ -90,7 +90,7 @@ export const LoginPage = () => {
               {[
                 { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: t('login.features.trackExpenses.label'), sub: t('login.features.trackExpenses.sub'), color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
                 { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: t('login.features.viewReports.label'), sub: t('login.features.viewReports.sub'), color: 'text-indigo-400', bg: 'bg-indigo-500/15' },
-                { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: t('login.features.setGoals.label'), sub: t('login.features.setGoals.sub'), color: 'text-violet-400', bg: 'bg-violet-500/15' },
+                { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: t('login.features.setGoals.label'), sub: t('login.features.setGoals.sub'), color: 'text-purple-400', bg: 'bg-purple-500/15' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-4">
                   <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -126,7 +126,7 @@ export const LoginPage = () => {
             <div className="mt-7 pt-6 border-t border-white/8">
               <p className="text-center text-sm text-gray-500">
                 {t('login.noAccount')}{' '}
-                <Link to="/register" className="text-violet-400 hover:text-violet-300 font-semibold transition-colors">
+                <Link to="/register" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">
                   {t('login.createOne')}
                 </Link>
               </p>

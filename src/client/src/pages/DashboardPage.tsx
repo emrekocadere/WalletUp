@@ -79,7 +79,7 @@ export const DashboardPage = () => {
     const gradients = [
       'from-orange-500 to-orange-400',
       'from-blue-500 to-blue-400',
-      'from-cyan-500 to-cyan-400',
+      'from-purple-500 to-purple-400',
       'from-yellow-500 to-yellow-400',
       'from-primary-500 to-primary-400',
       'from-primary-500 to-primary-400',
@@ -116,9 +116,9 @@ export const DashboardPage = () => {
               title={t('dashboard.totalBalance')}
               value={`${getCurrencySymbol(preferredCurrency)}${formatNumber(currentTotalBalance, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               subtitle={t('dashboard.totalBalanceSubtitle')}
-              iconBgColor="bg-violet-500/20"
-              iconColor="text-violet-400"
-              borderHoverColor="violet-500/50"
+              iconBgColor="bg-purple-500/20"
+              iconColor="text-purple-400"
+              borderHoverColor="purple-500/50"
               subtitleColor="text-green-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,10 +146,10 @@ export const DashboardPage = () => {
               title={t('dashboard.goals')}
               value={goalQuantity.toString()}
               subtitle={goalQuantity === 1 ? t('dashboard.activeGoal') : t('dashboard.activeGoals')}
-              iconBgColor="bg-violet-500/20"
-              iconColor="text-violet-400"
-              borderHoverColor="violet-500/50"
-              subtitleColor="text-violet-400"
+              iconBgColor="bg-purple-500/20"
+              iconColor="text-purple-400"
+              borderHoverColor="purple-500/50"
+              subtitleColor="text-purple-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -161,10 +161,10 @@ export const DashboardPage = () => {
               title={t('dashboard.transactions')}
               value={transactionCount.toString()}
               subtitle={t('dashboard.thisMonth')}
-              iconBgColor="bg-violet-500/20"
-              iconColor="text-violet-400"
-              borderHoverColor="violet-500/50"
-              subtitleColor="text-violet-400"
+              iconBgColor="bg-purple-500/20"
+              iconColor="text-purple-400"
+              borderHoverColor="purple-500/50"
+              subtitleColor="text-purple-400"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -189,7 +189,7 @@ export const DashboardPage = () => {
             <div className="lg:col-span-2 bg-slate-800/50 p-4 sm:p-6 lg:p-8 rounded-xl border border-slate-700/50">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white">{t('dashboard.recentTransactions')}</h2>
-                <Link to="/transactions" className="text-violet-400 hover:text-violet-300 text-sm font-medium transition-colors">
+                <Link to="/transactions" className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
                   {t('dashboard.viewAll')}
                 </Link>
               </div>

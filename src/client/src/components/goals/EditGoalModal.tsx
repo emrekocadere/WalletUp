@@ -160,7 +160,7 @@ export const EditGoalModal = ({ isOpen, onClose, goal, onSuccess, onShowToast }:
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-violet-500 hover:bg-violet-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-purple-500 hover:bg-purple-700 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? t('editModal.submitting') : t('editModal.submit')}
               </button>

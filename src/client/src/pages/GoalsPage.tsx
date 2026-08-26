@@ -128,7 +128,7 @@ export const GoalsPage = () => {
             </div>
             <button
               onClick={() => setShowAddModal(true)}
-              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-violet-500 hover:bg-violet-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors"
             >
               {t('goalsPage.addNewGoal')}
             </button>

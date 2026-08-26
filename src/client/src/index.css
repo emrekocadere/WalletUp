@@ -69,4 +69,19 @@
   .delay-700 {
     animation-delay: 0.7s;
   }
+
+  @keyframes neon-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 5px #fff, 0 0 15px #d8b4fe, 0 0 30px #a855f7, 0 0 60px #a855f7, 0 0 90px #a855f7;
+    }
+    20%, 24%, 55% {
+      opacity: 0.4;
+      text-shadow: none;
+    }
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 4s linear infinite;
+  }
 }

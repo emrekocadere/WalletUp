@@ -106,7 +106,7 @@ export const GoalCard = ({ goal, onAddMoney, onEdit, onDelete }: GoalCardProps) 
       <div className="flex gap-2 mt-4">
         <button
           onClick={() => onAddMoney?.(goal.id)}
-          className="flex-1 px-4 py-2 bg-violet-500/15 border border-violet-500/40 hover:bg-violet-500/25 text-violet-300 text-sm font-semibold rounded-lg transition-colors"
+          className="flex-1 px-4 py-2 bg-purple-500/15 border border-purple-500/40 hover:bg-purple-500/25 text-purple-300 text-sm font-semibold rounded-lg transition-colors"
         >
           {t('goalCard.addMoney')}
         </button>

@@ -183,7 +183,7 @@ export const TransactionsPage = () => {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-violet-500 hover:bg-violet-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors flex items-center gap-2"
+                className="px-3 sm:px-6 py-2.5 sm:py-3 bg-purple-500 hover:bg-purple-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-colors flex items-center gap-2"
               >
                 <svg
                   className="w-5 h-5"

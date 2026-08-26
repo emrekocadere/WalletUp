@@ -107,7 +107,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">{t('addMoneyModal.remaining')}</span>
-              <span className="text-violet-400 font-semibold">{currencySymbol}{formatNumber(remainingAmount)}</span>
+              <span className="text-purple-400 font-semibold">{currencySymbol}{formatNumber(remainingAmount)}</span>
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ export const AddMoneyModal = ({ isOpen, onClose, goal, onSuccess }: AddMoneyModa
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-3 bg-violet-500 hover:bg-violet-700 text-white font-semibold rounded-lg transition-all shadow-lg shadow-violet-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-3 bg-purple-500 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all shadow-lg shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading || !amount || parseFloat(amount) <= 0 || !transactionTypeId}
             >
               {isLoading ? t('addMoneyModal.submitting') : t('addMoneyModal.submit')}

@@ -94,7 +94,7 @@ export const TransactionTable = ({
                 </div>
               </td>
               <td className="px-6 py-4">
-                <span className="inline-flex items-center gap-2 px-3 py-1 bg-violet-500/15 text-violet-300 rounded-lg text-sm border border-violet-500/20 hover:border-violet-400/40 transition-all">
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/15 text-purple-300 rounded-lg text-sm border border-purple-500/20 hover:border-purple-400/40 transition-all">
                   {transaction.category?.name || t('table.noCategory')}
                 </span>
               </td>
@@ -190,7 +190,7 @@ export const TransactionTable = ({
             )}
 
             <div className="flex flex-wrap gap-2 items-center">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-violet-500/15 text-violet-300 rounded-lg text-xs border border-violet-500/20">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-purple-500/15 text-purple-300 rounded-lg text-xs border border-purple-500/20">
                 {transaction.category?.name || t('table.noCategory')}
               </span>
               

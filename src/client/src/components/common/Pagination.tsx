@@ -48,7 +48,7 @@ export const Pagination = ({ page, totalPages, totalCount, pageSize, onPageChang
                   onClick={() => onPageChange(n)}
                   className={`w-8 h-8 text-sm rounded-lg transition-colors ${
                     n === page
-                      ? 'bg-violet-500 text-white font-semibold'
+                      ? 'bg-purple-500 text-white font-semibold'
                       : 'text-gray-300 hover:bg-white/10'
                   }`}
                 >

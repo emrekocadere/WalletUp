@@ -22,7 +22,7 @@ export const Hero = () => {
 
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 2 }}>
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-violet-700/10 blur-[140px]" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-purple-700/10 blur-[140px]" />
         <div className="absolute top-1/3 -right-60 w-[500px] h-[500px] rounded-full bg-indigo-600/10 blur-[120px]" />
         {/* Grid pattern */}
         <div
@@ -41,7 +41,10 @@ export const Hero = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
               <span className="text-white">{t('hero.titleLine1')}</span>
               <br />
-              <span className="text-violet-500">
+              <span
+                className="text-purple-400 block sm:inline text-6xl sm:text-7xl lg:text-8xl animate-neon-flicker"
+                style={{ fontFamily: '"Neonderthaw", cursive', fontWeight: 400 }}
+              >
                 {t('hero.titleLine2')}
               </span>
             </h1>
@@ -53,7 +56,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
               <Link
                 to="/register"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-2xl transition-colors duration-200"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-400/20 hover:bg-purple-400/30 backdrop-blur-md border border-purple-300/40 text-white font-bold rounded-2xl transition-colors duration-200 shadow-lg shadow-purple-500/10"
               >
                 {t('hero.startFree')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

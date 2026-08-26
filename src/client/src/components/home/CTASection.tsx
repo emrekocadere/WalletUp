@@ -8,16 +8,16 @@ export const CTASection = () => {
       <div className="max-w-6xl mx-auto">
 
         {/* CTA banner */}
-        <div className="relative overflow-hidden  from-violet-900/80 to-indigo-900/80 backdrop-blur-2xl rounded-3xl border border-violet-400/25 p-10 md:p-16">
+        <div className="relative overflow-hidden  from-purple-900/80 to-indigo-900/80 backdrop-blur-2xl rounded-3xl border border-purple-400/25 p-10 md:p-16">
           {/* Decorative blobs */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-violet-600/20 blur-3xl pointer-events-none" />
+          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-purple-600/20 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-indigo-600/20 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 tracking-tight">
                 {t('ctaSection.titlePrefix')}{' '}
-                <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">{t('ctaSection.titleEmphasis')}</span>
+                <span className="text-purple-400">{t('ctaSection.titleEmphasis')}</span>
               </h2>
               <p className="text-gray-400 text-lg max-w-lg">
                 {t('ctaSection.subtitle')}
@@ -26,7 +26,7 @@ export const CTASection = () => {
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <Link
                 to="/register"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 hover:bg-violet-700 text-white font-bold rounded-2xl transition-colors duration-200 whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-700 text-white font-bold rounded-2xl transition-colors duration-200 whitespace-nowrap"
               >
                 {t('ctaSection.getStartedFree')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
