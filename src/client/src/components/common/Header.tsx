@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { authApi } from '@/api/endpoints/auth.api';
 import { logout } from '@/store/slices/authSlice';
+import { FeedbackModal } from './FeedbackModal';
+import { Toast } from './Toast';
 
 const NAV_ITEMS = [
   {
@@ -44,6 +46,8 @@ export const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const isActive = (path: string) => location.pathname === path;
 
   const handleLogout = async () => {
@@ -122,6 +126,15 @@ export const Header = () => {
             <span className="font-medium">{t('nav.settings')}</span>
           </Link>
           <button
+            onClick={() => setIsFeedbackModalOpen(true)}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-400 hover:text-purple-300 hover:bg-purple-500/10 transition-colors"
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span className="font-medium">{t('nav.feedback')}</span>
+          </button>
+          <button
             onClick={handleLogout}
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
           >
@@ -132,6 +145,20 @@ export const Header = () => {
           </button>
         </div>
       </aside>
+
+      <FeedbackModal
+        isOpen={isFeedbackModalOpen}
+        onClose={() => setIsFeedbackModalOpen(false)}
+        onShowToast={(message, type) => setToast({ message, type })}
+      />
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </>
   );
 };

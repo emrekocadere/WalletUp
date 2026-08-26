@@ -16,6 +16,7 @@ public interface IApplicationDbContext
     DbSet<WalletUp.Domain.Entities.Country> Countries { get; }
     DbSet<WalletUp.Domain.Entities.ChatMessage> ChatMessage { get; }
     DbSet<WalletUp.Domain.Entities.RecurringTransaction> RecurringTransactions { get; }
+    DbSet<WalletUp.Domain.Entities.Feedback> Feedbacks { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

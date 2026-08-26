@@ -20,7 +20,19 @@
     "recurring": "Recurring",
     "reports": "Reports",
     "settings": "Settings",
+    "feedback": "Send Feedback",
     "logout": "Log Out"
+  },
+  "feedbackModal": {
+    "title": "Send Feedback",
+    "subtitle": "Found a bug or have a suggestion? Let us know.",
+    "placeholder": "Tell us what's on your mind...",
+    "cancel": "Cancel",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "success": "Thanks! Your feedback has been sent.",
+    "failed": "Failed to send feedback",
+    "emptyMessage": "Please write a message first"
   },
   "settings": {
     "title": "Settings",

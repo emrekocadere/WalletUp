@@ -28,6 +28,7 @@ public class CashCatDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
     public DbSet<Country> Countries{ get; set; }
     public DbSet<ChatMessage> ChatMessage{ get; set; }
     public DbSet<RecurringTransaction> RecurringTransactions { get; set; }
+    public DbSet<Feedback> Feedbacks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

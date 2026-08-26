@@ -20,7 +20,19 @@
     "recurring": "Tekrarlanan",
     "reports": "Raporlar",
     "settings": "Ayarlar",
+    "feedback": "Öneri / Hata Bildir",
     "logout": "Çıkış Yap"
+  },
+  "feedbackModal": {
+    "title": "Öneri / Hata Bildir",
+    "subtitle": "Bir hata mı buldun, önerin mi var? Bize yaz.",
+    "placeholder": "Aklından geçeni yaz...",
+    "cancel": "İptal",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor...",
+    "success": "Teşekkürler! Mesajın iletildi.",
+    "failed": "Mesaj gönderilemedi",
+    "emptyMessage": "Lütfen önce bir mesaj yaz"
   },
   "settings": {
     "title": "Ayarlar",
