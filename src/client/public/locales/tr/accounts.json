@@ -64,6 +64,7 @@
     "accountType": "Hesap Türü",
     "transactions": "İşlemler",
     "addTransaction": "İşlem Ekle",
+    "transfer": "Transfer",
     "edit": "Düzenle",
     "exportCsv": "CSV Olarak Dışa Aktar",
     "export": "Dışa Aktar",
@@ -78,5 +79,22 @@
     "quickOverview": "Hızlı Bakış",
     "latestActivity": "Son Hareket",
     "totalTransactions": "Toplam {{count}} işlem"
+  },
+  "transferModal": {
+    "title": "Para Transferi",
+    "fromAccount": "Gönderilecek Hesap",
+    "toAccount": "Alıcı Hesap",
+    "selectAccount": "Hesap seçin",
+    "amount": "Tutar",
+    "description": "Açıklama",
+    "descriptionPlaceholder": "İsteğe bağlı not",
+    "cancel": "İptal",
+    "submit": "Transfer Et",
+    "submitting": "Transfer ediliyor...",
+    "success": "Para başarıyla transfer edildi",
+    "failed": "Para transferi başarısız oldu",
+    "selectBothAccounts": "Lütfen her iki hesabı da seçin",
+    "sameAccount": "Gönderen ve alıcı hesap farklı olmalı",
+    "invalidAmount": "Lütfen geçerli bir tutar girin"
   }
 }

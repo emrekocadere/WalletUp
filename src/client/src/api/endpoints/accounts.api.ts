@@ -22,6 +22,21 @@ export interface AccountsResponse {
   preferredCurrency: string;
 }
 
+export interface TransferMoneyRequest {
+  fromAccountId: string;
+  toAccountId: string;
+  amount: number;
+  description?: string;
+}
+
+export interface TransferMoneyResponse {
+  fromAccountId: string;
+  toAccountId: string;
+  amountDebited: number;
+  amountCredited: number;
+  rate: number;
+}
+
 export const accountsApi = {
   getAll: async (): Promise<AccountsResponse> => {
     const { data } = await apiClient.get<ResultT<AccountsResponse>>('/account');
@@ -51,6 +66,11 @@ export const accountsApi = {
 
   update: async (id: string, account: UpdateAccountRequest): Promise<Result> => {
     const { data } = await apiClient.put<Result>(`/account/${id}`, account);
+    return data;
+  },
+
+  transfer: async (request: TransferMoneyRequest): Promise<ResultT<TransferMoneyResponse>> => {
+    const { data } = await apiClient.post<ResultT<TransferMoneyResponse>>('/account/transfer', request);
     return data;
   },
 };

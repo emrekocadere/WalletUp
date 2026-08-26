@@ -64,6 +64,7 @@
     "accountType": "Account Type",
     "transactions": "Transactions",
     "addTransaction": "Add Transaction",
+    "transfer": "Transfer",
     "edit": "Edit",
     "exportCsv": "Export CSV",
     "export": "Export",
@@ -78,5 +79,22 @@
     "quickOverview": "Quick Overview",
     "latestActivity": "Latest Activity",
     "totalTransactions": "Total {{count}} transactions"
+  },
+  "transferModal": {
+    "title": "Transfer Money",
+    "fromAccount": "From Account",
+    "toAccount": "To Account",
+    "selectAccount": "Select account",
+    "amount": "Amount",
+    "description": "Description",
+    "descriptionPlaceholder": "Optional note",
+    "cancel": "Cancel",
+    "submit": "Transfer",
+    "submitting": "Transferring...",
+    "success": "Money transferred successfully",
+    "failed": "Failed to transfer money",
+    "selectBothAccounts": "Please select both accounts",
+    "sameAccount": "Source and destination accounts must be different",
+    "invalidAmount": "Please enter a valid amount"
   }
 }

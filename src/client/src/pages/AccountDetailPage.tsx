@@ -11,6 +11,7 @@ import { TransactionTable } from '@/components/transactions/TransactionTable';
 import { TransactionFilters } from '@/components/transactions/TransactionFilters';
 import { AddTransactionModal } from '@/components/transactions/AddTransactionModal';
 import { EditAccountModal } from '@/components/accounts/EditAccountModal';
+import { TransferMoneyModal } from '@/components/accounts/TransferMoneyModal';
 import { EditTransactionModal } from '@/components/transactions/EditTransactionModal';
 import { AIInsightsSection } from '@/components/common/AIInsightsSection';
 import { useAIInsights } from '@/hooks/useAIInsights';
@@ -33,6 +34,7 @@ export const AccountDetailPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showTransferModal, setShowTransferModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showEditTransactionModal, setShowEditTransactionModal] = useState(false);
   const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
@@ -153,6 +155,7 @@ export const AccountDetailPage = () => {
             isError={isError}
             showDemoNotice={false}
             onAddTransaction={() => setShowAddModal(true)}
+            onTransfer={() => setShowTransferModal(true)}
             onEditAccount={() => setShowEditModal(true)}
             onDeleteAccount={async () => {
               try {
@@ -250,6 +253,34 @@ export const AccountDetailPage = () => {
             setTransactions(updatedTransactions);
           } catch (error) {
             console.error('Failed to reload transactions:', error);
+          }
+        }}
+        onShowToast={(message, type) => setToast({ message, type })}
+      />
+
+      <TransferMoneyModal
+        isOpen={showTransferModal}
+        onClose={() => setShowTransferModal(false)}
+        accounts={accounts}
+        fromAccountId={account.id}
+        onSubmit={async (data) => {
+          try {
+            const result = await accountsApi.transfer(data);
+            if (result.isSuccess) {
+              const [updatedAccount, updatedTransactions, updatedAccounts] = await Promise.all([
+                accountsApi.getById(account.id),
+                transactionsApi.getByAccountId(id!),
+                accountsApi.getAll(),
+              ]);
+              setAccount(updatedAccount);
+              setTransactions(updatedTransactions);
+              setAccounts(updatedAccounts.accounts);
+              return true;
+            }
+            return false;
+          } catch (error) {
+            console.error('Failed to transfer money:', error);
+            return false;
           }
         }}
         onShowToast={(message, type) => setToast({ message, type })}

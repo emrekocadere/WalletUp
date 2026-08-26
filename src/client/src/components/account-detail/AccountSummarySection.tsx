@@ -13,6 +13,7 @@ type AccountSummarySectionProps = {
   isError: boolean;
   showDemoNotice: boolean;
   onAddTransaction?: () => void;
+  onTransfer?: () => void;
   onEditAccount?: () => void;
   onDeleteAccount?: () => void;
   transactions?: Transaction[];
@@ -27,6 +28,7 @@ export const AccountSummarySection = ({
   transactionCount,
   isLoading,
   onAddTransaction,
+  onTransfer,
   onEditAccount,
   onDeleteAccount,
   transactions = [],
@@ -89,6 +91,15 @@ export const AccountSummarySection = ({
         className="w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 bg-purple-500 hover:bg-purple-700 rounded-lg sm:rounded-2xl text-white text-xs sm:text-sm font-semibold transition-colors"
       >
         {t('accountSummarySection.addTransaction')}
+      </button>
+      <button
+        onClick={onTransfer}
+        className="w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 border border-purple-400/40 bg-purple-500/10 hover:bg-purple-500/20 rounded-lg sm:rounded-2xl text-purple-300 text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-1.5"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
+        {t('accountSummarySection.transfer')}
       </button>
       <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-row sm:gap-2.5">
         <button
