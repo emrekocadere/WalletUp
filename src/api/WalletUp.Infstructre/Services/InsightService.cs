@@ -1,3 +1,4 @@
+using System.Globalization;
 using CashCat.Integrations.Models;
 using CashCat.Integrations.Services;
 using WalletUp.Application.Abstractions;
@@ -8,9 +9,9 @@ namespace CashCat.Infstructre.Services;
 
 public class InsightService(GeminiService geminiService) : IInsightService
 {
-    public async Task<InsightDto> GetInsight(object data,string  abcs)
+    public async Task<InsightDto> GetInsight(object data, string abcs, CultureInfo culture)
     {
-        var baseInsight= await geminiService.GetInsight(data,abcs);
+        var baseInsight= await geminiService.GetInsight(data, abcs, culture);
         var insightDto = new InsightDto
         {
             Summary = baseInsight.summary,

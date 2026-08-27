@@ -1,3 +1,4 @@
+using System.Globalization;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -93,7 +94,8 @@ public class GetInsightQueryHandler(
         };
         try
         {
-            var result = await insightService.GetInsight(baseInsightInput, request.TaskName);
+            var culture = new CultureInfo(preference.Language ?? "en");
+            var result = await insightService.GetInsight(baseInsightInput, request.TaskName, culture);
             await cacheService.SetAsync(cacheKey, result, TimeSpan.FromHours(12));
 
             return result;

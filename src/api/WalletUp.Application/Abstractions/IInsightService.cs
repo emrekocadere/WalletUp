@@ -1,8 +1,9 @@
+using System.Globalization;
 using WalletUp.Application.Insight.Dtos;
 
 namespace WalletUp.Application.Abstractions;
 
 public interface IInsightService
 {
-    Task<InsightDto> GetInsight(object data,string  abcs);
+    Task<InsightDto> GetInsight(object data, string abcs, CultureInfo culture);
 }

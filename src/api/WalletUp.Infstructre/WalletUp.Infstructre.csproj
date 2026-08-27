@@ -23,7 +23,7 @@
         <PackageReference Include="Refit" Version="8.1.1" />
         <PackageReference Include="Refit.HttpClientFactory" Version="8.1.1" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
-        <PackageReference Include="WalletUp.Insight" Version="1.7.1" />
+        <PackageReference Include="WalletUp.Insight" Version="2.0.0" />
     </ItemGroup>
 
     <ItemGroup>
