@@ -17,7 +17,7 @@ import { preferenceApi } from '@/api/endpoints/preferences.api';
 import type { Country, Currency, AIPreferences } from '@/types/model.types';
 
 export const OnboardingPage = () => {
-  const { t } = useTranslation('onboarding');
+  const { t, i18n } = useTranslation('onboarding');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
@@ -123,9 +123,10 @@ export const OnboardingPage = () => {
         currencyId: onboardingData.baseCurrency,
         countryId: onboardingData.country,
         occupation: onboardingData.aiPreferences.occupation || undefined,
-        monthlyIncome: onboardingData.aiPreferences.incomeRange 
-          ? parseFloat(onboardingData.aiPreferences.incomeRange) 
+        monthlyIncome: onboardingData.aiPreferences.incomeRange
+          ? parseFloat(onboardingData.aiPreferences.incomeRange)
           : undefined,
+        language: i18n.language,
       });
 
       localStorage.setItem('walletup-onboarding', JSON.stringify(onboardingData));
