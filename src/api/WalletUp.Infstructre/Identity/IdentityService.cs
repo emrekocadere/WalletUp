@@ -29,8 +29,8 @@ public class IdentityService(
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
     {
         var user= mapper.Map<ApplicationUser>(command);
-        
-        user.UserName = user.Name + user.Surname;
+
+        user.UserName = user.Email;
 
         var identityResult = await userManager.CreateAsync(user, command.Password);
         if (!identityResult.Succeeded)
@@ -238,7 +238,7 @@ public class IdentityService(
                 user = new ApplicationUser
                 {
                     Email = payload.Email,
-                    UserName = payload.GivenName+payload.FamilyName,
+                    UserName = payload.Email,
                     Name = payload.GivenName ??  "Unknow",
                     Surname = payload.FamilyName ?? "Unknow",
                     EmailConfirmed = true
