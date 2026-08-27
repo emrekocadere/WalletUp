@@ -12,6 +12,7 @@
         <PackageReference Include="Hangfire.AspNetCore" Version="1.8.24" />
         <PackageReference Include="Hangfire.PostgreSql" Version="1.21.1" />
         <PackageReference Include="MailKit" Version="4.17.0" />
+        <PackageReference Include="RazorLight" Version="2.3.1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
@@ -30,6 +31,12 @@
     <ItemGroup>
         <ProjectReference Include="..\WalletUp.Application\WalletUp.Application.csproj" />
         <ProjectReference Include="..\WalletUp.Domain\WalletUp.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Email\Templates\**\*.cshtml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
     
 </Project>
