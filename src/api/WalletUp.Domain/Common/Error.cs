@@ -23,6 +23,10 @@ public static class Errors
     public static Error UnexpectedError { get; } = new("UnexpectedError", "An unexpected error occurred.");
     public static Error SameAccountTransfer { get; } = new("SameAccountTransfer", "Cannot transfer money to the same account.");
     public static Error CurrencyConversionFailed { get; } = new("CurrencyConversionFailed", "Could not convert between the account currencies.");
+    public static Error UserNotFound { get; } = new("UserNotFound", "User not found.");
+    public static Error InvalidOrExpiredOtp { get; } = new("InvalidOrExpiredOtp", "The code is invalid or has expired.");
+    public static Error TooManyOtpAttempts { get; } = new("TooManyOtpAttempts", "Too many incorrect attempts. Please request a new code.");
+    public static Error PasswordResetFailed { get; } = new("PasswordResetFailed", "Failed to reset password.");
     public static Error Validation(string description) => new("ValidationError", description);
     public static Error NotFound(string resource) => new("NotFound", $"{resource} not found.");
 }

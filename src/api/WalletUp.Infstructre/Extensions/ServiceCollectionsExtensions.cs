@@ -5,6 +5,7 @@ using WalletUp.Application.Common.Services;
 using WalletUp.Application.Identity;
 using WalletUp.Domain.Services;
 using CashCat.Infstructre.Auth.Services;
+using CashCat.Infstructre.Email;
 using CashCat.Infstructre.Identity;
 using CashCat.Infstructre.Persistence;
 using CashCat.Infstructre.Persistence.Seeders;
@@ -46,6 +47,7 @@ public static class ServiceCollectionsExtensions
         services.AddScoped<IUserContext, UserContext>();
 
         services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IEmailService, SmtpEmailService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IExchangeRateService, ExchangeRateService>();
 

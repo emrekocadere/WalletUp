@@ -15,4 +15,7 @@ public interface IIdentityService
     Task<Result> DeleteUser(Guid userId);
     Task<Result> Logout();
     Task<Result> CompleteOnboarding(Guid userId);
+    Task<Result> ForgotPassword(string email);
+    Task<Result> VerifyOtp(string email, string otpCode);
+    Task<Result> ResetPassword(string email, string otpCode, string newPassword);
 }

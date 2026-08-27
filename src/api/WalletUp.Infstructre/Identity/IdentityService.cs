@@ -1,12 +1,14 @@
 using System.Security.Claims;
 using AutoMapper;
 using Google.Apis.Auth;
+using WalletUp.Application.Abstractions;
 using WalletUp.Application.Auth.Commands.Register;
 using WalletUp.Application.Identity;
 using WalletUp.Application.Identity.Commands.GoogleLogin;
 using WalletUp.Application.Identity.Commands.Login;
 using WalletUp.Application.Identity.Dtos;
 using WalletUp.Domain.Common;
+using WalletUp.Domain.Entities;
 using WalletUp.Domain.Services;
 using WalletUp.Infstructre.Identity.Models;
 using CashCat.Infstructre.Persistence;
@@ -23,9 +25,13 @@ public class IdentityService(
     ITokenService tokenService,
     CashCatDbContext dbContext,
     IUserContext userContext,
+    IEmailService emailService,
     ILogger<IdentityService> logger)
     : IIdentityService
 {
+    private const int MaxOtpAttempts = 5;
+    private static readonly TimeSpan OtpValidityDuration = TimeSpan.FromMinutes(10);
+
     public async Task<ResultT<TokenDto>> Register(RegisterCommand command)
     {
         var user= mapper.Map<ApplicationUser>(command);
@@ -297,6 +303,120 @@ public class IdentityService(
                 RefreshToken = refreshToken,
                 IsOnboardingCompleted = user.IsOnboardingCompleted
             };
-            
+
     }
+
+    public async Task<Result> ForgotPassword(string email)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            return Errors.UserNotFound;
+        }
+
+        var now = DateTime.UtcNow;
+
+        await dbContext.PasswordResetOtps
+            .Where(o => o.UserId == user.Id && !o.IsUsed && o.ExpiresAt > now)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(o => o.IsUsed, true));
+
+        var otpCode = Random.Shared.Next(0, 1_000_000).ToString("D6");
+
+        dbContext.PasswordResetOtps.Add(new PasswordResetOtp
+        {
+            UserId = user.Id,
+            Code = otpCode,
+            ExpiresAt = now.Add(OtpValidityDuration),
+            IsUsed = false,
+            IsVerified = false,
+            AttemptCount = 0,
+            CreatedAt = now
+        });
+        await dbContext.SaveChangesAsync();
+
+        await emailService.SendPasswordResetOtpEmail(user.Email!, user.Name, otpCode);
+
+        return Result.Success();
+    }
+
+    public async Task<Result> VerifyOtp(string email, string otpCode)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            return Errors.UserNotFound;
+        }
+
+        var otp = await dbContext.PasswordResetOtps
+            .Where(o => o.UserId == user.Id && !o.IsUsed && o.ExpiresAt > DateTime.UtcNow)
+            .OrderByDescending(o => o.CreatedAt)
+            .FirstOrDefaultAsync();
+
+        if (otp == null)
+        {
+            return Errors.InvalidOrExpiredOtp;
+        }
+
+        if (otp.AttemptCount >= MaxOtpAttempts)
+        {
+            otp.IsUsed = true;
+            await dbContext.SaveChangesAsync();
+            return Errors.TooManyOtpAttempts;
+        }
+
+        if (otp.Code != otpCode)
+        {
+            otp.AttemptCount += 1;
+            await dbContext.SaveChangesAsync();
+            return Errors.InvalidOrExpiredOtp;
+        }
+
+        otp.IsVerified = true;
+        otp.ExpiresAt = DateTime.UtcNow.Add(OtpValidityDuration);
+        await dbContext.SaveChangesAsync();
+
+        return Result.Success();
+    }
+
+    public async Task<Result> ResetPassword(string email, string otpCode, string newPassword)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            return Errors.UserNotFound;
+        }
+
+        var otp = await dbContext.PasswordResetOtps
+            .Where(o => o.UserId == user.Id && o.Code == otpCode && o.IsVerified && !o.IsUsed &&
+                        o.ExpiresAt > DateTime.UtcNow)
+            .OrderByDescending(o => o.CreatedAt)
+            .FirstOrDefaultAsync();
+
+        if (otp == null)
+        {
+            return Errors.InvalidOrExpiredOtp;
+        }
+
+        var removeResult = await userManager.RemovePasswordAsync(user);
+        if (!removeResult.Succeeded)
+        {
+            logger.LogError("Error removing password for {Email}: {Errors}", email, FormatIdentityErrors(removeResult.Errors));
+            return Errors.PasswordResetFailed;
+        }
+
+        var addResult = await userManager.AddPasswordAsync(user, newPassword);
+        if (!addResult.Succeeded)
+        {
+            logger.LogError("Error setting new password for {Email}: {Errors}", email, FormatIdentityErrors(addResult.Errors));
+            return Errors.PasswordResetFailed;
+        }
+
+        otp.IsUsed = true;
+        await dbContext.SaveChangesAsync();
+
+        return Result.Success();
+    }
+
+    private static string FormatIdentityErrors(IEnumerable<IdentityError> errors) =>
+        string.Join(", ", errors.Select(e => e.Description));
 }

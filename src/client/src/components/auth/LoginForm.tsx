@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import type { LoginRequest } from '@/types/auth.types';
 import { GoogleSignInButton } from './GoogleSignInButton';
 
@@ -72,9 +73,14 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-semibold text-gray-200">
-          {t('loginForm.password')} <span className="text-red-400">*</span>
-        </label>
+        <div className="flex items-center justify-between">
+          <label htmlFor="password" className="block text-sm font-semibold text-gray-200">
+            {t('loginForm.password')} <span className="text-red-400">*</span>
+          </label>
+          <Link to="/forgot-password" className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+            {t('loginForm.forgotPassword')}
+          </Link>
+        </div>
         <input
           id="password"
           name="password"

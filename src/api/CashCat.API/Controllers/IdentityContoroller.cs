@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using WalletUp.Application.Identity.Commands.DeleteUser;
 using WalletUp.Application.Identity.Commands.RefreshToken;
 using WalletUp.Application.Identity.Commands.Logout;
+using WalletUp.Application.Identity.Commands.ForgotPassword;
+using WalletUp.Application.Identity.Commands.VerifyOtp;
+using WalletUp.Application.Identity.Commands.ResetPassword;
 using CashCat.API.Extensions;
 
 namespace CashCat.API.Controllers;
@@ -125,6 +128,27 @@ public class IdentityController(IMediator mediator, ILogger<IdentityController> 
         return result;
     }
     
+    [HttpPost("forgot-password")]
+    public async Task<ActionResult> ForgotPassword(ForgotPasswordCommand command)
+    {
+        var result = await mediator.Send(command);
+        return this.ToActionResult(result);
+    }
+
+    [HttpPost("verify-otp")]
+    public async Task<ActionResult> VerifyOtp(VerifyOtpCommand command)
+    {
+        var result = await mediator.Send(command);
+        return this.ToActionResult(result);
+    }
+
+    [HttpPost("reset-password")]
+    public async Task<ActionResult> ResetPassword(ResetPasswordCommand command)
+    {
+        var result = await mediator.Send(command);
+        return this.ToActionResult(result);
+    }
+
     [HttpDelete]
     [Authorize]
     public async Task<ActionResult> DeleteUser()
